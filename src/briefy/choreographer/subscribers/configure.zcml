@@ -1,0 +1,10 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Logger subscribes to all events -->
+    <subscriber for=".IInternalEvent" handler=".logger.handler" />
+
+    <!-- Include subscribers per data object-->
+    <include package=".lead" />
+    <include package=".mail" />
+
+</configure>

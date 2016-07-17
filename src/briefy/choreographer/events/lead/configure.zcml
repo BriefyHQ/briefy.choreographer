@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Lead Flow events -->
+    <utility name="lead.created" component=".lead.LeadCreated" provides=".ILeadCreated" />
+
+</configure>

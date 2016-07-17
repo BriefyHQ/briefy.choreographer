@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all lead events -->
+    <subscriber for="briefy.choreographer.events.lead.ILeadEvent" handler=".handler" />
+
+    <!-- lead.created -->
+    <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
+
+</configure>

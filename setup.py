@@ -31,7 +31,7 @@ test_requirements = [
 setup(
     name='briefy.choreographer',
     version='0.1.0',
-    description='Briefy Choreographer.',
+    description='Briefy Choreographer composes actions based on events.',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
         "Programming Language :: Python",

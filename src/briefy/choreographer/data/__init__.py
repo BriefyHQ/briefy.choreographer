@@ -1,4 +1,4 @@
-"""Module that implements data models."""
+"""Module that implements data transfer objects."""
 from zope.interface import Interface
 
 

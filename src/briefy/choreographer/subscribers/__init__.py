@@ -1,4 +1,4 @@
-"""Briefy Choreographer Events."""
+"""Briefy Choreographer Subscribers."""
 from briefy.choreographer.actions import IAction
 from zope.component import getGlobalSiteManager
 

@@ -18,8 +18,24 @@ class LeadCreated(BaseActionCase):
     def test_transform(self):
         """Test data transform."""
         obj = self.obj
-        data = obj.transform()
-        assert isinstance(data['fullName'], str)
-        assert isinstance(data['email'], str)
-        assert isinstance(data['template'], str)
-        assert isinstance(data['data'], dict)
+        payload = obj.transform()
+        data = payload['data']
+        assert isinstance(payload['fullName'], str)
+        assert isinstance(payload['email'], str)
+        assert isinstance(payload['subject'], str)
+        assert isinstance(payload['template'], str)
+        assert isinstance(payload['data'], dict)
+        assert isinstance(data['FULLNAME'], str)
+        assert isinstance(data['EMAIL'], str)
+        assert isinstance(data['CATEGORY'], str)
+        assert isinstance(data['SUBJECT'], str)
+
+        assert payload['fullName'] == 'Leo'
+        assert payload['email'] == 'leo@picsastock.com'
+        assert payload['template'] == 'birefy-new-lead'
+        assert payload['subject'] == 'Briefy is coming soon!'
+
+        assert data['FULLNAME'] == 'Leo'
+        assert data['EMAIL'] == 'leo@picsastock.com'
+        assert data['SUBJECT'] == 'Briefy is coming soon!'
+        assert data['CATEGORY'] == 'other'

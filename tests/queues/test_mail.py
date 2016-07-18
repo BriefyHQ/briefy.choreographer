@@ -1,4 +1,4 @@
-"""Tests for `briefy.choreographer.queue` module."""
+"""Tests for `briefy.choreographer.queues` module."""
 from briefy.choreographer.queues.mail import Queue
 from conftest import BaseQueueCase
 

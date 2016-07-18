@@ -23,8 +23,8 @@ class Worker(QueueWorker):
 
         :param message: A message from the queue
         :type message: briefy.common.queue.message.SQSMessage
-        :returns: Response from the handler
-        :rtype: dict
+        :returns: Status from the process
+        :rtype: bool
         """
         body = message.body
         event_name = body['event_name']
@@ -41,8 +41,7 @@ class Worker(QueueWorker):
                 notify(event)
             else:
                 logger.info('Event {} has no handler'.format(event_name))
-        # Removing message
-        message.delete()
+        return True
 
 
 def main():
@@ -52,6 +51,4 @@ def main():
     try:
         worker()
     except:
-        logger.exception(
-            '{} exiting due to an exception.'.format(Worker.name)
-        )
+        logger.exception('{} exiting due to an exception.'.format(Worker.name))

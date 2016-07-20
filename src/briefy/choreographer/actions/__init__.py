@@ -56,7 +56,7 @@ class Action:
         event = self.event
         logger.info(
             '{event}: {queue} action {action} with response {response}'.format(
-                event=event.name if event else '',
+                event=event.event_name if event else '',
                 queue=self._queue_name if self._queue_name else '',
                 action=self.__class__.__name__,
                 response=response
@@ -64,8 +64,8 @@ class Action:
             extra={
                 'guid': event.guid,
                 'actor': event.actor,
-                'request': event.request,
-                'entity': event.entity,
+                'request_id': event.request_id,
+                'entity': self.entity,
                 'event_name': event.event_name,
                 'payload': payload
             }
@@ -78,7 +78,7 @@ class Action:
             queue = self.queue
             if not queue:
                 raise ValueError('Queue not available')
-            response = queue.process(payload)
+            response = queue.write_message(payload)
             self.log(payload, response)
 
     def __repr__(self):

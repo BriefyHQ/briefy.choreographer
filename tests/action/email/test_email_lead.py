@@ -6,7 +6,7 @@ from briefy.choreographer.events.lead import lead as events
 from conftest import BaseActionCase
 
 
-class LeadCreated(BaseActionCase):
+class TestLeadCreated(BaseActionCase):
     """Test for email sent on Lead creation."""
 
     action_class = LeadCreated
@@ -20,7 +20,7 @@ class LeadCreated(BaseActionCase):
         obj = self.obj
         payload = obj.transform()
         data = payload['data']
-        assert isinstance(payload['fullName'], str)
+        assert isinstance(payload['fullname'], str)
         assert isinstance(payload['email'], str)
         assert isinstance(payload['subject'], str)
         assert isinstance(payload['template'], str)
@@ -30,9 +30,9 @@ class LeadCreated(BaseActionCase):
         assert isinstance(data['CATEGORY'], str)
         assert isinstance(data['SUBJECT'], str)
 
-        assert payload['fullName'] == 'Leo'
+        assert payload['fullname'] == 'Leo'
         assert payload['email'] == 'leo@picsastock.com'
-        assert payload['template'] == 'birefy-new-lead'
+        assert payload['template'] == 'birefy-new-lead-en-gb'
         assert payload['subject'] == 'Briefy is coming soon!'
 
         assert data['FULLNAME'] == 'Leo'

@@ -4,7 +4,7 @@ from briefy.choreographer.data.lead import LeadDTO
 from conftest import BaseDataCase
 
 
-class LeadDTOTestCase(BaseDataCase):
+class TestLeadDTO(BaseDataCase):
     """Test LeadDTO."""
 
     data_class = LeadDTO

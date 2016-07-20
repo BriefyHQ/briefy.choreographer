@@ -34,11 +34,8 @@ class TestChoreographerQueue(BaseQueueCase):
 
     def test_utility_lookup(self):
         """Test that this queue provides IQueue interfaces."""
-        from briefy import choreographer
         from briefy.common.queue import IQueue
         from zope.component import getUtility
-        from zope.configuration.xmlconfig import XMLConfig
 
-        XMLConfig('configure.zcml', choreographer)()
         queue = getUtility(IQueue, self.utility_name)
         assert isinstance(queue, self.queue)

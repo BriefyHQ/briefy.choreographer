@@ -13,6 +13,7 @@ class Mail(Action):
     weight = 100
     _queue_name = 'mail.queue'
     template_name = ''
+    entity = ''
     subject = 'Briefy!'
 
     @property
@@ -31,12 +32,16 @@ class Mail(Action):
 
     def transform(self):
         """Transform data."""
-        language = self.get_language()
+        language = 'en-gb'
+        event = self.event
         payload = {
-            'fullName': '',
+            'fullname': '',
             'email': '',
             'subject': self.subject,
             'template': self.get_template(language),
+            'entity': self.entity,
+            'guid': event.guid,
+            'event_name': event.event_name,
             'data': {
             }
         }

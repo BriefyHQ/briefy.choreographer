@@ -36,7 +36,8 @@ class Worker(QueueWorker):
                     guid=guid,
                     data=body['data'],
                     actor=body['actor'],
-                    request_id=body['request_id']
+                    request_id=body['request_id'],
+                    created_at=body['created_at']
                 )
                 notify(event)
             else:

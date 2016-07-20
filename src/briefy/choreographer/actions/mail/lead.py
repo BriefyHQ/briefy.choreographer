@@ -10,16 +10,17 @@ from zope.interface import implementer
 class LeadMail(Mail):
     """Mail sent on Lead events."""
 
+    entity = 'Lead'
     weight = 100
 
     def transform(self):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullName'] = data.fullName
+        payload['fullname'] = data.fullname
         payload['email'] = data.email
         payload['data'] = {
-            'FULLNAME': data.fullName,
+            'FULLNAME': data.fullname,
             'EMAIL': data.email,
             'CATEGORY': data.category,
             'SUBJECT': self.subject,

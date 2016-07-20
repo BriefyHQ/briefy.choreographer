@@ -1,6 +1,6 @@
 """Briefy base worker."""
 from briefy.common.queue import IQueue
-from briefy.common.worker.queue import QueueWorker
+from briefy.common.worker import QueueWorker
 from briefy.choreographer.events import IInternalEvent
 from zope.component import getUtility
 from zope.component import queryUtility
@@ -16,7 +16,7 @@ class Worker(QueueWorker):
 
     name = 'choreographer.worker'
     input_queue = None
-    sleep = None
+    run_interval = None
 
     def process_message(self, message):
         """Process a message retrieved from the input_queue.

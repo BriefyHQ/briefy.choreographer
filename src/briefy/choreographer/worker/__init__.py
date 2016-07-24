@@ -26,6 +26,7 @@ class Worker(QueueWorker):
         :returns: Status from the process
         :rtype: bool
         """
+        status = True
         body = message.body
         event_name = body['event_name']
         guid = body['guid']
@@ -41,8 +42,9 @@ class Worker(QueueWorker):
                 )
                 notify(event)
             else:
+                status = False
                 logger.info('Event {} has no handler'.format(event_name))
-        return True
+        return status
 
 
 def main():

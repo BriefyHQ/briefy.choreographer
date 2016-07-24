@@ -9,6 +9,7 @@ class IInternalEvent(IEvent):
 class InternalEvent:
     """An event used by briefy.choreographer."""
 
+    entity = ''
     event_name = ''
     actor = ''
     guid = ''

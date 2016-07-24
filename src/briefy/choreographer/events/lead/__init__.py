@@ -13,3 +13,5 @@ class ILeadCreated(ILeadEvent):
 
 class LeadEvent(InternalEvent):
     """An event used by briefy.choreographer."""
+
+    entity = 'Lead'

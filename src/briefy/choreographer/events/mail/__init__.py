@@ -15,6 +15,8 @@ class IMailSent(IMailEvent):
 class MailEvent(InternalEvent):
     """An event related to a Mail."""
 
+    entity = 'Mail'
+
 
 @implementer(IMailSent)
 class MailSent(MailEvent):

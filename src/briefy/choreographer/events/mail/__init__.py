@@ -16,7 +16,7 @@ class MailEvent(InternalEvent):
     """An event related to a Mail."""
 
 
-@implementer(IMailEvent)
+@implementer(IMailSent)
 class MailSent(MailEvent):
     """An email was sent."""
 

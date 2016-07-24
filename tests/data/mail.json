@@ -1,0 +1,18 @@
+{
+    "additional_info": "-",
+    "bcc_address": "contact@briefy.co",
+    "created_at": "2016-07-23T20:37:27.432808",
+    "entity": "Lead",
+    "event_name": "lead.created",
+    "from_email": "contact@briefy.co",
+    "from_name": "Briefy Team",
+    "gateway": "mandrill",
+    "gateway_id": "7af0375da4024523816e0637a9051208",
+    "guid": "8e453e03-7465-4a60-840a-902a02702532",
+    "id": "6f40c93b-145e-4bd8-a5c9-a426532ee47c",
+    "status": "sent",
+    "subject": "Briefy is coming soon!",
+    "template": "briefy-new-lead-en-gb",
+    "to_email": "foo@bar.com",
+    "to_name": "Foo Bar"
+}

@@ -3,4 +3,8 @@
     <!-- Mail queue -->
     <utility name="mail.queue" component=".mail.MailQueue" provides="briefy.common.queue.IQueue" />
 
+    <!-- Notification queue -->
+    <utility name="notification.queue" component=".notification.NotificationQueue" provides="briefy.common.queue.IQueue" />
+
+
 </configure>

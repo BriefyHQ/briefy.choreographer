@@ -4,5 +4,6 @@
     <subscriber for="briefy.choreographer.events.mail.IMailEvent" handler=".handler" />
 
     <!-- mail.sent -->
+    <adapter name="mail.sent.notification" factory="briefy.choreographer.actions.notification.mail.MailSent" />
 
 </configure>

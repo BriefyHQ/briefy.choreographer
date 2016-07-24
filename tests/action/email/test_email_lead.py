@@ -32,7 +32,7 @@ class TestLeadCreated(BaseActionCase):
 
         assert payload['fullname'] == 'Leo'
         assert payload['email'] == 'leo@picsastock.com'
-        assert payload['template'] == 'birefy-new-lead-en-gb'
+        assert payload['template'] == 'briefy-new-lead-en-gb'
         assert payload['subject'] == 'Briefy is coming soon!'
 
         assert data['FULLNAME'] == 'Leo'

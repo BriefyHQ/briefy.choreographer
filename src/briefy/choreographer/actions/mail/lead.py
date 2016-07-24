@@ -33,7 +33,7 @@ class LeadMail(Mail):
 class LeadCreated(LeadMail):
     """After creating a new Lead, send an email."""
 
-    template_name = 'birefy-new-lead'
+    template_name = 'briefy-new-lead'
     subject = 'Briefy is coming soon!'
 
     @property

@@ -48,5 +48,8 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     install_requires=requires,
-    entry_points="""""",
+    entry_points="""
+    [console_scripts]
+    worker = briefy.choreographer.worker:main
+    """,
 )

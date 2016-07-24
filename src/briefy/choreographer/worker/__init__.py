@@ -49,7 +49,7 @@ class Worker(QueueWorker):
 
 def main():
     """Initialize and execute the Worker."""
-    queue = getUtility(IQueue, 'event.queue')
+    queue = getUtility(IQueue, 'events.queue')
     worker = Worker(input_queue=queue, logger_=logger)
     try:
         worker()

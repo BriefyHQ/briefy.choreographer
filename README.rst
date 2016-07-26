@@ -16,30 +16,48 @@ Choreographer is waiting to:
   * send new payload to the queue name defined in the action class
   * log action execution
 
-Choreographer Events Dancing
+Choreographer Dancing Events
 ----------------------------
+
+As choreography in real life, *briefy.choreographer* has to coordinate the flow:
+
+* receive events coming from serialized input queue
+* (re)dispatch events internally
+* handler subscribers catch internal events
+* adapt, execute actions and transform data
+* send new events and data to output queues
+* log all processing steps
+
+
+Queue Worker
+^^^^^^^^^^^^
 
 Everything begins with a worker runner: *briefy.choreographer.worker.Worker* which is an
 specialized version of *briefy.common.worker.QueueWorker*.
 
 The Worker run in infinite loop and:
+
 * at specified interval, call the *process* method
 * the *process* method read events from the defined queue (parameter at instantiation time)
 
 Actually, the defined queue is a named Utility *event.queue* that implements IQueue interface and is
-imported from *briefy.common.queue.event.EventQueue*.
+registered on *briefy.common.queue.event.EventQueue*.
 
 After get one or more messages from the queue:
 
 * the worker process each message looking for a named Utility that implements IInternalEvent
 * the *event_name* attribute received on the body of the message is used to find correct Utility
 
+
+Internal Events
+^^^^^^^^^^^^^^^
+
 The IInternalEvent Utility works as a *event factory class* to create a new internal event and
 dispatch it using the *zope.event.notify* function.
 
 When a new IInternalEvent is fired by *zope.event.notify* all subscribed handlers are notified and
-executed. For all IInternalEvent notified the *briefy.choreographer.subscribers.logger.handler* log
-the information about the fired internal event.
+executed. For all IInternalEvent notified the *briefy.choreographer.subscribers.logger.handler*
+log the information about the fired internal event.
 
 Also, one or more handlers can be registered for specialized IInternalEvent interfaces like:
 
@@ -48,6 +66,11 @@ Also, one or more handlers can be registered for specialized IInternalEvent inte
 
 The registered handler for each specialized IInternalEvent interface are based on a common pattern
 derived from *briefy.choreographer.subscribers.BaseHandler*.
+
+
+Handler Pattern
+^^^^^^^^^^^^^^^
+
 This pattern defines that each subclass of BaseHandler must have a DTO class as *_info_class_*
 internal attribute which implement *briefy.choreographer.data.IDataTransferObject* interface.
 
@@ -56,7 +79,10 @@ adapt the pair (*IDataTransferObject*, *IInternalEvent*) interfaces to *IAction*
 At this point, the *IAction* adapters are ordered by the *weight* attribute (int value), to
 define execution order.
 
-Actions can be based on *briefy.choreographer.actions.Action* base class, and each subclass must
+Actions
+^^^^^^^
+
+Actions are based on *briefy.choreographer.actions.Action* base class, and each subclass must
 define a *_queue_name* attribute which is used process the action when called:
 
 * call the *action.transform* to prepare the payload from the *action.data* attribute.
@@ -69,8 +95,8 @@ implementation and are AWS SQS queues that will be read from other *microservice
 listen on then to, at some point, process the message and generate more events or finish the chain.
 
 Code Health
------------
-The mail service codebase is tested using Travis CI
+===========
+The *breafy.choreography* service codebase is tested using Travis CI
 
 ============ ======================================================================================================================== 
 Branch       Status

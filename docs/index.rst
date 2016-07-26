@@ -1,10 +1,10 @@
 briefy.choreographer
-##########################################
+####################
 
 Choreographer directs actions based on events.
 
 Table of Contents
-==========================================
+=================
 
 .. toctree::
    :maxdepth: 1
@@ -17,7 +17,7 @@ Table of Contents
    history
 
 Indices and tables
-==========================================
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`

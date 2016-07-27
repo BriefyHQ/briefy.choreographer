@@ -18,7 +18,7 @@ class InternalEvent:
     data = None
 
     def __init__(self, actor, guid, request_id, created_at, data):
-        """Initialize the event with a SQS Message."""
+        """Initialize the event with Message data"""
         self.actor = actor
         self.guid = guid
         self.request_id = request_id

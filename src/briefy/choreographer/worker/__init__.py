@@ -30,21 +30,24 @@ class Worker(QueueWorker):
         body = message.body
         event_name = body['event_name']
         guid = body['guid']
-        if event_name and guid:
-            event_factory = queryUtility(IInternalEvent, event_name, None)
-            if event_factory:
-                event = event_factory(
-                    guid=guid,
-                    data=body['data'],
-                    actor=body['actor'],
-                    request_id=body['request_id'],
-                    created_at=body['created_at']
-                )
-                notify(event)
-            else:
-                status = False
-                logger.info('Event {} has no handler'.format(event_name))
-        return status
+
+        if not event_name or not guid:
+            return True
+        event_factory = queryUtility(IInternalEvent, event_name, None)
+        if not event_factory:
+            logger.info('Event {} has no handler'.format(event_name))
+            return False
+
+        event = event_factory(
+            guid=guid,
+            data=body['data'],
+            actor=body['actor'],
+            request_id=body['request_id'],
+            created_at=body['created_at']
+        )
+        notify(event)
+
+        return True
 
 
 def main():
@@ -53,5 +56,6 @@ def main():
     worker = Worker(input_queue=queue, logger_=logger)
     try:
         worker()
-    except:
+    except Exception as exc:
         logger.exception('{} exiting due to an exception.'.format(Worker.name))
+        raise

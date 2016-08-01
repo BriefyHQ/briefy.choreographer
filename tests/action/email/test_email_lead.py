@@ -20,6 +20,8 @@ class TestLeadCreated(BaseActionCase):
         obj = self.obj
         payload = obj.transform()
         data = payload['data']
+        assert isinstance(payload['sender_name'], str)
+        assert isinstance(payload['sender_email'], str)
         assert isinstance(payload['fullname'], str)
         assert isinstance(payload['email'], str)
         assert isinstance(payload['subject'], str)
@@ -30,6 +32,8 @@ class TestLeadCreated(BaseActionCase):
         assert isinstance(data['CATEGORY'], str)
         assert isinstance(data['SUBJECT'], str)
 
+        assert payload['sender_name'] == 'Andre from Briefy'  # Comes from default config
+        assert payload['sender_email'] == 'hello@briefy.co'  # Comes from default config
         assert payload['fullname'] == 'Leo'
         assert payload['email'] == 'leo@picsastock.com'
         assert payload['template'] == 'briefy-new-lead-en-gb'

@@ -1,6 +1,8 @@
 """Mail action for Lead."""
 from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.actions.mail import IMail
+from briefy.choreographer.config import MAIL_ACTION_LEAD_SENDER_EMAIL
+from briefy.choreographer.config import MAIL_ACTION_LEAD_SENDER_NAME
 from briefy.choreographer.data.lead import ILeadDTO
 from briefy.choreographer.events import lead
 from zope.component import adapter
@@ -12,6 +14,18 @@ class LeadMail(Mail):
 
     entity = 'Lead'
     weight = 100
+
+    @property
+    def sender(self):
+        """Return sender information for this action.
+
+        :returns: Dictionary with two keys - name, email
+        :rtype: dict
+        """
+        return {
+            'name': MAIL_ACTION_LEAD_SENDER_NAME,
+            'email': MAIL_ACTION_LEAD_SENDER_EMAIL,
+        }
 
     def transform(self):
         """Transform data."""
@@ -34,7 +48,7 @@ class LeadCreated(LeadMail):
     """After creating a new Lead, send an email."""
 
     template_name = 'briefy-new-lead'
-    subject = 'Briefy is coming soon!'
+    subject = '''You're Officially a Briefy Insider!'''
 
     @property
     def available(self):

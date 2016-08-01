@@ -15,6 +15,8 @@ class TestChoreographerQueue(BaseQueueCase):
             'event_name': 'customer.event.created',
             'entity': 'customer',
             'guid': 'eebd5265-7201-4316-b996-722b977dbf32',
+            'sender_name': 'Briefy Team',
+            'sender_email': 'contact@briefy.co',
             'fullname': 'New Customer',
             'email': 'customer@fake.domain',
             'template': 'welcome-en-gb',

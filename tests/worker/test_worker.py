@@ -102,11 +102,13 @@ def test_all_body_parameters_are_used(notify_mock, query_mock, message):
 @mock.patch("briefy.choreographer.worker.Worker")
 @mock.patch("briefy.choreographer.worker.queryUtility")
 def test_worker_main(query_mock, worker_mock):
-    def side(input_queue, logger_, run_interval=.5):
+    def worker_call():
+        raise RuntimeError
+    def worker_init(input_queue, logger_, run_interval=.5):
         assert input_queue
         assert logger_
-        raise RuntimeError
-    worker_mock.side_effect = side
+        return worker_call
+    worker_mock.side_effect = worker_init
     with pytest.raises(RuntimeError):
         main()
 

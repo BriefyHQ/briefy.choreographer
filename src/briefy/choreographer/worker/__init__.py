@@ -18,6 +18,11 @@ class Worker(QueueWorker):
     input_queue = None
     run_interval = None
 
+    def __init__(self, input_queue, logger_=None, run_interval=.5, *args, **kw):
+        if logger_ is None:
+            logger_ = logger
+        return super().__init__(input_queue, logger_, run_interval, *args, **kw)
+
     def process_message(self, message):
         """Process a message retrieved from the input_queue.
 
@@ -26,25 +31,29 @@ class Worker(QueueWorker):
         :returns: Status from the process
         :rtype: bool
         """
-        status = True
         body = message.body
         event_name = body['event_name']
         guid = body['guid']
-        if event_name and guid:
-            event_factory = queryUtility(IInternalEvent, event_name, None)
-            if event_factory:
-                event = event_factory(
-                    guid=guid,
-                    data=body['data'],
-                    actor=body['actor'],
-                    request_id=body['request_id'],
-                    created_at=body['created_at']
-                )
-                notify(event)
-            else:
-                status = False
-                logger.info('Event {} has no handler'.format(event_name))
-        return status
+
+        if not event_name or not guid:
+            self.logger.info('Event without name or guid on queue')
+            return False
+        event_factory = queryUtility(IInternalEvent, event_name, None)
+        if not event_factory:
+            self.logger.info('Event {} has no handler'.format(event_name))
+            return False
+
+        event = event_factory(
+            guid=guid,
+            data=body['data'],
+            actor=body['actor'],
+            request_id=body['request_id'],
+            created_at=body['created_at']
+        )
+        notify(event)
+        self.logger.debug('Event {} notified'.format(event_name))
+
+        return True
 
 
 def main():
@@ -53,5 +62,6 @@ def main():
     worker = Worker(input_queue=queue, logger_=logger)
     try:
         worker()
-    except:
+    except Exception as exc:
         logger.exception('{} exiting due to an exception.'.format(Worker.name))
+        raise

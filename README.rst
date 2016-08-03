@@ -43,7 +43,7 @@ The Worker run in infinite loop and:
 Actually, the defined queue is a named Utility *event.queue* that implements IQueue interface and is
 registered on *briefy.common.queue.event.EventQueue*.
 
-After get one or more messages from the queue:
+After getting one or more messages from the queue:
 
 * the worker process each message looking for a named Utility that implements IInternalEvent
 * the *event_name* attribute received on the body of the message is used to find correct Utility
@@ -52,7 +52,7 @@ After get one or more messages from the queue:
 Internal Events
 ^^^^^^^^^^^^^^^
 
-The IInternalEvent Utility works as a *event factory class* to create a new internal event and
+The IInternalEvent Utility works as an *event factory class* to create a new internal event and
 dispatch it using the *zope.event.notify* function.
 
 When a new IInternalEvent is fired by *zope.event.notify* all subscribed handlers are notified and
@@ -98,7 +98,7 @@ Code Health
 ===========
 The *breafy.choreography* service codebase is tested using Travis CI
 
-============ ======================================================================================================================== 
+============ ========================================================================================================================
 Branch       Status
 ============ ========================================================================================================================
 `master`_     .. image:: https://travis-ci.com/BriefyHQ/briefy.choreographer.svg?token=APuRM8itTuPw15pKpJWp&branch=master

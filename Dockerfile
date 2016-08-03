@@ -15,8 +15,6 @@ RUN cp docker/docker_entrypoint.sh / && chmod +x /docker_entrypoint.sh
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["/docker_entrypoint.sh"]
-
-CMD ["/app/docker/worker.sh"]
+CMD ["/docker_entrypoint.sh"]
 
 EXPOSE 8000

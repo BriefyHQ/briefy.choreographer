@@ -54,6 +54,7 @@ tests/
 # Configuration
 docker/
 .github/
+.env
 
 # Logs
 *.log

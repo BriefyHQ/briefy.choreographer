@@ -24,6 +24,7 @@ pyvenv.cfg
 *.egg-info/
 .installed.cfg
 *.egg
+.env
 
 # Tools
 .idea

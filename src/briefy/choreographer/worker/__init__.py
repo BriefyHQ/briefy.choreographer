@@ -1,12 +1,15 @@
 """Briefy base worker."""
 from briefy.common.queue import IQueue
 from briefy.common.worker import QueueWorker
+from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
 from briefy.choreographer.events import IInternalEvent
 from zope.component import getUtility
 from zope.component import queryUtility
 from zope.event import notify
 
 import logging
+import newrelic.agent
+
 
 logger = logging.getLogger('briefy.choreographer')
 
@@ -18,6 +21,7 @@ class Worker(QueueWorker):
     input_queue = None
     run_interval = None
 
+    @newrelic.agent.background_task(name='process_message', group='Task')
     def process_message(self, message):
         """Process a message retrieved from the input_queue.
 
@@ -51,6 +55,8 @@ def main():
     """Initialize and execute the Worker."""
     queue = getUtility(IQueue, 'events.queue')
     worker = Worker(input_queue=queue, logger_=logger)
+    if NEW_RELIC_LICENSE_KEY:
+        newrelic.agent.register_application(timeout=10.0)
     try:
         worker()
     except:

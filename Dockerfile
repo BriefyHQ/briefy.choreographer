@@ -17,4 +17,6 @@ RUN pip install -r requirements.txt
 
 ENTRYPOINT ["/docker_entrypoint.sh"]
 
+CMD ["worker"]
+
 EXPOSE 8000

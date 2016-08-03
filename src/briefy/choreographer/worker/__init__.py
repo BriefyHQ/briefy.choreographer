@@ -31,7 +31,6 @@ class Worker(QueueWorker):
         :returns: Status from the process
         :rtype: bool
         """
-        status = True
         body = message.body
         event_name = body['event_name']
         guid = body['guid']

@@ -52,7 +52,6 @@ tests/
 .travis.yml
 
 # Configuration
-docker/
 .github/
 .env
 

@@ -17,6 +17,18 @@ class Mail(Action):
     subject = 'Briefy!'
 
     @property
+    def sender(self):
+        """Return sender information for this action.
+
+        :returns: Dictionary with two keys - name, email
+        :rtype: dict
+        """
+        return {
+            'name': '',
+            'email': '',
+        }
+
+    @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
         raise NotImplementedError('Not implemented error')
@@ -34,7 +46,10 @@ class Mail(Action):
         """Transform data."""
         language = 'en-gb'
         event = self.event
+        sender = self.sender
         payload = {
+            'sender_name': sender.get('name'),
+            'sender_email': sender.get('email'),
             'fullname': '',
             'email': '',
             'subject': self.subject,

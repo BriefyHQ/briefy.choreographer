@@ -19,6 +19,8 @@ class Schema(colander.MappingSchema):
     event_name = colander.SchemaNode(colander.String(), validator=EventName)
     entity = colander.SchemaNode(colander.String())
     guid = colander.SchemaNode(colander.String(), validator=colander.uuid)
+    sender_name = colander.SchemaNode(colander.String(), missing='')
+    sender_email = colander.SchemaNode(colander.String(), missing='')
     fullname = colander.SchemaNode(colander.String())
     email = colander.SchemaNode(colander.String())
     subject = colander.SchemaNode(colander.String(), missing='')
@@ -45,6 +47,8 @@ class Queue(BaseQueue):
             'event_name': '',
             'entity': '',
             'guid': '',
+            'sender_name': '',
+            'sender_email': '',
             'fullname': '',
             'email': '',
             'subject': '',

@@ -1,6 +1,7 @@
 """Tests for `briefy.choreographer.worker` module."""
 
 from briefy.choreographer.worker import Worker
+from briefy.choreographer.worker import main
 from collections import defaultdict
 from datetime import datetime
 from unittest import mock
@@ -77,10 +78,9 @@ def test_worker_doesnot_process_message_with_missing_fields(notify_mock, query_m
 def test_worker_doesnot_process_message_when_event_factory_not_found(notify_mock, query_mock, message):
     query_mock.side_effect = lambda interface, name, context: None
     logger_mock = mock.Mock()
-    w  = Worker(TestQueue())
+    w  = Worker(TestQueue(), logger_=logger_mock)
     assert not w.process_message(message)
-    import ipdb; ipdb.set_trace()
-    a=1
+    assert 'has no handler' in logger_mock.info.call_args[0][0]
 
 
 @mock.patch("briefy.choreographer.worker.queryUtility")
@@ -96,4 +96,17 @@ def test_all_body_parameters_are_used(notify_mock, query_mock, message):
     message.body.pop('event_name')
     assert notification == message.body
     assert not logger_mock.info.call_args
+    assert logger_mock.debug.call_args
+
+
+@mock.patch("briefy.choreographer.worker.Worker")
+@mock.patch("briefy.choreographer.worker.queryUtility")
+def test_worker_main(query_mock, worker_mock):
+    def side(input_queue, logger_, run_interval=.5):
+        assert input_queue
+        assert logger_
+        raise RuntimeError
+    worker_mock.side_effect = side
+    with pytest.raises(RuntimeError):
+        main()
 

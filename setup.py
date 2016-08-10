@@ -37,7 +37,7 @@ setup(
         "Programming Language :: Python",
     ],
     author='Briefy Tech Team',
-    author_email = 'developers@briefy.co',
+    author_email='developers@briefy.co',
     url='https://github.com/BriefyHQ/briefy.choreographer',
     keywords='mail mandrill briefy',
     packages=find_packages('src'),

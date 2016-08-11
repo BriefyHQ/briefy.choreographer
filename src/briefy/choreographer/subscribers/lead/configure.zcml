@@ -3,7 +3,10 @@
     <!-- Get all lead events -->
     <subscriber for="briefy.choreographer.events.lead.ILeadEvent" handler=".handler" />
 
-    <!-- lead.created -->
+    <!-- Mail lead.created -->
     <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
+
+    <!-- Slack lead.created -->
+    <adapter name="lead.created.slack" factory="briefy.choreographer.actions.slack.lead.LeadCreated" />
 
 </configure>

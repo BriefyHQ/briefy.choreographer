@@ -17,7 +17,7 @@ class LeadSlack(Slack):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'New Lead: {}'.format(data.subject)
+        payload['title'] = 'New Lead!'
         payload['text'] = """
         New lead create!
 
@@ -25,7 +25,8 @@ class LeadSlack(Slack):
         Email: {}
         Category: {}
         Sub category: {}
-        """.format(data.fullname, data.email, data.category. data.sub_category)
+
+        """.format(data.fullname, data.email, data.category, data.sub_category)
         payload['username'] = 'New Lead bot'
         payload['data'] = {
             'FULLNAME': data.fullname,

@@ -25,17 +25,15 @@ class Slack(Action):
     def transform(self):
         """Transform data."""
         event = self.event
-        data = self.data
         payload = {
-            'id': event.guid,
-            'type': self.entity,
             'channel': self.channel,
             'title': '',
             'text': '',
             'color': self.color,
             'icon': self.icon,
             'username': '',
-            'guid': data.guid,
-            'event_name': data.event_name,
+            'entity': self.entity,
+            'guid': event.guid,
+            'event_name': event.event_name,
         }
         return payload

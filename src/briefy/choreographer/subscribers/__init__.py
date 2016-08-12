@@ -22,16 +22,14 @@ class BaseHandler:
         self.registry = getGlobalSiteManager()
         self.event = event
         self.guid = event.guid
-        if self._info_class_:
-            data = event.data
-            data.update({'guid': self.guid})
-            self.info = self._info_class_(**data)
+        data = event.data
+        data.update({'guid': self.guid})
 
     @property
     def actions(self):
         """Return all actions for this event."""
         registry = self.registry
-        action_adapters = registry.getAdapters((self.info, self.event), IAction)
+        action_adapters = registry.getAdapters((self.event,), IAction)
         actions = [action for name, action in action_adapters]
         actions.sort(key=operator.attrgetter('weight'))
         return actions

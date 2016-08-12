@@ -24,7 +24,6 @@ pyvenv.cfg
 *.egg-info/
 .installed.cfg
 *.egg
-.env
 
 # Tools
 .idea
@@ -49,17 +48,17 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+tests/
+.travis.yml
 
-# Translations
-*.mo
-*.pot
+# Configuration
+.github/
+.env
 
-# Django stuff:
+# Logs
 *.log
 
 # Sphinx documentation
-docs/_build/
-docs/codebase/briefy.*
+docs/
 
-# PyBuilder
-target/
+

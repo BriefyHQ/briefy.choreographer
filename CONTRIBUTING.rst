@@ -44,7 +44,7 @@ Running tests
 
 To run all tests, first, it is needed to setup a mock server for AWS SQS::
 
-    $ docker run -d -p 127.0.0.1:5000:5000 briefy/aws-test sqs
+    $ docker run -d -p 127.0.0.1:5000:5000 --name sqs briefy/aws-test:latest sqs
     $ export SQS_IP=127.0.0.1 SQS_PORT=5000
 
 Run all tests::

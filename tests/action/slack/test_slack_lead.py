@@ -26,9 +26,9 @@ class TestLeadCreated(BaseActionCase):
         assert isinstance(payload['color'], str)
         assert isinstance(payload['icon'], str)
         assert isinstance(payload['username'], str)
-        assert isinstance(payload['data'], dict)
+        assert isinstance(data, dict)
 
-        fields = payload['data']['fields']
+        fields = data['fields']
         assert isinstance(fields, list)
 
         fullname = fields[0]

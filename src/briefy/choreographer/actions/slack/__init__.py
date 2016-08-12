@@ -35,5 +35,6 @@ class Slack(Action):
             'entity': self.entity,
             'guid': event.guid,
             'event_name': event.event_name,
+            'data': {}
         }
         return payload

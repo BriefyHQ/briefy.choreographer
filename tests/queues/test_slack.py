@@ -22,8 +22,7 @@ class TestChoreographerQueue(BaseQueueCase):
             'icon': ':briefy:',
             'username': 'New Lead bot',
             'data': {
-                'foo': 'bar',
-                'bar': 'foo'
+                'fields': '[]',
             },
         }
 

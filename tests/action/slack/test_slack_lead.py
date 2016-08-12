@@ -27,19 +27,32 @@ class TestLeadCreated(BaseActionCase):
         assert isinstance(payload['icon'], str)
         assert isinstance(payload['username'], str)
         assert isinstance(payload['data'], dict)
-        assert isinstance(data['FULLNAME'], str)
-        assert isinstance(data['EMAIL'], str)
-        assert isinstance(data['CATEGORY'], str)
-        assert isinstance(data['SUBCATEGORY'], str)
 
-        #assert payload['sender_name'] == 'Andre from Briefy'  # Comes from default config
-        #assert payload['sender_email'] == 'hello@briefy.co'  # Comes from default config
-        #assert payload['fullname'] == 'Leo'
-        #assert payload['email'] == 'leo@picsastock.com'
-        #assert payload['template'] == 'briefy-new-lead-en-gb'
-        #assert payload['subject'] == '''You're Officially a Briefy Insider!'''
+        fields = payload['data']['fields']
+        assert isinstance(fields, list)
 
-        #assert data['FULLNAME'] == 'Leo'
-        #assert data['EMAIL'] == 'leo@picsastock.com'
-        #assert data['SUBJECT'] == '''You're Officially a Briefy Insider!'''
-        #assert data['CATEGORY'] == 'other'
+        fullname = fields[0]
+        email = fields[1]
+        category = fields[2]
+        sub_category = fields[3]
+
+        assert isinstance(fullname, dict)
+        assert isinstance(email, dict)
+        assert isinstance(category, dict)
+        assert isinstance(sub_category, dict)
+
+        assert 'title' in fullname.keys() and fullname['title'] == 'Fullname'
+        assert 'value' in fullname.keys() and fullname['value'] == 'Leo'
+        assert 'short' in fullname.keys() and fullname['short'] is True
+
+        assert 'title' in email.keys() and email['title'] == 'Email'
+        assert 'value' in email.keys() and email['value'] == 'leo@picsastock.com'
+        assert 'short' in email.keys() and email['short'] is True
+
+        assert 'title' in category.keys() and category['title'] == 'Category'
+        assert 'value' in category.keys() and category['value'] == 'other'
+        assert 'short' in category.keys() and category['short'] is True
+
+        assert 'title' in sub_category.keys() and sub_category['title'] == 'Subcategory'
+        assert 'value' in sub_category.keys() and sub_category['value'] == 'i am leo'
+        assert 'short' in sub_category.keys() and sub_category['short'] is True

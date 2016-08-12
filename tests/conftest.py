@@ -1,6 +1,5 @@
 """Configuration for tests."""
 from briefy.choreographer.actions import IAction
-from briefy.choreographer.data import IDataTransferObject
 from briefy.common.config import SQS_REGION
 from briefy.common.queue import IQueue
 from zope.component import getGlobalSiteManager
@@ -126,27 +125,6 @@ class BaseActionCase(BaseTestCase):
         messages = queue.get_messages(num_messages=10)
         assert isinstance(messages, list)
         assert len(messages) == 1
-
-
-class BaseDataCase(BaseTestCase):
-    """Data transfer object testcase."""
-
-    data_class = None
-    data_interface = None
-    data_file = ''
-
-    def _make_one(self):
-        """Return a data object instance."""
-        klass = self.data_class
-        data = read_data_from_file(self.data_file)
-        return klass(**data)
-
-    def test_interfaces(self):
-        """Test that this tool provides tool interfaces."""
-        obj = self._make_one()
-        iface = self.data_interface
-        assert IDataTransferObject.providedBy(obj) is True
-        assert iface.providedBy(obj) is True
 
 
 class BaseQueueCase(BaseTestCase):

@@ -1,7 +1,6 @@
 """Briefy email action for Lead events tests."""
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.actions.slack.lead import LeadCreated
-from briefy.choreographer.data.lead import LeadDTO
 from briefy.choreographer.events.lead import lead as events
 from conftest import BaseActionCase
 
@@ -12,7 +11,6 @@ class TestLeadCreated(BaseActionCase):
     action_class = LeadCreated
     action_interface = ISlack
     event_class = events.LeadCreated
-    data_class = LeadDTO
     data_file = 'lead.json'
 
     def test_transform(self):

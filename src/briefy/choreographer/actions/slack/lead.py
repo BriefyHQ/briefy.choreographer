@@ -22,10 +22,10 @@ class LeadSlack(Slack):
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [
-                { 'title': 'Fullname',
-                  'value' : data.fullname,
-                  'short': True,
-                  },
+                {'title': 'Fullname',
+                 'value': data.fullname,
+                 'short': True,
+                 },
                 {'title': 'Email',
                  'value': data.email,
                  'short': True,

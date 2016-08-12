@@ -75,9 +75,9 @@ clean-docs:
 	rm -f docs/codebase/modules.rst
 
 lint: ## check style with flake8
-	flake8 src/briefy/common tests setup.py
+	flake8 src/briefy/choreographer tests setup.py
 
-test: ## run tests quickly with the default Python
+test: lint ## run tests quickly with the default Python
 	py.test  --cov-report term-missing --cov=briefy.choreographer tests
 	
 

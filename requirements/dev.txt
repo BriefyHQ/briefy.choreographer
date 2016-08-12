@@ -10,3 +10,4 @@ snowballstemmer==1.2.1
 sphinx-bootstrap-theme==0.4.8
 sphinx-rtd-theme==0.1.9
 tox==2.3.1
+flake8

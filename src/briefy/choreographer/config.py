@@ -13,3 +13,6 @@ MAIL_ACTION_LEAD_SENDER_EMAIL = config('MAIL_ACTION_LEAD_SENDER_EMAIL', default=
 # Queues
 MAIL_QUEUE = config('MAIL_QUEUE', default='mail-{}'.format(_queue_suffix))
 NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{}'.format(_queue_suffix))
+
+# Slack
+SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{}'.format(_queue_suffix))

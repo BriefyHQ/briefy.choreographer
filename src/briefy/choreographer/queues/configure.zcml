@@ -6,5 +6,7 @@
     <!-- Notification queue -->
     <utility name="notification.queue" component=".notification.NotificationQueue" provides="briefy.common.queue.IQueue" />
 
+    <!-- Slack queue -->
+    <utility name="slack.queue" component=".slack.SlackQueue" provides="briefy.common.queue.IQueue" />
 
 </configure>

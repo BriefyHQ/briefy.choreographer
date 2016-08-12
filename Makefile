@@ -48,7 +48,7 @@ BROWSER := python -c "$$BROWSER_PYSCRIPT"
 help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
-clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
+clean: clean-build clean-pyc clean-test clean-docs## remove all build, test, coverage and Python artifacts
 
 
 clean-build: ## remove build artifacts
@@ -69,10 +69,15 @@ clean-test: ## remove test and coverage artifacts
 	rm -f .coverage
 	rm -fr htmlcov/
 
-lint: ## check style with flake8
-	flake8 src/briefy/common tests setup.py
+clean-docs:
+	rm -rf $(BUILDDIR)/*
+	rm -f docs/codebase/briefy*
+	rm -f docs/codebase/modules.rst
 
-test: ## run tests quickly with the default Python
+lint: ## check style with flake8
+	flake8 src/briefy/choreographer tests setup.py
+
+test: lint ## run tests quickly with the default Python
 	py.test  --cov-report term-missing --cov=briefy.choreographer tests
 	
 
@@ -86,10 +91,7 @@ coverage: ## check code coverage quickly with the default Python
 		coverage html
 		$(BROWSER) htmlcov/index.html
 
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -rf $(BUILDDIR)/*
-	rm -f docs/codebase/briefy*
-	rm -f docs/codebase/modules.rst
+docs: clean-docs ## generate Sphinx HTML documentation, including API docs
 	$(SPHINXAPIDOC) -o docs/codebase src/briefy
 	rm -f docs/codebase/modules.rst
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml

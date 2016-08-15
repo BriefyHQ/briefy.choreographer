@@ -3,7 +3,6 @@ from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.config import MAIL_ACTION_LEAD_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEAD_SENDER_NAME
-from briefy.choreographer.data.lead import ILeadDTO
 from briefy.choreographer.events import lead
 from zope.component import adapter
 from zope.interface import implementer
@@ -31,18 +30,18 @@ class LeadMail(Mail):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.fullname
-        payload['email'] = data.email
+        payload['fullname'] = data.get('fullname')
+        payload['email'] = data.get('email')
         payload['data'] = {
-            'FULLNAME': data.fullname,
-            'EMAIL': data.email,
-            'CATEGORY': data.category,
+            'FULLNAME': data.get('fullname'),
+            'EMAIL': data.get('email'),
+            'CATEGORY': data.get('category'),
             'SUBJECT': self.subject,
         }
         return payload
 
 
-@adapter(ILeadDTO, lead.ILeadCreated)
+@adapter(lead.ILeadCreated)
 @implementer(IMail)
 class LeadCreated(LeadMail):
     """After creating a new Lead, send an email."""
@@ -55,4 +54,4 @@ class LeadCreated(LeadMail):
         """Should not fire an email if we are dealing with an instant booking."""
         available = super().available
         data = self.data
-        return available and data.internal
+        return available and data.get('internal')

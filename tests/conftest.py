@@ -1,6 +1,5 @@
 """Configuration for tests."""
 from briefy.choreographer.actions import IAction
-from briefy.choreographer.data import IDataTransferObject
 from briefy.common.config import SQS_REGION
 from briefy.common.queue import IQueue
 from zope.component import getGlobalSiteManager
@@ -60,14 +59,13 @@ class BaseActionCase(BaseTestCase):
 
     def _make_data_object(self):
         """Return a data object instance."""
-        klass = self.data_class
         data = read_data_from_file(self.data_file)
-        return klass(**data)
+        return data
 
-    def _make_one(self, data, event):
+    def _make_one(self, event):
         """Return an action instance."""
         klass = self.action_class
-        return klass(data, event)
+        return klass(event)
 
     def _prepare_queue(self):
         mock_sqs()
@@ -89,12 +87,12 @@ class BaseActionCase(BaseTestCase):
             self.event = self.event_class(
                 actor='foo',
                 request_id='e595e4ee-b4c2-4658-8298-f2af95b0120f',
-                guid=self.data.id,
+                guid=self.data.get('id'),
                 created_at='2016-07-01T12:32:45',
                 data=self.data
             )
             event = self.event
-        self.obj = self._make_one(self.data, event)
+        self.obj = self._make_one(event)
 
     def test_interfaces(self):
         """Test that this action provides IAction interfaces."""
@@ -107,12 +105,9 @@ class BaseActionCase(BaseTestCase):
         """Test that this action is registered."""
         if hasattr(self, 'event'):
             registry = self.registry
-            data = self.data
             event = self.event
-            adapters = [
-                a for a in registry.getAdapters((data, event), IAction)
-                if isinstance(a[1], self.action_class)
-            ]
+            adapters = [a for a in registry.getAdapters((event,), IAction)
+                        if isinstance(a[1], self.action_class)]
             assert len(adapters) == 1
 
     def test_call(self):
@@ -130,27 +125,6 @@ class BaseActionCase(BaseTestCase):
         messages = queue.get_messages(num_messages=10)
         assert isinstance(messages, list)
         assert len(messages) == 1
-
-
-class BaseDataCase(BaseTestCase):
-    """Data transfer object testcase."""
-
-    data_class = None
-    data_interface = None
-    data_file = ''
-
-    def _make_one(self):
-        """Return a data object instance."""
-        klass = self.data_class
-        data = read_data_from_file(self.data_file)
-        return klass(**data)
-
-    def test_interfaces(self):
-        """Test that this tool provides tool interfaces."""
-        obj = self._make_one()
-        iface = self.data_interface
-        assert IDataTransferObject.providedBy(obj) is True
-        assert iface.providedBy(obj) is True
 
 
 class BaseQueueCase(BaseTestCase):

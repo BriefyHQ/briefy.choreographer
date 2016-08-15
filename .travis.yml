@@ -23,3 +23,14 @@ after_success:
 - make docs
 notifications:
   slack: robyandjack:qxjOPwcrGEtVx3aCQBr812t9
+deploy:
+  provider: deis
+  controller: https://deis.stg.briefy.co
+  cli_version: 2.2.0
+  app: briefy.choreographer
+  username: ci
+  password:
+    secure: qPknQowpQxfLjdPgBY5sI/8unfwPxwXJm8RuP+E3/9iD1bhAxoI5DumC4XRiQsgblxkD4oCGV+FWhjKGoUKDIi9pm8k3dRHwj+RFzcD7g8ndp0By3igf7XWJ9Zy35LxeU/tnMXnqOSLkdFZzW30r8hAZIb4PaxWASQSHp/kf+up95jViWs4xT4pvA0VYqB0kJfuJvz9BgSt+SVza75HYzqORywW1BU9sCkaNUJhsjCYsNOvcqhA8v7EcHbVCFcyXGbUxwaAKXkHGZPBzuigmWA7LuAy/i4Dgjsv6oHGLNpLASbnLn74ladDtpCpDfDVvQJYDq+nDxzf+Hv3qdzMMoW7nQEBgPa2hz9Z3Ce5tJxPcn74IXtHMi4iMJirDIBFiAAuElD7w61b+GW6pbI5oGiidA7YK3s5aKQku6PUzHXrrMa6rKZRuEWd3UJ1kIfiy8jkA/eFvQmrdnH6XEJDE6e+J6+PTIrcyUZ9okoTD0wU4wvtfLUpU5cusWUIk1i4gRzTb+spND4BLUDJu/xzC1AsfnVWJA2WIXHZyVrSUeGO5PR38XONUe17PoV04UEOqSCFjthTbpgHtRQSY+rW+ujDE2pbYbdaB+tQtd02UcUXnnoeYUY68/VVFOjdrTXm6XKqHsojIeLGc4o7HO6BUYPpzURgHIa1hTOA46BX0szw=
+  on:
+    repo: BriefyHQ/briefy.choreographer
+    branch: develop

@@ -9,7 +9,8 @@ services:
 - docker
 env:
   global:
-  - AWS_ACCESS_KEY_ID='foo' AWS_DEFAULT_REGION='us-east-1' AWS_SECRET_ACCESS_KEY='bar' SQS_IP=127.0.0.1 SQS_PORT=5000
+  - AWS_ACCESS_KEY_ID='foo' AWS_DEFAULT_REGION='us-east-1' AWS_SECRET_ACCESS_KEY='bar'
+    SQS_IP=127.0.0.1 SQS_PORT=5000
   matrix:
   - TOXENV=py35
 install:
@@ -30,7 +31,7 @@ deploy:
   app: briefy-choreographer
   username: ci
   password:
-    secure: qPknQowpQxfLjdPgBY5sI/8unfwPxwXJm8RuP+E3/9iD1bhAxoI5DumC4XRiQsgblxkD4oCGV+FWhjKGoUKDIi9pm8k3dRHwj+RFzcD7g8ndp0By3igf7XWJ9Zy35LxeU/tnMXnqOSLkdFZzW30r8hAZIb4PaxWASQSHp/kf+up95jViWs4xT4pvA0VYqB0kJfuJvz9BgSt+SVza75HYzqORywW1BU9sCkaNUJhsjCYsNOvcqhA8v7EcHbVCFcyXGbUxwaAKXkHGZPBzuigmWA7LuAy/i4Dgjsv6oHGLNpLASbnLn74ladDtpCpDfDVvQJYDq+nDxzf+Hv3qdzMMoW7nQEBgPa2hz9Z3Ce5tJxPcn74IXtHMi4iMJirDIBFiAAuElD7w61b+GW6pbI5oGiidA7YK3s5aKQku6PUzHXrrMa6rKZRuEWd3UJ1kIfiy8jkA/eFvQmrdnH6XEJDE6e+J6+PTIrcyUZ9okoTD0wU4wvtfLUpU5cusWUIk1i4gRzTb+spND4BLUDJu/xzC1AsfnVWJA2WIXHZyVrSUeGO5PR38XONUe17PoV04UEOqSCFjthTbpgHtRQSY+rW+ujDE2pbYbdaB+tQtd02UcUXnnoeYUY68/VVFOjdrTXm6XKqHsojIeLGc4o7HO6BUYPpzURgHIa1hTOA46BX0szw=
+    secure: AOJ4Rjf2WPRslLgXV4hzm8ctow1ejHs0lrGYb3GG3w41AQtNyHwEjq7IeSZgzPUd6uxzDVCzjHfkUd+B0XNX30SgD7/GBKDXpfgJseBMQ/HYB8XTn7gs5hK9aQ/IiztigeSHmc4x9QMIrfsgetV7ug1LNUerzTKHmRRA86ERlyafS1eHOBJMXJrqqRjHRedJ7zgfhFgBFIvqCtzAmzVkRiwn3pe6VJwk1FsZbKOttvI1uIRI9ZUCodnjze6mPPY6+qviGR0tpVOVO1sx9efek14BBFX04cOlYo5MUw3R4Sm24wPWgPfHM9h6sSCY92oTgMeMDGBNcAVanfqHdt37bdVmP5+TqeKU5SaGIklNDKx7VGQ3wNQdRx9xbJ41WjS6+NtGP5U9ENIA9NADQicrch8C5XKr+xyXk7nx53yHMQ/O7I2hIBPklJZQRG7hRkkumIzBufxuUzxE/62rh8QydX6CBwVuseUu9Der0A7t9eN/VTed5Xtz1SFSWLIWCkfmkGsLqwp85oL0tdLFWrs5813dYIA/31+iFJxijCCqduerfsvWn4/wloX7M7y4JFicdYSLTegfutRX3NNBSAgReQoP2QEVOpMz+dHnDqd5zWxq+9yCj39KXFvS5aIaMZJYZOgpm/xX8CHUZFEISLZcfg5rIHiJRMgHmKCDckeNzZs=
   edge:
     source: mattk42/dpl
     branch: deis-v2-exit-status

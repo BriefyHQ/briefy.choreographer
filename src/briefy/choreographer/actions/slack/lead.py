@@ -17,7 +17,7 @@ class LeadSlack(Slack):
         payload = super().transform()
         data = self.data
         payload['title'] = 'New Lead created!'
-        payload['text'] = 'New Lead was created, please take look into the details:'
+        payload['text'] = 'New Lead was created, please take a look into the details:'
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [

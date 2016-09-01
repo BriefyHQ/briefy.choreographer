@@ -1,6 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <!-- Lead Flow events -->
+    <!-- Lead and Quote Flow events -->
+
     <utility name="lead.created" component=".lead.LeadCreated" provides=".ILeadCreated" />
+    <utility name="quote.created" component=".lead.QuoteCreated" provides=".IQuoteCreated" />
 
 </configure>

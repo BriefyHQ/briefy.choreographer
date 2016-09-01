@@ -27,7 +27,7 @@ notifications:
 deploy:
   provider: deis
   controller: https://deis.stg.briefy.co
-  cli_version: v2.4.0
+  cli_version: v2.2.0
   app: briefy-choreographer
   username: ci
   password:

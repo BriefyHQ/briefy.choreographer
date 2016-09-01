@@ -1,16 +1,30 @@
-"""Module that implements Briefy subscribers for Lead events."""
+"""Module that implements Briefy subscribers for Lead and Quote events."""
 from briefy.choreographer.subscribers import BaseHandler
 
 
-class Handler(BaseHandler):
+class LeadHandler(BaseHandler):
     """Handler for Lead events."""
 
 
-def handler(event):
+def lead_handler(event):
     """Handle Lead events.
 
     :param event: Event
     :type event: briefy.choreographer.events.lead.ILeadEvent
     """
-    handler = Handler(event)
+    handler = LeadHandler(event)
+    handler()
+
+
+class QuoteHandler(BaseHandler):
+    """Handler for Lead events."""
+
+
+def quote_handler(event):
+    """Handle Quote events.
+
+    :param event: Event
+    :type event: briefy.choreographer.events.lead.IQuoteEvent
+    """
+    handler = QuoteHandler(event)
     handler()

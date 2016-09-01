@@ -28,9 +28,9 @@ class Action:
     _queue_name = ''
     _queue = None
 
-    def __init__(self, data, event):
+    def __init__(self, event):
         """Initialize the Action."""
-        self.data = data
+        self.data = event.data
         self.event = event
 
     @property

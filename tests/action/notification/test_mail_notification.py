@@ -1,7 +1,6 @@
 """Briefy notification action for mail sent events tests."""
 from briefy.choreographer.actions.notification import INotification
 from briefy.choreographer.actions.notification.mail import MailSent
-from briefy.choreographer.data.mail import MailDTO
 from briefy.choreographer.events import mail as events
 from conftest import BaseActionCase
 
@@ -12,7 +11,6 @@ class TestMailSent(BaseActionCase):
     action_class = MailSent
     action_interface = INotification
     event_class = events.MailSent
-    data_class = MailDTO
     data_file = 'mail.json'
 
     def test_transform(self):

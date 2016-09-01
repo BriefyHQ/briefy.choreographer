@@ -1,7 +1,6 @@
 """Slack action for Lead."""
 from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
-from briefy.choreographer.data.lead import ILeadDTO
 from briefy.choreographer.events import lead
 from zope.component import adapter
 from zope.interface import implementer
@@ -23,19 +22,19 @@ class LeadSlack(Slack):
         payload['data'] = {
             'fields': [
                 {'title': 'Fullname',
-                 'value': data.fullname,
+                 'value': data.get('fullname'),
                  'short': True,
                  },
                 {'title': 'Email',
-                 'value': data.email,
+                 'value': data.get('email'),
                  'short': True,
                  },
                 {'title': 'Category',
-                 'value': data.category,
+                 'value': data.get('category'),
                  'short': True,
                  },
                 {'title': 'Subcategory',
-                 'value': data.sub_category,
+                 'value': data.get('sub_category'),
                  'short': True,
                  },
             ]
@@ -43,7 +42,7 @@ class LeadSlack(Slack):
         return payload
 
 
-@adapter(ILeadDTO, lead.ILeadCreated)
+@adapter(lead.ILeadCreated)
 @implementer(ISlack)
 class LeadCreated(LeadSlack):
     """After creating a new Lead, send an email."""
@@ -53,4 +52,4 @@ class LeadCreated(LeadSlack):
         """Should not fire slack message if we are dealing with an instant booking."""
         available = super().available
         data = self.data
-        return available and data.internal
+        return available and data.get('internal')

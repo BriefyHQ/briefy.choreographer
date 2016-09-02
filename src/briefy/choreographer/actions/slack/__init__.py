@@ -1,6 +1,7 @@
 """Slack actions."""
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
+from briefy.choreographer.config import is_production
 
 
 class ISlack(IAction):
@@ -13,9 +14,16 @@ class Slack(Action):
     weight = 100
     _queue_name = 'slack.queue'
     entity = ''
-    channel = '#tests'
+    _channel = '#tests'
     color = 'good'
     icon = ':briefy:'
+
+    @property
+    def channel(self):
+        if is_production():
+            return self._channel
+        else:
+            return '#tests'
 
     @property
     def available(self):

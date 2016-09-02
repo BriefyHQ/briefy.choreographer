@@ -28,6 +28,8 @@ pyvenv.cfg
 
 # Tools
 .idea
+.dpl/
+deis
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

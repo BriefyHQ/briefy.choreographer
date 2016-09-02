@@ -7,17 +7,18 @@ from zope.interface import implementer
 
 
 class LeadSlack(Slack):
-    """Mail sent on Lead events."""
+    """Slack message sent on Lead events."""
 
     entity = 'Lead'
     weight = 100
+    _channel = '#briefy-co-leads'
 
     def transform(self):
         """Transform data."""
         payload = super().transform()
         data = self.data
         payload['title'] = 'New Lead created!'
-        payload['text'] = 'New Lead was created, please take look into the details:'
+        payload['text'] = 'New Lead was created, please take a look into the details:'
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [
@@ -45,11 +46,8 @@ class LeadSlack(Slack):
 @adapter(lead.ILeadCreated)
 @implementer(ISlack)
 class LeadCreated(LeadSlack):
-    """After creating a new Lead, send an email."""
+    """After creating a new Lead, post on Slack."""
 
     @property
     def available(self):
-        """Should not fire slack message if we are dealing with an instant booking."""
-        available = super().available
-        data = self.data
-        return available and data.get('internal')
+        return True

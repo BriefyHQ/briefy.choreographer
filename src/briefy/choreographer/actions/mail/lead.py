@@ -51,7 +51,7 @@ class LeadCreated(LeadMail):
 
     @property
     def available(self):
-        """Should not fire an email if we are dealing with an instant booking."""
+        """Should not fire an email """
         available = super().available
         data = self.data
         return available and data.get('internal')

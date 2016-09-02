@@ -3,6 +3,8 @@ from briefy.common.config import _queue_suffix
 from prettyconf import config
 
 
+ENV = config('ENV', default='staging')
+
 # NewRelic
 NEW_RELIC_LICENSE_KEY = config('NEW_RELIC_LICENSE_KEY', default='')
 
@@ -19,3 +21,7 @@ NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{}'.form
 
 # Slack
 SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{}'.format(_queue_suffix))
+
+
+def is_production():
+    return ENV == 'production'

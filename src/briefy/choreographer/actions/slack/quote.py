@@ -11,7 +11,7 @@ class QuoteSlack(Slack):
 
     entity = 'Quote'
     weight = 100
-    channel = '#briefy-co-quotes'
+    _channel = '#briefy-co-quotes'
 
     def transform(self):
         """Transform data."""

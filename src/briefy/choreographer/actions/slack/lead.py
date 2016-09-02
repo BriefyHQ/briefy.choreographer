@@ -11,7 +11,7 @@ class LeadSlack(Slack):
 
     entity = 'Lead'
     weight = 100
-    channel = '#briefy-co-leads'
+    _channel = '#briefy-co-leads'
 
     def transform(self):
         """Transform data."""

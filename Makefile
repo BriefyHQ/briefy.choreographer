@@ -99,6 +99,16 @@ docs: clean-docs ## generate Sphinx HTML documentation, including API docs
 docs_server: docs
 	@cd $(BUILDDIR)/dirhtml; python3 -m http.server 8000
 
+stop_dockers: ## stop and remove docker containers
+	# sqs
+	docker stop sqs
+	docker rm sqs
+
+run_dockers: ## run docker containers
+	# sqs
+	docker run -d -p 127.0.0.1:5000:5000 --name sqs briefy/aws-test:latest sqs
+	export SQS_IP=127.0.0.1 SQS_PORT=5000
+
 release: clean ## package and upload a release
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload

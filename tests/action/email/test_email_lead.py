@@ -34,7 +34,7 @@ class TestLeadCreated(BaseActionCase):
         assert payload['sender_email'] == 'hello@briefy.co'  # Comes from default config
         assert payload['fullname'] == 'Leo'
         assert payload['email'] == 'leo@picsastock.com'
-        assert payload['template'] == 'briefy-new-lead-en-gb'
+        assert payload['template'] == 'briefy-new-lead-professional-en-gb'
         assert payload['subject'] == '''You're Officially a Briefy Insider!'''
 
         assert data['FULLNAME'] == 'Leo'

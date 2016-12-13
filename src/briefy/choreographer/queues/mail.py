@@ -77,4 +77,5 @@ class Queue(BaseQueue):
             'attachments': []
         }
 
+
 MailQueue = Queue()

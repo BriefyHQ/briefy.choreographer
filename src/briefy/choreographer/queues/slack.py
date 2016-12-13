@@ -79,4 +79,5 @@ class Queue(BaseQueue):
             'data': {},
         }
 
+
 SlackQueue = Queue()

@@ -79,4 +79,5 @@ class Queue(BaseQueue):
             'additional_info': '',
         }
 
+
 NotificationQueue = Queue()

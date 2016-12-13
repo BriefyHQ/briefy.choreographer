@@ -64,7 +64,6 @@ class Queue(BaseQueue):
         """Return an example payload for this queue.
 
         :returns: Dictionary representing the payload for this queue
-        :rtype: dict
         """
         return {
             'event_name': '',

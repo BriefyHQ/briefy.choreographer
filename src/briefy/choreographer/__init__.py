@@ -1,6 +1,7 @@
 """Briefy Choreographer."""
 from briefy import choreographer
-from briefy.common.log import log_handler
+from briefy.common.log import logstash
+from briefy.common.log import LOG_SERVER
 from zope.configuration.xmlconfig import XMLConfig
 
 import logging
@@ -13,7 +14,10 @@ cs.setLevel(logging.INFO)
 
 logger.addHandler(cs)
 
-if log_handler:
+if LOG_SERVER:
+    log_handler = logstash.LogstashHandler(
+        LOG_SERVER, 5543, version=1, tags=['Worker', 'briefy.choreographer']
+    )
     logger.addHandler(log_handler)
 
 XMLConfig('configure.zcml', choreographer)()

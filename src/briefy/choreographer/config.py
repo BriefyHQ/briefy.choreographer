@@ -16,11 +16,11 @@ MAIL_ACTION_QUOTE_SENDER_NAME = config('MAIL_ACTION_QUOTE_SENDER_NAME', default=
 MAIL_ACTION_QUOTE_SENDER_EMAIL = config('MAIL_ACTION_QUOTE_SENDER_EMAIL', default='hello@briefy.co')
 
 # Queues
-MAIL_QUEUE = config('MAIL_QUEUE', default='mail-{}'.format(_queue_suffix))
-NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{}'.format(_queue_suffix))
+MAIL_QUEUE = config('MAIL_QUEUE', default='mail-{0}'.format(_queue_suffix))
+NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{0}'.format(_queue_suffix))
 
 # Slack
-SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{}'.format(_queue_suffix))
+SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
 
 
 def is_production():

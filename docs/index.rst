@@ -1,5 +1,5 @@
-briefy.choreographer
-####################
+Choreographer
+#############
 
 Choreographer directs actions based on events.
 
@@ -8,11 +8,12 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
+   :numbered: 1
    :titlesonly:
 
    intro
    contributing
+   actions/index
    codebase/index
    history
 

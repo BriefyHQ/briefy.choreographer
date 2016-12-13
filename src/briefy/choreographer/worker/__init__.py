@@ -1,5 +1,6 @@
 """Briefy base worker."""
 from briefy.common.queue import IQueue
+from briefy.common.queue.message import SQSMessage
 from briefy.common.worker import QueueWorker
 from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
 from briefy.choreographer.events import IInternalEvent
@@ -18,22 +19,26 @@ class Worker(QueueWorker):
     """Choreographer queue worker."""
 
     name = 'choreographer.worker'
+    """Worker name."""
+
     input_queue = None
+    """Queue to read event messages from."""
+
     run_interval = None
+    """Interval to fetch new messages from the queue."""
 
     def __init__(self, input_queue, logger_=None, run_interval=.5, *args, **kw):
+        """Initialize the worker."""
         if logger_ is None:
             logger_ = logger
-        return super().__init__(input_queue, logger_, run_interval, *args, **kw)
+        super().__init__(input_queue, logger_, run_interval, *args, **kw)
 
     @newrelic.agent.background_task(name='process_message', group='Task')
-    def process_message(self, message):
+    def process_message(self, message: SQSMessage) -> bool:
         """Process a message retrieved from the input_queue.
 
         :param message: A message from the queue
-        :type message: briefy.common.queue.message.SQSMessage
         :returns: Status from the process
-        :rtype: bool
         """
         body = message.body
         event_name = body['event_name']
@@ -56,7 +61,6 @@ class Worker(QueueWorker):
         )
         notify(event)
         self.logger.debug('Event {} notified'.format(event_name))
-
         return True
 
 

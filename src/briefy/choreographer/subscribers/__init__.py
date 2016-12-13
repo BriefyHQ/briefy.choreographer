@@ -26,23 +26,26 @@ class BaseHandler:
         data.update({'guid': self.guid})
 
     @property
-    def actions(self):
-        """Return all actions for this event."""
+    def actions(self) -> list:
+        """Return all actions for this event.
+
+        :returns: List of actions registered for this event.
+        """
         registry = self.registry
         action_adapters = registry.getAdapters((self.event,), IAction)
         actions = [action for name, action in action_adapters]
         actions.sort(key=operator.attrgetter('weight'))
         return actions
 
-    def __call__(self):
-        """Handle events."""
+    def __call__(self) -> None:
+        """Execute all actions registered to this event."""
         actions = self.actions
         for action in actions:
             try:
                 action()
             except Exception:
                 _logger.exception(
-                    'An error occurred executing {}'.format(
-                        action.__class__.__name__
+                    'An error occurred executing {name}'.format(
+                        name=action.__class__.__name__
                     )
                 )

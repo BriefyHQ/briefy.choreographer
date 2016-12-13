@@ -1,5 +1,7 @@
 """Module that implements possible actions."""
 from briefy.common.queue import IQueue
+from briefy.common.queue import Queue
+from briefy.choreographer.events import InternalEvent
 from zope.component import getUtility
 from zope.interface import Attribute
 from zope.interface import Interface
@@ -13,6 +15,7 @@ class IAction(Interface):
     """An action."""
 
     weight = Attribute("""Weight of the action. Lower will be processed first""")
+    entity = Attribute("""Name of the entity to be processed here""")
 
     def transform():
         """Execute the action."""
@@ -25,22 +28,33 @@ class Action:
     """An action."""
 
     weight = 100
-    _queue_name = ''
-    _queue = None
+    """Weight of the action.
 
-    def __init__(self, event):
+    A lower number takes precedence over a higher number.
+    """
+    _queue_name = ''
+    """Name of the queue to be used."""
+
+    _queue = None
+    """Queue to be used."""
+
+    entity = ''
+    """Name of the entity to be processed here."""
+
+
+    def __init__(self, event: InternalEvent):
         """Initialize the Action."""
         self.data = event.data
         self.event = event
 
     @property
-    def available(self):
+    def available(self) -> bool:
         """Check if this action is available."""
         return True
 
     @property
-    def queue(self):
-        """Retrieve the queue to be used."""
+    def queue(self) -> Queue:
+        """Retrieve the queue to be used on this action."""
         queue = self._queue
         if not queue and self._queue_name:
             queue = getUtility(IQueue, self._queue_name)
@@ -51,7 +65,7 @@ class Action:
         """Transform data."""
         raise NotImplementedError()
 
-    def log(self, payload, response):
+    def log(self, payload: dict, response: str) -> None:
         """Log results from this action."""
         event = self.event
         logger.info(
@@ -62,16 +76,18 @@ class Action:
                 response=response
             ),
             extra={
-                'guid': event.guid,
-                'actor': event.actor,
-                'request_id': event.request_id,
-                'entity': self.entity,
-                'event_name': event.event_name,
-                'payload': payload
+                'action': {
+                    'guid': event.guid,
+                    'actor': event.actor,
+                    'request_id': event.request_id,
+                    'entity': self.entity,
+                    'event_name': event.event_name,
+                    'payload': payload
+                }
             }
         )
 
-    def __call__(self):
+    def __call__(self) -> None:
         """Execute the action."""
         if self.available:
             payload = self.transform()
@@ -81,8 +97,8 @@ class Action:
             response = queue.write_message(payload)
             self.log(payload, response)
 
-    def __repr__(self):
-        """Representation of an Action."""
+    def __repr__(self) -> str:
+        """Representation of the Action object."""
         return (
             """<{0}(weight='{1}')>""").format(
                 self.__class__.__name__,

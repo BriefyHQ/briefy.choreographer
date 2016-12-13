@@ -9,28 +9,37 @@ class ISlack(IAction):
 
 
 class Slack(Action):
-    """Action that queue slack messages."""
+    """Action that queue messages to be sent with Slack."""
 
     weight = 100
     _queue_name = 'slack.queue'
     entity = ''
     _channel = '#tests'
+    """Channel to receive the message."""
+
     color = 'good'
+    """Color of the attachment."""
+
     icon = ':briefy:'
+    """Icon to be used on the message."""
 
     @property
-    def channel(self):
+    def channel(self) -> str:
+        """Return the channel to be receive this message.
+
+        If we are in not in production, send to #tests.
+        """
         if is_production():
             return self._channel
         else:
             return '#tests'
 
     @property
-    def available(self):
+    def available(self) -> bool:
         """Check if this action is available."""
         return True
 
-    def transform(self):
+    def transform(self) -> dict:
         """Transform data."""
         event = self.event
         payload = {

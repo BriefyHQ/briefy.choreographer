@@ -14,11 +14,11 @@ class Notification(Action):
     _queue_name = 'notification.queue'
 
     @property
-    def available(self):
+    def available(self) -> bool:
         """Check if this action is available."""
         return True
 
-    def transform(self):
+    def transform(self) -> dict:
         """Transform data."""
         event = self.event
         data = self.data

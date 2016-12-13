@@ -9,28 +9,30 @@ from zope.interface import implementer
 
 
 class QuoteMail(Mail):
-    """Mail sent on Lead events."""
+    """Base class for emails sent on Quote events."""
 
-    entity = 'Quote'
     weight = 100
+    entity = 'Quote'
 
     @property
-    def sender(self):
+    def sender(self) -> dict:
         """Return sender information for this action.
 
         :returns: Dictionary with two keys - name, email
-        :rtype: dict
         """
         return {
             'name': MAIL_ACTION_QUOTE_SENDER_NAME,
             'email': MAIL_ACTION_QUOTE_SENDER_EMAIL,
         }
 
-    def transform(self):
+    def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        fullname = '{} {}'.format(data['first_name'], data['last_name'])
+        fullname = '{first} {last}'.format(
+            first=data['first_name'],
+            last=data['last_name']
+        )
         payload['fullname'] = fullname
         payload['email'] = data['email']
         payload['company'] = data['company']
@@ -52,7 +54,3 @@ class QuoteCreated(QuoteMail):
 
     template_name = 'briefy-new-quote'
     subject = '''Your Quote has been Requested!'''
-
-    @property
-    def available(self):
-        return True

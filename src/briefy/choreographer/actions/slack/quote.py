@@ -7,11 +7,17 @@ from zope.interface import implementer
 
 
 class QuoteSlack(Slack):
-    """Slack message sent on Quote events."""
+    """Base class used for Slack message sent on Quote events."""
 
     entity = 'Quote'
     weight = 100
     _channel = '#briefy-co-quotes'
+
+
+@adapter(lead.IQuoteCreated)
+@implementer(ISlack)
+class QuoteCreated(QuoteSlack):
+    """After creating a new Quote, post on slack."""
 
     def transform(self):
         """Transform data."""
@@ -46,13 +52,3 @@ class QuoteSlack(Slack):
             ]
         }
         return payload
-
-
-@adapter(lead.IQuoteCreated)
-@implementer(ISlack)
-class QuoteCreated(QuoteSlack):
-    """After creating a new Quote, post on slack."""
-
-    @property
-    def available(self):
-        return True

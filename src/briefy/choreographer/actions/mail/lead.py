@@ -9,24 +9,29 @@ from zope.interface import implementer
 
 
 class LeadMail(Mail):
-    """Mail sent on Lead events."""
+    """Base class for emails sent on Lead events."""
+
+    weight = 100
+    """Weight of the action.
+
+    A lower number takes precedence over a higher number.
+    """
 
     entity = 'Lead'
-    weight = 100
+    """Name of the entity to be processed here."""
 
     @property
-    def sender(self):
+    def sender(self) -> dict:
         """Return sender information for this action.
 
         :returns: Dictionary with two keys - name, email
-        :rtype: dict
         """
         return {
             'name': MAIL_ACTION_LEAD_SENDER_NAME,
             'email': MAIL_ACTION_LEAD_SENDER_EMAIL,
         }
 
-    def transform(self):
+    def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()
         data = self.data
@@ -50,8 +55,8 @@ class LeadCreated(LeadMail):
     subject = '''You're Officially a Briefy Insider!'''
 
     @property
-    def available(self):
-        """Should not fire an email """
+    def available(self) -> bool:
+        """Send email only if internal attribute is set on the payload."""
         available = super().available
         data = self.data
         return available and data.get('internal')

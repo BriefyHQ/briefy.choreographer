@@ -17,7 +17,7 @@ def lead_handler(event):
 
 
 class QuoteHandler(BaseHandler):
-    """Handler for Lead events."""
+    """Handler for Quote events."""
 
 
 def quote_handler(event):

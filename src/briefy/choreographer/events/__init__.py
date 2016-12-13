@@ -1,5 +1,6 @@
 """Briefy Choreographer Events."""
 from briefy.common.event import IEvent
+from datetime import datetime
 
 
 class IInternalEvent(IEvent):
@@ -30,9 +31,8 @@ class InternalEvent:
     data = None
     """Event payload."""
 
-
-    def __init__(self, actor, guid, request_id, created_at, data):
-        """Initialize the event with Message data"""
+    def __init__(self, actor: str, guid: str, request_id: str, created_at: datetime, data: dict):
+        """Initialize the event with Message data."""
         self.actor = actor
         self.guid = guid
         self.request_id = request_id

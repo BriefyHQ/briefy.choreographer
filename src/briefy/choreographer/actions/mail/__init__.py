@@ -37,7 +37,8 @@ class Mail(Action):
     @property
     def available(self) -> bool:
         """Check if this action is available."""
-        return True
+        available = super().available
+        return True and available
 
     def get_template(self, language='en-gb') -> str:
         """Return the template name to be used on this action."""

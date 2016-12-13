@@ -16,7 +16,8 @@ class Notification(Action):
     @property
     def available(self) -> bool:
         """Check if this action is available."""
-        return True
+        available = super().available
+        return True and available
 
     def transform(self) -> dict:
         """Transform data."""

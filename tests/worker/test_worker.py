@@ -11,19 +11,21 @@ import uuid
 
 
 class AssertRead(dict):
-    """
-    A dictionary that counts the number of times each value was fetched
-    """
+    """A dictionary that counts the number of times each value was fetched."""
+
     def __init__(self, *args, **kw):
+        """Initialize."""
         self.read_count = defaultdict(lambda: 0)
         super().__init__(*args, **kw)
 
     def __getitem__(self, key):
+        """Get an item."""
         res = super().__getitem__(key)
         self.read_count[key] += 1
         return res
 
     def reset(self):
+        """Reset counters."""
         for key in self:
             self.read_count[key] = 0
 
@@ -53,7 +55,9 @@ def message():
             )
             self.body.reset()
 
-        def delete(self): pass
+        def delete(self):
+            """Delete message."""
+            pass
 
     return DummyMessage()
 

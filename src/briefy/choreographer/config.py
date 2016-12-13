@@ -23,5 +23,6 @@ NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{0}'.for
 SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
 
 
-def is_production():
-    return ENV == 'production'
+def is_production() -> bool:
+    """Return if we are running in a live environment."""
+    return True if ENV == 'production' else False

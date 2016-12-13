@@ -50,7 +50,6 @@ class Schema(colander.MappingSchema):
     """Attachments to be sent with this mesage -- a list of urls."""
 
 
-
 @implementer(IQueue)
 class Queue(BaseQueue):
     """A Queue to handle messages to send emails."""

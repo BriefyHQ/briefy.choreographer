@@ -69,6 +69,8 @@ class BaseActionCase(BaseTestCase):
 
     def _prepare_queue(self):
         mock_sqs()
+        if not self.action_class._queue_name:
+            return
         queue = getUtility(IQueue, self.action_class._queue_name)
         queue_name = queue.name
         sqs = boto3.resource('sqs', region_name=SQS_REGION)
@@ -93,6 +95,11 @@ class BaseActionCase(BaseTestCase):
             )
             event = self.event
         self.obj = self._make_one(event)
+
+    def test_repr(self):
+        """Test repr for the action."""
+        action = self.obj
+        assert isinstance(action.__repr__(), str)
 
     def test_interfaces(self):
         """Test that this action provides IAction interfaces."""
@@ -156,6 +163,12 @@ class BaseQueueCase(BaseTestCase):
         """Test queue name."""
         queue = self._make_one()
         assert isinstance(queue, self.queue)
+
+    def test_example_payload(self):
+        """Test example payload."""
+        queue = self._make_one()
+        payload = queue.payload
+        assert isinstance(payload, dict)
 
     def test_repr(self):
         """Test str representation of this tool."""

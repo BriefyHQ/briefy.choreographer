@@ -41,7 +41,6 @@ class Action:
     entity = ''
     """Name of the entity to be processed here."""
 
-
     def __init__(self, event: InternalEvent):
         """Initialize the Action."""
         self.data = event.data

@@ -23,7 +23,10 @@ class QuoteCreated(QuoteSlack):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        fullname = '{} {}'.format(data['first_name'], data['last_name'])
+        fullname = '{first} {last}'.format(
+            first=data['first_name'],
+            last=data['last_name']
+        )
         payload['title'] = 'New Quote created!'
         payload['text'] = 'New Quote request was created, please take a look into the details:'
         payload['username'] = 'Briefy Bot'

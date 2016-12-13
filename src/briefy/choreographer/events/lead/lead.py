@@ -9,10 +9,12 @@ from zope.interface import implementer
 @implementer(ILeadCreated)
 class LeadCreated(LeadEvent):
     """A new Lead was created."""
+
     event_name = 'lead.created'
 
 
 @implementer(IQuoteCreated)
 class QuoteCreated(QuoteEvent):
     """A new Quote was created."""
+
     event_name = 'quote.created'

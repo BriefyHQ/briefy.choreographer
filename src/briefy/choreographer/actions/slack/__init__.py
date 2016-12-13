@@ -29,15 +29,16 @@ class Slack(Action):
 
         If we are in not in production, send to #tests.
         """
-        if is_production():
-            return self._channel
-        else:
-            return '#tests'
+        channel = self._channel
+        if not is_production():
+            channel = '#tests'
+        return channel
 
     @property
     def available(self) -> bool:
         """Check if this action is available."""
-        return True
+        available = super().available
+        return True and available
 
     def transform(self) -> dict:
         """Transform data."""

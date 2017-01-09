@@ -46,11 +46,13 @@ class Worker(QueueWorker):
 
         if not event_name or not guid:
             self.logger.info('Event without name or guid on queue')
-            return False
+            # This will delete the message
+            return True
         event_factory = queryUtility(IInternalEvent, event_name, None)
         if not event_factory:
-            self.logger.info('Event {} has no handler'.format(event_name))
-            return False
+            self.logger.info('Event {name} has no handler'.format(name=event_name))
+            # This will delete the message
+            return True
 
         event = event_factory(
             guid=guid,

@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="user.created" component=".user.UserCreated" provides=".IUserCreated" />
+    <utility name="user.password.reset" component=".user.UserPasswordReset" provides=".IUserPasswordReset" />
+
+</configure>

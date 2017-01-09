@@ -9,6 +9,9 @@ ENV = config('ENV', default='staging')
 NEW_RELIC_LICENSE_KEY = config('NEW_RELIC_LICENSE_KEY', default='')
 
 # Mail Action
+MAIL_ACTION_SENDER_NAME = config('MAIL_ACTION_SENDER_NAME', default='Briefy Team')
+MAIL_ACTION_SENDER_EMAIL = config('MAIL_ACTION_SENDER_EMAIL', default='site@briefy.co')
+
 MAIL_ACTION_LEAD_SENDER_NAME = config('MAIL_ACTION_LEAD_SENDER_NAME', default='Andre from Briefy')
 MAIL_ACTION_LEAD_SENDER_EMAIL = config('MAIL_ACTION_LEAD_SENDER_EMAIL', default='hello@briefy.co')
 
@@ -21,6 +24,9 @@ NOTIFICATION_QUEUE = config('NOTIFICATION_QUEUE', default='notification-{0}'.for
 
 # Slack
 SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
+
+# Platform
+PLATFORM_URL = config('PLATFORM_URL', default='https://app.stg.briefy.co/')
 
 
 def is_production() -> bool:

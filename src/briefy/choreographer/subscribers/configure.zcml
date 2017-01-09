@@ -6,5 +6,6 @@
     <!-- Include subscribers per data object-->
     <include package=".lead" />
     <include package=".mail" />
+    <include package=".user" />
 
 </configure>

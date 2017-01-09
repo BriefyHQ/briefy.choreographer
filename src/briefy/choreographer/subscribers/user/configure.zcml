@@ -1,0 +1,10 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Mail events -->
+    <subscriber for="briefy.choreographer.events.user.IUserEvent" handler=".handler" />
+
+    <!-- user.password.reset -->
+    <adapter name="user.password.reset.email" factory="briefy.choreographer.actions.mail.user.PasswordReset" />
+    <adapter name="user.password.reset.slack" factory="briefy.choreographer.actions.slack.user.PasswordReset" />
+
+</configure>

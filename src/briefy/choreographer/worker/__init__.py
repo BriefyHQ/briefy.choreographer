@@ -73,5 +73,5 @@ def main():
     try:
         worker()
     except Exception as exc:
-        logger.exception('{} exiting due to an exception.'.format(Worker.name))
+        logger.exception('{name} exiting due to an exception.'.format(name=Worker.name))
         raise

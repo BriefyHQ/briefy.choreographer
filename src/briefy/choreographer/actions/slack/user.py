@@ -52,7 +52,7 @@ class PasswordReset(UserSlack):
         data = self.data
         payload['title'] = 'Password reset request'
         payload['text'] = 'The user {username} requested a password reset'.format(
-            username=data.get('username')
+            username=data.get('email')
         )
         payload['username'] = 'Briefy Bot'
         payload['data'] = {

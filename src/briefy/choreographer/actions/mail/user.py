@@ -75,8 +75,7 @@ class PasswordReset(UserMail):
     def available(self) -> bool:
         """Send email only if internal attribute is set on the payload."""
         available = super().available
-        data = self.data
-        return available and data.get('internal')
+        return available
 
     def transform(self) -> dict:
         """Transform data."""

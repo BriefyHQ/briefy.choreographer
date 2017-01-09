@@ -68,7 +68,7 @@ class UserCreated(UserMail):
 class PasswordReset(UserMail):
     """Send an email to the user the details of a password reset request."""
 
-    template_name = 'platform-user-password-reset'
+    template_name = 'platform-user-password-request'
     subject = '''Reset your password'''
 
     @property

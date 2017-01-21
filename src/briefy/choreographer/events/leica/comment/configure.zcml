@@ -1,0 +1,6 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="comment.created" component=".CommentCreated" provides=".ICommentCreated" />
+    <utility name="comment.updated" component=".CommentUpdated" provides=".ICommentUpdated" />
+
+</configure>

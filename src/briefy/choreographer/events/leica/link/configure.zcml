@@ -1,0 +1,5 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="link.workflow.delete" component=".LinkWfDelete" provides=".ILinkWfDelete" />
+
+</configure>

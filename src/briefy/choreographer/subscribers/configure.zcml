@@ -4,6 +4,7 @@
     <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".logger.handler" />
 
     <!-- Include subscribers per data object-->
+    <include package=".leica" />
     <include package=".lead" />
     <include package=".mail" />
     <include package=".user" />

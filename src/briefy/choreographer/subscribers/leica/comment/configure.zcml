@@ -1,0 +1,16 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Comment events -->
+    <subscriber for="briefy.choreographer.events.leica.comment.ICommentEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+    
+    <!-- comment.created -->
+        <!-- <adapter name="comment.created.email" factory="briefy.choreographer.actions.mail.leica.CommentCreated.CommentCreated" /> -->
+        <!-- <adapter name="comment.created.slack" factory="briefy.choreographer.actions.slack.leica.CommentCreated.CommentCreated" /> -->
+
+    <!-- comment.updated -->
+        <!-- <adapter name="comment.updated.email" factory="briefy.choreographer.actions.mail.leica.CommentUpdated.CommentUpdated" /> -->
+        <!-- <adapter name="comment.updated.slack" factory="briefy.choreographer.actions.slack.leica.CommentUpdated.CommentUpdated" /> -->
+
+
+</configure>

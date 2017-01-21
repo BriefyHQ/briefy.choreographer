@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <include package=".asset" />
+    <include package=".assignment" />
+    <include package=".comment" />
+    <include package=".customer" />
+    <include package=".link" />
+    <include package=".order" />
+    <include package=".pool" />
+    <include package=".professional" />
+    <include package=".project" />
+    <include package=".workinglocation" />
+
+</configure>

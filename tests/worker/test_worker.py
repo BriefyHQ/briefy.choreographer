@@ -1,5 +1,4 @@
 """Tests for `briefy.choreographer.worker` module."""
-
 from briefy.choreographer.worker import Worker
 from briefy.choreographer.worker import main
 from collections import defaultdict
@@ -63,7 +62,6 @@ def message():
 
 
 # Unit tests for Worker class
-
 @mock.patch("briefy.choreographer.worker.queryUtility")
 @mock.patch("briefy.choreographer.worker.notify")
 def test_worker_process_message_with_missing_fields(notify_mock, query_mock, message):

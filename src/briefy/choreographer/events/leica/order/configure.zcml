@@ -1,0 +1,22 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="order.created" component=".OrderCreated" provides=".IOrderCreated" />
+    <utility name="order.updated" component=".OrderUpdated" provides=".IOrderUpdated" />
+    <utility name="order.workflow.accept" component=".OrderWfAccept" provides=".IOrderWfAccept" />
+    <utility name="order.workflow.assign" component=".OrderWfAssign" provides=".IOrderWfAssign" />
+    <utility name="order.workflow.cancel" component=".OrderWfCancel" provides=".IOrderWfCancel" />
+    <utility name="order.workflow.deliver" component=".OrderWfDeliver" provides=".IOrderWfDeliver" />
+    <utility name="order.workflow.new_shoot" component=".OrderWfNewShoot" provides=".IOrderWfNewShoot" />
+    <utility name="order.workflow.perm_refuse" component=".OrderWfPermRefuse" provides=".IOrderWfPermRefuse" />
+    <utility name="order.workflow.reassign" component=".OrderWfReassign" provides=".IOrderWfReassign" />
+    <utility name="order.workflow.refuse" component=".OrderWfRefuse" provides=".IOrderWfRefuse" />
+    <utility name="order.workflow.remove_availability" component=".OrderWfRemoveAvailability" provides=".IOrderWfRemoveAvailability" />
+    <utility name="order.workflow.remove_schedule" component=".OrderWfRemoveSchedule" provides=".IOrderWfRemoveSchedule" />
+    <utility name="order.workflow.require_revision" component=".OrderWfRequireRevision" provides=".IOrderWfRequireRevision" />
+    <utility name="order.workflow.reshoot" component=".OrderWfReshoot" provides=".IOrderWfReshoot" />
+    <utility name="order.workflow.schedule" component=".OrderWfSchedule" provides=".IOrderWfSchedule" />
+    <utility name="order.workflow.start_qa" component=".OrderWfStartQa" provides=".IOrderWfStartQa" />
+    <utility name="order.workflow.submit" component=".OrderWfSubmit" provides=".IOrderWfSubmit" />
+    <utility name="order.workflow.unassign" component=".OrderWfUnassign" provides=".IOrderWfUnassign" />
+
+</configure>

@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="customer.created" component=".CustomerCreated" provides=".ICustomerCreated" />
+    <utility name="customer.updated" component=".CustomerUpdated" provides=".ICustomerUpdated" />
+    <utility name="customer.workflow.activate" component=".CustomerWfActivate" provides=".ICustomerWfActivate" />
+    <utility name="customer.workflow.inactivate" component=".CustomerWfInactivate" provides=".ICustomerWfInactivate" />
+    <utility name="customer.workflow.submit" component=".CustomerWfSubmit" provides=".ICustomerWfSubmit" />
+
+</configure>

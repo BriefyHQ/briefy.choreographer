@@ -72,6 +72,15 @@ class PasswordReset(UserMail):
     subject = '''Reset your password'''
 
     @property
+    def _action_url(self) -> str:
+        """Return the action URL for the object."""
+        data = self.data
+        return '{base}reset-password/{code}'.format(
+            base=PLATFORM_URL,
+            code=data['id']
+        )
+
+    @property
     def available(self) -> bool:
         """Send email only if internal attribute is set on the payload."""
         available = super().available
@@ -84,4 +93,5 @@ class PasswordReset(UserMail):
         payload['data']['CODE'] = data.get('code')
         payload['data']['REQUESTED_FROM'] = data.get('requested_from')
         payload['data']['EXPIRES'] = data.get('expiration_date')
+        payload['data']['ACTION_URL'] = self._action_url
         return payload

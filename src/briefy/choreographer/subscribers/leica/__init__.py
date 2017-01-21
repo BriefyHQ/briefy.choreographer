@@ -14,4 +14,3 @@ def handler(event):
     """
     handler = LeicaHandler(event)
     handler()
-

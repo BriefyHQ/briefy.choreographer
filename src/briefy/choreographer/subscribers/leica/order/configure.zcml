@@ -5,8 +5,8 @@
 
     
     <!-- order.created -->
-        <!-- <adapter name="order.created.email" factory="briefy.choreographer.actions.mail.leica.OrderCreated.OrderCreated" /> -->
-        <!-- <adapter name="order.created.slack" factory="briefy.choreographer.actions.slack.leica.OrderCreated.OrderCreated" /> -->
+        <adapter name="order.created.scouting.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCreatedScoutMail" />
+        <adapter name="order.created.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderCreated" />
 
     <!-- order.updated -->
         <!-- <adapter name="order.updated.email" factory="briefy.choreographer.actions.mail.leica.OrderUpdated.OrderUpdated" /> -->

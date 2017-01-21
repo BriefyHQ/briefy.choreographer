@@ -1,11 +1,13 @@
 """Module that implements possible actions."""
+from briefy.choreographer.config import PLATFORM_URL
+from briefy.choreographer.events import InternalEvent
 from briefy.common.queue import IQueue
 from briefy.common.queue import Queue
-from briefy.choreographer.events import InternalEvent
 from zope.component import getUtility
 from zope.interface import Attribute
 from zope.interface import Interface
 
+import dateutil.parser
 import logging
 
 logger = logging.getLogger('briefy.choreographer')
@@ -45,6 +47,34 @@ class Action:
         """Initialize the Action."""
         self.data = event.data
         self.event = event
+
+    @property
+    def _action_url(self) -> str:
+        """Return the action URL for the object."""
+        data = self.data
+        entity = self.entity
+        if 'id' in data and entity:
+            return '{base}{entity}s/{id}'.format(
+                base=PLATFORM_URL,
+                entity=entity.lower(),
+                id=data['id']
+            )
+
+    def _format_date(self, value: str) -> str:
+        """Format a date."""
+        response = ''
+        if value:
+            value = dateutil.parser.parse(value)
+            response = '{0:%d-%m-%Y}'.format(value)
+        return response
+
+    def _format_datetime(self, value: str) -> str:
+        """Format a datetime."""
+        response = ''
+        if value:
+            value = dateutil.parser.parse(value)
+            response = '{0:%d-%m-%Y %H:%M}'.format(value)
+        return response
 
     @property
     def available(self) -> bool:

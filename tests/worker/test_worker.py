@@ -66,29 +66,29 @@ def message():
 
 @mock.patch("briefy.choreographer.worker.queryUtility")
 @mock.patch("briefy.choreographer.worker.notify")
-def test_worker_doesnot_process_message_with_missing_fields(notify_mock, query_mock, message):
+def test_worker_process_message_with_missing_fields(notify_mock, query_mock, message):
     query_mock.side_effect = lambda interface, name, context: dict
     body = message.body.copy()
     message.body['guid'] = None
     w = Worker(TestQueue())
     answer = w.process_message(message)
-    assert not answer
+    assert answer
     message.body = body
     message.body['event_name'] = None
     answer = w.process_message(message)
-    assert not answer
+    assert answer
 
 
 @mock.patch("briefy.choreographer.worker.queryUtility")
 @mock.patch("briefy.choreographer.worker.notify")
-def test_worker_doesnot_process_message_when_event_factory_not_found(
+def test_worker_process_message_when_event_factory_not_found(
         notify_mock,
         query_mock,
         message):
     query_mock.side_effect = lambda interface, name, context: None
     logger_mock = mock.Mock()
     w = Worker(TestQueue(), logger_=logger_mock)
-    assert not w.process_message(message)
+    assert w.process_message(message)
     assert 'has no handler' in logger_mock.info.call_args[0][0]
 
 

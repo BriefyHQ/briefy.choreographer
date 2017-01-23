@@ -10,7 +10,7 @@ class TestChoreographerQueue(BaseQueueCase):
     utility_name = 'slack.queue'
 
     def get_payload(self):
-        """Payload for the mail queue."""
+        """Payload for the slack queue."""
         return {
             'event_name': 'customer.event.created',
             'entity': 'customer',

@@ -13,6 +13,7 @@
         <!-- <adapter name="assignment.updated.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentUpdated.AssignmentUpdated" /> -->
 
     <!-- assignment.workflow.approve -->
+    <adapter name="assignment.workflow.approve.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfApprove" />
         <!-- <adapter name="assignment.workflow.approve.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfApprove.AssignmentWfApprove" /> -->
         <!-- <adapter name="assignment.workflow.approve.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfApprove.AssignmentWfApprove" /> -->
 
@@ -93,6 +94,7 @@
         <!-- <adapter name="assignment.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfSubmit.AssignmentWfSubmit" /> -->
 
     <!-- assignment.workflow.upload -->
+    <adapter name="assignment.workflow.upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfUpload" />
         <!-- <adapter name="assignment.workflow.upload.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfUpload.AssignmentWfUpload" /> -->
         <!-- <adapter name="assignment.workflow.upload.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfUpload.AssignmentWfUpload" /> -->
 

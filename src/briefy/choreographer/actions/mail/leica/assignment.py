@@ -72,14 +72,22 @@ class AssignmentCreativeMail(AssignmentMail):
     """Base class for emails sent to the Creative on Order events."""
 
     @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        recipient = self.recipient
+        return (True if recipient else False)and available
+
+    @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        professional = self.data['professional']
-        return {
-            'first_name': professional['first_name'],
-            'fullname': professional['fullname'],
-            'email': professional['email'],
-        }
+        professional = self.data.get('professional')
+        if professional:
+            return {
+                'first_name': professional['first_name'],
+                'fullname': professional['fullname'],
+                'email': professional['email'],
+            }
 
 
 @adapter(events.IAssignmentWfCancel)

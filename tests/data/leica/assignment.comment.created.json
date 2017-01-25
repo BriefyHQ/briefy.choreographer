@@ -1,0 +1,315 @@
+{
+  "can_create_roles": [],
+  "can_delete_roles": [],
+  "author_role": "project_manager",
+  "author_id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+  "entity": {
+      "state_history": [
+          {
+              "to": "created",
+              "date": "2016-09-16T00:00:00+00:00",
+              "actor": {
+                  "fullname": "Ariana Shauh",
+                  "email": "ariana@briefy.co",
+                  "first_name": "Ariana",
+                  "last_name": "Shauh",
+                  "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de"
+              },
+              "transition": "",
+              "message": "Created by Fachry Muchamad on Knack database",
+              "from": ""
+          },
+          {
+              "to": "pending",
+              "date": "2016-09-16T00:00:00+00:00",
+              "actor": {
+                  "fullname": "Ariana Shauh",
+                  "email": "ariana@briefy.co",
+                  "first_name": "Ariana",
+                  "last_name": "Shauh",
+                  "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de"
+              },
+              "transition": "submit",
+              "message": "Automatic transition to pending",
+              "from": "created"
+          },
+          {
+              "to": "scheduled",
+              "date": "2016-11-16T09:00:00+00:00",
+              "actor": {
+                  "fullname": "Agus Putu Pranayoga",
+                  "email": "pranayogavisual@gmail.com",
+                  "first_name": "Agus Putu",
+                  "last_name": "Pranayoga",
+                  "id": "f14c1206-5a75-42fd-bb02-735b885a3fd9"
+              },
+              "transition": "schedule",
+              "message": "Scheduled by 'Briefy' on the Knack database",
+              "from": "pending"
+          },
+          {
+              "to": "awaiting_assets",
+              "date": "2016-11-16T09:00:00+00:00",
+              "actor": {
+                  "fullname": "",
+                  "email": "",
+                  "first_name": "",
+                  "last_name": "",
+                  "id": "g:system"
+              },
+              "transition": "ready_for_upload",
+              "message": "Waiting for asset upload (from data on Knack)",
+              "from": "scheduled"
+          },
+          {
+              "to": "validation",
+              "date": "2017-01-19T13:16:00+00:00",
+              "actor": {
+                  "fullname": "Agus Putu Pranayoga",
+                  "email": "pranayogavisual@gmail.com",
+                  "first_name": "Agus Putu",
+                  "last_name": "Pranayoga",
+                  "id": "f14c1206-5a75-42fd-bb02-735b885a3fd9"
+              },
+              "transition": "upload",
+              "message": "Submited by 'Agus Putu Pranayoga' (from data on Knack)",
+              "from": "awaiting_assets"
+          },
+          {
+              "to": "in_qa",
+              "date": "2017-01-19T13:53:00+00:00",
+              "actor": {
+                  "fullname": "",
+                  "email": "",
+                  "first_name": "",
+                  "last_name": "",
+                  "id": "g:system"
+              },
+              "transition": "validate",
+              "message": "Automatic validation skipped (from data on Knack)",
+              "from": "validation"
+          },
+          {
+              "to": "approved",
+              "date": "2017-01-19T13:16:00+00:00",
+              "actor": {
+                  "fullname": "Manuela Luise",
+                  "email": "manuela@briefy.co",
+                  "first_name": "Manuela",
+                  "last_name": "Luise",
+                  "id": "ad3866e6-e5fe-4983-af08-c1dc4ca8e9e1"
+              },
+              "transition": "approve",
+              "message": "Approved by 'Manuela Luise'",
+              "from": "in_qa"
+          }
+      ],
+      "comments": [
+          {
+              "author_role": "project_manager",
+              "created_at": "2017-01-25T17:17:36.765837+00:00",
+              "author": {
+                  "fullname": "Laure d'Utruy",
+                  "email": "laure@briefy.co",
+                  "first_name": "Laure",
+                  "last_name": "d'Utruy",
+                  "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+              },
+              "to_role": "professional_user",
+              "content": "Ok, no problems!",
+              "updated_at": "2017-01-25T17:17:36.765950+00:00",
+              "id": "7f9431b9-5db6-4bb9-85c1-ba005262e663",
+              "internal": false
+          },
+          {
+              "author_role": "professional_user",
+              "created_at": "2017-01-25T01:10:18.621351+00:00",
+              "author": {
+                  "fullname": "Agus Putu Pranayoga",
+                  "email": "pranayogavisual@gmail.com",
+                  "first_name": "Agus Putu",
+                  "last_name": "Pranayoga",
+                  "id": "f14c1206-5a75-42fd-bb02-735b885a3fd9"
+              },
+              "to_role": "qa_manager",
+              "content": "no business center\nOcean Front Pool Suite and Pool Suite are occupied",
+              "updated_at": "2017-01-25T01:10:18.621372+00:00",
+              "id": "2452d336-248b-4152-a33b-07b0e92009ae",
+              "internal": false
+          }
+      ],
+      "slug": "1701-PS7-824_01",
+      "project_manager": {
+          "fullname": "Ariana Shauh",
+          "email": "ariana@briefy.co",
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de"
+      },
+      "created_at": "2016-09-16T00:00:00+00:00",
+      "qa_manager": {
+          "fullname": "Manuela Luise",
+          "email": "manuela@briefy.co",
+          "first_name": "Manuela",
+          "last_name": "Luise",
+          "id": "ad3866e6-e5fe-4983-af08-c1dc4ca8e9e1"
+      },
+      "payout_currency": "EUR",
+      "total_approvable_assets": 0,
+      "state": "approved",
+      "additional_compensation": 0,
+      "availability": null,
+      "order_slug": "1701-PS7-824",
+      "professional_id": "f14c1206-5a75-42fd-bb02-735b885a3fd9",
+      "delivery": {
+          "gdrive": "https://drive.google.com/drive/folders/0BzVECRdNByQARjY0WTJfZXZPRk0"
+      },
+      "description": "",
+      "location": {
+          "additional_phone": null,
+          "fullname": "surya kencana",
+          "locality": "Bali",
+          "info": {
+              "postal_code": "",
+              "province": "",
+              "street_number": "",
+              "route": "Dusun Pemuteran, Kecamatan Gerokgak, Kabupaten Buleleng",
+              "formatted_address": "Dusun Pemuteran, Kecamatan Gerokgak, Kabupaten Buleleng, Bali, Indonesia",
+              "country": "ID"
+          },
+          "coordinates": {
+              "type": "Point",
+              "coordinates": [
+                  114.6489806,
+                  -8.168066
+              ]
+          },
+          "email": "it@balitamansari.com",
+          "formatted_address": "Dusun Pemuteran, Kecamatan Gerokgak, Kabupaten Buleleng, Bali, Indonesia",
+          "country": "ID",
+          "mobile": "+62 817-0329-7003",
+          "id": "e5b46098-ad79-43a2-b917-c0b763537b7d"
+      },
+      "assignment_date": null,
+      "pool_id": null,
+      "travel_expenses": 0,
+      "professional_user": {
+          "fullname": "Agus Putu Pranayoga",
+          "email": "pranayogavisual@gmail.com",
+          "first_name": "Agus Putu",
+          "last_name": "Pranayoga",
+          "id": "f14c1206-5a75-42fd-bb02-735b885a3fd9"
+      },
+      "payable": true,
+      "tech_requirements": {
+          "mimetype": [
+              {
+                  "value": "image/jpeg",
+                  "operator": "eq"
+              }
+          ],
+          "dimensions": [
+              {
+                  "value": "4150x3100",
+                  "operator": "min"
+              },
+              {
+                  "value": "4250x3200",
+                  "operator": "max"
+              }
+          ],
+          "orientation": [
+              {
+                  "value": "landscape",
+                  "operator": "eq"
+              }
+          ],
+          "ratio": [
+              {
+                  "value": 1.3333333333333333,
+                  "operator": "eq"
+              }
+          ]
+      },
+      "customer_order_id": "239823",
+      "number_required_assets": 101,
+      "scout_manager": null,
+      "pool": null,
+      "order_id": "f02957b4-0af4-471a-bc43-33ca56de79cc",
+      "requirements": "Total: 101 photos\n\nOcean Front Pool Suite - Photos: 5 - Filenames: 239823_ocean-front-pool-suite_XX.jpg\n\nPool Villa - Photos: 5 - Filenames: 239823_pool-villa_XX.jpg\n\nTwo-Bedroom Pool Villa with Ocean View - Photos: 5 - Filenames: 239823_two-bedroom-pool-villa-with-ocean-view_XX.jpg\n\nDeluxe - Photos: 5 - Filenames: 239823_deluxe_XX.jpg\n\nTwo-Bedroom Pool Villa with Garden View - Photos: 5 - Filenames: 239823_two-bedroom-pool-villa-with-garden-view_XX.jpg\n\nPool Suite - Photos: 5 - Filenames: 239823_pool-suite_XX.jpg\n\nOcean Front Pool Villa - Photos: 5 - Filenames: 239823_ocean-front-pool-villa_XX.jpg\n\nFamily Pool Villa - Photos: 5 - Filenames: 239823_family-pool-villa_XX.jpg\n\nbar - Photos: 5 - Filenames: 239823_bar_XX.jpg\n\nbusiness center - Photos: 5 - Filenames: 239823_business-center_XX.jpg\n\ngarden - Photos: 5 - Filenames: 239823_garden_XX.jpg\n\noutdoor pool - Photos: 5 - Filenames: 239823_outdoor-pool_XX.jpg\n\npool (kids) - Photos: 5 - Filenames: 239823_pool-(kids)_XX.jpg\n\nprivate beach - Photos: 5 - Filenames: 239823_private-beach_XX.jpg\n\nrestaurant - Photos: 5 - Filenames: 239823_restaurant_XX.jpg\n\nspa - Photos: 5 - Filenames: 239823_spa_XX.jpg\n\nExterior - Photos: 5 - Filenames: 239823_exterior_XX.jpg\n\nInterior - Photos: 5 - Filenames: 239823_interior_XX.jpg\n\nLobby - Photos: 5 - Filenames: 239823_lobby_XX.jpg\n\nReception - Photos: 5 - Filenames: 239823_reception_XX.jpg\n\nOther - Photos: 1 - Filenames: 239823_other_XX.jpg",
+      "project": {
+          "created_at": "2017-01-25T01:07:49.268279+00:00",
+          "title": "Agoda Bali",
+          "state": "ongoing",
+          "description": "",
+          "updated_at": "2017-01-25T14:09:10.375928+00:00",
+          "slug": "agoda-bali",
+          "id": "1dafb433-9431-4295-a349-92c4ad61c59e"
+      },
+      "title": "Amertha Bali Villas",
+      "professional": {
+          "description": null,
+          "created_at": "2017-01-25T01:08:17.014031+00:00",
+          "title": "Agus Putu Pranayoga",
+          "type": null,
+          "slug": "f14c1206",
+          "state": "active",
+          "email": "pranayogavisual@gmail.com",
+          "photo_path": null,
+          "mobile": "+62 817-9788-899",
+          "updated_at": "2017-01-25T01:08:17.014101+00:00",
+          "id": "f14c1206-5a75-42fd-bb02-735b885a3fd9"
+      },
+      "customer": null,
+      "submission_path": "https://drive.google.com/drive/folders/0B5Oy7VVyHNNuZW9uc1VwR29hNjQ",
+      "external_id": null,
+      "set_type": "new",
+      "category": "accommodation",
+      "release_contract": "",
+      "scheduled_datetime": "2016-11-16T09:00:00+00:00",
+      "briefing": "https://files.stg.briefy.co/files/projects/1dafb433-9431-4295-a349-92c4ad61c59e/briefing/agodabalibriefing.pdf",
+      "total_assets": 0,
+      "reason_additional_compensation": "",
+      "payout_value": 16000,
+      "id": "5c8b1f08-a6bc-4089-a5d9-473c56098e23",
+      "updated_at": "2017-01-25T01:10:18.618816+00:00"
+  },
+  "state_history": [
+      {
+          "to": "created",
+          "date": "2017-01-25T17:17:36.760431+00:00",
+          "actor": {
+              "fullname": "Laure d'Utruy",
+              "email": "laure@briefy.co",
+              "first_name": "Laure",
+              "last_name": "d'Utruy",
+              "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+          },
+          "transition": "",
+          "from": "",
+          "message": null
+      }
+  ],
+  "local_roles": [],
+  "in_reply_to": null,
+  "created_at": "2017-01-25T17:17:36.765837+00:00",
+  "comment_order": 0,
+  "author": {
+      "fullname": "Laure d'Utruy",
+      "email": "laure@briefy.co",
+      "first_name": "Laure",
+      "last_name": "d'Utruy",
+      "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+  },
+  "state": "created",
+  "can_view_roles": [],
+  "to_role": "professional_user",
+  "content": "Ok, no problems!",
+  "entity_type": "Assignment",
+  "entity_id": "5c8b1f08-a6bc-4089-a5d9-473c56098e23",
+  "can_edit_roles": [],
+  "updated_at": "2017-01-25T17:17:36.765950+00:00",
+  "can_list_roles": [],
+  "id": "7f9431b9-5db6-4bb9-85c1-ba005262e663",
+  "internal": false
+}

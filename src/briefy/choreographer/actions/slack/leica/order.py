@@ -12,19 +12,15 @@ class OrderSlack(Slack):
     entity = 'Lead'
     weight = 100
     _channel = '#tests'
-
-
-@adapter(events.IOrderCreated)
-@implementer(ISlack)
-class OrderCreated(OrderSlack):
-    """After creating a new Order, post on Slack."""
+    title = 'Order!'
+    text = 'An Order'
 
     def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'New Order created!'
-        payload['text'] = 'New Order was created, please take a look into the details:'
+        payload['title'] = self.title
+        payload['text'] = self.text
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [
@@ -40,6 +36,64 @@ class OrderCreated(OrderSlack):
                  'value': data.get('title'),
                  'short': True,
                  },
+                {'title': 'ID',
+                 'value': data.get('slug'),
+                 'short': True,
+                 },
             ]
         }
         return payload
+
+
+@adapter(events.IOrderCreated)
+@implementer(ISlack)
+class OrderSubmit(OrderSlack):
+    """After creating a new Order, post on Slack."""
+
+    title = 'New order!'
+    text = 'New Order was created, please take a look into the details:'
+
+
+@adapter(events.IOrderWfCancel)
+@implementer(ISlack)
+class OrderWfCancel(OrderSlack):
+    """After cancelling an Order, post on Slack."""
+
+    title = 'Order Cancelled!'
+    text = 'An Order was cancelled'
+
+
+@adapter(events.IOrderWfRefuse)
+@implementer(ISlack)
+class OrderWfRefuse(OrderSlack):
+    """After refusing an Order, post on Slack."""
+
+    title = 'Set was refused!'
+    text = 'A set was refused by a customer.'
+
+
+@adapter(events.IOrderWfDeliver)
+@implementer(ISlack)
+class OrderWfDeliver(OrderSlack):
+    """After delivering an Order, post on Slack."""
+
+    title = 'Set was delivered!'
+    text = 'A set was delivered by a customer.'
+
+
+@adapter(events.IOrderWfAssign)
+@implementer(ISlack)
+class OrderWfAssign(OrderSlack):
+    """After assigning an Order, post on Slack."""
+
+    title = 'Order was assigned!'
+    text = 'An order was assigned.'
+
+
+@adapter(events.IOrderWfSchedule)
+@implementer(ISlack)
+class OrderWfSchedule(OrderSlack):
+    """After scheduling an Order, post on Slack."""
+
+    title = 'Order was scheduled!'
+    text = 'An order was scheduled.'

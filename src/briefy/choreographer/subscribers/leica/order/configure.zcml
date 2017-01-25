@@ -5,8 +5,6 @@
 
     
     <!-- order.created -->
-        <adapter name="order.created.scouting.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCreatedScoutMail" />
-        <adapter name="order.created.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderCreated" />
 
     <!-- order.updated -->
         <!-- <adapter name="order.updated.email" factory="briefy.choreographer.actions.mail.leica.OrderUpdated.OrderUpdated" /> -->
@@ -17,16 +15,17 @@
         <!-- <adapter name="order.workflow.accept.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfAccept.OrderWfAccept" /> -->
 
     <!-- order.workflow.assign -->
-        <!-- <adapter name="order.workflow.assign.email" factory="briefy.choreographer.actions.mail.leica.OrderWfAssign.OrderWfAssign" /> -->
-        <!-- <adapter name="order.workflow.assign.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfAssign.OrderWfAssign" /> -->
+        <adapter name="order.workflow.assign.email.customer" factory="briefy.choreographer.actions.mail.leica.order.OrderAssignedCustomerMail" />
+        <adapter name="order.workflow.assign.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfAssign" />
 
     <!-- order.workflow.cancel -->
-        <!-- <adapter name="order.workflow.cancel.email" factory="briefy.choreographer.actions.mail.leica.OrderWfCancel.OrderWfCancel" /> -->
-        <!-- <adapter name="order.workflow.cancel.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfCancel.OrderWfCancel" /> -->
+        <adapter name="order.workflow.cancel.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledCustomerMail" />
+        <adapter name="order.workflow.cancel.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledCustomerMail" />
+        <adapter name="order.workflow.cancel.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfCancel" />
 
     <!-- order.workflow.deliver -->
-        <!-- <adapter name="order.workflow.deliver.email" factory="briefy.choreographer.actions.mail.leica.OrderWfDeliver.OrderWfDeliver" /> -->
-        <!-- <adapter name="order.workflow.deliver.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfDeliver.OrderWfDeliver" /> -->
+        <adapter name="order.workflow.deliver.email.customer" factory="briefy.choreographer.actions.mail.leica.order.OrderSetDeliveredCustomerMail" />
+        <adapter name="order.workflow.deliver.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfDeliver" />
 
     <!-- order.workflow.new_shoot -->
         <!-- <adapter name="order.workflow.new_shoot.email" factory="briefy.choreographer.actions.mail.leica.OrderWfNewShoot.OrderWfNewShoot" /> -->
@@ -41,8 +40,8 @@
         <!-- <adapter name="order.workflow.reassign.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfReassign.OrderWfReassign" /> -->
 
     <!-- order.workflow.refuse -->
-        <!-- <adapter name="order.workflow.refuse.email" factory="briefy.choreographer.actions.mail.leica.OrderWfRefuse.OrderWfRefuse" /> -->
-        <!-- <adapter name="order.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfRefuse.OrderWfRefuse" /> -->
+        <adapter name="order.workflow.refuse.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSetRefusedCustomerMail" />
+        <adapter name="order.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRefuse" />
 
     <!-- order.workflow.remove_availability -->
         <!-- <adapter name="order.workflow.remove_availability.email" factory="briefy.choreographer.actions.mail.leica.OrderWfRemoveAvailability.OrderWfRemoveAvailability" /> -->
@@ -61,14 +60,18 @@
         <!-- <adapter name="order.workflow.reshoot.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfReshoot.OrderWfReshoot" /> -->
 
     <!-- order.workflow.schedule -->
-        <!-- <adapter name="order.workflow.schedule.email" factory="briefy.choreographer.actions.mail.leica.OrderWfSchedule.OrderWfSchedule" /> -->
-        <!-- <adapter name="order.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfSchedule.OrderWfSchedule" /> -->
+        <adapter name="order.workflow.schedule.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderScheduledCustomerMail" />
+        <adapter name="order.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSchedule" />
 
     <!-- order.workflow.start_qa -->
         <!-- <adapter name="order.workflow.start_qa.email" factory="briefy.choreographer.actions.mail.leica.OrderWfStartQa.OrderWfStartQa" /> -->
         <!-- <adapter name="order.workflow.start_qa.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfStartQa.OrderWfStartQa" /> -->
 
     <!-- order.workflow.submit -->
+        <adapter name="order.created.scouting.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSubmitScoutMail" />
+        <adapter name="order.created.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSubmitCustomerMail" />
+        <adapter name="order.created.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderSubmit" />
+
         <!-- <adapter name="order.workflow.submit.email" factory="briefy.choreographer.actions.mail.leica.OrderWfSubmit.OrderWfSubmit" /> -->
         <!-- <adapter name="order.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfSubmit.OrderWfSubmit" /> -->
 

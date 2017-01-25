@@ -1,0 +1,530 @@
+{
+    "can_delete_roles": [],
+    "author_role": "project_manager",
+    "entity": {
+        "description": "",
+        "external_id": "57da4cfeabd42a81308a7e35",
+        "project_manager": {
+            "last_name": "Farson",
+            "email": "grace@briefy.co",
+            "first_name": "Grace",
+            "fullname": "Grace Farson",
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+        },
+        "customer": {
+            "legal_name": "Agoda Company Pte Ltd",
+            "description": null,
+            "id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+            "state": "active",
+            "updated_at": "2017-01-25T01:07:39.040509+00:00",
+            "title": "Agoda",
+            "slug": "agoda",
+            "created_at": "2017-01-25T01:07:39.040486+00:00",
+            "tax_country": "SG"
+        },
+        "comments": [
+            {
+                "author_role": "project_manager",
+                "author": {
+                    "last_name": "d'Utruy",
+                    "email": "laure@briefy.co",
+                    "first_name": "Laure",
+                    "fullname": "Laure d'Utruy",
+                    "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+                },
+                "id": "dbcab493-8460-48df-8294-163894727338",
+                "internal": false,
+                "content": "Hello,\nNice to meet you sir",
+                "to_role": "customer_user",
+                "created_at": "2017-01-25T17:07:45.653305+00:00",
+                "updated_at": "2017-01-25T17:07:45.653327+00:00"
+            },
+            {
+                "author_role": "customer_user",
+                "author": {
+                    "last_name": "Wisomka",
+                    "email": "ponlawit.wisomka@agoda.com",
+                    "first_name": "Ponlawit",
+                    "fullname": "Ponlawit Wisomka",
+                    "id": "69fd7871-a504-43f1-b4c7-6901f9b46557"
+                },
+                "id": "040712e9-5ee8-4718-b0ac-2d91fd93b8f2",
+                "internal": false,
+                "content": "erwrewrrweshghgdhhfghgfd",
+                "to_role": "qa_manager",
+                "created_at": "2017-01-25T17:06:24.164575+00:00",
+                "updated_at": "2017-01-25T17:06:24.164595+00:00"
+            },
+            {
+                "author_role": "customer_user",
+                "author": {
+                    "last_name": "Wisomka",
+                    "email": "ponlawit.wisomka@agoda.com",
+                    "first_name": "Ponlawit",
+                    "fullname": "Ponlawit Wisomka",
+                    "id": "69fd7871-a504-43f1-b4c7-6901f9b46557"
+                },
+                "id": "b2d3ba51-e9b1-41ad-9961-c9e4035f9df1",
+                "internal": false,
+                "content": "dsfsdfdfssdf",
+                "to_role": "qa_manager",
+                "created_at": "2017-01-25T17:01:30.064443+00:00",
+                "updated_at": "2017-01-25T17:01:30.064474+00:00"
+            },
+            {
+                "author_role": "customer_user",
+                "author": {
+                    "last_name": "Wisomka",
+                    "email": "ponlawit.wisomka@agoda.com",
+                    "first_name": "Ponlawit",
+                    "fullname": "Ponlawit Wisomka",
+                    "id": "69fd7871-a504-43f1-b4c7-6901f9b46557"
+                },
+                "id": "6584cee3-5848-4abb-83bd-f712104cf84f",
+                "internal": false,
+                "content": "Another comment here\nThis one is a bit different",
+                "to_role": "qa_manager",
+                "created_at": "2017-01-25T16:55:00.902552+00:00",
+                "updated_at": "2017-01-25T16:55:00.902594+00:00"
+            },
+            {
+                "author_role": "customer_user",
+                "author": {
+                    "last_name": "Wisomka",
+                    "email": "ponlawit.wisomka@agoda.com",
+                    "first_name": "Ponlawit",
+                    "fullname": "Ponlawit Wisomka",
+                    "id": "69fd7871-a504-43f1-b4c7-6901f9b46557"
+                },
+                "id": "aa72b4ea-c577-4b41-8c1e-4a2f0023421e",
+                "internal": false,
+                "content": "Hallo!!",
+                "to_role": "qa_manager",
+                "created_at": "2017-01-25T13:35:44.858933+00:00",
+                "updated_at": "2017-01-25T13:35:44.858960+00:00"
+            },
+            {
+                "author_role": "customer_user",
+                "author": {
+                    "last_name": "Wisomka",
+                    "email": "ponlawit.wisomka@agoda.com",
+                    "first_name": "Ponlawit",
+                    "fullname": "Ponlawit Wisomka",
+                    "id": "69fd7871-a504-43f1-b4c7-6901f9b46557"
+                },
+                "id": "172757ba-4ef5-4843-8cf6-09c25c3ef427",
+                "internal": false,
+                "content": "If you choose 09/22/16, it will be easy to go to 3Howw Hostel at Khaosan (JobID:393553), which has the same date choice but in the afternoon.And the property needs confirmation by 16 Sep",
+                "to_role": "project_manager",
+                "created_at": "2017-01-25T01:32:22.996313+00:00",
+                "updated_at": "2017-01-25T01:32:22.996323+00:00"
+            },
+            {
+                "author_role": "project_manager",
+                "author": {
+                    "last_name": "Farson",
+                    "email": "grace@briefy.co",
+                    "first_name": "Grace",
+                    "fullname": "Grace Farson",
+                    "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+                },
+                "id": "a0c70785-c424-4d9f-85cd-041784f4859e",
+                "internal": false,
+                "content": "21/09: Confirmed for 23/09",
+                "to_role": "customer_user",
+                "created_at": "2017-01-25T01:32:22.996270+00:00",
+                "updated_at": "2017-01-25T01:32:22.996299+00:00"
+            }
+        ],
+        "location": {
+            "timezone": "UTC",
+            "formatted_address": "1860 Krungkasem Road, Pomprab, Bangkok, Krung Thep Maha Nakhon, 10100, Thailand",
+            "locality": "Bangkok",
+            "state": "created",
+            "coordinates": {
+                "type": "Point",
+                "coordinates": [
+                    100.5099262,
+                    13.7441095
+                ]
+            },
+            "additional_phone": null,
+            "country": "TH",
+            "company_name": null,
+            "last_name": "Kanoknard",
+            "state_history": [
+                {
+                    "transition": "",
+                    "from": "",
+                    "date": "2017-01-25T01:32:22.986985+00:00",
+                    "message": null,
+                    "to": "created",
+                    "actor": null
+                }
+            ],
+            "updated_at": "2017-01-25T12:27:51.842121+00:00",
+            "info": {
+                "place_id": "",
+                "country": "TH",
+                "street_number": "1860",
+                "route": "1860 Krungkasem Road, Pomprab",
+                "province": "Krung Thep Maha Nakhon",
+                "formatted_address": "1860 Krungkasem Road, Pomprab, Bangkok, Krung Thep Maha Nakhon, 10100, Thailand",
+                "locality": "Bangkok",
+                "postal_code": "10100",
+                "coordinates": ""
+            },
+            "first_name": "K.Kanoknard",
+            "id": "2d8d0e1a-7298-4e41-873a-932bc9871a66",
+            "email": "wanlada.waewkratok@agoda.com",
+            "mobile": "+66 81 375 6612",
+            "order_id": "61bf1fae-0705-4c07-8511-d64ab7186c5e",
+            "fullname": "K.Kanoknard Kanoknard",
+            "created_at": "2017-01-25T01:32:22.999178+00:00"
+        },
+        "requirements": "Total: 36 photos\n\nTwin Deluxe Shower - Photos: 5 - Filenames: 546671_twin-deluxe-shower_XX.jpg\n\nTwin Deluxe Room with Bathtub - Photos: 5 - Filenames: 546671_twin-deluxe-room-with-bathtub_XX.jpg\n\nrestaurant - Photos: 5 - Filenames: 546671_restaurant_XX.jpg\n\nExterior - Photos: 5 - Filenames: 546671_exterior_XX.jpg\n\nInterior - Photos: 5 - Filenames: 546671_interior_XX.jpg\n\nLobby - Photos: 5 - Filenames: 546671_lobby_XX.jpg\n\nReception - Photos: 5 - Filenames: 546671_reception_XX.jpg\n\nOther - Photos: 1 - Filenames: 546671_other_XX.jpg",
+        "scout_manager": {
+            "last_name": "Pieprzyk",
+            "email": "stefan@briefy.co",
+            "first_name": "Stefan",
+            "fullname": "Stefan Pieprzyk",
+            "id": "2b045589-0a0f-4302-99d8-7390ad7817ce"
+        },
+        "state": "scheduled",
+        "tech_requirements": {
+            "mimetype": [
+                {
+                    "value": "image/jpeg",
+                    "operator": "eq"
+                }
+            ],
+            "dimensions": [
+                {
+                    "value": "4150x3100",
+                    "operator": "min"
+                },
+                {
+                    "value": "4250x3200",
+                    "operator": "max"
+                }
+            ],
+            "ratio": [
+                {
+                    "value": 1.3333333333333333,
+                    "operator": "eq"
+                }
+            ],
+            "orientation": [
+                {
+                    "value": "landscape",
+                    "operator": "eq"
+                }
+            ]
+        },
+        "project_id": "2edf1e7b-b7f0-4ca4-8d1b-9a8baf05662c",
+        "category": "accommodation",
+        "briefing": "https://files.stg.briefy.co/files/projects/2edf1e7b-b7f0-4ca4-8d1b-9a8baf05662c/briefing/agodabangkokbriefing1.pdf",
+        "delivery": {},
+        "customer_id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+        "job_id": "1586",
+        "updated_at": "2017-01-25T01:32:23.277127+00:00",
+        "price": 35380,
+        "state_history": [
+            {
+                "transition": "",
+                "from": "",
+                "date": "2016-09-15T09:25:00+00:00",
+                "message": "Created by Agoda Bangkok on Knack database",
+                "to": "created",
+                "actor": {
+                    "last_name": "Farson",
+                    "email": "grace@briefy.co",
+                    "first_name": "Grace",
+                    "fullname": "Grace Farson",
+                    "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+                }
+            },
+            {
+                "transition": "submit",
+                "from": "created",
+                "date": "2016-09-15T09:25:00+00:00",
+                "message": "Automatic transition to received",
+                "to": "received",
+                "actor": {
+                    "last_name": "Farson",
+                    "email": "grace@briefy.co",
+                    "first_name": "Grace",
+                    "fullname": "Grace Farson",
+                    "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+                }
+            },
+            {
+                "transition": "assign",
+                "from": "received",
+                "date": "2016-09-19T12:48:00+00:00",
+                "message": "Photographer assigned by 'Stefan Pieprzyk' on the Knack database",
+                "to": "assigned",
+                "actor": {
+                    "last_name": "Pieprzyk",
+                    "email": "stefan@briefy.co",
+                    "first_name": "Stefan",
+                    "fullname": "Stefan Pieprzyk",
+                    "id": "2b045589-0a0f-4302-99d8-7390ad7817ce"
+                }
+            },
+            {
+                "transition": "schedule",
+                "from": "assigned",
+                "date": "2016-09-23T08:00:00+00:00",
+                "message": "Scheduled by 'Poompat Waratkiachthana' on the Knack database",
+                "to": "scheduled",
+                "actor": {
+                    "last_name": "Waratkiachthana",
+                    "email": "jobchen.ds@gmail.com",
+                    "first_name": "Poompat",
+                    "fullname": "Poompat Waratkiachthana",
+                    "id": "dc9558c0-b8cb-4b4b-91dc-8204396b2929"
+                }
+            },
+            {
+                "transition": "start_qa",
+                "from": "scheduled",
+                "date": "2016-09-27T15:32:00+00:00",
+                "message": "Submited by 'Poompat Waratkiachthana' on the Knack database",
+                "to": "in_qa",
+                "actor": {
+                    "last_name": "Waratkiachthana",
+                    "email": "jobchen.ds@gmail.com",
+                    "first_name": "Poompat",
+                    "fullname": "Poompat Waratkiachthana",
+                    "id": "dc9558c0-b8cb-4b4b-91dc-8204396b2929"
+                }
+            }
+        ],
+        "slug": "1701-PS1-586",
+        "source": "briefy",
+        "deliver_date": null,
+        "customer_user": {
+            "last_name": "Schondorf",
+            "email": "eyal.schondorf@agoda.com",
+            "first_name": "Eyal",
+            "fullname": "Eyal Schondorf",
+            "id": "3fa99173-b41d-479f-953d-59ded7bfa971"
+        },
+        "id": "61bf1fae-0705-4c07-8511-d64ab7186c5e",
+        "price_currency": "EUR",
+        "availability": [
+            "2016-09-22T08:00:00+00:00",
+            "2016-09-23T08:00:00+00:00"
+        ],
+        "customer_order_id": "546671",
+        "title": "The Krungkasem Srikrung Hotel",
+        "assignment": {
+            "description": "",
+            "scheduled_datetime": "2016-09-23T08:00:00+00:00",
+            "state": "awaiting_assets",
+            "approvable": false,
+            "category": "accommodation",
+            "created_at": "2016-09-15T09:25:00+00:00",
+            "total_assets": 0,
+            "updated_at": "2017-01-25T01:32:23.218359+00:00",
+            "total_approvable_assets": 0,
+            "professional": {
+                "main_location": {
+                    "timezone": "UTC",
+                    "updated_at": "2017-01-25T01:08:41.911748+00:00",
+                    "formatted_address": "1789 Rama 2 Soi 43, Bangkok, 10150, Thailand",
+                    "locality": "Bangkok",
+                    "state": "created",
+                    "country": "TH",
+                    "latlng": [
+                        13.6251869,
+                        100.417181
+                    ],
+                    "coordinates": {
+                        "type": "Point",
+                        "coordinates": [
+                            100.417181,
+                            13.6251869
+                        ]
+                    },
+                    "created_at": "2017-01-25T01:08:41.901775+00:00",
+                    "id": "9dd6dee9-ac54-4175-a0cc-460f24590b42",
+                    "info": {
+                        "street_number": "",
+                        "country": "TH",
+                        "route": "1789 Rama 2 Soi 43",
+                        "formatted_address": "1789 Rama 2 Soi 43, Bangkok, 10150, Thailand",
+                        "postal_code": "10150",
+                        "province": ""
+                    }
+                },
+                "description": null,
+                "state_history": [
+                    {
+                        "transition": "",
+                        "from": "",
+                        "date": "2017-01-25T01:08:41.861047+00:00",
+                        "actor": null,
+                        "to": "created",
+                        "message": null
+                    }
+                ],
+                "external_id": null,
+                "gender": null,
+                "type": null,
+                "state": "active",
+                "updated_at": "2017-01-25T01:08:41.864407+00:00",
+                "company_name": null,
+                "birth_date": null,
+                "partners": true,
+                "last_name": "Waratkiachthana",
+                "pools": [
+                    {
+                        "description": "Agoda Bangkok",
+                        "slug": "83b1f333-agoda-bangkok",
+                        "id": "83b1f333-b270-43fd-8922-234bbdfaa855",
+                        "state": "created",
+                        "updated_at": "2017-01-25T01:07:59.754595+00:00",
+                        "country": "TH",
+                        "title": "Agoda Bangkok",
+                        "created_at": "2017-01-25T01:07:59.754583+00:00"
+                    }
+                ],
+                "additional_phone": null,
+                "photo_path": null,
+                "internal": true,
+                "slug": "dc9558c0",
+                "accept_travel": false,
+                "links": [
+                    {
+                        "professional_id": "dc9558c0-b8cb-4b4b-91dc-8204396b2929",
+                        "state_history": [
+                            {
+                                "transition": "",
+                                "from": "",
+                                "date": "2017-01-25T01:08:41.908895+00:00",
+                                "actor": null,
+                                "to": "created",
+                                "message": null
+                            }
+                        ],
+                        "url": "https://poompatw.myportfolio.com",
+                        "type": "portfolio",
+                        "created_at": "2017-01-25T01:08:41.914597+00:00",
+                        "id": "20154854-9299-46b6-8b6b-49b61cb79466",
+                        "updated_at": "2017-01-25T01:08:41.914617+00:00",
+                        "state": "created"
+                    }
+                ],
+                "first_name": "Poompat",
+                "id": "dc9558c0-b8cb-4b4b-91dc-8204396b2929",
+                "email": "jobchen.ds@gmail.com",
+                "mobile": "+66 81 696 4640",
+                "title": "Poompat Waratkiachthana",
+                "locations": [
+                    {
+                        "professional_id": "dc9558c0-b8cb-4b4b-91dc-8204396b2929",
+                        "timezone": "UTC",
+                        "updated_at": "2017-01-25T01:08:41.911748+00:00",
+                        "type": "main_working_location",
+                        "formatted_address": "1789 Rama 2 Soi 43, Bangkok, 10150, Thailand",
+                        "locality": "Bangkok",
+                        "state": "created",
+                        "range": 10,
+                        "range_unit": "km",
+                        "country": "TH",
+                        "latlng": [
+                            13.6251869,
+                            100.417181
+                        ],
+                        "coordinates": {
+                            "type": "Point",
+                            "coordinates": [
+                                100.417181,
+                                13.6251869
+                            ]
+                        },
+                        "created_at": "2017-01-25T01:08:41.901775+00:00",
+                        "state_history": [
+                            {
+                                "transition": "",
+                                "from": "",
+                                "date": "2017-01-25T01:08:41.899088+00:00",
+                                "actor": null,
+                                "to": "created",
+                                "message": null
+                            }
+                        ],
+                        "id": "9dd6dee9-ac54-4175-a0cc-460f24590b42",
+                        "info": {
+                            "street_number": "",
+                            "country": "TH",
+                            "route": "1789 Rama 2 Soi 43",
+                            "formatted_address": "1789 Rama 2 Soi 43, Bangkok, 10150, Thailand",
+                            "postal_code": "10150",
+                            "province": ""
+                        }
+                    }
+                ],
+                "fullname": "Poompat Waratkiachthana",
+                "created_at": "2017-01-25T01:08:41.864388+00:00"
+            },
+            "id": "fc2b8d08-b124-4906-a50e-833b3477fdcc",
+            "title": "The Krungkasem Srikrung Hotel",
+            "slug": "1701-PS1-586_01",
+            "number_required_assets": 36
+        },
+        "project": {
+            "description": "",
+            "state": "ongoing",
+            "updated_at": "2017-01-25T15:04:12.829280+00:00",
+            "slug": "agoda-bangkok",
+            "id": "2edf1e7b-b7f0-4ca4-8d1b-9a8baf05662c",
+            "title": "Agoda Bangkok",
+            "created_at": "2017-01-25T01:07:49.226245+00:00"
+        },
+        "created_at": "2016-09-15T09:25:00+00:00",
+        "number_required_assets": 36
+    },
+    "comment_order": 0,
+    "entity_id": "61bf1fae-0705-4c07-8511-d64ab7186c5e",
+    "state": "created",
+    "can_view_roles": [],
+    "local_roles": [],
+    "can_create_roles": [],
+    "author": {
+        "last_name": "d'Utruy",
+        "email": "laure@briefy.co",
+        "first_name": "Laure",
+        "fullname": "Laure d'Utruy",
+        "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+    },
+    "state_history": [
+        {
+            "from": "",
+            "transition": "",
+            "date": "2017-01-25T17:07:45.650862+00:00",
+            "actor": {
+                "last_name": "d'Utruy",
+                "email": "laure@briefy.co",
+                "first_name": "Laure",
+                "fullname": "Laure d'Utruy",
+                "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1"
+            },
+            "to": "created",
+            "message": null
+        }
+    ],
+    "id": "dbcab493-8460-48df-8294-163894727338",
+    "entity_type": "Order",
+    "internal": false,
+    "content": "Hello,\nNice to meet you sir",
+    "in_reply_to": null,
+    "can_list_roles": [],
+    "to_role": "customer_user",
+    "can_edit_roles": [],
+    "author_id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+    "created_at": "2017-01-25T17:07:45.653305+00:00",
+    "updated_at": "2017-01-25T17:07:45.653327+00:00"
+}

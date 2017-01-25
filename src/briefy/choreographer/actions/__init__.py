@@ -119,12 +119,6 @@ class Action:
     def __call__(self) -> None:
         """Execute the action."""
         event = self.event
-        logger.info(
-            '{event}: action {action}'.format(
-                event=event.event_name if event else '',
-                action=self.__class__.__name__,
-            )
-        )
         if self.available:
             payload = self.transform()
             queue = self.queue

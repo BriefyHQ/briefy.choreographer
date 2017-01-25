@@ -92,7 +92,7 @@ class CommentCreatedToCreative(CommentCreativeMail):
         available = super().available
         data = self.data
         to_role = data['to_role']
-        return (to_role == 'professional_customer') and available
+        return (to_role == 'professional_user') and available
 
 
 # Order Created by Customer
@@ -119,4 +119,4 @@ class CommentCreatedToCustomer(CommentCustomerMail):
         available = super().available
         data = self.data
         to_role = data['to_role']
-        return (to_role == 'customer_customer') and available
+        return (to_role == 'customer_user') and available

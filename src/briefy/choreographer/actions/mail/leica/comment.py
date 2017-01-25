@@ -62,9 +62,9 @@ class CommentCreativeMail(CommentMail):
         """Return the data to be used as the recipient of this message."""
         data = self.data['entity']
         return {
-            'first_name': data['professional']['first_name'],
-            'fullname': data['professional']['fullname'],
-            'email': data['professional']['email'],
+            'first_name': data['professional_user']['first_name'],
+            'fullname': data['professional_user']['fullname'],
+            'email': data['professional_user']['email'],
         }
 
 

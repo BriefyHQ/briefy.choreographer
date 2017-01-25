@@ -1,0 +1,7 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+    <utility name="laure.assignment.validated" component=".LaureAssignmentValidated" provides=".ILaureAssignmentValidated" />
+    <utility name="laure.assignment.rejected" component=".LaureAssignmentRejected" provides=".ILaureAssignmentRejected" />
+    <utility name="laure.assignment.copied" component=".LaureAssignmentCopied" provides=".ILaureAssignmentCopied" />
+    <utility name="laure.assignment.copy_failure" component=".LaureAssignmentCopyFailure" provides=".ILaureAssignmentCopyFailure" />
+
+</configure>

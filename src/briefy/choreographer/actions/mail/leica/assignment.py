@@ -81,7 +81,7 @@ class AssignmentCreativeMail(AssignmentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        professional = self.data.get('professional')
+        professional = self.data.get('professional_user')
         if professional:
             return {
                 'first_name': professional['first_name'],

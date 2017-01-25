@@ -95,7 +95,7 @@ class OrderCreativeMail(OrderMail):
     def professional(self):
         """Professional assigned to this Order."""
         assignment = self.data.get('assignment', {})
-        professional = assignment.get('professional')
+        professional = assignment.get('professional_user')
         return professional
 
     @property

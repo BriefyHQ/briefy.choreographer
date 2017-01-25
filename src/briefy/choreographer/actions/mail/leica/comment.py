@@ -32,7 +32,7 @@ class CommentMail(LeicaMail):
             'COMMENTER_FIRSTNAME': author.get('first_name', ),
             'EMAIL': recipient.get('email'),
             'FULLNAME': recipient.get('fullname'),
-            'FIRSTNAME': recipient.get('firstname'),
+            'FIRSTNAME': recipient.get('first_name'),
             'SLUG': recipient.get('slug'),
             'COMMENT': data.get('content'),
             'SUBJECT': self.subject,
@@ -92,7 +92,7 @@ class CommentCreatedToCreative(CommentCreativeMail):
         available = super().available
         data = self.data
         to_role = data['to_role']
-        return (to_role == 'professional_customer') and available
+        return (to_role == 'professional_user') and available
 
 
 # Order Created by Customer
@@ -119,4 +119,4 @@ class CommentCreatedToCustomer(CommentCustomerMail):
         available = super().available
         data = self.data
         to_role = data['to_role']
-        return (to_role == 'professional_customer') and available
+        return (to_role == 'customer_user') and available

@@ -44,8 +44,8 @@
         <adapter name="order.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRefuse" />
 
     <!-- order.workflow.remove_availability -->
-        <!-- <adapter name="order.workflow.remove_availability.email" factory="briefy.choreographer.actions.mail.leica.OrderWfRemoveAvailability.OrderWfRemoveAvailability" /> -->
-        <!-- <adapter name="order.workflow.remove_availability.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfRemoveAvailability.OrderWfRemoveAvailability" /> -->
+        <adapter name="order.workflow.remove_availability.email.creative" factory="briefy.choreographer.actions.mail.leica.order.OrderRemoveAvailabilityCreativeMail" />
+        <adapter name="order.workflow.remove_availability.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRemoveAvailability" />
 
     <!-- order.workflow.remove_schedule -->
         <!-- <adapter name="order.workflow.remove_schedule.email" factory="briefy.choreographer.actions.mail.leica.OrderWfRemoveSchedule.OrderWfRemoveSchedule" /> -->

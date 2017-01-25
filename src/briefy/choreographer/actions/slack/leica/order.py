@@ -97,3 +97,12 @@ class OrderWfSchedule(OrderSlack):
 
     title = 'Order was scheduled!'
     text = 'An order was scheduled.'
+
+
+@adapter(events.IOrderWfRemoveAvailability)
+@implementer(ISlack)
+class OrderWfRemoveAvailability(OrderSlack):
+    """Slack after removing availability of an Order."""
+
+    title = 'Order had availabilities removed'
+    text = 'Order has no availabilities'

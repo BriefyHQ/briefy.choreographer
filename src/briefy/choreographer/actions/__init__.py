@@ -118,6 +118,7 @@ class Action:
 
     def __call__(self) -> None:
         """Execute the action."""
+        event = self.event
         if self.available:
             payload = self.transform()
             queue = self.queue

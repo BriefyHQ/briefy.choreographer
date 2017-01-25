@@ -32,7 +32,7 @@ class CommentMail(LeicaMail):
             'COMMENTER_FIRSTNAME': author.get('first_name', ),
             'EMAIL': recipient.get('email'),
             'FULLNAME': recipient.get('fullname'),
-            'FIRSTNAME': recipient.get('firstname'),
+            'FIRSTNAME': recipient.get('first_name'),
             'SLUG': recipient.get('slug'),
             'COMMENT': data.get('content'),
             'SUBJECT': self.subject,

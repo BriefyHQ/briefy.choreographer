@@ -1,14 +1,14 @@
 """Leica Actions for Assignment."""
-from briefy.choreographer.actions.notification import Notification
-from briefy.choreographer.actions.notification import INotification
+from briefy.choreographer.actions.laure import ILaureAction
+from briefy.choreographer.actions.laure import LaureAction
 from briefy.choreographer.events.leica import assignment as events
 from zope.component import adapter
 from zope.interface import implementer
 
 
 @adapter(events.IAssignmentWfUpload)
-@implementer(INotification)
-class AssignmentWfUpload(Notification):
+@implementer(ILaureAction)
+class AssignmentWfUpload(LaureAction):
     """Send assignment uploaded to Ms. Laure."""
 
     entity = 'Assignment'
@@ -16,8 +16,8 @@ class AssignmentWfUpload(Notification):
 
 
 @adapter(events.IAssignmentWfApprove)
-@implementer(INotification)
-class AssignmentWfApprove(Notification):
+@implementer(ILaureAction)
+class AssignmentWfApprove(LaureAction):
     """Send assignment approved to Ms. Laure."""
 
     entity = 'Assignment'

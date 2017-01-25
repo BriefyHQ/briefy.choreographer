@@ -250,3 +250,13 @@ class OrderScheduledCustomerMail(OrderCustomerMail):
 
     template_name = 'platform-order-scheduled'
     subject = '''A shooting for order *|SLUG|* is now scheduled'''
+
+
+# Availability was removed
+@adapter(events.IOrderWfRemoveAvailability)
+@implementer(IMail)
+class OrderRemoveAvailabilityCreativeMail(OrderCustomerMail):
+    """Email to creative on remove availability."""
+
+    template_name = 'platform-order-cancellation-creative'
+    subject = '''Important: Assignment *|ASSIGNMENT_ID|* cancelled'''

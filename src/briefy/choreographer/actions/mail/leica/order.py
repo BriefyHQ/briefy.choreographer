@@ -38,6 +38,7 @@ class OrderMail(LeicaMail):
             'TITLE': data.get('title'),
             'EMAIL': recipient.get('email'),
             'FULLNAME': recipient.get('fullname'),
+            'FIRSTNAME': recipient.get('first_name', recipient.get('fullname')),
             'SLUG': data.get('slug'),
             'ASSIGNMENT_ID': assignment_id,
             'CUSTOMER': data.get('customer', {}).get('title'),
@@ -58,6 +59,7 @@ class OrderCustomerMail(OrderMail):
         """Return the data to be used as the recipient of this message."""
         data = self.data
         return {
+            'first_name': data['customer_user']['first_name'],
             'fullname': data['customer_user']['fullname'],
             'email': data['customer_user']['email'],
         }
@@ -83,6 +85,7 @@ class OrderScoutMail(OrderMail):
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
         return {
+            'first_name': 'Scouters',
             'fullname': 'Briefy Scouters',
             'email': 'scouting@briefy.co',
         }
@@ -110,6 +113,7 @@ class OrderCreativeMail(OrderMail):
         """Return the data to be used as the recipient of this message."""
         professional = self.professional
         return {
+            'first_name': professional['first_name'],
             'fullname': professional['fullname'],
             'email': professional['email'],
         }

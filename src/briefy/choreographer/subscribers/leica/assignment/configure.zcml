@@ -3,7 +3,6 @@
     <!-- Get all Assignment events -->
     <subscriber for="briefy.choreographer.events.leica.assignment.IAssignmentEvent" handler="briefy.choreographer.subscribers.leica.handler" />
 
-    
     <!-- assignment.created -->
         <!-- <adapter name="assignment.created.email" factory="briefy.choreographer.actions.mail.leica.AssignmentCreated.AssignmentCreated" /> -->
         <!-- <adapter name="assignment.created.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentCreated.AssignmentCreated" /> -->

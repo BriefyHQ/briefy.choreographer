@@ -20,7 +20,7 @@
 
     <!-- order.workflow.cancel -->
         <adapter name="order.workflow.cancel.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledCustomerMail" />
-        <adapter name="order.workflow.cancel.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledCustomerMail" />
+        <adapter name="order.workflow.cancel.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledPMMail" />
         <adapter name="order.workflow.cancel.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfCancel" />
 
     <!-- order.workflow.deliver -->

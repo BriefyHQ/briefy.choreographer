@@ -1,6 +1,9 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
     <utility name="user.created" component=".user.UserCreated" provides=".IUserCreated" />
+    <utility name="user.password.changed" component=".user.UserPasswordChanged" provides=".IUserPasswordChanged" />
     <utility name="user.password.reset" component=".user.UserPasswordReset" provides=".IUserPasswordReset" />
+    <utility name="user.login" component=".login.UserLogin" provides=".IUserLogin" />
+    <utility name="user.login.first" component=".login.UserFirstLogin" provides=".IUserFirstLogin" />
 
 </configure>

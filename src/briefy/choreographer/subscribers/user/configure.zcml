@@ -3,8 +3,18 @@
     <!-- Get all Mail events -->
     <subscriber for="briefy.choreographer.events.user.IUserEvent" handler=".handler" />
 
+    <!-- user.password.changed -->
+    <adapter name="user.password.changed.slack" factory="briefy.choreographer.actions.slack.user.UserPasswordChanged" />
+
     <!-- user.password.reset -->
     <adapter name="user.password.reset.email" factory="briefy.choreographer.actions.mail.user.PasswordReset" />
     <adapter name="user.password.reset.slack" factory="briefy.choreographer.actions.slack.user.PasswordReset" />
+
+    <!-- user.login -->
+    <adapter name="user.login.slack" factory="briefy.choreographer.actions.slack.user.UserLogin" />
+
+    <!-- user.login.first -->
+    <adapter name="user.login.first.slack" factory="briefy.choreographer.actions.slack.user.UserFirstLogin" />
+
 
 </configure>

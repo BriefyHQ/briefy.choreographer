@@ -10,7 +10,7 @@ import pytest
 XMLConfig('configure.zcml', choreographer)()
 
 
-EVENTS = [
+LEICA_EVENTS = [
     'lead.created',
     'asset.updated',
     'asset.workflow.approve',
@@ -90,6 +90,18 @@ EVENTS = [
     'workinglocation.workflow.inactivate',
     'workinglocation.workflow.submit'
 ]
+
+
+ROLLEIFLEX_EVENTS = [
+    'user.created',
+    'user.password.changed',
+    'user.password.reset',
+    'user.login',
+    'user.login.first',
+]
+
+
+EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS
 
 
 @pytest.mark.parametrize("event_name", EVENTS)

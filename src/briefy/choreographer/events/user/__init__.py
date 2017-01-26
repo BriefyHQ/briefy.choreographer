@@ -7,8 +7,20 @@ class IUserEvent(IInternalEvent):
     """An event of a User."""
 
 
+class IUserLogin(IUserEvent):
+    """User has just logged in."""
+
+
+class IUserFirstLogin(IUserEvent):
+    """User has just logged in for the first time."""
+
+
 class IUserCreated(IUserEvent):
     """A new User was created."""
+
+
+class IUserPasswordChanged(IUserEvent):
+    """User changed its password."""
 
 
 class IUserPasswordReset(IUserEvent):

@@ -22,6 +22,8 @@ class AssignmentMail(LeicaMail):
         payload = super().transform()
         data = self.data
         scheduled_datetime = data.get('scheduled_datetime', '')
+        if scheduled_datetime:
+            scheduled_datetime = self._format_datetime(scheduled_datetime)
         recipient = self.recipient
         payload['fullname'] = recipient.get('fullname')
         payload['email'] = recipient.get('email')
@@ -32,7 +34,7 @@ class AssignmentMail(LeicaMail):
             'EMAIL': recipient.get('email'),
             'FIRSTNAME': recipient.get('fullname'),
             'FULLNAME': recipient.get('fullname'),
-            'SLUG': recipient.get('slug'),
+            'SLUG': data.get('slug'),
             'PROJECT': data.get('project', {}).get('title'),
             'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
             'CONTACT_FULLNAME': data.get('location', {}).get('fullname'),

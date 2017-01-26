@@ -5,6 +5,7 @@ from briefy.choreographer.actions import IAction
 
 class ILeicaAction(IAction):
     """Action that deals with Briefy Leica."""
+
     pass
 
 

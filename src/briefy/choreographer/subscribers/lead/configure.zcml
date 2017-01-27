@@ -7,11 +7,11 @@
     <subscriber for="briefy.choreographer.events.lead.IQuoteEvent" handler=".quote_handler" />
 
     <!-- lead.created -->
-        <!--<adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />-->
+        <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
         <adapter name="lead.created.slack" factory="briefy.choreographer.actions.slack.lead.LeadCreated" />
 
     <!-- quote.created -->
-        <!--<adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" /> -->
+        <adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" />
         <adapter name="quote.created.slack" factory="briefy.choreographer.actions.slack.quote.QuoteCreated" />
 
 </configure>

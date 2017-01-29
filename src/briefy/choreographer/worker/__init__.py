@@ -4,6 +4,7 @@ from briefy.common.queue.message import SQSMessage
 from briefy.common.worker import QueueWorker
 from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
 from briefy.choreographer.events import IInternalEvent
+from uuid import uuid4
 from zope.component import getUtility
 from zope.component import queryUtility
 from zope.event import notify
@@ -41,7 +42,7 @@ class Worker(QueueWorker):
         :returns: Status from the process
         """
         body = message.body
-        id_ = body['id']
+        id_ = body.get('id', str(uuid4()))
         event_name = body['event_name']
         guid = body['guid']
 

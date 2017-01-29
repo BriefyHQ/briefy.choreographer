@@ -20,6 +20,7 @@ def handler(event: InternalEvent):
             'choreographer': {
                 'event_name': event.event_name,
                 'guid': event.guid,
+                'id': event.id,
                 'entity': event.entity,
                 'actor': event.actor,
                 'request_id': event.request_id,

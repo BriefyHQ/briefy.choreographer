@@ -13,6 +13,7 @@ with open(os.path.join(here, 'HISTORY.rst')) as f:
 requires = [
     'briefy.common',
     'boto3',
+    'google-cloud-bigquery',
     'newrelic',
     'requests',
     'setuptools',

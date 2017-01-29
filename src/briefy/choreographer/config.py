@@ -31,6 +31,11 @@ SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
 # Platform
 PLATFORM_URL = config('PLATFORM_URL', default='https://app.stg.briefy.co/')
 
+# BigQuery
+DATASET = config('DATASET', default='app_events_{0}'.format(_queue_suffix))
+TABLE = config('TABLE', default='events')
+GOOGLE_APPLICATION_CREDENTIALS = config('GOOGLE_APPLICATION_CREDENTIALS', default='')
+
 
 def is_production() -> bool:
     """Return if we are running in a live environment."""

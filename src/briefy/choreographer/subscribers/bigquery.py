@@ -30,6 +30,7 @@ def _write_to_bigquery(event: InternalEvent, table):
     """
     rows = [
         [
+            event.id,
             event.event_name,
             event.actor,
             event.guid,

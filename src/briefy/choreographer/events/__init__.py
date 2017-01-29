@@ -19,8 +19,11 @@ class InternalEvent:
     actor = ''
     """Actor triggering the event."""
 
+    id = ''
+    """ID of the event."""
+
     guid = ''
-    """GUID of the event."""
+    """ID of the object."""
 
     created_at = ''
     """Date when the event was created."""
@@ -31,9 +34,12 @@ class InternalEvent:
     data = None
     """Event payload."""
 
-    def __init__(self, actor: str, guid: str, request_id: str, created_at: datetime, data: dict):
+    def __init__(
+            self, actor: str, id: str, guid: str, request_id: str, created_at: datetime, data: dict
+    ):
         """Initialize the event with Message data."""
         self.actor = actor
+        self.id = id
         self.guid = guid
         self.request_id = request_id
         self.created_at = created_at

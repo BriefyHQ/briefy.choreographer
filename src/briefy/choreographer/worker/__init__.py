@@ -41,6 +41,7 @@ class Worker(QueueWorker):
         :returns: Status from the process
         """
         body = message.body
+        id_ = body['id']
         event_name = body['event_name']
         guid = body['guid']
 
@@ -55,6 +56,7 @@ class Worker(QueueWorker):
             return True
 
         event = event_factory(
+            id=id_,
             guid=guid,
             data=body['data'],
             actor=body['actor'],
@@ -62,7 +64,7 @@ class Worker(QueueWorker):
             created_at=body['created_at']
         )
         notify(event)
-        self.logger.debug('Event {} notified'.format(event_name))
+        self.logger.debug('Event {name} notified'.format(name=event_name))
         return True
 
 

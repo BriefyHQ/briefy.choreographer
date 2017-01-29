@@ -19,6 +19,7 @@ if GOOGLE_APPLICATION_CREDENTIALS and not MOCK_SQS:
     _dataset = BQ_CLIENT.dataset(DATASET)
     _table = _dataset.table(TABLE)
     _table.reload()
+    logger.info('Choreographer will use BigQuery backend')
 
 
 def _write_to_bigquery(event: InternalEvent, table):

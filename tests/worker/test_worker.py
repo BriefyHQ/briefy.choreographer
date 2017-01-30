@@ -23,6 +23,12 @@ class AssertRead(dict):
         self.read_count[key] += 1
         return res
 
+    def get(self, key, *args):
+        """Get an item."""
+        res = super().get(key, *args)
+        self.read_count[key] += 1
+        return res
+
     def reset(self):
         """Reset counters."""
         for key in self:
@@ -46,6 +52,7 @@ def message():
         def __init__(self):
             self.body = AssertRead(
                 event_name='dummy.event',
+                id=uuid.uuid4(),
                 guid=uuid.uuid4(),
                 data={},
                 actor='actor',

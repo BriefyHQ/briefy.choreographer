@@ -23,7 +23,7 @@ if GOOGLE_APPLICATION_CREDENTIALS and not MOCK_SQS:
 
 
 def _write_to_bigquery(event: InternalEvent, table):
-    """Write event to BigQuery
+    """Write event to BigQuery.
 
     :param event: Internal event
     :param table: BigQuery table

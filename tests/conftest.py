@@ -2,6 +2,7 @@
 from briefy.choreographer.actions import IAction
 from briefy.common.config import SQS_REGION
 from briefy.common.queue import IQueue
+from uuid import uuid4
 from zope.component import getGlobalSiteManager
 from zope.component import getUtility
 from zope.configuration.xmlconfig import XMLConfig
@@ -88,6 +89,7 @@ class BaseActionCase(BaseTestCase):
         if self.event_class:
             self.event = self.event_class(
                 actor='foo',
+                id=str(uuid4()),
                 request_id='e595e4ee-b4c2-4658-8298-f2af95b0120f',
                 guid=self.data.get('id'),
                 created_at='2016-07-01T12:32:45',

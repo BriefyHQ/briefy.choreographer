@@ -14,6 +14,8 @@ MAIL_ACTION_SENDER_EMAIL = config('MAIL_ACTION_SENDER_EMAIL', default='site@brie
 
 MAIL_ACTION_LEICA_SENDER_NAME = config('MAIL_ACTION_LEICA_SENDER_NAME', default='Briefy Team')
 MAIL_ACTION_LEICA_SENDER_EMAIL = config('MAIL_ACTION_LEICA_SENDER_EMAIL', default='site@briefy.co')
+# Leica configs are also used by Laure,
+# since it is a sub-service that should be transparent to users.
 
 MAIL_ACTION_LEAD_SENDER_NAME = config('MAIL_ACTION_LEAD_SENDER_NAME', default='Andre from Briefy')
 MAIL_ACTION_LEAD_SENDER_EMAIL = config('MAIL_ACTION_LEAD_SENDER_EMAIL', default='hello@briefy.co')

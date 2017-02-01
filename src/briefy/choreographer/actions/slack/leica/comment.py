@@ -11,7 +11,7 @@ class CommentSlack(Slack):
 
     entity = 'Comment'
     weight = 100
-    _channel = '#tests'
+    _channel = '#tests-leica'
     title = 'Comment'
     text = 'New Comment!!'
 

@@ -11,7 +11,7 @@ class OrderSlack(Slack):
 
     entity = 'Lead'
     weight = 100
-    _channel = '#tests'
+    _channel = '#tests-leica'
     title = 'Order!'
     text = 'An Order'
 

@@ -31,7 +31,7 @@ class Slack(Action):
         """
         channel = self._channel
         if not is_production():
-            channel = '#tests'
+            channel = '#tests-leica'
         return channel
 
     @property

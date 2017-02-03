@@ -37,6 +37,9 @@ class CommentMail(LeicaMail):
             'COMMENT': data.get('content'),
             'SUBJECT': self.subject,
         }
+        subject = self.subject.format(**payload['data'])
+        payload['subject'] = subject
+        payload['data']['SUBJECT'] = subject
         return payload
 
 
@@ -75,7 +78,7 @@ class CommentCreatedToCreative(CommentCreativeMail):
     """Email to creative on new comment created."""
 
     template_name = 'platform-comment-created'
-    subject = '''*|COMMENTER_FIRSTNAME|* has commented on your assignment'''
+    subject = '''{COMMENTER_FIRSTNAME} has commented on your assignment'''
 
     @property
     def action_url(self):
@@ -102,7 +105,7 @@ class CommentCreatedToCustomer(CommentCustomerMail):
     """Email to customer on comment created."""
 
     template_name = 'platform-comment-created-to-customer'
-    subject = '''*|COMMENTER_FIRSTNAME|* has commented on your order'''
+    subject = '''{COMMENTER_FIRSTNAME} has commented on your order'''
 
     @property
     def action_url(self):

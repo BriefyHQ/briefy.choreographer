@@ -48,6 +48,9 @@ class OrderMail(LeicaMail):
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'SUBJECT': self.subject,
         }
+        subject = self.subject.format(**payload['data'])
+        payload['subject'] = subject
+        payload['data']['SUBJECT'] = subject
         return payload
 
 
@@ -126,7 +129,7 @@ class OrderSubmitScoutMail(OrderScoutMail):
     """Email to scouters on order created."""
 
     template_name = 'platform-order-created-scouting'
-    subject = '''New order created by *|CUSTOMER|*'''
+    subject = '''New order created by {CUSTOMER}'''
 
     @property
     def action_url(self):
@@ -148,7 +151,7 @@ class OrderSubmitCustomerMail(OrderCustomerMail):
     """Email to customer on order created."""
 
     template_name = 'platform-order-created'
-    subject = '''We received your Briefy order *|SLUG|*'''
+    subject = '''We received your Briefy order {SLUG}'''
 
     @property
     def action_url(self):
@@ -202,7 +205,7 @@ class OrderCancelledPMMail(OrderPMMail):
     """Email to PM on order cancelled."""
 
     template_name = 'platform-order-cancellation-pm'
-    subject = '''Order *|SLUG|* was cancelled by *|CUSTOMER|*'''
+    subject = '''Order {SLUG} was cancelled by {CUSTOMER}'''
 
 
 # Customer Refuses a Set
@@ -243,7 +246,7 @@ class OrderAssignedCustomerMail(OrderCustomerMail):
     """Email to customer on order assigned."""
 
     template_name = 'platform-order-assigned'
-    subject = '''A Briefy photograher has been assigned to your order *|SLUG|*'''
+    subject = '''A Briefy photograher has been assigned to your order {SLUG}'''
 
 
 # Order has been scheduled
@@ -253,7 +256,7 @@ class OrderScheduledCustomerMail(OrderCustomerMail):
     """Email to customer on order scheduled."""
 
     template_name = 'platform-order-scheduled'
-    subject = '''A shooting for order *|SLUG|* is now scheduled'''
+    subject = '''A shooting for order {SLUG} is now scheduled'''
 
 
 # Availability was removed
@@ -263,4 +266,4 @@ class OrderRemoveAvailabilityCreativeMail(OrderCustomerMail):
     """Email to creative on remove availability."""
 
     template_name = 'platform-order-cancellation-creative'
-    subject = '''Important: Assignment *|ASSIGNMENT_ID|* cancelled'''
+    subject = '''Important: Assignment {ASSIGNMENT_ID} cancelled'''

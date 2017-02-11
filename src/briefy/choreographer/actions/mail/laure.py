@@ -4,7 +4,7 @@ from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
-from briefy.choreographer.events import lead
+from briefy.choreographer.events import laure
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -38,16 +38,30 @@ class LaureMail(Mail):
 
         payload.sender_email = MAIL_ACTION_LEICA_SENDER_EMAIL
         payload.sender_name = MAIL_ACTION_LEICA_SENDER_NAME
+        payload.entity = 'Assignment'
+        payload.guid = str(uuid.uuid4())
 
         return payload.dct
 
+'''
+# Message not implemented - mostly, missing a template.
 
-@adapter(laure.ILaureInvalidated)
+@adapter(laure.ILaureAssignmentValidated)
+@implementer(IMail)
+class LaureValidates(LaureMail):
+    """Sends e-mail to QA team on set automatic aproval"""
+
+    template_name = 'qa-automatic-reject-en-gb'
+    # template = 'qa-automatic-not-enough-en-gb'
+'''
+
+@adapter(laure.ILaureAssignmentRejected)
 @implementer(IMail)
 class LaureInvalidates(LaureMail):
     """Email to be sent when automatic validation failed."""
 
     template_name = 'qa-automatic-reject-en-gb'
+    # template = 'qa-automatic-not-enough-en-gb'
     subject = ''
     @property
     def subject(self):
@@ -60,22 +74,25 @@ class LaureInvalidates(LaureMail):
         payload = Objectify(super().transform())
         data = Objectify(self.data)
 
-        details = '<ul>{0}</ul>'.format('\n'.join(
-            ['<li>{0}</li>'.format(' - '.join(v)) for v in validation_info['failed']]
-        ))
+        # Details format: List of 2-tuples with image name/reason string
+        image_details = '<ul>\n    {0}\n</ul>'.format('\n    '.join([
+            '<li>{0}</li>'.format(
+                '{name} - {reason}'.join(name=v[0], reason=v[1]))
+                for v in data.validation_info.failed.dct
+            ])
+        )
 
-         mail_payload.subject = ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
+        details = data.validation_info.complete_feedback + '\n\n' + image_details
+
+        payload.subject = ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
             id=self.assignment_title)
 
-            template = 'qa-automatic-not-enough-en-gb'
 
         payload.fullname = data.assignment_info.professional_name,
         payload.email = data.assignment_info.professional_email
-        payload.subject =  ''''{id}' Automatic Check for images failed: '''\
+        payload.subject = ''''{id}' Automatic Check for images failed: '''\
             '''re-submission needed!'''.format(
                 id=data.assigment_info.code)
-        payload.entity = 'Assignment'
-        payload.guid = str(uuid.uuid4())
         payload.event_name = 'assigment.invalidate'
         payload.data = {}
         payload.data.SUBJECT = payload.subject
@@ -83,5 +100,3 @@ class LaureInvalidates(LaureMail):
         payload.data.ERRORS = details
 
         return payload.dct
-
-

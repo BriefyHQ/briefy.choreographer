@@ -35,6 +35,7 @@ class LaureMail(Mail):
         }
 
     def transform(self) -> dict:
+        '''Add generic fields to the e-mail payload.'''
         payload = Objectify(super().transform())
 
         payload.sender_email = MAIL_ACTION_LEICA_SENDER_EMAIL
@@ -43,6 +44,7 @@ class LaureMail(Mail):
         payload.guid = str(uuid.uuid4())
 
         return payload.dct
+
 
 '''
 # Message not implemented - mostly, missing a template.
@@ -67,11 +69,13 @@ class LaureInvalidates(LaureMail):
 
     @property
     def subject(self):
+        '''Generate the e-mail subject.'''
 
         return ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
             id=self.assignment_title)
 
     def transform(self)->dict:
+        '''Add the secific fields to the payload.'''
 
         payload = Objectify(super().transform())
         data = Objectify(self.data)

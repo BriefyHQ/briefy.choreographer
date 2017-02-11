@@ -1,14 +1,15 @@
 """Mail action for Lead."""
-from briefy.common.utils.data import Objectify
-from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.actions.mail import IMail
+from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
 from briefy.choreographer.events import laure
+from briefy.common.utils.data import Objectify
 from zope.component import adapter
 from zope.interface import implementer
 
 import uuid
+
 
 class LaureMail(Mail):
     """Base class for emails sent on Lead events."""
@@ -55,6 +56,7 @@ class LaureValidates(LaureMail):
     # template = 'qa-automatic-not-enough-en-gb'
 '''
 
+
 @adapter(laure.ILaureAssignmentRejected)
 @implementer(IMail)
 class LaureInvalidates(LaureMail):
@@ -62,11 +64,11 @@ class LaureInvalidates(LaureMail):
 
     template_name = 'qa-automatic-reject-en-gb'
     # template = 'qa-automatic-not-enough-en-gb'
-    subject = ''
+
     @property
     def subject(self):
 
-        subject = ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
+        return ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
             id=self.assignment_title)
 
     def transform(self)->dict:
@@ -78,15 +80,15 @@ class LaureInvalidates(LaureMail):
         image_details = '<ul>\n    {0}\n</ul>'.format('\n    '.join([
             '<li>{0}</li>'.format(
                 '{name} - {reason}'.join(name=v[0], reason=v[1]))
-                for v in data.validation_info.failed.dct
+            for v in data.validation_info.failed.dct
             ])
         )
 
         details = data.validation_info.complete_feedback + '\n\n' + image_details
 
-        payload.subject = ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
-            id=self.assignment_title)
-
+        payload.subject = (''''{id}' Automatic Check for images failed: '''
+                           '''re-submission needed!'''.format(
+                                id=self.assignment_title))
 
         payload.fullname = data.assignment_info.professional_name,
         payload.email = data.assignment_info.professional_email

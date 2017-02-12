@@ -1,5 +1,5 @@
 """Ms Laure Queue."""
-from briefy.choreographer.config import SLACK_QUEUE
+from briefy.choreographer.config import LAURE_QUEUE
 from briefy.common.queue import IQueue
 from briefy.common.queue import Queue as BaseQueue
 from briefy.common.utils.schema import Dictionary
@@ -32,7 +32,7 @@ class Schema(colander.MappingSchema):
 class Queue(BaseQueue):
     """A Queue to handle messages to Ms. Laure."""
 
-    name = SLACK_QUEUE
+    name = LAURE_QUEUE
     _schema = Schema
 
     @property

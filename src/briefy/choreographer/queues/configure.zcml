@@ -6,6 +6,11 @@
     <!-- Ms. Laure queue -->
     <utility name="laure.queue" component=".laure.LaureQueue" provides="briefy.common.queue.IQueue" />
 
+
+    <!-- Leica queue -->
+    <utility name="leica.queue" component=".leica.LeicaQueue" provides="briefy.common.queue.IQueue" />
+
+
     <!-- Notification queue -->
     <utility name="notification.queue" component=".notification.NotificationQueue" provides="briefy.common.queue.IQueue" />
 

@@ -2,6 +2,8 @@
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 
+from uuid import uuid4
+
 
 class ILeicaAction(IAction):
     """Action that deals with Briefy Leica."""
@@ -25,6 +27,7 @@ class LeicaAction(Action):
         """Transform data."""
         event = self.event
         payload = {
+            'id': str(uuid4()),
             'created_at': event.created_at,
             'data': event.data,
             'guid': event.guid,

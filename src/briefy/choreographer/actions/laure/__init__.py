@@ -2,6 +2,8 @@
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 
+from uuid import uuid4
+
 
 class ILaureAction(IAction):
     """Action that deals with Ms. Laure."""
@@ -23,6 +25,7 @@ class LaureAction(Action):
         """Transform data."""
         event = self.event
         payload = {
+            'id': str(uuid4()),
             'created_at': event.created_at,
             'data': event.data,
             'guid': event.guid,

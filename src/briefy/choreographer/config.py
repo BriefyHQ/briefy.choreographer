@@ -33,6 +33,9 @@ SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
 # Laure
 LAURE_QUEUE = config('LAURE_QUEUE', default='laure-{0}'.format(_queue_suffix))
 
+# Leica
+LEICA_QUEUE = config('LEICA_QUEUE', default='leica-{0}'.format(_queue_suffix))
+
 # Platform
 PLATFORM_URL = config('PLATFORM_URL', default='https://app.stg.briefy.co/')
 

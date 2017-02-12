@@ -1,0 +1,18 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all laure events -->
+    <subscriber for="briefy.choreographer.events.laure.ILaureEvent" handler=".laure_handler" />
+
+    <!-- laure.assignment.validated -->
+        <adapter name="laure.assignment.validated.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentValidated" />
+
+    <!-- laure.assignment.rejected -->
+        <adapter name="laure.assignment.rejected.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentInvalidated" />
+
+    <!-- laure.assignment.copied -->
+        <adapter name="laure.assignment.copied.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopied" />
+
+    <!-- laure.assignment.copy_failure -->
+        <adapter name="laure.assignment.copy_failure.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopyFailure" />
+
+</configure>

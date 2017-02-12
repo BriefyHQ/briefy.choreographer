@@ -25,9 +25,9 @@ class LeicaAction(Action):
         """Transform data."""
         event = self.event
         payload = {
-            'created_at': event.get('created_at'),
-            'data': event.get('data'),
-            'guid': event.get('guid'),
-            'event_name': event.get('event_name'),
+            'created_at': event.created_at,
+            'data': event.data,
+            'guid': event.guid,
+            'event_name': event.event_name,
         }
         return payload

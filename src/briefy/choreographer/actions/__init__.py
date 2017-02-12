@@ -9,6 +9,8 @@ from zope.interface import Interface
 
 import dateutil.parser
 import logging
+import pytz
+
 
 logger = logging.getLogger('briefy.choreographer')
 
@@ -60,19 +62,25 @@ class Action:
                 id=data['id']
             )
 
-    def _format_date(self, value: str) -> str:
+    def _format_date(self, value: str, timezone: str = '') -> str:
         """Format a date."""
         response = ''
         if value:
             value = dateutil.parser.parse(value)
+            if timezone:
+                tz_info = pytz.timezone(timezone)
+                value = value.astimezone(tz_info)
             response = '{0:%d-%m-%Y}'.format(value)
         return response
 
-    def _format_datetime(self, value: str) -> str:
+    def _format_datetime(self, value: str,  timezone: str = '') -> str:
         """Format a datetime."""
         response = ''
         if value:
             value = dateutil.parser.parse(value)
+            if timezone:
+                tz_info = pytz.timezone(timezone)
+                value = value.astimezone(tz_info)
             response = '{0:%d-%m-%Y %H:%M}'.format(value)
         return response
 

@@ -21,10 +21,8 @@ class LaureAction(Action):
 
     def transform(self) -> dict:
         """Transform data."""
-        event = self.event
         data = self.data
         payload = {
-            'id': event.guid,
             'created_at': data.get('created_at'),
             'data': data.get('data'),
             'guid': data.get('guid'),

@@ -22,8 +22,9 @@ class AssignmentMail(LeicaMail):
         base_payload = super().transform()
         data = self.data
         scheduled_datetime = data.get('scheduled_datetime', '')
+        timezone = data.get('timezone', '')
         if scheduled_datetime:
-            scheduled_datetime = self._format_datetime(scheduled_datetime)
+            scheduled_datetime = self._format_datetime(scheduled_datetime, timezone=timezone)
         recipients = self.recipient
         if isinstance(recipients, dict):
             recipients = [recipients, ]

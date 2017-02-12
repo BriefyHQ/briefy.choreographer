@@ -26,9 +26,10 @@ class OrderMail(LeicaMail):
         assignment_id = ''
         if assignment:
             assignment_id = assignment.get('slug', '')
+        timezone = assignment.get('timezone', '')
         scheduled_datetime = assignment.get('scheduled_datetime', '')
         if scheduled_datetime:
-            scheduled_datetime = self._format_datetime(scheduled_datetime)
+            scheduled_datetime = self._format_datetime(scheduled_datetime, timezone=timezone)
         recipients = self.recipient
         if isinstance(recipients, dict):
             recipients = [recipients, ]

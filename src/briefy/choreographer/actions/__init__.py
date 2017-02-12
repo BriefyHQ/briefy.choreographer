@@ -123,7 +123,9 @@ class Action:
             queue = self.queue
             if not queue:
                 raise ValueError('Queue not available')
-            response = queue.write_message(payload)
+            if isinstance(payload, dict):
+                payload = [payload, ]
+            response = queue.write_messages(payload)
             self.log(payload, response)
 
     def __repr__(self) -> str:

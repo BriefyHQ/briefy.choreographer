@@ -108,6 +108,22 @@ class IAssignmentWfValidateAssets(IAssignmentWfEvent):
     """Interface for assignment.workflow.validate_assets."""
 
 
+class IAssignmentWfEditPayout(IAssignmentWfEvent):
+    """Interface for assignment.workflow.edit_payout."""
+
+
+class IAssignmentWfEditCompensation(IAssignmentWfEvent):
+    """Interface for assignment.workflow.edit_compensation."""
+
+
+class IAssignmentWfAssignQAManager(IAssignmentWfEvent):
+    """Interface for assignment.workflow.assign_qa_manager."""
+
+
+class IAssignmentWfAssignPool(IAssignmentWfEvent):
+    """Interface for assignment.workflow.assign_pool."""
+
+
 class AssignmentEvent(InternalEvent):
     """An event of a Assignment."""
 
@@ -284,3 +300,31 @@ class AssignmentWfValidateAssets(AssignmentWfEvent):
     """Implement AssignmentWfValidateAssets."""
 
     event_name = 'assignment.workflow.validate_assets'
+
+
+@implementer(IAssignmentWfEditPayout)
+class AssignmentWfEditPayout(AssignmentWfEvent):
+    """Implement AssignmentWfEditPayout."""
+
+    event_name = 'assignment.workflow.edit_payout'
+
+
+@implementer(IAssignmentWfEditCompensation)
+class AssignmentWfEditCompensation(AssignmentWfEvent):
+    """Implement AssignmentWfEditCompensation."""
+
+    event_name = 'assignment.workflow.edit_compensation'
+
+
+@implementer(IAssignmentWfAssignQAManager)
+class AssignmentWfAssignQAManager(AssignmentWfEvent):
+    """Implement AssignmentWfAssignQAManager."""
+
+    event_name = 'assignment.workflow.assign_qa_manager'
+
+
+@implementer(IAssignmentWfAssignPool)
+class AssignmentWfAssignPool(AssignmentWfEvent):
+    """Implement AssignmentWfAssignPool."""
+
+    event_name = 'assignment.workflow.assign_pool'

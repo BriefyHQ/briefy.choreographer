@@ -9,5 +9,6 @@
     <utility name="professional.workflow.reject" component=".ProfessionalWfReject" provides=".IProfessionalWfReject" />
     <utility name="professional.workflow.submit" component=".ProfessionalWfSubmit" provides=".IProfessionalWfSubmit" />
     <utility name="professional.workflow.validate" component=".ProfessionalWfValidate" provides=".IProfessionalWfValidate" />
+    <utility name="professional.workflow.assign" component=".ProfessionalWfAssign" provides=".IProfessionalWfAssign" />
 
 </configure>

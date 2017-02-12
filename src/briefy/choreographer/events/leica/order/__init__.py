@@ -84,6 +84,14 @@ class IOrderWfUnassign(IOrderWfEvent):
     """Interface for order.workflow.unassign."""
 
 
+class IOrderWfSetAvailability(IOrderWfEvent):
+    """Interface for order.workflow.set_availability."""
+
+
+class IOrderWfEditLocation(IOrderWfEvent):
+    """Interface for order.workflow.edit_location."""
+
+
 class OrderEvent(InternalEvent):
     """An event of a Order."""
 
@@ -218,3 +226,17 @@ class OrderWfUnassign(OrderWfEvent):
     """Implement OrderWfUnassign."""
 
     event_name = 'order.workflow.unassign'
+
+
+@implementer(IOrderWfSetAvailability)
+class OrderWfSetAvailability(OrderWfEvent):
+    """Implement OrderWfSetAvailability."""
+
+    event_name = 'order.workflow.set_availability'
+
+
+@implementer(IOrderWfEditLocation)
+class OrderWfEditLocation(OrderWfEvent):
+    """Implement OrderWfEditLocation."""
+
+    event_name = 'order.workflow.edit_location'

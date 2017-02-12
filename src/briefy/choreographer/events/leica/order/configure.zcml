@@ -18,5 +18,7 @@
     <utility name="order.workflow.start_qa" component=".OrderWfStartQa" provides=".IOrderWfStartQa" />
     <utility name="order.workflow.submit" component=".OrderWfSubmit" provides=".IOrderWfSubmit" />
     <utility name="order.workflow.unassign" component=".OrderWfUnassign" provides=".IOrderWfUnassign" />
+    <utility name="order.workflow.set_availability" component=".OrderWfSetAvailability" provides=".IOrderWfSetAvailability" />
+    <utility name="order.workflow.edit_location" component=".OrderWfEditLocation" provides=".IOrderWfEditLocation" />
 
 </configure>

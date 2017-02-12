@@ -48,6 +48,10 @@ class IProfessionalWfValidate(IProfessionalWfEvent):
     """Interface for professional.workflow.validate."""
 
 
+class IProfessionalWfAssign(IProfessionalWfEvent):
+    """Interface for professional.workflow.assign."""
+
+
 class ProfessionalEvent(InternalEvent):
     """An event of a Professional."""
 
@@ -119,3 +123,10 @@ class ProfessionalWfValidate(ProfessionalWfEvent):
     """Implement ProfessionalWfValidate."""
 
     event_name = 'professional.workflow.validate'
+
+
+@implementer(IProfessionalWfAssign)
+class ProfessionalWfAssign(ProfessionalWfEvent):
+    """Implement ProfessionalWfAssign."""
+
+    event_name = 'professional.workflow.assign'

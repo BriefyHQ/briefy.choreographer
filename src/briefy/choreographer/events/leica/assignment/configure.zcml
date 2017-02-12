@@ -24,5 +24,9 @@
     <utility name="assignment.workflow.submit" component=".AssignmentWfSubmit" provides=".IAssignmentWfSubmit" />
     <utility name="assignment.workflow.upload" component=".AssignmentWfUpload" provides=".IAssignmentWfUpload" />
     <utility name="assignment.workflow.validate_assets" component=".AssignmentWfValidateAssets" provides=".IAssignmentWfValidateAssets" />
+    <utility name="assignment.workflow.edit_payout" component=".AssignmentWfEditPayout" provides=".IAssignmentWfEditPayout" />
+    <utility name="assignment.workflow.edit_compensation" component=".AssignmentWfEditCompensation" provides=".IAssignmentWfEditCompensation" />
+    <utility name="assignment.workflow.assign_qa_manager" component=".AssignmentWfAssignQAManager" provides=".IAssignmentWfAssignQAManager" />
+    <utility name="assignment.workflow.assign_pool" component=".AssignmentWfAssignPool" provides=".IAssignmentWfAssignPool" />
 
 </configure>

@@ -18,28 +18,59 @@ class CommentMail(LeicaMail):
         """Action URL."""
         return self._action_url
 
-    def transform(self) -> dict:
+    def _recipients(self, field_name: str):
+        """Return a list of valid recipients."""
+        data = self.data['entity']
+        recipients = []
+        if field_name == 'last_transition':
+            history = data['state_history']
+            actor = history[0]['actor']
+            users = [actor, ]
+        else:
+            users = data[field_name]
+        for user in users:
+            if not user['internal']:
+                continue
+            recipients.append(
+                {
+                    'first_name': user['first_name'],
+                    'fullname': user['fullname'],
+                    'email': user['email'],
+                }
+            )
+        return recipients
+
+    def transform(self) -> list:
         """Transform data."""
-        payload = super().transform()
+        base_payload = super().transform()
         data = self.data
-        recipient = self.recipient
-        payload['fullname'] = recipient.get('fullname')
-        payload['email'] = recipient.get('email')
-        author = data.get('author', {})
-        payload['data'] = {
-            'ID': data.get('id'),
-            'ACTION_URL': self.action_url,
-            'COMMENTER_FIRSTNAME': author.get('first_name', ),
-            'EMAIL': recipient.get('email'),
-            'FULLNAME': recipient.get('fullname'),
-            'FIRSTNAME': recipient.get('first_name'),
-            'SLUG': recipient.get('slug'),
-            'COMMENT': data.get('content'),
-            'SUBJECT': self.subject,
-        }
-        subject = self.subject.format(**payload['data'])
-        payload['subject'] = subject
-        payload['data']['SUBJECT'] = subject
+        recipients = self.recipient
+        if isinstance(recipients, dict):
+            recipients = [recipients, ]
+        elif not recipients:
+            return []
+        payload = []
+        for recipient in recipients:
+            payload_item = {}
+            payload_item.update(base_payload)
+            payload_item['fullname'] = recipient.get('fullname')
+            payload_item['email'] = recipient.get('email')
+            author = data.get('author', {})
+            payload_item['data'] = {
+                'ID': data.get('id'),
+                'ACTION_URL': self.action_url,
+                'COMMENTER_FIRSTNAME': author.get('first_name', ),
+                'EMAIL': recipient.get('email'),
+                'FULLNAME': recipient.get('fullname'),
+                'FIRSTNAME': recipient.get('first_name'),
+                'SLUG': recipient.get('slug'),
+                'COMMENT': data.get('content'),
+                'SUBJECT': self.subject,
+            }
+            subject = self.subject.format(**payload_item['data'])
+            payload_item['subject'] = subject
+            payload_item['data']['SUBJECT'] = subject
+            payload.append(payload_item)
         return payload
 
 
@@ -49,12 +80,7 @@ class CommentCustomerMail(CommentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        data = self.data['entity']
-        return {
-            'first_name': data['customer_user']['first_name'],
-            'fullname': data['customer_user']['fullname'],
-            'email': data['customer_user']['email'],
-        }
+        return self._recipients('customer_users')
 
 
 class CommentCreativeMail(CommentMail):
@@ -63,12 +89,7 @@ class CommentCreativeMail(CommentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        data = self.data['entity']
-        return {
-            'first_name': data['professional_user']['first_name'],
-            'fullname': data['professional_user']['fullname'],
-            'email': data['professional_user']['email'],
-        }
+        return self._recipients('professional_user')
 
 
 # Order Created by Customer

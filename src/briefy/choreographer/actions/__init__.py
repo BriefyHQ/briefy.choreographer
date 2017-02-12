@@ -125,8 +125,11 @@ class Action:
                 raise ValueError('Queue not available')
             if isinstance(payload, dict):
                 payload = [payload, ]
-            response = queue.write_messages(payload)
-            self.log(payload, response)
+            if payload:
+                response = queue.write_messages(payload)
+                self.log(payload, response)
+            else:
+                self.log(payload, 'No Payload')
 
     def __repr__(self) -> str:
         """Representation of the Action object."""

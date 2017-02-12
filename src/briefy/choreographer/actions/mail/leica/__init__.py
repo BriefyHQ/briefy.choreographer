@@ -27,6 +27,28 @@ class LeicaMail(Mail):
             'email': MAIL_ACTION_LEICA_SENDER_EMAIL,
         }
 
+    def _recipients(self, field_name: str):
+        """Return a list of valid recipients."""
+        data = self.data
+        recipients = []
+        if field_name == 'last_transition':
+            history = data['state_history']
+            actor = history[0]['actor']
+            users = [actor, ]
+        else:
+            users = data[field_name]
+        for user in users:
+            if not user['internal']:
+                continue
+            recipients.append(
+                {
+                    'first_name': user['first_name'],
+                    'fullname': user['fullname'],
+                    'email': user['email'],
+                }
+            )
+        return recipients
+
     def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()

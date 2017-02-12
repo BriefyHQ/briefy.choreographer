@@ -17,34 +17,43 @@ class AssignmentMail(LeicaMail):
         """Action URL."""
         return self._action_url
 
-    def transform(self) -> dict:
+    def transform(self) -> list:
         """Transform data."""
-        payload = super().transform()
+        base_payload = super().transform()
         data = self.data
         scheduled_datetime = data.get('scheduled_datetime', '')
         if scheduled_datetime:
             scheduled_datetime = self._format_datetime(scheduled_datetime)
-        recipient = self.recipient
-        payload['fullname'] = recipient.get('fullname')
-        payload['email'] = recipient.get('email')
-        payload['data'] = {
-            'ID': data.get('id'),
-            'ACTION_URL': self.action_url,
-            'TITLE': data.get('title'),
-            'EMAIL': recipient.get('email'),
-            'FIRSTNAME': recipient.get('fullname'),
-            'FULLNAME': recipient.get('fullname'),
-            'SLUG': data.get('slug'),
-            'PROJECT': data.get('project', {}).get('title'),
-            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
-            'CONTACT_FULLNAME': data.get('location', {}).get('fullname'),
-            'CONTACT_PHONE': data.get('location', {}).get('mobile'),
-            'SCHEDULED_SHOOT_TIME': scheduled_datetime,
-            'SUBJECT': self.subject,
-        }
-        subject = self.subject.format(**payload['data'])
-        payload['subject'] = subject
-        payload['data']['SUBJECT'] = subject
+        recipients = self.recipient
+        if isinstance(recipients, dict):
+            recipients = [recipients, ]
+        elif not recipients:
+            return []
+        payload = []
+        for recipient in recipients:
+            payload_item = {}
+            payload_item.update(base_payload)
+            payload_item['fullname'] = recipient.get('fullname')
+            payload_item['email'] = recipient.get('email')
+            payload_item['data'] = {
+                'ID': data.get('id'),
+                'ACTION_URL': self.action_url,
+                'TITLE': data.get('title'),
+                'EMAIL': recipient.get('email'),
+                'FIRSTNAME': recipient.get('fullname'),
+                'FULLNAME': recipient.get('fullname'),
+                'SLUG': data.get('slug'),
+                'PROJECT': data.get('project', {}).get('title'),
+                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
+                'CONTACT_FULLNAME': data.get('location', {}).get('fullname'),
+                'CONTACT_PHONE': data.get('location', {}).get('mobile'),
+                'SCHEDULED_SHOOT_TIME': scheduled_datetime,
+                'SUBJECT': self.subject,
+            }
+            subject = self.subject.format(**payload_item['data'])
+            payload_item['subject'] = subject
+            payload_item['data']['SUBJECT'] = subject
+            payload.append(payload_item)
         return payload
 
 
@@ -54,11 +63,7 @@ class AssignmentPMMail(AssignmentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        data = self.data
-        return {
-            'fullname': data['project_manager']['fullname'],
-            'email': data['project_manager']['email'],
-        }
+        return self._recipients('project_managers')
 
 
 class AssignmentScoutMail(AssignmentMail):
@@ -67,10 +72,13 @@ class AssignmentScoutMail(AssignmentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        return {
-            'fullname': 'Briefy Scouters',
-            'email': 'scouting@briefy.co',
-        }
+        return [
+            {
+                'first_name': 'Scouters',
+                'fullname': 'Briefy Scouters',
+                'email': 'scouting@briefy.co',
+            }
+        ]
 
 
 class AssignmentCreativeMail(AssignmentMail):
@@ -86,13 +94,7 @@ class AssignmentCreativeMail(AssignmentMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        professional = self.data.get('professional_user')
-        if professional:
-            return {
-                'first_name': professional['first_name'],
-                'fullname': professional['fullname'],
-                'email': professional['email'],
-            }
+        return self._recipients('professional_user')
 
 
 @adapter(events.IAssignmentWfCancel)

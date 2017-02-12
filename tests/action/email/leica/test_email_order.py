@@ -21,39 +21,40 @@ class TestOrderCreatedCustomerMail(MailTest, BaseActionCase):
     def test_transform(self):
         """Test data transform."""
         obj = self.obj
-        payload = obj.transform()
-        data = payload['data']
-        assert isinstance(payload['sender_name'], str)
-        assert isinstance(payload['sender_email'], str)
-        assert isinstance(payload['fullname'], str)
-        assert isinstance(payload['email'], str)
-        assert isinstance(payload['subject'], str)
-        assert isinstance(payload['template'], str)
-        assert isinstance(payload['data'], dict)
-        assert isinstance(data['ID'], str)
-        assert isinstance(data['ACTION_URL'], str)
-        assert isinstance(data['EMAIL'], str)
-        assert isinstance(data['FULLNAME'], str)
-        assert isinstance(data['SLUG'], str)
-        assert isinstance(data['ASSIGNMENT_ID'], str)
-        assert isinstance(data['CUSTOMER'], str)
-        assert isinstance(data['CUSTOMER_ORDER_ID'], str)
-        assert isinstance(data['PROJECT'], str)
-        assert isinstance(data['FORMATTED_ADDRESS'], str)
-        assert isinstance(data['SCHEDULED_SHOOT_TIME'], str)
-        assert isinstance(data['SUBJECT'], str)
+        payload_list = obj.transform()
+        for payload in payload_list:
+            data = payload['data']
+            assert isinstance(payload['sender_name'], str)
+            assert isinstance(payload['sender_email'], str)
+            assert isinstance(payload['fullname'], str)
+            assert isinstance(payload['email'], str)
+            assert isinstance(payload['subject'], str)
+            assert isinstance(payload['template'], str)
+            assert isinstance(payload['data'], dict)
+            assert isinstance(data['ID'], str)
+            assert isinstance(data['ACTION_URL'], str)
+            assert isinstance(data['EMAIL'], str)
+            assert isinstance(data['FULLNAME'], str)
+            assert isinstance(data['SLUG'], str)
+            assert isinstance(data['ASSIGNMENT_ID'], str)
+            assert isinstance(data['CUSTOMER'], str)
+            assert isinstance(data['CUSTOMER_ORDER_ID'], str)
+            assert isinstance(data['PROJECT'], str)
+            assert isinstance(data['FORMATTED_ADDRESS'], str)
+            assert isinstance(data['SCHEDULED_SHOOT_TIME'], str)
+            assert isinstance(data['SUBJECT'], str)
 
-        assert payload['fullname'] == 'Eyal Schondorf'
-        assert payload['email'] == 'eyal.schondorf_agoda.com@briefy.co'
-        assert payload['template'] == 'platform-order-created-en-gb'
-        assert payload['subject']
+            assert payload['fullname'] == 'Eyal Schondorf'
+            assert payload['email'] == 'eyal.schondorf_agoda.com@briefy.co'
+            assert payload['template'] == 'platform-order-created-en-gb'
+            assert payload['subject']
 
-        assert data['FULLNAME'] == 'Eyal Schondorf'
-        assert data['EMAIL'] == 'eyal.schondorf_agoda.com@briefy.co'
-        assert data['SUBJECT']
+            assert data['FULLNAME'] == 'Eyal Schondorf'
+            assert data['EMAIL'] == 'eyal.schondorf_agoda.com@briefy.co'
+            assert data['SUBJECT']
 
 
-class OrderCreatedScoutMail(MailTest, BaseActionCase):
+class TestOrderCreatedScoutMail(MailTest, BaseActionCase):
     """Test for email sent to scout on Order creation."""
 
     action_class = actions.OrderSubmitScoutMail
@@ -62,11 +63,55 @@ class OrderCreatedScoutMail(MailTest, BaseActionCase):
     def test_transform(self):
         """Test data transform."""
         obj = self.obj
-        payload = obj.transform()
-        data = payload['data']
-        assert payload['fullname'] == 'Briefy Scouters'
-        assert payload['email'] == 'scouting@briefy.co'
-        assert payload['template'] == 'platform-order-created-scouting-en-gb'
-        assert data['FULLNAME'] == 'Briefy Scouters'
-        assert data['EMAIL'] == 'scouting@briefy.co'
-        assert data['SUBJECT'] == '''New order created by *|CUSTOMER|*'''
+        payload_list = obj.transform()
+        for payload in payload_list:
+            data = payload['data']
+            assert payload['fullname'] == 'Briefy Scouters'
+            assert payload['email'] == 'scouting@briefy.co'
+            assert payload['template'] == 'platform-order-created-scouting-en-gb'
+            assert data['FULLNAME'] == 'Briefy Scouters'
+            assert data['EMAIL'] == 'scouting@briefy.co'
+            assert data['SUBJECT'].startswith('''New order created by''')
+
+
+class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
+    """Test for email sent to customers on Order assigned."""
+
+    action_class = actions.OrderAssignedCustomerMail
+    event_class = events.OrderWfAssign
+    messages = 6
+
+    def test_transform(self):
+        """Test data transform."""
+        obj = self.obj
+        payload_list = obj.transform()
+        all_recipients = []
+        for payload in payload_list:
+            data = payload['data']
+            assert isinstance(payload['sender_name'], str)
+            assert isinstance(payload['sender_email'], str)
+            assert isinstance(payload['fullname'], str)
+            assert isinstance(payload['email'], str)
+            assert isinstance(payload['subject'], str)
+            assert isinstance(payload['template'], str)
+            assert isinstance(payload['data'], dict)
+            assert isinstance(data['ID'], str)
+            assert isinstance(data['ACTION_URL'], str)
+            assert isinstance(data['EMAIL'], str)
+            assert isinstance(data['FULLNAME'], str)
+            assert isinstance(data['SLUG'], str)
+            assert isinstance(data['ASSIGNMENT_ID'], str)
+            assert isinstance(data['CUSTOMER'], str)
+            assert isinstance(data['CUSTOMER_ORDER_ID'], str)
+            assert isinstance(data['PROJECT'], str)
+            assert isinstance(data['FORMATTED_ADDRESS'], str)
+            assert isinstance(data['SCHEDULED_SHOOT_TIME'], str)
+            assert isinstance(data['SUBJECT'], str)
+
+            assert payload['email'].endswith('.agoda@briefy.co')
+            assert payload['template'] == 'platform-order-assigned-en-gb'
+            assert payload['subject']
+            all_recipients.append(payload['fullname'])
+
+        # Eyal Schondorf is set as internal=false
+        assert 'Eyal Schondorf' not in all_recipients

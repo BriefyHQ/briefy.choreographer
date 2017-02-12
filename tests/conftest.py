@@ -57,6 +57,7 @@ class BaseActionCase(BaseTestCase):
     event_class = None
     data_class = None
     data_file = ''
+    messages = 1
 
     def _make_data_object(self):
         """Return a data object instance."""
@@ -133,7 +134,7 @@ class BaseActionCase(BaseTestCase):
 
         messages = queue.get_messages(num_messages=10)
         assert isinstance(messages, list)
-        assert len(messages) == 1
+        assert len(messages) == self.messages
 
 
 class BaseQueueCase(BaseTestCase):

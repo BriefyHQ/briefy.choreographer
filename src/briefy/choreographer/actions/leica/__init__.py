@@ -24,11 +24,10 @@ class LeicaAction(Action):
     def transform(self) -> dict:
         """Transform data."""
         event = self.event
-        data = self.data
         payload = {
-            'created_at': data.get('created_at'),
-            'data': data.get('data'),
-            'guid': data.get('guid'),
-            'event_name': data.get('event_name'),
+            'created_at': event.get('created_at'),
+            'data': event.get('data'),
+            'guid': event.get('guid'),
+            'event_name': event.get('event_name'),
         }
         return payload

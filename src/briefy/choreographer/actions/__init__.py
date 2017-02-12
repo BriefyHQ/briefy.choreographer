@@ -134,8 +134,29 @@ class Action:
             if isinstance(payload, dict):
                 payload = [payload, ]
             if payload:
-                response = queue.write_messages(payload)
-                self.log(payload, response)
+                try:
+                    response = queue.write_messages(payload)
+                except Exception as exc:
+                    event = self.event
+                    logger.error(
+                        '{event}: {queue} action {action} with response'.format(
+                            event=event.event_name if event else '',
+                            queue=self._queue_name if self._queue_name else '',
+                            action=self.__class__.__name__,
+                        ),
+                        extra={
+                            'action': {
+                                'guid': event.guid,
+                                'actor': event.actor,
+                                'request_id': event.request_id,
+                                'entity': self.entity,
+                                'event_name': event.event_name,
+                                'payload': payload
+                            }
+                        }
+                    )
+                else:
+                    self.log(payload, response)
             else:
                 self.log(payload, 'No Payload')
 

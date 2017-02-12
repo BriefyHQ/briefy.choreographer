@@ -9,7 +9,7 @@ from zope.interface import implementer
 class OrderSlack(Slack):
     """Base class for Slack message sent on Lead events."""
 
-    entity = 'Lead'
+    entity = 'Order'
     weight = 100
     _channel = '#tests-leica'
     title = 'Order!'

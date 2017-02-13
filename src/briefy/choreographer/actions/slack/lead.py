@@ -7,13 +7,19 @@ from zope.interface import implementer
 
 
 class LeadSlack(Slack):
-    """Slack message sent on Lead events."""
+    """Base class for Slack message sent on Lead events."""
 
     entity = 'Lead'
     weight = 100
     _channel = '#briefy-co-leads'
 
-    def transform(self):
+
+@adapter(lead.ILeadCreated)
+@implementer(ISlack)
+class LeadCreated(LeadSlack):
+    """After creating a new Lead, post on Slack."""
+
+    def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()
         data = self.data
@@ -41,13 +47,3 @@ class LeadSlack(Slack):
             ]
         }
         return payload
-
-
-@adapter(lead.ILeadCreated)
-@implementer(ISlack)
-class LeadCreated(LeadSlack):
-    """After creating a new Lead, post on Slack."""
-
-    @property
-    def available(self):
-        return True

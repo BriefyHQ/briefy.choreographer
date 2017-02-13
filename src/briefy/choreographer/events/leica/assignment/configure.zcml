@@ -1,0 +1,32 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="assignment.created" component=".AssignmentCreated" provides=".IAssignmentCreated" />
+    <utility name="assignment.updated" component=".AssignmentUpdated" provides=".IAssignmentUpdated" />
+    <utility name="assignment.workflow.approve" component=".AssignmentWfApprove" provides=".IAssignmentWfApprove" />
+    <utility name="assignment.workflow.assign" component=".AssignmentWfAssign" provides=".IAssignmentWfAssign" />
+    <utility name="assignment.workflow.cancel" component=".AssignmentWfCancel" provides=".IAssignmentWfCancel" />
+    <utility name="assignment.workflow.complete" component=".AssignmentWfComplete" provides=".IAssignmentWfComplete" />
+    <utility name="assignment.workflow.invalidate_assets" component=".AssignmentWfInvalidateAssets" provides=".IAssignmentWfInvalidateAssets" />
+    <utility name="assignment.workflow.perm_reject" component=".AssignmentWfPermReject" provides=".IAssignmentWfPermReject" />
+    <utility name="assignment.workflow.publish" component=".AssignmentWfPublish" provides=".IAssignmentWfPublish" />
+    <utility name="assignment.workflow.ready_for_upload" component=".AssignmentWfReadyForUpload" provides=".IAssignmentWfReadyForUpload" />
+    <utility name="assignment.workflow.refuse" component=".AssignmentWfRefuse" provides=".IAssignmentWfRefuse" />
+    <utility name="assignment.workflow.reject" component=".AssignmentWfReject" provides=".IAssignmentWfReject" />
+    <utility name="assignment.workflow.remove_schedule" component=".AssignmentWfRemoveSchedule" provides=".IAssignmentWfRemoveSchedule" />
+    <utility name="assignment.workflow.reschedule" component=".AssignmentWfReschedule" provides=".IAssignmentWfReschedule" />
+    <utility name="assignment.workflow.retract" component=".AssignmentWfRetract" provides=".IAssignmentWfRetract" />
+    <utility name="assignment.workflow.retract_approval" component=".AssignmentWfRetractApproval" provides=".IAssignmentWfRetractApproval" />
+    <utility name="assignment.workflow.retract_rejection" component=".AssignmentWfRetractRejection" provides=".IAssignmentWfRetractRejection" />
+    <utility name="assignment.workflow.return_to_qa" component=".AssignmentWfReturnToQa" provides=".IAssignmentWfReturnToQa" />
+    <utility name="assignment.workflow.schedule" component=".AssignmentWfSchedule" provides=".IAssignmentWfSchedule" />
+    <utility name="assignment.workflow.scheduling_issues" component=".AssignmentWfSchedulingIssues" provides=".IAssignmentWfSchedulingIssues" />
+    <utility name="assignment.workflow.self_assign" component=".AssignmentWfSelfAssign" provides=".IAssignmentWfSelfAssign" />
+    <utility name="assignment.workflow.submit" component=".AssignmentWfSubmit" provides=".IAssignmentWfSubmit" />
+    <utility name="assignment.workflow.upload" component=".AssignmentWfUpload" provides=".IAssignmentWfUpload" />
+    <utility name="assignment.workflow.validate_assets" component=".AssignmentWfValidateAssets" provides=".IAssignmentWfValidateAssets" />
+    <utility name="assignment.workflow.edit_payout" component=".AssignmentWfEditPayout" provides=".IAssignmentWfEditPayout" />
+    <utility name="assignment.workflow.edit_compensation" component=".AssignmentWfEditCompensation" provides=".IAssignmentWfEditCompensation" />
+    <utility name="assignment.workflow.assign_qa_manager" component=".AssignmentWfAssignQAManager" provides=".IAssignmentWfAssignQAManager" />
+    <utility name="assignment.workflow.assign_pool" component=".AssignmentWfAssignPool" provides=".IAssignmentWfAssignPool" />
+
+</configure>

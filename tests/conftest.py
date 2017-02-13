@@ -2,6 +2,7 @@
 from briefy.choreographer.actions import IAction
 from briefy.common.config import SQS_REGION
 from briefy.common.queue import IQueue
+from uuid import uuid4
 from zope.component import getGlobalSiteManager
 from zope.component import getUtility
 from zope.configuration.xmlconfig import XMLConfig
@@ -56,6 +57,7 @@ class BaseActionCase(BaseTestCase):
     event_class = None
     data_class = None
     data_file = ''
+    messages = 1
 
     def _make_data_object(self):
         """Return a data object instance."""
@@ -69,6 +71,8 @@ class BaseActionCase(BaseTestCase):
 
     def _prepare_queue(self):
         mock_sqs()
+        if not self.action_class._queue_name:
+            return
         queue = getUtility(IQueue, self.action_class._queue_name)
         queue_name = queue.name
         sqs = boto3.resource('sqs', region_name=SQS_REGION)
@@ -86,6 +90,7 @@ class BaseActionCase(BaseTestCase):
         if self.event_class:
             self.event = self.event_class(
                 actor='foo',
+                id=str(uuid4()),
                 request_id='e595e4ee-b4c2-4658-8298-f2af95b0120f',
                 guid=self.data.get('id'),
                 created_at='2016-07-01T12:32:45',
@@ -93,6 +98,11 @@ class BaseActionCase(BaseTestCase):
             )
             event = self.event
         self.obj = self._make_one(event)
+
+    def test_repr(self):
+        """Test repr for the action."""
+        action = self.obj
+        assert isinstance(action.__repr__(), str)
 
     def test_interfaces(self):
         """Test that this action provides IAction interfaces."""
@@ -124,7 +134,7 @@ class BaseActionCase(BaseTestCase):
 
         messages = queue.get_messages(num_messages=10)
         assert isinstance(messages, list)
-        assert len(messages) == 1
+        assert len(messages) == self.messages
 
 
 class BaseQueueCase(BaseTestCase):
@@ -156,6 +166,12 @@ class BaseQueueCase(BaseTestCase):
         """Test queue name."""
         queue = self._make_one()
         assert isinstance(queue, self.queue)
+
+    def test_example_payload(self):
+        """Test example payload."""
+        queue = self._make_one()
+        payload = queue.payload
+        assert isinstance(payload, dict)
 
     def test_repr(self):
         """Test str representation of this tool."""

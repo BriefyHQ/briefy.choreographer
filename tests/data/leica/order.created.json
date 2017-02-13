@@ -1,0 +1,522 @@
+{
+  "project_manager": [
+    {
+      "last_name": "Shauh",
+      "fullname": "Ariana Shauh",
+      "first_name": "Ariana",
+      "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+      "email": "ariana@briefy.co",
+      "internal": true
+    }
+  ],
+  "project_managers": [
+    {
+      "last_name": "Shauh",
+      "fullname": "Ariana Shauh",
+      "first_name": "Ariana",
+      "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+      "email": "ariana@briefy.co",
+      "internal": true
+    }
+  ],
+  "customer_user": [
+    {
+      "last_name": "Schondorf",
+      "fullname": "Eyal Schondorf",
+      "first_name": "Eyal",
+      "id": "3fa99173-b41d-479f-953d-59ded7bfa971",
+      "email": "eyal.schondorf_agoda.com@briefy.co",
+      "internal": false
+  }
+  ],
+  "customer": {
+    "created_at": "2017-01-25T01:07:39.040486+00:00",
+    "tax_country": "SG",
+    "id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+    "title": "Agoda",
+    "updated_at": "2017-01-25T01:07:39.040509+00:00",
+    "state": "active",
+    "legal_name": "Agoda Company Pte Ltd",
+    "description": null,
+    "slug": "agoda"
+  },
+  "customer_users": [
+      {
+          "email": "ponlawit.wisomka.agoda@briefy.co",
+          "internal": true,
+          "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+          "first_name": "Ponlawit",
+          "last_name": "Wisomka",
+          "fullname": "Ponlawit Wisomka"
+      },
+      {
+          "email": "naina.chugh.agoda@briefy.co",
+          "internal": true,
+          "id": "6ce60a68-75a5-4890-b5a1-bcd5bcc8d92d",
+          "first_name": "Naina",
+          "last_name": "Chugh",
+          "fullname": "Naina Chugh"
+      },
+      {
+          "email": "wanlada.waewkratok.agoda@briefy.co",
+          "internal": true,
+          "id": "6f3c6288-f31d-4fb7-bbdd-6c4b3b505108",
+          "first_name": "Waewkratok",
+          "last_name": "Wanlada",
+          "fullname": "Waewkratok Wanlada"
+      },
+      {
+          "email": "nicharee.parasingha.agoda@briefy.co",
+          "internal": true,
+          "id": "7d3ab033-7958-4495-afe9-fc26d2ef25d9",
+          "first_name": "Parasingha",
+          "last_name": "Nicharee",
+          "fullname": "Parasingha Nicharee"
+      },
+      {
+          "email": "suthapa.borsub.agoda@briefy.co",
+          "internal": true,
+          "id": "f038e538-c498-4e31-848b-6f717623a893",
+          "first_name": "Borsub",
+          "last_name": "Suthapa",
+          "fullname": "Borsub Suthapa"
+      },
+      {
+          "email": "sarawadee.jiramaroota.agoda@briefy.co",
+          "internal": true,
+          "id": "99d98642-d4a8-4aba-b4d4-d3a2c83fd444",
+          "first_name": "Jiramarootapong",
+          "last_name": "Sarawadee",
+          "fullname": "Jiramarootapong Sarawadee"
+      }
+  ],
+  "source": "customer",
+  "scout_manager": [
+    {
+      "last_name": "Pieprzyk",
+      "fullname": "Stefan Pieprzyk",
+      "first_name": "Stefan",
+      "id": "2b045589-0a0f-4302-99d8-7390ad7817ce",
+      "email": "stefan@briefy.co"
+    }
+  ],
+  "scout_managers": [
+    {
+      "last_name": "Pieprzyk",
+      "fullname": "Stefan Pieprzyk",
+      "first_name": "Stefan",
+      "id": "2b045589-0a0f-4302-99d8-7390ad7817ce",
+      "email": "stefan@briefy.co"
+    }
+  ],
+  "location": {
+    "fullname": "Wana Yuliana",
+    "first_name": "Wana",
+    "country": "ID",
+    "timezone": "UTC",
+    "info": {
+      "street_number": "",
+      "coordinates": "",
+      "locality": "",
+      "formatted_address": "Jalan Raya Semat, Gang Jalak XI No. 2A, Canggu, Bali, 80361, Indonesia",
+      "route": "Jalan Raya Semat, Gang Jalak XI No. 2A",
+      "place_id": "",
+      "country": "ID",
+      "province": "Bali",
+      "postal_code": "80361"
+    },
+    "mobile": "+62 858-5737-2402",
+    "additional_phone": null,
+    "last_name": "Yuliana",
+    "created_at": "2017-01-25T01:32:34.241149+00:00",
+    "coordinates": {
+      "coordinates": [
+        115.1454805,
+        -8.6517464
+      ],
+      "type": "Point"
+    },
+    "updated_at": "2017-01-25T14:09:10.303937+00:00",
+    "locality": "Canggu",
+    "order_id": "100f467e-590c-4c95-8083-bbc3f4bf678c",
+    "state_history": [
+      {
+        "date": "2017-01-25T01:32:34.227543+00:00",
+        "actor": null,
+        "message": null,
+        "transition": "",
+        "from": "",
+        "to": "created"
+      }
+    ],
+    "state": "created",
+    "id": "feeae821-05a9-4945-a507-33cce7c223c9",
+    "email": "wanayuliana@yahoo.com",
+    "formatted_address": "Jalan Raya Semat, Gang Jalak XI No. 2A, Canggu, Bali, 80361, Indonesia",
+    "company_name": null
+  },
+  "category": "accommodation",
+  "number_required_assets": 36,
+  "project": {
+    "slug": "agoda-bali",
+    "created_at": "2017-01-25T01:07:49.268279+00:00",
+    "title": "Agoda Bali",
+    "updated_at": "2017-01-25T14:09:10.375928+00:00",
+    "state": "ongoing",
+    "id": "1dafb433-9431-4295-a349-92c4ad61c59e",
+    "description": ""
+  },
+  "slug": "1701-PS1-560",
+  "job_id": "1560",
+  "delivery": {
+    "sftp": "sftp://agoda@delivery.briefy.co/agoda_bali/1031847"
+  },
+  "tech_requirements": {
+    "dimensions": [
+      {
+        "value": "4150x3100",
+        "operator": "min"
+      },
+      {
+        "value": "4250x3200",
+        "operator": "max"
+      }
+    ],
+    "mimetype": [
+      {
+        "value": "image/jpeg",
+        "operator": "eq"
+      }
+    ],
+    "orientation": [
+      {
+        "value": "landscape",
+        "operator": "eq"
+      }
+    ],
+    "ratio": [
+      {
+        "value": 1.3333333333333333,
+        "operator": "eq"
+      }
+    ]
+  },
+  "created_at": "2016-09-09T10:09:00+00:00",
+  "title": "Villa Undici Jalak",
+  "timezone": "Asia/Bangkok",
+  "state_history": [
+    {
+      "date": "2016-09-09T10:09:00+00:00",
+      "actor": {
+        "last_name": "Schondorf",
+        "fullname": "Eyal Schondorf",
+        "first_name": "Eyal",
+        "id": "3fa99173-b41d-479f-953d-59ded7bfa971",
+        "internal": true,
+        "email": "eyal.schondorf_agoda.com@briefy.co"
+      },
+      "message": "Created by Fachry Muchamad on Knack database",
+      "transition": "",
+      "from": "",
+      "to": "created"
+    },
+    {
+      "date": "2016-09-09T10:09:00+00:00",
+      "actor": {
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "first_name": "Ariana",
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "email": "ariana@briefy.co",
+        "internal": true
+      },
+      "message": "Automatic transition to received",
+      "transition": "submit",
+      "from": "created",
+      "to": "received"
+    },
+    {
+      "date": "2016-09-19T10:43:00+00:00",
+      "actor": {
+        "last_name": "Pieprzyk",
+        "fullname": "Stefan Pieprzyk",
+        "first_name": "Stefan",
+        "id": "2b045589-0a0f-4302-99d8-7390ad7817ce",
+        "email": "stefan@briefy.co",
+        "internal": true
+      },
+      "message": "Photographer assigned by 'Stefan Pieprzyk' on the Knack database",
+      "transition": "assign",
+      "from": "received",
+      "to": "assigned"
+    },
+    {
+      "date": "2016-09-27T16:00:00+00:00",
+      "actor": {
+        "last_name": "Nurjaman",
+        "fullname": "Maliki Nurjaman",
+        "first_name": "Maliki",
+        "id": "6d946b73-2a6c-4fab-86a2-66adc563c4e5",
+        "email": "mbagool@gmail.com",
+        "internal": true
+      },
+      "message": "Scheduled by 'Maliki Nurjaman' on the Knack database",
+      "transition": "schedule",
+      "from": "assigned",
+      "to": "scheduled"
+    },
+    {
+      "date": "2016-10-01T17:45:00+00:00",
+      "actor": {
+        "last_name": "Nurjaman",
+        "fullname": "Maliki Nurjaman",
+        "first_name": "Maliki",
+        "id": "6d946b73-2a6c-4fab-86a2-66adc563c4e5",
+        "email": "mbagool@gmail.com",
+        "internal": true
+      },
+      "message": "Submited by 'Maliki Nurjaman' on the Knack database",
+      "transition": "start_qa",
+      "from": "scheduled",
+      "to": "in_qa"
+    },
+    {
+      "date": "2016-10-25T14:27:00+00:00",
+      "actor": {
+        "last_name": "Kroger",
+        "fullname": "Christian Kroger",
+        "first_name": "Christian",
+        "id": "88fcd83e-bdd8-463d-bf7c-c1050f5c219d",
+        "email": "christian@briefy.co",
+        "internal": true
+      },
+      "message": "Delivered by 'Christian Kroger' on the Knack database",
+      "transition": "deliver",
+      "from": "in_qa",
+      "to": "delivered"
+    },
+    {
+      "date": "2016-10-25T14:27:00+00:00",
+      "actor": {
+        "last_name": "Wisomka",
+        "fullname": "Ponlawit Wisomka",
+        "first_name": "Ponlawit",
+        "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+        "email": "ponlawit.wisomka.agoda@briefy.co",
+        "internal": true
+      },
+      "message": "Marked as  'completed' on the Knack database",
+      "transition": "accept",
+      "from": "delivered",
+      "to": "accepted"
+    }
+  ],
+  "price": 35380,
+  "price_currency": "EUR",
+  "updated_at": "2017-01-25T01:32:34.713275+00:00",
+  "briefing": "https://files.stg.briefy.co/files/projects/1dafb433-9431-4295-a349-92c4ad61c59e/briefing/agodabalibriefing.pdf",
+  "customer_id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+  "customer_order_id": "1031847",
+  "comments": [
+    {
+      "created_at": "2017-01-25T01:32:34.387349+00:00",
+      "author_role": "customer_user",
+      "updated_at": "2017-01-25T01:32:34.387381+00:00",
+      "author": {
+        "last_name": "Wisomka",
+        "fullname": "Ponlawit Wisomka",
+        "first_name": "Ponlawit",
+        "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+        "email": "ponlawit.wisomka@agoda.com"
+      },
+      "content": "miss wana confirmed availability- She advised that alternatively, we may contact Mr robb (Owner/husband) on the same number ( 6285857372402) \n\n28 Oct 2016: Please upload resized photos and all will be approved.",
+      "to_role": "project_manager",
+      "internal": false,
+      "id": "2d4fb3b8-d0b1-447a-8544-43db4067d7f4"
+    },
+    {
+      "created_at": "2017-01-25T01:32:34.329495+00:00",
+      "author_role": "project_manager",
+      "updated_at": "2017-01-25T01:32:34.329519+00:00",
+      "author": {
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "first_name": "Ariana",
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "email": "ariana@briefy.co"
+      },
+      "content": "Photographer´s comment:\n\n1. the villa do not have lobby, so photos of lobby using the front yard\n2. the villa do not have reception, so the photos of reception using work desk of the owner\" ",
+      "to_role": "customer_user",
+      "internal": false,
+      "id": "e7c9dcf5-b0ee-4cd1-aa07-4075ad8b025c"
+    }
+  ],
+  "state": "accepted",
+  "requirements": "Total: 36 photos\n\nOne Bedroom Private Pool Villa - Photos: 5 - Filenames: 1031847_one-bedroom-private-pool-villa_XX.jpg\n\ngarden - Photos: 5 - Filenames: 1031847_garden_XX.jpg\n\noutdoor pool - Photos: 5 - Filenames: 1031847_outdoor-pool_XX.jpg\n\nExterior - Photos: 5 - Filenames: 1031847_exterior_XX.jpg\n\nInterior - Photos: 5 - Filenames: 1031847_interior_XX.jpg\n\nLobby - Photos: 5 - Filenames: 1031847_lobby_XX.jpg\n\nReception - Photos: 5 - Filenames: 1031847_reception_XX.jpg\n\nOther - Photos: 1 - Filenames: 1031847_other_XX.jpg",
+  "deliver_date": "2016-10-25T14:27:00+00:00",
+  "id": "100f467e-590c-4c95-8083-bbc3f4bf678c",
+  "description": "",
+  "external_id": "57d26e31af067d774786ee45",
+  "assignment": {
+    "total_approvable_assets": 0,
+    "scheduled_datetime": "2016-09-27T16:00:00+00:00",
+    "timezone": "Asia/Bangkok",
+    "category": "accommodation",
+    "number_required_assets": 36,
+    "approvable": false,
+    "created_at": "2016-09-09T10:09:00+00:00",
+    "title": "Villa Undici Jalak",
+    "total_assets": 0,
+    "updated_at": "2017-01-25T01:32:34.640824+00:00",
+    "state": "completed",
+    "id": "b31f52ea-4e60-4d9b-9fde-ed9b7a06177d",
+    "description": "",
+    "professional": {
+      "birth_date": null,
+      "links": [
+        {
+          "state": "created",
+          "type": "linkedin",
+          "id": "accd60a4-be78-4572-b045-c4cd6ab6aa5b",
+          "state_history": [
+            {
+              "date": "2017-01-25T01:08:42.245109+00:00",
+              "actor": null,
+              "message": null,
+              "transition": "",
+              "from": "",
+              "to": "created"
+            }
+          ],
+          "updated_at": "2017-01-25T01:08:42.252602+00:00",
+          "url": "https://www.linkedin.com/in/maliki-nurjaman-47a0aa48",
+          "created_at": "2017-01-25T01:08:42.252570+00:00",
+          "professional_id": "6d946b73-2a6c-4fab-86a2-66adc563c4e5"
+        }
+      ],
+      "fullname": "Maliki Nurjaman",
+      "partners": true,
+      "first_name": "Maliki",
+      "description": null,
+      "internal": true,
+      "mobile": "+62 815-1001-1822",
+      "accept_travel": false,
+      "last_name": "Nurjaman",
+      "created_at": "2017-01-25T01:08:42.209447+00:00",
+      "photo_path": null,
+      "title": "Maliki Nurjaman",
+      "state_history": [
+        {
+          "date": "2017-01-25T01:08:42.206988+00:00",
+          "actor": null,
+          "message": null,
+          "transition": "",
+          "from": "",
+          "to": "created"
+        }
+      ],
+      "gender": null,
+      "updated_at": "2017-01-25T01:08:42.209467+00:00",
+      "additional_phone": null,
+      "main_location": {
+        "timezone": "UTC",
+        "updated_at": "2017-01-25T01:08:42.250395+00:00",
+        "country": "ID",
+        "locality": "Jakarta",
+        "created_at": "2017-01-25T01:08:42.238297+00:00",
+        "state": "created",
+        "id": "23313641-3bde-4abe-9e5a-4381b8eb2f06",
+        "latlng": [
+          -6.16755,
+          106.8620891
+        ],
+        "info": {
+          "street_number": "",
+          "country": "ID",
+          "formatted_address": "jalan sumur batu no. 37, Jakarta, 10640, Indonesia",
+          "route": "jalan sumur batu no. 37",
+          "province": "",
+          "postal_code": "10640 "
+        },
+        "coordinates": {
+          "coordinates": [
+            106.8620891,
+            -6.16755
+          ],
+          "type": "Point"
+        },
+        "formatted_address": "jalan sumur batu no. 37, Jakarta, 10640, Indonesia"
+      },
+      "state": "active",
+      "pools": [
+        {
+          "created_at": "2017-01-25T01:07:59.773572+00:00",
+          "title": "Agoda Bali",
+          "updated_at": "2017-01-25T01:07:59.773594+00:00",
+          "country": "ID",
+          "state": "created",
+          "id": "009e2b7c-cc61-4f7b-ac34-7ced9a6bc0f5",
+          "description": "Agoda Bali",
+          "slug": "009e2b7c-agoda-bali"
+        }
+      ],
+      "type": null,
+      "id": "6d946b73-2a6c-4fab-86a2-66adc563c4e5",
+      "email": "mbagool@gmail.com",
+      "external_id": null,
+      "company_name": null,
+      "locations": [
+        {
+          "state_history": [
+            {
+              "date": "2017-01-25T01:08:42.234894+00:00",
+              "actor": null,
+              "message": null,
+              "transition": "",
+              "from": "",
+              "to": "created"
+            }
+          ],
+          "timezone": "UTC",
+          "updated_at": "2017-01-25T01:08:42.250395+00:00",
+          "range_unit": "km",
+          "country": "ID",
+          "locality": "Jakarta",
+          "professional_id": "6d946b73-2a6c-4fab-86a2-66adc563c4e5",
+          "created_at": "2017-01-25T01:08:42.238297+00:00",
+          "state": "created",
+          "type": "main_working_location",
+          "id": "23313641-3bde-4abe-9e5a-4381b8eb2f06",
+          "latlng": [
+            -6.16755,
+            106.8620891
+          ],
+          "info": {
+            "street_number": "",
+            "country": "ID",
+            "formatted_address": "jalan sumur batu no. 37, Jakarta, 10640, Indonesia",
+            "route": "jalan sumur batu no. 37",
+            "province": "",
+            "postal_code": "10640 "
+          },
+          "coordinates": {
+            "coordinates": [
+              106.8620891,
+              -6.16755
+            ],
+            "type": "Point"
+          },
+          "formatted_address": "jalan sumur batu no. 37, Jakarta, 10640, Indonesia",
+          "range": 10
+        }
+      ],
+      "slug": "6d946b73"
+    },
+    "slug": "1701-PS1-560_01"
+  },
+  "availability": [
+    "2016-09-20T15:00:00+00:00",
+    "2016-09-27T16:00:00+00:00"
+  ],
+  "project_id": "1dafb433-9431-4295-a349-92c4ad61c59e"
+}

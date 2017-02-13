@@ -3,19 +3,15 @@
     <!-- Get all lead events -->
     <subscriber for="briefy.choreographer.events.lead.ILeadEvent" handler=".lead_handler" />
 
-    <!-- Mail lead.created -->
-    <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
-
-    <!-- Slack lead.created -->
-    <adapter name="lead.created.slack" factory="briefy.choreographer.actions.slack.lead.LeadCreated" />
-
     <!-- Get all quote events -->
     <subscriber for="briefy.choreographer.events.lead.IQuoteEvent" handler=".quote_handler" />
 
-    <!-- Mail quote.created -->
-    <adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" />
+    <!-- lead.created -->
+        <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
+        <adapter name="lead.created.slack" factory="briefy.choreographer.actions.slack.lead.LeadCreated" />
 
-    <!-- Slack quote.created -->
-    <adapter name="quote.created.slack" factory="briefy.choreographer.actions.slack.quote.QuoteCreated" />
+    <!-- quote.created -->
+        <adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" />
+        <adapter name="quote.created.slack" factory="briefy.choreographer.actions.slack.quote.QuoteCreated" />
 
 </configure>

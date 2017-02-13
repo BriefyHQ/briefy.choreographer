@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="asset.created" component=".AssetCreated" provides=".IAssetCreated" />
+    <utility name="asset.updated" component=".AssetUpdated" provides=".IAssetUpdated" />
+    <utility name="asset.workflow.approve" component=".AssetWfApprove" provides=".IAssetWfApprove" />
+    <utility name="asset.workflow.delete" component=".AssetWfDelete" provides=".IAssetWfDelete" />
+    <utility name="asset.workflow.discard" component=".AssetWfDiscard" provides=".IAssetWfDiscard" />
+    <utility name="asset.workflow.invalidate" component=".AssetWfInvalidate" provides=".IAssetWfInvalidate" />
+    <utility name="asset.workflow.process" component=".AssetWfProcess" provides=".IAssetWfProcess" />
+    <utility name="asset.workflow.refuse" component=".AssetWfRefuse" provides=".IAssetWfRefuse" />
+    <utility name="asset.workflow.request_edit" component=".AssetWfRequestEdit" provides=".IAssetWfRequestEdit" />
+    <utility name="asset.workflow.reserve" component=".AssetWfReserve" provides=".IAssetWfReserve" />
+    <utility name="asset.workflow.retract" component=".AssetWfRetract" provides=".IAssetWfRetract" />
+    <utility name="asset.workflow.submit" component=".AssetWfSubmit" provides=".IAssetWfSubmit" />
+    <utility name="asset.workflow.validate" component=".AssetWfValidate" provides=".IAssetWfValidate" />
+
+</configure>

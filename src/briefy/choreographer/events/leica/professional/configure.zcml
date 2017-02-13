@@ -1,0 +1,14 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="professional.created" component=".ProfessionalCreated" provides=".IProfessionalCreated" />
+    <utility name="professional.updated" component=".ProfessionalUpdated" provides=".IProfessionalUpdated" />
+    <utility name="professional.workflow.activate" component=".ProfessionalWfActivate" provides=".IProfessionalWfActivate" />
+    <utility name="professional.workflow.approve" component=".ProfessionalWfApprove" provides=".IProfessionalWfApprove" />
+    <utility name="professional.workflow.delete" component=".ProfessionalWfDelete" provides=".IProfessionalWfDelete" />
+    <utility name="professional.workflow.inactivate" component=".ProfessionalWfInactivate" provides=".IProfessionalWfInactivate" />
+    <utility name="professional.workflow.reject" component=".ProfessionalWfReject" provides=".IProfessionalWfReject" />
+    <utility name="professional.workflow.submit" component=".ProfessionalWfSubmit" provides=".IProfessionalWfSubmit" />
+    <utility name="professional.workflow.validate" component=".ProfessionalWfValidate" provides=".IProfessionalWfValidate" />
+    <utility name="professional.workflow.assign" component=".ProfessionalWfAssign" provides=".IProfessionalWfAssign" />
+
+</configure>

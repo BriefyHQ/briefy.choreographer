@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="project.created" component=".ProjectCreated" provides=".IProjectCreated" />
+    <utility name="project.updated" component=".ProjectUpdated" provides=".IProjectUpdated" />
+    <utility name="project.workflow.close" component=".ProjectWfClose" provides=".IProjectWfClose" />
+    <utility name="project.workflow.pause" component=".ProjectWfPause" provides=".IProjectWfPause" />
+    <utility name="project.workflow.start" component=".ProjectWfStart" provides=".IProjectWfStart" />
+
+</configure>

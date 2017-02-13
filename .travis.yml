@@ -19,22 +19,29 @@ install:
 - pip install flake8
 script:
 - tox -e ${TOXENV}
-- flake8 src/briefy/choreographer setup.py
+- make lint
 after_success:
 - make docs
 notifications:
   slack: briefy:qxjOPwcrGEtVx3aCQBr812t9
+addons:
+  artifacts:
+    key:
+      secure: blNOKrPKBVKcQwVnqG8KKK18WKhfL5ptbi6ooOVLBT9QGp1zLJr6RGPtjfIj+oYdjCKp2x3QP73v8ze7t4KwVAolxmaN8vBFavIfLklPjrngA/JPR7OCZ5itMIDrBkDK368tQoEdmCnvEhEd2e1dC3VGMuvm+FAeVcmkokTDCmsk0C0nCa84iZtdT7D9/ypVDcQwa5BIym9tdQ48gOtEDQ859roKGHilqAk1pcVEplT9olc0lKhdbUTzHAkMU/4Ho9GlwNAY2ov3bQ+S00esyRjmjNgocls7UXN2VTf65HZXCIXp6tNSuSY5Y12kd2O8tcktxd/n7DsytrYKx7Dsxm86GOQzLnSPGNXnetnr/QqQdf5uj2qOyQ2W39Lne3YYpX1euvuI0h95e5Jlbyba2ObgIkNhkcs/N/KQ5i7MM33ILz5pRU2xgFxb7io9m1HcBtzaBQ5vSAYVZJExFp3eLNER8y2u9/jSPSuEJOATt5x0McvlKhgXbckdQsm1MvH0eP5eDEKEhYWrRjsj+dKMaYWoPfm7Zf88a5YQWRvytPGDLG43Y/jC4tb/QBnLdBiYsfWA9s05cuiN83ijDRxIS2ojMNcbATWFu3VRh+GXpe/c+au8nblGwB6ZmXWuo0FwNtlbQTVe9D5iAHFp0MbDk1izaweZ2vKln7bzNuai30o=
+    secret:
+      secure: lfluukhKgM7BZnbwyhMbW5nkAYnODNJDlVUW79IgpQIXpdWpkf5Auy37YIGCXQDj0i0UZQl7awQeCIqQ/nrpo71MaFPiAVxj3tH3azlDrpgJW2NyMP72hQsREOi89fCVCY4gG6sZJ1ghZpRQU8wOD/cWjdUj+6hTt+4rDYNIrtkbfhzXHKLFYBPZ+pFiMTIJpp82Pb372r51faMGpAgoTSOTLEEMfw8PtCC3D2eeLVTSfkTVSNj3nDHk4AMRxa+do0wh5mYEbfxUnbtLfhmqQQ4g4fTbbRZ8wjsd3gyKo9lism9xYNxapAtmwDgNA7hXZ53qM5FANnjiPOOoNs/XDkueGXkvTlwfEVM1Q14rJJRq4tOGrm19+CyF/NTWNFJ+5x3uyemkvukGgljgayMtKQt2zekybAUN8fEGbvd1HECzUjn9gTFghwKaKsuaa1noZHjczQla8cZIVT4DfCtGJxzj2hmOOVGftn7dg0OhoAjFj7AhyQiEvZ/3GQI0U941DtQHXAtvFTveU6t5oF7YTj3NXPUWj8fPRxJWP5G5cx6FlozQomfTCMebycUslo2l/K0bmCZhm64+UNIOOJfx8KcavFORyDBkWLo7uco56FQOR7+gnbVjQU+TanSwIhRxg/2+SuY+HgaHmVp3gQW7SCSqDqo+UrGJbCR/luaFhLg=
+    bucket: briefy-dev-docs
+    target_paths: briefy.choreographer
+    paths:
+      - docs/_build/dirhtml/
 deploy:
   provider: deis
   controller: https://deis.stg.briefy.co
-  cli_version: v2.2.0
+  cli_version: v2.4.0
   app: briefy-choreographer
   username: ci
   password:
     secure: AOJ4Rjf2WPRslLgXV4hzm8ctow1ejHs0lrGYb3GG3w41AQtNyHwEjq7IeSZgzPUd6uxzDVCzjHfkUd+B0XNX30SgD7/GBKDXpfgJseBMQ/HYB8XTn7gs5hK9aQ/IiztigeSHmc4x9QMIrfsgetV7ug1LNUerzTKHmRRA86ERlyafS1eHOBJMXJrqqRjHRedJ7zgfhFgBFIvqCtzAmzVkRiwn3pe6VJwk1FsZbKOttvI1uIRI9ZUCodnjze6mPPY6+qviGR0tpVOVO1sx9efek14BBFX04cOlYo5MUw3R4Sm24wPWgPfHM9h6sSCY92oTgMeMDGBNcAVanfqHdt37bdVmP5+TqeKU5SaGIklNDKx7VGQ3wNQdRx9xbJ41WjS6+NtGP5U9ENIA9NADQicrch8C5XKr+xyXk7nx53yHMQ/O7I2hIBPklJZQRG7hRkkumIzBufxuUzxE/62rh8QydX6CBwVuseUu9Der0A7t9eN/VTed5Xtz1SFSWLIWCkfmkGsLqwp85oL0tdLFWrs5813dYIA/31+iFJxijCCqduerfsvWn4/wloX7M7y4JFicdYSLTegfutRX3NNBSAgReQoP2QEVOpMz+dHnDqd5zWxq+9yCj39KXFvS5aIaMZJYZOgpm/xX8CHUZFEISLZcfg5rIHiJRMgHmKCDckeNzZs=
-  edge:
-    source: mattk42/dpl
-    branch: deis-v2-exit-status
   on:
     repo: BriefyHQ/briefy.choreographer
     branch: develop

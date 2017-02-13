@@ -1,23 +1,30 @@
 """Logger handler."""
+from briefy.choreographer.events import InternalEvent
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-def handler(event):
+def handler(event: InternalEvent):
     """Catch all handler that logs the event.
 
     :param event: Event
-    :type event: briefy.choreographer.events.IInternalEvent
     """
     logger.info(
-        'Event: {}, Entity: {}, GUID: {}'.format(event.event_name, event.entity, event.guid),
+        'Event: {name}, Entity: {entity}, GUID: {guid}'.format(
+            name=event.event_name,
+            entity=event.entity,
+            guid=event.guid
+        ),
         extra={
-            'event_name': event.event_name,
-            'guid': event.guid,
-            'entity': event.entity,
-            'actor': event.actor,
-            'request_id': event.request_id,
-            'data': event.data
+            'choreographer': {
+                'event_name': event.event_name,
+                'guid': event.guid,
+                'id': event.id,
+                'entity': event.entity,
+                'actor': event.actor,
+                'request_id': event.request_id,
+                'data': event.data
+            }
         }
     )

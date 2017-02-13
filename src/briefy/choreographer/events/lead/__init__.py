@@ -12,7 +12,8 @@ class ILeadCreated(ILeadEvent):
 
 
 class LeadEvent(InternalEvent):
-    """An event used by briefy.choreographer."""
+    """An event of a Lead."""
+
     entity = 'Lead'
 
 
@@ -25,5 +26,6 @@ class IQuoteCreated(IQuoteEvent):
 
 
 class QuoteEvent(InternalEvent):
-    """An event used by briefy.choreographer."""
+    """An event of a Quote."""
+
     entity = 'Quote'

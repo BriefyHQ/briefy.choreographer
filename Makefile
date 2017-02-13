@@ -75,7 +75,9 @@ clean-docs:
 	rm -f docs/codebase/modules.rst
 
 lint: ## check style with flake8
-	flake8 src/briefy/choreographer tests setup.py
+	flake8 src/briefy/choreographer setup.py
+	flake8 --ignore=D102,D103,D205,D101,D400,D210,D401,D100 tests
+
 
 test: lint ## run tests quickly with the default Python
 	py.test  --cov-report term-missing --cov=briefy.choreographer tests
@@ -92,7 +94,7 @@ coverage: ## check code coverage quickly with the default Python
 		$(BROWSER) htmlcov/index.html
 
 docs: clean-docs ## generate Sphinx HTML documentation, including API docs
-	$(SPHINXAPIDOC) -o docs/codebase src/briefy
+	$(SPHINXAPIDOC) -M -d 1 -o docs/codebase src/briefy
 	rm -f docs/codebase/modules.rst
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 

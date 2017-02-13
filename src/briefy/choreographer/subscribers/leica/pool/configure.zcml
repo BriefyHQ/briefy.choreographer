@@ -1,0 +1,28 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Pool events -->
+    <subscriber for="briefy.choreographer.events.leica.pool.IPoolEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+    
+    <!-- pool.created -->
+        <!-- <adapter name="pool.created.email" factory="briefy.choreographer.actions.mail.leica.PoolCreated.PoolCreated" /> -->
+        <!-- <adapter name="pool.created.slack" factory="briefy.choreographer.actions.slack.leica.PoolCreated.PoolCreated" /> -->
+
+    <!-- pool.updated -->
+        <!-- <adapter name="pool.updated.email" factory="briefy.choreographer.actions.mail.leica.PoolUpdated.PoolUpdated" /> -->
+        <!-- <adapter name="pool.updated.slack" factory="briefy.choreographer.actions.slack.leica.PoolUpdated.PoolUpdated" /> -->
+
+    <!-- pool.workflow.disable -->
+        <!-- <adapter name="pool.workflow.disable.email" factory="briefy.choreographer.actions.mail.leica.PoolWfDisable.PoolWfDisable" /> -->
+        <!-- <adapter name="pool.workflow.disable.slack" factory="briefy.choreographer.actions.slack.leica.PoolWfDisable.PoolWfDisable" /> -->
+
+    <!-- pool.workflow.reactivated -->
+        <!-- <adapter name="pool.workflow.reactivated.email" factory="briefy.choreographer.actions.mail.leica.PoolWfReactivated.PoolWfReactivated" /> -->
+        <!-- <adapter name="pool.workflow.reactivated.slack" factory="briefy.choreographer.actions.slack.leica.PoolWfReactivated.PoolWfReactivated" /> -->
+
+    <!-- pool.workflow.submit -->
+        <!-- <adapter name="pool.workflow.submit.email" factory="briefy.choreographer.actions.mail.leica.PoolWfSubmit.PoolWfSubmit" /> -->
+        <!-- <adapter name="pool.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.PoolWfSubmit.PoolWfSubmit" /> -->
+
+
+</configure>

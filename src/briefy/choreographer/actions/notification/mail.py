@@ -9,12 +9,12 @@ from zope.interface import implementer
 @adapter(events.IMailSent)
 @implementer(INotification)
 class MailSent(Notification):
-    """Deal with emails sent by our solution."""
+    """Deal with emails sent by Briefy."""
 
     entity = 'Mail'
     weight = 100
 
-    def transform(self):
+    def transform(self) -> dict:
         """Transform data."""
         payload = super().transform()
         data = self.data

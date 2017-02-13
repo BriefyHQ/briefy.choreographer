@@ -1,2 +1,3 @@
--e git+git@github.com:BriefyHQ/briefy.common.git@master#egg=briefy.common
+google-cloud-bigquery==0.22.1
+-e git+git@github.com:BriefyHQ/briefy.common.git@develop#egg=briefy.common
 -e .

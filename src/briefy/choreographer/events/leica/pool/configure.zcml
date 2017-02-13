@@ -1,0 +1,9 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="pool.created" component=".PoolCreated" provides=".IPoolCreated" />
+    <utility name="pool.updated" component=".PoolUpdated" provides=".IPoolUpdated" />
+    <utility name="pool.workflow.disable" component=".PoolWfDisable" provides=".IPoolWfDisable" />
+    <utility name="pool.workflow.reactivated" component=".PoolWfReactivated" provides=".IPoolWfReactivated" />
+    <utility name="pool.workflow.submit" component=".PoolWfSubmit" provides=".IPoolWfSubmit" />
+
+</configure>

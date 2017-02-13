@@ -7,17 +7,26 @@ from zope.interface import implementer
 
 
 class QuoteSlack(Slack):
-    """Slack message sent on Quote events."""
+    """Base class used for Slack message sent on Quote events."""
 
     entity = 'Quote'
     weight = 100
     _channel = '#briefy-co-quotes'
 
+
+@adapter(lead.IQuoteCreated)
+@implementer(ISlack)
+class QuoteCreated(QuoteSlack):
+    """After creating a new Quote, post on slack."""
+
     def transform(self):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        fullname = '{} {}'.format(data['first_name'], data['last_name'])
+        fullname = '{first} {last}'.format(
+            first=data['first_name'],
+            last=data['last_name']
+        )
         payload['title'] = 'New Quote created!'
         payload['text'] = 'New Quote request was created, please take a look into the details:'
         payload['username'] = 'Briefy Bot'
@@ -46,13 +55,3 @@ class QuoteSlack(Slack):
             ]
         }
         return payload
-
-
-@adapter(lead.IQuoteCreated)
-@implementer(ISlack)
-class QuoteCreated(QuoteSlack):
-    """After creating a new Quote, post on slack."""
-
-    @property
-    def available(self):
-        return True

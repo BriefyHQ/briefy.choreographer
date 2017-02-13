@@ -1,0 +1,44 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Professional events -->
+    <subscriber for="briefy.choreographer.events.leica.professional.IProfessionalEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+    
+    <!-- professional.created -->
+        <!-- <adapter name="professional.created.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalCreated.ProfessionalCreated" /> -->
+        <!-- <adapter name="professional.created.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalCreated.ProfessionalCreated" /> -->
+
+    <!-- professional.updated -->
+        <!-- <adapter name="professional.updated.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalUpdated.ProfessionalUpdated" /> -->
+        <!-- <adapter name="professional.updated.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalUpdated.ProfessionalUpdated" /> -->
+
+    <!-- professional.workflow.activate -->
+        <!-- <adapter name="professional.workflow.activate.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfActivate.ProfessionalWfActivate" /> -->
+        <!-- <adapter name="professional.workflow.activate.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfActivate.ProfessionalWfActivate" /> -->
+
+    <!-- professional.workflow.approve -->
+        <!-- <adapter name="professional.workflow.approve.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfApprove.ProfessionalWfApprove" /> -->
+        <!-- <adapter name="professional.workflow.approve.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfApprove.ProfessionalWfApprove" /> -->
+
+    <!-- professional.workflow.delete -->
+        <!-- <adapter name="professional.workflow.delete.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfDelete.ProfessionalWfDelete" /> -->
+        <!-- <adapter name="professional.workflow.delete.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfDelete.ProfessionalWfDelete" /> -->
+
+    <!-- professional.workflow.inactivate -->
+        <!-- <adapter name="professional.workflow.inactivate.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfInactivate.ProfessionalWfInactivate" /> -->
+        <!-- <adapter name="professional.workflow.inactivate.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfInactivate.ProfessionalWfInactivate" /> -->
+
+    <!-- professional.workflow.reject -->
+        <!-- <adapter name="professional.workflow.reject.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfReject.ProfessionalWfReject" /> -->
+        <!-- <adapter name="professional.workflow.reject.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfReject.ProfessionalWfReject" /> -->
+
+    <!-- professional.workflow.submit -->
+        <!-- <adapter name="professional.workflow.submit.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfSubmit.ProfessionalWfSubmit" /> -->
+        <!-- <adapter name="professional.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfSubmit.ProfessionalWfSubmit" /> -->
+
+    <!-- professional.workflow.validate -->
+        <!-- <adapter name="professional.workflow.validate.email" factory="briefy.choreographer.actions.mail.leica.ProfessionalWfValidate.ProfessionalWfValidate" /> -->
+        <!-- <adapter name="professional.workflow.validate.slack" factory="briefy.choreographer.actions.slack.leica.ProfessionalWfValidate.ProfessionalWfValidate" /> -->
+
+
+</configure>

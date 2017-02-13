@@ -1,4 +1,4 @@
-"""Briefy Choreographer Gateway."""
+"""Briefy Choreographer Service."""
 from setuptools import find_packages
 from setuptools import setup
 
@@ -13,6 +13,7 @@ with open(os.path.join(here, 'HISTORY.rst')) as f:
 requires = [
     'briefy.common',
     'boto3',
+    'google-cloud-bigquery',
     'newrelic',
     'requests',
     'setuptools',
@@ -30,7 +31,7 @@ test_requirements = [
 
 setup(
     name='briefy.choreographer',
-    version='1.0.1',
+    version='2.0.0',
     description='Briefy Choreographer composes actions based on events.',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
@@ -39,7 +40,7 @@ setup(
     author='Briefy Tech Team',
     author_email='developers@briefy.co',
     url='https://github.com/BriefyHQ/briefy.choreographer',
-    keywords='mail mandrill briefy',
+    keywords='choreographer briefy',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['briefy', ],

@@ -1,0 +1,106 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Assignment events -->
+    <subscriber for="briefy.choreographer.events.leica.assignment.IAssignmentEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+    <!-- assignment.created -->
+        <!-- <adapter name="assignment.created.email" factory="briefy.choreographer.actions.mail.leica.AssignmentCreated.AssignmentCreated" /> -->
+        <!-- <adapter name="assignment.created.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentCreated.AssignmentCreated" /> -->
+
+    <!-- assignment.updated -->
+        <!-- <adapter name="assignment.updated.email" factory="briefy.choreographer.actions.mail.leica.AssignmentUpdated.AssignmentUpdated" /> -->
+        <!-- <adapter name="assignment.updated.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentUpdated.AssignmentUpdated" /> -->
+
+    <!-- assignment.workflow.approve -->
+        <adapter name="assignment.workflow.approve.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfApprove" />
+        <adapter name="assignment.workflow.approve.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentApproveCreativeMail" />
+        <adapter name="assignment.workflow.approve.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfApprove" />
+
+    <!-- assignment.workflow.assign -->
+        <adapter name="assignment.workflow.assign.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentAssignedCreativeMail" />
+        <adapter name="assignment.workflow.assign.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfAssign" />
+
+    <!-- assignment.workflow.cancel -->
+        <adapter name="assignment.workflow.cancel.creative.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentCancelledCreativeMail" />
+        <!-- <adapter name="assignment.workflow.cancel.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfCancel.AssignmentWfCancel" /> -->
+        <!-- <adapter name="assignment.workflow.cancel.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfCancel.AssignmentWfCancel" /> -->
+
+    <!-- assignment.workflow.complete -->
+        <!-- <adapter name="assignment.workflow.complete.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfComplete.AssignmentWfComplete" /> -->
+        <!-- <adapter name="assignment.workflow.complete.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfComplete.AssignmentWfComplete" /> -->
+
+    <!-- assignment.workflow.invalidate_assets -->
+        <!-- <adapter name="assignment.workflow.invalidate_assets.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfInvalidateAssets.AssignmentWfInvalidateAssets" /> -->
+        <!-- <adapter name="assignment.workflow.invalidate_assets.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfInvalidateAssets.AssignmentWfInvalidateAssets" /> -->
+
+    <!-- assignment.workflow.perm_reject -->
+        <!-- <adapter name="assignment.workflow.perm_reject.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfPermReject.AssignmentWfPermReject" /> -->
+        <!-- <adapter name="assignment.workflow.perm_reject.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfPermReject.AssignmentWfPermReject" /> -->
+
+    <!-- assignment.workflow.publish -->
+        <!-- <adapter name="assignment.workflow.publish.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfPublish.AssignmentWfPublish" /> -->
+        <!-- <adapter name="assignment.workflow.publish.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfPublish.AssignmentWfPublish" /> -->
+
+    <!-- assignment.workflow.ready_for_upload -->
+        <!-- <adapter name="assignment.workflow.ready_for_upload.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfReadyForUpload.AssignmentWfReadyForUpload" /> -->
+        <!-- <adapter name="assignment.workflow.ready_for_upload.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfReadyForUpload.AssignmentWfReadyForUpload" /> -->
+
+    <!-- assignment.workflow.refuse -->
+        <!-- <adapter name="assignment.workflow.refuse.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfRefuse.AssignmentWfRefuse" /> -->
+        <!-- <adapter name="assignment.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfRefuse.AssignmentWfRefuse" /> -->
+
+    <!-- assignment.workflow.reject -->
+        <!-- <adapter name="assignment.workflow.reject.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfReject.AssignmentWfReject" /> -->
+        <!-- <adapter name="assignment.workflow.reject.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfReject.AssignmentWfReject" /> -->
+
+    <!-- assignment.workflow.remove_schedule -->
+        <!-- <adapter name="assignment.workflow.remove_schedule.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfRemoveSchedule.AssignmentWfRemoveSchedule" /> -->
+        <!-- <adapter name="assignment.workflow.remove_schedule.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfRemoveSchedule.AssignmentWfRemoveSchedule" /> -->
+
+    <!-- assignment.workflow.reschedule -->
+        <adapter name="assignment.workflow.reschedule.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentRescheduleCreativeMail" />
+        <adapter name="assignment.workflow.reschedule.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfReschedule" />
+
+    <!-- assignment.workflow.retract -->
+        <!-- <adapter name="assignment.workflow.retract.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfRetract.AssignmentWfRetract" /> -->
+        <!-- <adapter name="assignment.workflow.retract.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfRetract.AssignmentWfRetract" /> -->
+
+    <!-- assignment.workflow.retract_approval -->
+        <!-- <adapter name="assignment.workflow.retract_approval.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfRetractApproval.AssignmentWfRetractApproval" /> -->
+        <!-- <adapter name="assignment.workflow.retract_approval.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfRetractApproval.AssignmentWfRetractApproval" /> -->
+
+    <!-- assignment.workflow.retract_rejection -->
+        <!-- <adapter name="assignment.workflow.retract_rejection.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfRetractRejection.AssignmentWfRetractRejection" /> -->
+        <!-- <adapter name="assignment.workflow.retract_rejection.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfRetractRejection.AssignmentWfRetractRejection" /> -->
+
+    <!-- assignment.workflow.return_to_qa -->
+        <!-- <adapter name="assignment.workflow.return_to_qa.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfReturnToQa.AssignmentWfReturnToQa" /> -->
+        <!-- <adapter name="assignment.workflow.return_to_qa.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfReturnToQa.AssignmentWfReturnToQa" /> -->
+
+    <!-- assignment.workflow.schedule -->
+        <adapter name="assignment.workflow.schedule.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentScheduleCreativeMail" />
+        <adapter name="assignment.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSchedule" />
+
+    <!-- assignment.workflow.scheduling_issues -->
+        <!-- <adapter name="assignment.workflow.scheduling_issues.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfSchedulingIssues.AssignmentWfSchedulingIssues" /> -->
+        <!-- <adapter name="assignment.workflow.scheduling_issues.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfSchedulingIssues.AssignmentWfSchedulingIssues" /> -->
+
+    <!-- assignment.workflow.self_assign -->
+        <adapter name="assignment.workflow.self_assign.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentSelfCreativeMail" />
+        <adapter name="assignment.workflow.self_assign.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSelfAssign" />
+
+    <!-- assignment.workflow.submit -->
+        <!-- <adapter name="assignment.workflow.submit.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfSubmit.AssignmentWfSubmit" /> -->
+        <!-- <adapter name="assignment.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfSubmit.AssignmentWfSubmit" /> -->
+
+    <!-- assignment.workflow.upload -->
+    <adapter name="assignment.workflow.upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfUpload" />
+        <!-- <adapter name="assignment.workflow.upload.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfUpload.AssignmentWfUpload" /> -->
+        <!-- <adapter name="assignment.workflow.upload.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfUpload.AssignmentWfUpload" /> -->
+
+    <!-- assignment.workflow.validate_assets -->
+        <!-- <adapter name="assignment.workflow.validate_assets.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfValidateAssets.AssignmentWfValidateAssets" /> -->
+        <!-- <adapter name="assignment.workflow.validate_assets.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfValidateAssets.AssignmentWfValidateAssets" /> -->
+
+
+</configure>

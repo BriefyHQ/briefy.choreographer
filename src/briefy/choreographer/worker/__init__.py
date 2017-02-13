@@ -1,8 +1,10 @@
 """Briefy base worker."""
 from briefy.common.queue import IQueue
+from briefy.common.queue.message import SQSMessage
 from briefy.common.worker import QueueWorker
 from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
 from briefy.choreographer.events import IInternalEvent
+from uuid import uuid4
 from zope.component import getUtility
 from zope.component import queryUtility
 from zope.event import notify
@@ -18,36 +20,44 @@ class Worker(QueueWorker):
     """Choreographer queue worker."""
 
     name = 'choreographer.worker'
+    """Worker name."""
+
     input_queue = None
+    """Queue to read event messages from."""
+
     run_interval = None
+    """Interval to fetch new messages from the queue."""
 
     def __init__(self, input_queue, logger_=None, run_interval=.5, *args, **kw):
+        """Initialize the worker."""
         if logger_ is None:
             logger_ = logger
-        return super().__init__(input_queue, logger_, run_interval, *args, **kw)
+        super().__init__(input_queue, logger_, run_interval, *args, **kw)
 
     @newrelic.agent.background_task(name='process_message', group='Task')
-    def process_message(self, message):
+    def process_message(self, message: SQSMessage) -> bool:
         """Process a message retrieved from the input_queue.
 
         :param message: A message from the queue
-        :type message: briefy.common.queue.message.SQSMessage
         :returns: Status from the process
-        :rtype: bool
         """
         body = message.body
+        id_ = body.get('id', str(uuid4()))
         event_name = body['event_name']
         guid = body['guid']
 
         if not event_name or not guid:
             self.logger.info('Event without name or guid on queue')
-            return False
+            # This will delete the message
+            return True
         event_factory = queryUtility(IInternalEvent, event_name, None)
         if not event_factory:
-            self.logger.info('Event {} has no handler'.format(event_name))
-            return False
+            self.logger.info('Event {name} has no handler'.format(name=event_name))
+            # This will delete the message
+            return True
 
         event = event_factory(
+            id=id_,
             guid=guid,
             data=body['data'],
             actor=body['actor'],
@@ -55,8 +65,7 @@ class Worker(QueueWorker):
             created_at=body['created_at']
         )
         notify(event)
-        self.logger.debug('Event {} notified'.format(event_name))
-
+        self.logger.debug('Event {name} notified'.format(name=event_name))
         return True
 
 
@@ -69,5 +78,5 @@ def main():
     try:
         worker()
     except Exception as exc:
-        logger.exception('{} exiting due to an exception.'.format(Worker.name))
+        logger.exception('{name} exiting due to an exception.'.format(name=Worker.name))
         raise

@@ -3,8 +3,13 @@
     <!-- Logger subscribes to all events -->
     <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".logger.handler" />
 
+    <!-- BigQuery subscribes to all events -->
+    <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".bigquery.handler" />
+
     <!-- Include subscribers per data object-->
+    <include package=".leica" />
     <include package=".lead" />
     <include package=".mail" />
+    <include package=".user" />
 
 </configure>

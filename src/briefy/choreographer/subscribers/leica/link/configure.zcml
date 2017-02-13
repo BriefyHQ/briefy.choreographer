@@ -1,0 +1,12 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all Link events -->
+    <subscriber for="briefy.choreographer.events.leica.link.ILinkEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+    
+    <!-- link.workflow.delete -->
+        <!-- <adapter name="link.workflow.delete.email" factory="briefy.choreographer.actions.mail.leica.LinkWfDelete.LinkWfDelete" /> -->
+        <!-- <adapter name="link.workflow.delete.slack" factory="briefy.choreographer.actions.slack.leica.LinkWfDelete.LinkWfDelete" /> -->
+
+
+</configure>

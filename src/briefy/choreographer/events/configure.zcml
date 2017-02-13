@@ -2,6 +2,7 @@
 
 	<include package=".leica" />
 	<include package=".lead" />
+	<include package=".laure" />
 	<include package=".mail" />
 	<include package=".user" />
 

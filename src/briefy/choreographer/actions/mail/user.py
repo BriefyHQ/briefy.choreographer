@@ -39,6 +39,7 @@ class UserMail(Mail):
         payload['fullname'] = data.get('fullname')
         payload['email'] = data.get('email')
         payload['data'] = {
+            'FIRSTNAME': data.get('first_name'),
             'FULLNAME': data.get('fullname'),
             'EMAIL': data.get('email'),
             'SUBJECT': self.subject,
@@ -90,8 +91,12 @@ class PasswordReset(UserMail):
         """Transform data."""
         payload = super().transform()
         data = self.data
+        expires = data.get('expiration_date')
+        if expires.endswith('Z'):
+            expires = expires[:-1]
+        expires = self._format_datetime(expires)
         payload['data']['CODE'] = data.get('code')
         payload['data']['REQUESTED_FROM'] = data.get('requested_from')
-        payload['data']['EXPIRES'] = data.get('expiration_date')
+        payload['data']['EXPIRES'] = expires
         payload['data']['ACTION_URL'] = self._action_url
         return payload

@@ -33,7 +33,7 @@ class LeicaMail(Mail):
         recipients = []
         if field_name == 'last_transition':
             history = data['state_history']
-            actor = history[0]['actor']
+            actor = history[-1]['actor']
             users = [actor, ]
         else:
             users = data[field_name]

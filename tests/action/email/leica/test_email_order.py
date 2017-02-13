@@ -44,13 +44,11 @@ class TestOrderCreatedCustomerMail(MailTest, BaseActionCase):
             assert isinstance(data['SCHEDULED_SHOOT_TIME'], str)
             assert isinstance(data['SUBJECT'], str)
 
-            assert payload['fullname'] == 'Eyal Schondorf'
-            assert payload['email'] == 'eyal.schondorf_agoda.com@briefy.co'
+            assert payload['email'].endswith('.agoda@briefy.co')
             assert payload['template'] == 'platform-order-created-en-gb'
             assert payload['subject']
 
-            assert data['FULLNAME'] == 'Eyal Schondorf'
-            assert data['EMAIL'] == 'eyal.schondorf_agoda.com@briefy.co'
+            assert data['EMAIL'].endswith('.agoda@briefy.co')
             assert data['SUBJECT']
 
 

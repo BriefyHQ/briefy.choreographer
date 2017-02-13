@@ -247,7 +247,8 @@ payload = {
         "updated_at": "2017-01-22T21:50:01.809120+00:00"
     },
     "event_name": "assignment.workflow.schedule",
-    "guid": "f49a3991-343b-477a-878c-6a91120a491f"
+    "guid": "f49a3991-343b-477a-878c-6a91120a491f",
+    "id": "a49a3991-343b-477a-878c-6a91120a491f"
 }
 
 

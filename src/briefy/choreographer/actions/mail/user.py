@@ -91,7 +91,10 @@ class PasswordReset(UserMail):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        expires = self._format_datetime(data.get('expiration_date'))
+        expires = data.get('expiration_date')
+        if expires.endswith('Z'):
+            expires = expires[:-1]
+        expires = self._format_datetime(expires)
         payload['data']['CODE'] = data.get('code')
         payload['data']['REQUESTED_FROM'] = data.get('requested_from')
         payload['data']['EXPIRES'] = expires

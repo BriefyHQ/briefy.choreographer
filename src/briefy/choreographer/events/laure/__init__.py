@@ -4,7 +4,11 @@ from briefy.choreographer.events import InternalEvent
 from zope.interface import implementer
 
 
-class ILaureAssignmentEvent(IInternalEvent):
+class ILaureEvent(IInternalEvent):
+    """Interface for IDataEvent from Ms. Laure."""
+
+
+class ILaureAssignmentEvent(ILaureEvent):
     """Interface for IDataEvent on an Assignment object."""
 
 

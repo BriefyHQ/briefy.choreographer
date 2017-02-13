@@ -15,6 +15,9 @@ logger = logging.getLogger('briefy.choreographer')
 class Schema(colander.MappingSchema):
     """Payload for the Ms. Laure queue."""
 
+    id = colander.SchemaNode(colander.String(), validator=colander.uuid)
+    """ID for the event."""
+
     event_name = colander.SchemaNode(colander.String(), validator=EventName)
     """Event name."""
 
@@ -42,6 +45,7 @@ class Queue(BaseQueue):
         :returns: Dictionary representing the payload for this queue
         """
         return {
+            'id': '',
             'event_name': '',
             'guid': '',
             'created_at': '',

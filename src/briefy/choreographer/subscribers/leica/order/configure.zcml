@@ -78,6 +78,15 @@
     <!-- order.workflow.unassign -->
         <!-- <adapter name="order.workflow.unassign.email" factory="briefy.choreographer.actions.mail.leica.OrderWfUnassign.OrderWfUnassign" /> -->
         <!-- <adapter name="order.workflow.unassign.slack" factory="briefy.choreographer.actions.slack.leica.OrderWfUnassign.OrderWfUnassign" /> -->
+        <adapter name="order.workflow.unassign" factory="briefy.choreographer.actions.slack.leica.order.OrderWfUnassign" />
 
+    <!-- order.workflow.set_availability -->
+        <adapter name="order.workflow.set_availability" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSetAvailability" />
+
+    <!-- order.workflow.edit_location -->
+        <adapter name="order.workflow.edit_location" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
+
+    <!-- order.workflow.edit_requirements -->
+        <adapter name="order.workflow.edit_requirements" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
 
 </configure>

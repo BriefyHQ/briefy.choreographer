@@ -11,7 +11,7 @@ class UserSlack(Slack):
 
     entity = 'User'
     weight = 100
-    _channel = '#tests-leica'
+    _channel = '#leica-users'
 
 
 @adapter(user.IUserCreated)

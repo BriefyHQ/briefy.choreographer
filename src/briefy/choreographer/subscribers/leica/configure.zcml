@@ -8,6 +8,7 @@
     <include package=".order" />
     <include package=".pool" />
     <include package=".professional" />
+    <include package=".profiles" />
     <include package=".project" />
     <include package=".workinglocation" />
 

@@ -1,0 +1,17 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- Get all UserProfiles events -->
+    <subscriber for="briefy.choreographer.events.leica.profiles.IUserProfileEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+
+
+    <!-- briefyuserprofile.created -->
+    <!-- briefyuserprofile.updated -->
+    <!-- briefyuserprofile.workflow.activate -->
+    <!-- briefyuserprofile.workflow.inactivate -->
+
+    <!-- customeruserprofile.created -->
+    <!-- customeruserprofile.updated -->
+    <!-- customeruserprofile.workflow.activate -->
+    <!-- customeruserprofile.workflow.inactivate -->
+
+</configure>

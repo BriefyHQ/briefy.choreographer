@@ -24,7 +24,7 @@ class ICustomerUserProfileWfActivate(ICustomerUserProfileWfEvent):
     """Interface for customeruserprofile.workflow.activate."""
 
 
-class ICustomerUserProfileWfDeactivate(ICustomerUserProfileWfEvent):
+class ICustomerUserProfileWfInactivate(ICustomerUserProfileWfEvent):
     """Interface for customeruserprofile.workflow.deactivate."""
 
 
@@ -59,8 +59,8 @@ class CustomerUserProfileWfActivate(CustomerUserProfileWfEvent):
     event_name = 'customeruserprofile.workflow.activate'
 
 
-@implementer(ICustomerUserProfileWfDeactivate)
-class CustomerUserProfileWfDeactivate(CustomerUserProfileWfEvent):
-    """Implement UserProfileWfDeactivate."""
+@implementer(ICustomerUserProfileWfInactivate)
+class CustomerUserProfileWfInactivate(CustomerUserProfileWfEvent):
+    """Implement UserProfileWfInactivate."""
 
     event_name = 'customeruserprofile.workflow.deactivate'

@@ -24,7 +24,7 @@ class IBriefyUserProfileWfActivate(IBriefyUserProfileWfEvent):
     """Interface for briefyuserprofile.workflow.activate."""
 
 
-class IBriefyUserProfileWfDeactivate(IBriefyUserProfileWfEvent):
+class IBriefyUserProfileWfInactivate(IBriefyUserProfileWfEvent):
     """Interface for briefyuserprofile.workflow.deactivate."""
 
 
@@ -59,8 +59,8 @@ class BriefyUserProfileWfActivate(BriefyUserProfileWfEvent):
     event_name = 'briefyuserprofile.workflow.activate'
 
 
-@implementer(IBriefyUserProfileWfDeactivate)
-class BriefyUserProfileWfDeactivate(BriefyUserProfileWfEvent):
-    """Implement UserProfileWfDeactivate."""
+@implementer(IBriefyUserProfileWfInactivate)
+class BriefyUserProfileWfInactivate(BriefyUserProfileWfEvent):
+    """Implement UserProfileWfInactivate."""
 
     event_name = 'briefyuserprofile.workflow.deactivate'

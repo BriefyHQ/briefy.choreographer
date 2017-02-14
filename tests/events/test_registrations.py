@@ -67,6 +67,7 @@ LEICA_EVENTS = [
     'order.workflow.cancel',
     'order.workflow.deliver',
     'order.workflow.edit_location',
+    'order.workflow.edit_requirements',
     'order.workflow.new_shoot',
     'order.workflow.perm_refuse',
     'order.workflow.reassign',

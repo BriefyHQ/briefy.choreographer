@@ -7,8 +7,9 @@
     <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".bigquery.handler" />
 
     <!-- Include subscribers per data object-->
-    <include package=".leica" />
+    <include package=".laure" />
     <include package=".lead" />
+    <include package=".leica" />
     <include package=".mail" />
     <include package=".user" />
 

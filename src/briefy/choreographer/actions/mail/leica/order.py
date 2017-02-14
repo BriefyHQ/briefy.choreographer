@@ -252,7 +252,7 @@ class OrderScheduledCustomerMail(OrderCustomerMail):
 # Availability was removed
 @adapter(events.IOrderWfRemoveAvailability)
 @implementer(IMail)
-class OrderRemoveAvailabilityCreativeMail(OrderCustomerMail):
+class OrderRemoveAvailabilityCreativeMail(OrderCreativeMail):
     """Email to creative on remove availability."""
 
     template_name = 'platform-order-cancellation-creative'

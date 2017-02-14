@@ -2,6 +2,14 @@
 History
 =======
 
+2.0.1 (2017-02-14)
+------------------
+
+* Fix notification to creative being sent to customer (ericof).
+* Split Leica notifications, on Slack, to distinct channels (ericof).
+* Improve user notifications (ericof).
+
+
 2.0.0 (2017-02-13)
 ------------------
 

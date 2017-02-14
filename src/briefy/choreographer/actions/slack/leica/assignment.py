@@ -11,7 +11,7 @@ class AssignmentSlack(Slack):
 
     entity = 'Assignment'
     weight = 100
-    _channel = '#tests-leica'
+    _channel = '#leica-assignments'
     title = 'Assignment'
     text = 'New Assignment!!'
 

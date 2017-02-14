@@ -11,7 +11,7 @@ class CommentSlack(Slack):
 
     entity = 'Comment'
     weight = 100
-    _channel = '#tests-leica'
+    _channel = '#leica-comments'
     title = 'Comment'
     text = 'New Comment!!'
 
@@ -34,6 +34,10 @@ class CommentSlack(Slack):
                  },
                 {'title': 'To',
                  'value': data.get('to_role'),
+                 'short': True,
+                 },
+                {'title': 'Entity',
+                 'value': data.get('entity_type', ''),
                  'short': True,
                  },
                 {'title': 'Entity ID',

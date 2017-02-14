@@ -115,7 +115,14 @@ ROLLEIFLEX_EVENTS = [
 ]
 
 
-EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS
+LAURE_EVENTS = [
+    'laure.assignment.copy_failure',
+    'laure.assignment.copied',
+    'laure.assignment.rejected',
+    'laure.assignment.validated',
+]
+
+EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS
 
 
 @pytest.mark.parametrize("event_name", EVENTS)

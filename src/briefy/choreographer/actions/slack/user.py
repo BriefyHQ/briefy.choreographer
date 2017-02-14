@@ -11,7 +11,7 @@ class UserSlack(Slack):
 
     entity = 'User'
     weight = 100
-    _channel = '#tests-leica'
+    _channel = '#leica-users'
 
 
 @adapter(user.IUserCreated)
@@ -105,6 +105,26 @@ class UserLogin(UserSlack):
             username=data.get('email')
         )
         payload['username'] = 'Briefy Bot'
+        try:
+            groups = ', '.join([g['data']['slug'] for g in data['groups']])
+        except:
+            groups = ''
+        payload['data'] = {
+            'fields': [
+                {'title': 'Fullname',
+                 'value': data.get('fullname'),
+                 'short': True,
+                 },
+                {'title': 'Username',
+                 'value': data.get('email'),
+                 'short': True,
+                 },
+                {'title': 'Groups',
+                 'value': groups,
+                 'short': True,
+                 },
+            ]
+        }
         return payload
 
 
@@ -122,4 +142,24 @@ class UserFirstLogin(UserSlack):
             username=data.get('email')
         )
         payload['username'] = 'Briefy Bot'
+        try:
+            groups = ', '.join([g['data']['slug'] for g in data['groups']])
+        except:
+            groups = ''
+        payload['data'] = {
+            'fields': [
+                {'title': 'Fullname',
+                 'value': data.get('fullname'),
+                 'short': True,
+                 },
+                {'title': 'Username',
+                 'value': data.get('email'),
+                 'short': True,
+                 },
+                {'title': 'Groups',
+                 'value': groups,
+                 'short': True,
+                 },
+            ]
+        }
         return payload

@@ -2,6 +2,11 @@
 History
 =======
 
+2.0.2 (Unreleased)
+------------------
+
+* Fix Comments notification on Slack (ericof).
+
 2.0.1 (2017-02-14)
 ------------------
 

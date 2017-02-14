@@ -45,7 +45,7 @@ class CommentSlack(Slack):
                  'short': True,
                  },
                 {'title': 'Comment',
-                 'value': data.get('comment'),
+                 'value': data.get('content'),
                  'short': False,
                  },
             ]

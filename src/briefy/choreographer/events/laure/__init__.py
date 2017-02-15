@@ -25,7 +25,7 @@ class ILaureAssignmentCopied(ILaureAssignmentEvent):
 
 
 class ILaureAssignmentCopyFailure(ILaureAssignmentEvent):
-    """An Assignment's assets failed to be copyied to other folder(s)."""
+    """An Assignment's assets failed to be copied to other folder(s)."""
 
 
 class LaureAssignmentEvent(InternalEvent):
@@ -52,13 +52,13 @@ class LaureAssignmentRejected(LaureAssignmentEvent):
 class LaureAssignmentCopied(LaureAssignmentEvent):
     """An Assignment's assets were copyed to other folder(s)."""
 
-    event_name = 'laure.assignment.copyied'
+    event_name = 'laure.assignment.copied'
     """Event name."""
 
 
 @implementer(ILaureAssignmentRejected)
 class LaureAssignmentCopyFailure(LaureAssignmentEvent):
-    """An Assignment's assets failed to be copyied to other folder(s)."""
+    """An Assignment's assets failed to be copied to other folder(s)."""
 
     event_name = 'laure.assignment.copy_failure'
     """Event name."""

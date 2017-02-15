@@ -2,6 +2,15 @@
 History
 =======
 
+2.0.2 (2017-02-15)
+------------------
+
+* Fix Comments notification on Slack (ericof).
+* Add order.wf.edit_requirements event (ericof).
+* Add CustomerUserProfile and BriefyUserProfile events (ericof).
+* Add Slack actions to CustomerUserProfile and BriefyUserProfile (ericof).
+* Add Slack actions to Professional (ericof).
+
 2.0.1 (2017-02-14)
 ------------------
 

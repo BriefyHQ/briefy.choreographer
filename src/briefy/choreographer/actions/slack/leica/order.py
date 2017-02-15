@@ -106,3 +106,39 @@ class OrderWfRemoveAvailability(OrderSlack):
 
     title = 'Order had availabilities removed'
     text = 'Order has no availabilities'
+
+
+@adapter(events.IOrderWfUnassign)
+@implementer(ISlack)
+class OrderWfUnassign(OrderSlack):
+    """Slack after unassigned of an Order."""
+
+    title = 'Order was unassigned'
+    text = 'Order was unassigned'
+
+
+@adapter(events.IOrderWfSetAvailability)
+@implementer(ISlack)
+class OrderWfSetAvailability(OrderSlack):
+    """Slack after setting availability of an Order."""
+
+    title = 'Availability was set for the Order'
+    text = 'Availability was set for the Order'
+
+
+@adapter(events.IOrderWfEditLocation)
+@implementer(ISlack)
+class OrderWfEditLocation(OrderSlack):
+    """Slack after editing location of an Order."""
+
+    title = 'Location was updated for the Order'
+    text = 'Location was updated for the Order'
+
+
+@adapter(events.IOrderWfEditRequirements)
+@implementer(ISlack)
+class OrderWfEditRequirements(OrderSlack):
+    """Slack after editing requiments of an Order."""
+
+    title = 'Requirements was updated for the Order'
+    text = 'Requirements was updated for the Order'

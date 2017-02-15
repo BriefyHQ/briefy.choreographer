@@ -20,5 +20,6 @@
     <utility name="order.workflow.unassign" component=".OrderWfUnassign" provides=".IOrderWfUnassign" />
     <utility name="order.workflow.set_availability" component=".OrderWfSetAvailability" provides=".IOrderWfSetAvailability" />
     <utility name="order.workflow.edit_location" component=".OrderWfEditLocation" provides=".IOrderWfEditLocation" />
+    <utility name="order.workflow.edit_requirements" component=".OrderWfEditRequirements" provides=".IOrderWfEditRequirements" />
 
 </configure>

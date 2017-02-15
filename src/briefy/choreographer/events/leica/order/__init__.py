@@ -92,6 +92,10 @@ class IOrderWfEditLocation(IOrderWfEvent):
     """Interface for order.workflow.edit_location."""
 
 
+class IOrderWfEditRequirements(IOrderWfEvent):
+    """Interface for order.workflow.edit_requirements."""
+
+
 class OrderEvent(InternalEvent):
     """An event of a Order."""
 
@@ -240,3 +244,10 @@ class OrderWfEditLocation(OrderWfEvent):
     """Implement OrderWfEditLocation."""
 
     event_name = 'order.workflow.edit_location'
+
+
+@implementer(IOrderWfEditRequirements)
+class OrderWfEditRequirements(OrderWfEvent):
+    """Implement OrderWfEditRequirements."""
+
+    event_name = 'order.workflow.edit_requirements'

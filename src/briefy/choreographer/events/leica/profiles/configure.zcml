@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <!-- BriefyUserProfile-->
+    <utility name="briefyuserprofile.created" component=".briefy_profile.BriefyUserProfileCreated" provides=".briefy_profile.IBriefyUserProfileCreated" />
+    <utility name="briefyuserprofile.updated" component=".briefy_profile.BriefyUserProfileUpdated" provides=".briefy_profile.IBriefyUserProfileUpdated" />
+    <utility name="briefyuserprofile.workflow.activate" component=".briefy_profile.BriefyUserProfileWfActivate" provides=".briefy_profile.IBriefyUserProfileWfActivate" />
+    <utility name="briefyuserprofile.workflow.inactivate" component=".briefy_profile.BriefyUserProfileWfInactivate" provides=".briefy_profile.IBriefyUserProfileWfInactivate" />
+
+    <!-- CustomerUserProfile-->
+    <utility name="customeruserprofile.created" component=".customer_profile.CustomerUserProfileCreated" provides=".customer_profile.ICustomerUserProfileCreated" />
+    <utility name="customeruserprofile.updated" component=".customer_profile.CustomerUserProfileUpdated" provides=".customer_profile.ICustomerUserProfileUpdated" />
+    <utility name="customeruserprofile.workflow.activate" component=".customer_profile.CustomerUserProfileWfActivate" provides=".customer_profile.ICustomerUserProfileWfActivate" />
+    <utility name="customeruserprofile.workflow.inactivate" component=".customer_profile.CustomerUserProfileWfInactivate" provides=".customer_profile.ICustomerUserProfileWfInactivate" />
+
+</configure>

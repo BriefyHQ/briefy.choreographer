@@ -75,6 +75,41 @@ class BriefyUserProfileWfActivate(BriefyUserProfileSlack):
     title = 'Briefy user was activated'
     text = 'Briefy user was activated'
 
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        data = self.data
+        payload['data'] = {
+            'fields': [
+                {
+                    'title': 'Fullname',
+                    'value': data['title'],
+                    'short': True,
+                },
+                {
+                    'title': 'Email',
+                    'value': data['email'],
+                    'short': True,
+                },
+                {
+                    'title': 'Phone',
+                    'value': data['mobile'],
+                    'short': True,
+                },
+                {
+                    'title': 'State',
+                    'value': data['state'],
+                    'short': True,
+                },
+                {
+                    'title': 'Initial Password',
+                    'value': data['initial_password'],
+                    'short': True,
+                },
+            ]
+        }
+        return payload
+
 
 @adapter(events.IBriefyUserProfileWfInactivate)
 @implementer(ISlack)

@@ -22,6 +22,11 @@ class OrderSlack(Slack):
         payload['title'] = self.title
         payload['text'] = self.text
         payload['username'] = 'Briefy Bot'
+        payload['text'] = (
+            'Order can be seen <{url}|here>'.format(
+                url=self._action_url,
+            )
+        )
         payload['data'] = {
             'fields': [
                 {'title': 'Customer',
@@ -50,8 +55,7 @@ class OrderSlack(Slack):
 class OrderSubmit(OrderSlack):
     """After creating a new Order, post on Slack."""
 
-    title = 'New order!'
-    text = 'New Order was created, please take a look into the details:'
+    title = 'New Order was created, please take a look into the details:'
 
 
 @adapter(events.IOrderWfCancel)
@@ -59,8 +63,7 @@ class OrderSubmit(OrderSlack):
 class OrderWfCancel(OrderSlack):
     """After cancelling an Order, post on Slack."""
 
-    title = 'Order Cancelled!'
-    text = 'An Order was cancelled'
+    title = 'An Order was cancelled'
 
 
 @adapter(events.IOrderWfRefuse)
@@ -68,8 +71,7 @@ class OrderWfCancel(OrderSlack):
 class OrderWfRefuse(OrderSlack):
     """After refusing an Order, post on Slack."""
 
-    title = 'Set was refused!'
-    text = 'A set was refused by a customer.'
+    title = 'A set was refused by a customer.'
 
 
 @adapter(events.IOrderWfDeliver)
@@ -77,8 +79,7 @@ class OrderWfRefuse(OrderSlack):
 class OrderWfDeliver(OrderSlack):
     """After delivering an Order, post on Slack."""
 
-    title = 'Set was delivered!'
-    text = 'A set was delivered by a customer.'
+    title = 'A set was delivered by a customer.'
 
 
 @adapter(events.IOrderWfAssign)
@@ -86,8 +87,7 @@ class OrderWfDeliver(OrderSlack):
 class OrderWfAssign(OrderSlack):
     """After assigning an Order, post on Slack."""
 
-    title = 'Order was assigned!'
-    text = 'An order was assigned.'
+    title = 'An order was assigned.'
 
 
 @adapter(events.IOrderWfSchedule)
@@ -95,8 +95,7 @@ class OrderWfAssign(OrderSlack):
 class OrderWfSchedule(OrderSlack):
     """After scheduling an Order, post on Slack."""
 
-    title = 'Order was scheduled!'
-    text = 'An order was scheduled.'
+    title = 'An order was scheduled.'
 
 
 @adapter(events.IOrderWfRemoveAvailability)
@@ -104,8 +103,7 @@ class OrderWfSchedule(OrderSlack):
 class OrderWfRemoveAvailability(OrderSlack):
     """Slack after removing availability of an Order."""
 
-    title = 'Order had availabilities removed'
-    text = 'Order has no availabilities'
+    title = 'Order has no availabilities'
 
 
 @adapter(events.IOrderWfUnassign)
@@ -114,7 +112,6 @@ class OrderWfUnassign(OrderSlack):
     """Slack after unassigned of an Order."""
 
     title = 'Order was unassigned'
-    text = 'Order was unassigned'
 
 
 @adapter(events.IOrderWfSetAvailability)
@@ -123,7 +120,6 @@ class OrderWfSetAvailability(OrderSlack):
     """Slack after setting availability of an Order."""
 
     title = 'Availability was set for the Order'
-    text = 'Availability was set for the Order'
 
 
 @adapter(events.IOrderWfEditLocation)
@@ -132,7 +128,6 @@ class OrderWfEditLocation(OrderSlack):
     """Slack after editing location of an Order."""
 
     title = 'Location was updated for the Order'
-    text = 'Location was updated for the Order'
 
 
 @adapter(events.IOrderWfEditRequirements)
@@ -141,4 +136,3 @@ class OrderWfEditRequirements(OrderSlack):
     """Slack after editing requiments of an Order."""
 
     title = 'Requirements was updated for the Order'
-    text = 'Requirements was updated for the Order'

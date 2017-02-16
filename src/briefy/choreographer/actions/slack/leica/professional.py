@@ -22,6 +22,11 @@ class ProfessionalSlack(Slack):
         payload['title'] = self.title
         payload['text'] = self.text
         payload['username'] = 'Briefy Bot'
+        payload['text'] = (
+            'Creative can be seen <{url}|here>'.format(
+                url=self._action_url,
+            )
+        )
         payload['data'] = {
             'fields': [
                 {
@@ -54,8 +59,7 @@ class ProfessionalSlack(Slack):
 class ProfessionalCreated(ProfessionalSlack):
     """After creating a new Professional, post on Slack."""
 
-    title = 'New Creative!'
-    text = 'New Creative added to Leica'
+    title = 'New Creative added to Leica'
 
 
 @adapter(events.IProfessionalUpdated)
@@ -64,7 +68,6 @@ class ProfessionalUpdated(ProfessionalSlack):
     """After updated a new Professional, post on Slack."""
 
     title = 'Creative info was updated'
-    text = 'Creative info was updated'
 
 
 @adapter(events.IProfessionalWfSubmit)
@@ -73,7 +76,6 @@ class ProfessionalWfSubmit(ProfessionalSlack):
     """After moving a Creative to pending, post on Slack."""
 
     title = 'Creative waiting for quality approval'
-    text = 'Creative waiting for quality approval'
 
 
 @adapter(events.IProfessionalWfReject)
@@ -82,7 +84,6 @@ class ProfessionalWfReject(ProfessionalSlack):
     """After rejecting a Creative, post on Slack."""
 
     title = 'Creative was rejected'
-    text = 'Creative was rejected'
 
 
 @adapter(events.IProfessionalWfApprove)
@@ -91,7 +92,6 @@ class ProfessionalWfApprove(ProfessionalSlack):
     """After quality approving a Creative, post on Slack."""
 
     title = 'Creative approved, waiting for legal validation'
-    text = 'Creative approved, waiting for legal validation'
 
     def transform(self) -> dict:
         """Transform data."""
@@ -135,7 +135,6 @@ class ProfessionalWfValidate(ProfessionalSlack):
     """After activating a new Professional, post on Slack."""
 
     title = 'Creative was validated by legal'
-    text = 'Creative was validated by legal'
 
 
 @adapter(events.IProfessionalWfAssign)
@@ -144,7 +143,6 @@ class ProfessionalWfAssign(ProfessionalSlack):
     """After managing pools of a Professional, post on Slack."""
 
     title = 'Creative pools assigments changed'
-    text = 'Creative pools assigments changed'
 
 
 @adapter(events.IProfessionalWfActivate)
@@ -153,7 +151,6 @@ class ProfessionalWfActivate(ProfessionalSlack):
     """After activating a new Professional, post on Slack."""
 
     title = 'Creative was activated'
-    text = 'Creative was activated'
 
 
 @adapter(events.IProfessionalWfInactivate)
@@ -162,4 +159,3 @@ class ProfessionalWfInactivate(ProfessionalSlack):
     """After activating a new Professional, post on Slack."""
 
     title = 'Creative was inactivated'
-    text = 'Creative was inactivated'

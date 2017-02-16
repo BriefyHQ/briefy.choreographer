@@ -5,14 +5,22 @@
 
     <!-- laure.assignment.validated -->
         <adapter name="laure.assignment.validated.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentValidated" />
+        <adapter name="laure.assignment.validated.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentValidated" />
 
     <!-- laure.assignment.rejected -->
         <adapter name="laure.assignment.rejected.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentInvalidated" />
+        <adapter name="laure.assignment.rejected.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentInvalidated" />
+
+    <!-- laure.assignment.ignored -->
+        <adapter name="laure.assignment.ignored.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnored" />
+        <adapter name="laure.assignment.ignored.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentIgnored" />
 
     <!-- laure.assignment.copied -->
         <adapter name="laure.assignment.copied.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopied" />
+        <adapter name="laure.assignment.copied.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentCopied" />
 
     <!-- laure.assignment.copy_failure -->
         <adapter name="laure.assignment.copy_failure.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopyFailure" />
+        <adapter name="laure.assignment.copy_failure.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentCopyFailure" />
 
 </configure>

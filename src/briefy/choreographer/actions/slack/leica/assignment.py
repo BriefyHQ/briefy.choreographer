@@ -20,14 +20,14 @@ class AssignmentSlack(Slack):
         payload = super().transform()
         data = self.data
         payload['title'] = self.title
-        payload['text'] = self.text
+        payload['text'] = (
+            'Assignment can be seen <{url}|here>'.format(
+                url=self._action_url,
+            )
+        )
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [
-                {'title': 'Customer',
-                 'value': data.get('customer', {}).get('title'),
-                 'short': True,
-                 },
                 {'title': 'Project',
                  'value': data.get('project', {}).get('title'),
                  'short': True,
@@ -41,13 +41,60 @@ class AssignmentSlack(Slack):
         return payload
 
 
+@adapter(events.IAssignmentCreated)
+@implementer(ISlack)
+class AssignmentCreated(AssignmentSlack):
+    """Assignment created, post on Slack."""
+
+    title = 'Assignment created!'
+
+
+@adapter(events.IAssignmentUpdated)
+@implementer(ISlack)
+class AssignmentUpdated(AssignmentSlack):
+    """Assignment created, post on Slack."""
+
+    title = 'Assignment updated!'
+
+
 @adapter(events.IAssignmentWfAssign)
 @implementer(ISlack)
 class AssignmentWfAssign(AssignmentSlack):
     """After assigning, post on Slack."""
 
     title = 'Assignment assigned!'
-    text = 'Assignment was assigned to a creative'
+
+
+@adapter(events.IAssignmentWfCancel)
+@implementer(ISlack)
+class AssignmentWfCancel(AssignmentSlack):
+    """After cancelling, post on Slack."""
+
+    title = 'Assignment cancelled!'
+
+
+@adapter(events.IAssignmentWfComplete)
+@implementer(ISlack)
+class AssignmentWfComplete(AssignmentSlack):
+    """After completing, post on Slack."""
+
+    title = 'Assignment completed!'
+
+
+@adapter(events.IAssignmentWfRefuse)
+@implementer(ISlack)
+class AssignmentWfRefuse(AssignmentSlack):
+    """After customer refusal, post on Slack."""
+
+    title = 'Assignment refused!'
+
+
+@adapter(events.IAssignmentWfSchedulingIssues)
+@implementer(ISlack)
+class AssignmentWfSchedulingIssues(AssignmentSlack):
+    """After a report of scheduling issues, post on Slack."""
+
+    title = 'Assignment with schedulling issues!'
 
 
 @adapter(events.IAssignmentWfSelfAssign)
@@ -56,7 +103,14 @@ class AssignmentWfSelfAssign(AssignmentSlack):
     """Post on Slack on self assignments."""
 
     title = 'Creative just self-assigned'
-    text = 'New self-assign'
+
+
+@adapter(events.IAssignmentWfUpload)
+@implementer(ISlack)
+class AssignmentWfUpload(AssignmentSlack):
+    """Post on Slack on set uploads."""
+
+    title = 'Set was uploaded'
 
 
 @adapter(events.IAssignmentWfApprove)
@@ -65,7 +119,14 @@ class AssignmentWfApprove(AssignmentSlack):
     """Post on Slack on set approves."""
 
     title = 'Set was approved'
-    text = 'A set was approved by our QA team'
+
+
+@adapter(events.IAssignmentWfReject)
+@implementer(ISlack)
+class AssignmentWfReject(AssignmentSlack):
+    """Post on Slack on set rejections."""
+
+    title = 'Set was rejected'
 
 
 @adapter(events.IAssignmentWfSchedule)
@@ -74,7 +135,6 @@ class AssignmentWfSchedule(AssignmentSlack):
     """Post on Slack on schedule of an assignment."""
 
     title = 'Assignment was scheduled'
-    text = 'Assignment was scheduled.'
 
 
 @adapter(events.IAssignmentWfReschedule)
@@ -83,4 +143,46 @@ class AssignmentWfReschedule(AssignmentSlack):
     """Post on Slack on reschedule of an assignment."""
 
     title = 'Assignment was re-scheduled'
-    text = 'Assignment was re-scheduled.'
+
+
+@adapter(events.IAssignmentWfAssignQAManager)
+@implementer(ISlack)
+class AssignmentWfAssignQAManager(AssignmentSlack):
+    """Post on Slack when a QA Manager begin the review process."""
+
+    title = 'QA Manager started the review'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        data = self.data
+        qa_managers = data['qa_managers']
+        if qa_managers:
+            qa_manager = qa_managers[0]
+            fields = payload['data']['fields']
+            fields.append(
+                {
+                    'title': 'QA Manager',
+                    'value': qa_manager.get('fullname', ''),
+                    'short': True,
+                },
+            )
+            payload['data']['fields'] = fields
+        return payload
+
+
+@adapter(events.IAssignmentWfSubmit)
+@implementer(ISlack)
+class AssignmentWfSubmit(AssignmentSlack):
+    """Post on Slack when an assignment is pending."""
+
+    title = 'New assignment is in pending state'
+
+
+@adapter(events.IAssignmentWfSubmit)
+@implementer(ISlack)
+class AssignmentWfSubmitScout(AssignmentSlack):
+    """Post on Slack when an assignment is pending."""
+
+    _channel = '#scouting-team'
+    title = 'New assignment is available'

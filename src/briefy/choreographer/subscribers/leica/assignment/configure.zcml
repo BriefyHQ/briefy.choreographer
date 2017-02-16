@@ -96,5 +96,7 @@
         <!-- <adapter name="assignment.workflow.validate_assets.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfValidateAssets.AssignmentWfValidateAssets" /> -->
         <!-- <adapter name="assignment.workflow.validate_assets.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfValidateAssets.AssignmentWfValidateAssets" /> -->
 
+    <!-- assignment.workflow.assign_qa_manager -->
+    <adapter name="assignment.workflow.assign_qa_manager.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfAssignQAManager" />
 
 </configure>

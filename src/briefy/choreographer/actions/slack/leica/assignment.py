@@ -143,3 +143,29 @@ class AssignmentWfReschedule(AssignmentSlack):
     """Post on Slack on reschedule of an assignment."""
 
     title = 'Assignment was re-scheduled'
+
+
+@adapter(events.IAssignmentWfAssignQAManager)
+@implementer(ISlack)
+class AssignmentWfAssignQAManager(AssignmentSlack):
+    """Post on Slack when a QA Manager begin the review process."""
+
+    title = 'QA Manager started the review'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        data = self.data
+        qa_managers = data['qa_managers']
+        if qa_managers:
+            qa_manager = qa_managers[0]
+            fields = payload['data']['fields']
+            fields.append(
+                {
+                    'title': 'QA Manager',
+                    'value': qa_manager.get('fullname', ''),
+                    'short': True,
+                },
+            )
+            payload['data']['fields'] = fields
+        return payload

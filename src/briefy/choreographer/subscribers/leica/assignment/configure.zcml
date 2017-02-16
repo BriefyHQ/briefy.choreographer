@@ -83,8 +83,8 @@
         <adapter name="assignment.workflow.self_assign.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSelfAssign" />
 
     <!-- assignment.workflow.submit -->
-        <!-- <adapter name="assignment.workflow.submit.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfSubmit.AssignmentWfSubmit" /> -->
-        <!-- <adapter name="assignment.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.AssignmentWfSubmit.AssignmentWfSubmit" /> -->
+        <adapter name="assignment.workflow.submit.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSubmit" />
+        <adapter name="assignment.workflow.submit.slack.scout" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSubmitScout" />
 
     <!-- assignment.workflow.upload -->
     <adapter name="assignment.workflow.upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfUpload" />

@@ -169,3 +169,20 @@ class AssignmentWfAssignQAManager(AssignmentSlack):
             )
             payload['data']['fields'] = fields
         return payload
+
+
+@adapter(events.IAssignmentWfSubmit)
+@implementer(ISlack)
+class AssignmentWfSubmit(AssignmentSlack):
+    """Post on Slack when an assignment is pending."""
+
+    title = 'New assignment is in pending state'
+
+
+@adapter(events.IAssignmentWfSubmit)
+@implementer(ISlack)
+class AssignmentWfSubmitScout(AssignmentSlack):
+    """Post on Slack when an assignment is pending."""
+
+    _channel = '#scouting-team'
+    title = 'New assignment is available'

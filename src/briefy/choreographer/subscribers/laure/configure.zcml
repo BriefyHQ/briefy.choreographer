@@ -9,6 +9,9 @@
     <!-- laure.assignment.rejected -->
         <adapter name="laure.assignment.rejected.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentInvalidated" />
 
+    <!-- laure.assignment.ignored -->
+        <adapter name="laure.assignment.ignored.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnored" />
+
     <!-- laure.assignment.copied -->
         <adapter name="laure.assignment.copied.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopied" />
 

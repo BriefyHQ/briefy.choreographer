@@ -20,6 +20,10 @@ class ILaureAssignmentRejected(ILaureAssignmentEvent):
     """An Assignment was rejected."""
 
 
+class ILaureAssignmentIgnored(ILaureAssignmentEvent):
+    """An Assignment was ignored."""
+
+
 class ILaureAssignmentCopied(ILaureAssignmentEvent):
     """An Assignment's assets were copyed to other folder(s)."""
 
@@ -45,6 +49,14 @@ class LaureAssignmentRejected(LaureAssignmentEvent):
     """An assignment was rejected."""
 
     event_name = 'laure.assignment.rejected'
+    """Event name."""
+
+
+@implementer(ILaureAssignmentIgnored)
+class LaureAssignmentIgnored(LaureAssignmentEvent):
+    """An assignment was ignored."""
+
+    event_name = 'laure.assignment.ignored'
     """Event name."""
 
 

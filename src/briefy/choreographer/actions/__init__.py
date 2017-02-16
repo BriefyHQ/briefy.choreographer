@@ -55,11 +55,12 @@ class Action:
         """Return the action URL for the object."""
         data = self.data
         entity = self.entity
-        if 'id' in data and entity:
+        id_ = data.get('id', data.get('guid', None))
+        if id_ and entity:
             return '{base}{entity}s/{id}'.format(
                 base=PLATFORM_URL,
                 entity=entity.lower(),
-                id=data['id']
+                id=id_
             )
 
     def _format_date(self, value: str, timezone: str = '') -> str:

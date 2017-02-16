@@ -28,10 +28,6 @@ class AssignmentSlack(Slack):
         payload['username'] = 'Briefy Bot'
         payload['data'] = {
             'fields': [
-                {'title': 'Customer',
-                 'value': data.get('customer', {}).get('title'),
-                 'short': True,
-                 },
                 {'title': 'Project',
                  'value': data.get('project', {}).get('title'),
                  'short': True,

@@ -98,6 +98,7 @@ class AssignmentInvalidated(Assignment):
         data = self.data
         validation = data.get('validation', {})
         fields = payload['data']['fields']
+        feedback = validation.get('feedback', '')
         fields.append(
             {
                 'title': '# submitted / required',
@@ -118,6 +119,14 @@ class AssignmentInvalidated(Assignment):
                 'short': True
             }
         )
+        if feedback:
+            fields.append(
+                {
+                    'title': 'Rejection message',
+                    'value': feedback,
+                    'short': False
+                }
+            )
         payload['data']['fields'] = fields
         payload['color'] = 'danger'
         return payload

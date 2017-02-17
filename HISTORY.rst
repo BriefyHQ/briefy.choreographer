@@ -2,11 +2,17 @@
 History
 =======
 
+2.0.4 (2017-02-17)
+------------------
+
+* On Laure events add also the validation feedback to the slack action (ericof).
+
+
 2.0.3 (2017-02-16)
 ------------------
 
 * Add laure.assignment.ignored event (ericof).
-* Report on pending assignments to scouting team channek (ericof).
+* Report on pending assignments to scouting team channel (ericof).
 * Add assignment.workflow.assign_qa_manager subscriber (ericof).
 * Fix assignments Slack actions (ericof).
 * Update Slack actions for Assignment, Order, Professional (ericof).

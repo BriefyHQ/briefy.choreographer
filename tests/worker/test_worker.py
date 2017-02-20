@@ -36,14 +36,17 @@ class AssertRead(dict):
 
 
 class TestQueue:
-    def __init__(self):
-        self.messages = []
+
+    _messages = None
 
     def get_messages(self):
-        return self.messages
+        return self._messages if self._messages else []
 
     def write_message(self, message):
-        self.message.append(message)
+        if not self._messages:
+            self._messages = []
+
+        self._message.append(message)
 
 
 @pytest.fixture

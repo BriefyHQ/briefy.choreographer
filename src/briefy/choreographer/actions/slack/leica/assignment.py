@@ -137,6 +137,22 @@ class AssignmentWfPermReject(AssignmentSlack):
     title = 'Assignment permanently reject from QA!'
 
 
+@adapter(events.IAssignmentWfEditPayout)
+@implementer(ISlack)
+class AssignmentWfEditPayout(AssignmentSlack):
+    """After edit payout, post on Slack."""
+
+    title = 'Assignment payout edit!'
+
+
+@adapter(events.IAssignmentWfEditCompensation)
+@implementer(ISlack)
+class AssignmentWfEditCompensation(AssignmentSlack):
+    """After edit compensation, post on Slack."""
+
+    title = 'Assignment compensation edit!'
+
+
 @adapter(events.IAssignmentWfReturnToQa)
 @implementer(ISlack)
 class AssignmentWfReturnToQa(AssignmentSlack):

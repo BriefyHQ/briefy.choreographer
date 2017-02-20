@@ -2,6 +2,12 @@
 History
 =======
 
+2.0.5 (2017-02-20)
+------------------
+
+* Added all missing Assignment transition adapters to post messages on slack (rudaporto).
+
+
 2.0.4 (2017-02-17)
 ------------------
 

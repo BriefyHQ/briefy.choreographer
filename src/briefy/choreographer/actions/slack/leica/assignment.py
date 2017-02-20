@@ -57,6 +57,14 @@ class AssignmentUpdated(AssignmentSlack):
     title = 'Assignment updated!'
 
 
+@adapter(events.IAssignmentWfPublish)
+@implementer(ISlack)
+class AssignmentWfPublish(AssignmentSlack):
+    """After publish, post on Slack."""
+
+    title = 'Assignment published!'
+
+
 @adapter(events.IAssignmentWfAssign)
 @implementer(ISlack)
 class AssignmentWfAssign(AssignmentSlack):
@@ -71,6 +79,70 @@ class AssignmentWfCancel(AssignmentSlack):
     """After cancelling, post on Slack."""
 
     title = 'Assignment cancelled!'
+
+
+@adapter(events.IAssignmentWfRetract)
+@implementer(ISlack)
+class AssignmentWfRetract(AssignmentSlack):
+    """After retract from publish to pending, post on Slack."""
+
+    title = 'Assignment retracted to pending!'
+
+
+@adapter(events.IAssignmentWfReadyForUpload)
+@implementer(ISlack)
+class AssignmentWfReadyForUpload(AssignmentSlack):
+    """After moving to awaiting assets, post on Slack."""
+
+    title = 'Assignment moved to awaiting assets!'
+
+
+@adapter(events.IAssignmentWfInvalidateAssets)
+@implementer(ISlack)
+class AssignmentWfInvalidateAssets(AssignmentSlack):
+    """After invalidate assets, post on Slack."""
+
+    title = 'Assignment moved back to awaiting assets, machine invalidate upload!'
+
+
+@adapter(events.IAssignmentWfValidateAssets)
+@implementer(ISlack)
+class AssignmentWfValidateAssets(AssignmentSlack):
+    """After validate assets, post on Slack."""
+
+    title = 'Assignment moved to QA, machine validate upload!'
+
+
+@adapter(events.IAssignmentWfRetractRejection)
+@implementer(ISlack)
+class AssignmentWfRetractRejection(AssignmentSlack):
+    """After manual retract set from awaiting assets to QA, post on Slack."""
+
+    title = 'Assignment moved from awaiting assets to QA using retract rejection transition!'
+
+
+@adapter(events.IAssignmentWfRetractApproval)
+@implementer(ISlack)
+class AssignmentWfRetractApproval(AssignmentSlack):
+    """After manual retract set from approved to QA, post on Slack."""
+
+    title = 'Assignment moved from approved to QA using retract approval transition!'
+
+
+@adapter(events.IAssignmentWfPermReject)
+@implementer(ISlack)
+class AssignmentWfPermReject(AssignmentSlack):
+    """After permanently reject, post on Slack."""
+
+    title = 'Assignment permanently reject from QA!'
+
+
+@adapter(events.IAssignmentWfReturnToQa)
+@implementer(ISlack)
+class AssignmentWfReturnToQa(AssignmentSlack):
+    """After move from refused to QA, post on Slack."""
+
+    title = 'Assignment moved from refused back to QA!'
 
 
 @adapter(events.IAssignmentWfComplete)
@@ -135,6 +207,14 @@ class AssignmentWfSchedule(AssignmentSlack):
     """Post on Slack on schedule of an assignment."""
 
     title = 'Assignment was scheduled'
+
+
+@adapter(events.IAssignmentWfRemoveSchedule)
+@implementer(ISlack)
+class AssignmentWfRemoveSchedule(AssignmentSlack):
+    """Post on Slack on remove_schedule of an assignment."""
+
+    title = 'Scheduled removed from Assignment, moving to assigned.'
 
 
 @adapter(events.IAssignmentWfReschedule)

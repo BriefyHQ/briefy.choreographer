@@ -2,6 +2,7 @@
 from briefy.choreographer.actions.slack.laure import LaureSlack
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.events import laure as events
+from textwrap import dedent
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -167,6 +168,29 @@ class AssignmentCopied(Assignment):
             )
         )
         payload['color'] = 'good'
+        return payload
+
+
+@adapter(events.ILaureAssignmentIgnoredCopy)
+@implementer(ISlack)
+class AssignmentIgnoredCopy(AssignmentCopied):
+    """Send ata on assignment not-copied to slack"""
+
+    title = 'Assignment photos not touched by Ms. Laure'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        payload['text'] = dedent(
+            """\
+            This approval was a result of photo reviewing after an initial
+            client refusal for the set. The system can't know in which folders the photos
+            had been updated, and therefore won't copy any images.
+            The Approver is **responsible** for manually copying the modified assets
+            to the appropriate folder!
+            """
+        ).replace('\n', ' ') + '\n\n' + payload['text']
+        payload['color'] = 'warning'
         return payload
 
 

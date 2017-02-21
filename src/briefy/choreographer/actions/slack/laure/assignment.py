@@ -174,7 +174,7 @@ class AssignmentCopied(Assignment):
 @adapter(events.ILaureAssignmentIgnoredCopy)
 @implementer(ISlack)
 class AssignmentIgnoredCopy(AssignmentCopied):
-    """Send ata on assignment not-copied to slack"""
+    """Send data on assignment not-copied to slack."""
 
     title = 'Assignment photos not touched by Ms. Laure'
 

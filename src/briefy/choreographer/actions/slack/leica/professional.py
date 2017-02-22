@@ -173,7 +173,7 @@ class ProfessionalWfValidate(ProfessionalSlack):
 
 @adapter(events.IProfessionalWfValidate)
 @implementer(ISlack)
-class ProfessionalWfValidate(ProfessionalSlack):
+class ProfessionalWfValidateScout(ProfessionalSlack):
     """After validating a new Professional, post on Slack."""
 
     _channel = '#scouting-team'

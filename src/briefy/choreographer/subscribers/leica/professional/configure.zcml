@@ -30,7 +30,7 @@
 
     <!-- professional.workflow.validate -->
         <adapter name="professional.validate.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfValidate" />
-        <adapter name="professional.validate.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfValidateScout" />
+        <adapter name="professional.validate.slack.scout" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfValidateScout" />
 
     <!-- professional.workflow.assign -->
         <adapter name="professional.assign.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfAssign" />

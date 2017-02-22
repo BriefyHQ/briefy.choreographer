@@ -98,7 +98,7 @@ class AssignmentInvalidated(Assignment):
         data = self.data
         validation = data.get('validation', {})
         fields = payload['data']['fields']
-        feedback = validation.get('feedback', '')
+        feedback = validation.get('complete_feedback', '')
         fields.append(
             {
                 'title': '# submitted / required',

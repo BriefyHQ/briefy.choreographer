@@ -2,10 +2,15 @@
 History
 =======
 
+2.0.7 (2017-02-22)
+------------------
+
+* Laure validation events on Slack use the complete_feedback field, not feedback (ericof).
+
 2.0.6 (2017-02-21)
 ------------------
 
- * Register new slack action adapters for Assignment workflow transitions (rudaporto).
+* Register new slack action adapters for Assignment workflow transitions (rudaporto).
 
 2.0.5 (2017-02-20)
 ------------------

@@ -4,11 +4,8 @@ from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
 from briefy.choreographer.events import laure
-from briefy.common.utils.data import Objectify
 from zope.component import adapter
 from zope.interface import implementer
-
-import uuid
 
 
 class LaureMail(Mail):
@@ -34,73 +31,70 @@ class LaureMail(Mail):
             'email': MAIL_ACTION_LEICA_SENDER_EMAIL,
         }
 
-    def transform(self) -> dict:
-        """Add generic fields to the e-mail payload."""
-        payload = Objectify(super().transform())
-
-        payload.sender_email = MAIL_ACTION_LEICA_SENDER_EMAIL
-        payload.sender_name = MAIL_ACTION_LEICA_SENDER_NAME
-        payload.entity = 'Assignment'
-        payload.guid = str(uuid.uuid4())
-
-        return payload.dct
-
-
-'''
-# Message not implemented - mostly, missing a template.
-
-@adapter(laure.ILaureAssignmentValidated)
-@implementer(IMail)
-class LaureValidates(LaureMail):
-    """Sends e-mail to QA team on set automatic aproval"""
-
-    template_name = 'qa-automatic-reject-en-gb'
-    # template = 'qa-automatic-not-enough-en-gb'
-'''
-
 
 @adapter(laure.ILaureAssignmentRejected)
 @implementer(IMail)
-class LaureInvalidates(LaureMail):
+class LaureAssignmentRejectedCreative(LaureMail):
     """Email to be sent when automatic validation failed."""
 
-    template_name = 'qa-automatic-reject-en-gb'
-    # template = 'qa-automatic-not-enough-en-gb'
+    template_name = 'qa-automatic-reject'
+    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
 
     @property
-    def subject(self):
-        """Generate the e-mail subject."""
-        return ''''{id}' Automatic Check for images failed: re-submission needed!'''.format(
-            id=self.assignment_title)
+    def action_url(self):
+        """Action URL."""
+        return self._action_url
 
-    def transform(self)->dict:
-        """Add the secific fields to the payload."""
-        payload = Objectify(super().transform())
-        data = Objectify(self.data)
+    @property
+    def recipient(self):
+        """Return the data to be used as the recipient of this message."""
+        recipients = []
+        data = self.data
+        assignment = data.get('assignment', {})
+        fullname = assignment.get('professional_name', '')
+        first_name = fullname.split(' ')[0]
+        email = assignment.get('email', '')
+        if fullname and email:
+            recipients = [
+                {
+                    'first_name': first_name,
+                    'fullname': fullname,
+                    'email': email,
+                }
+            ]
+        return recipients
 
-        # Details format: List of 2-tuples with image name/reason string
-        image_details = '<ul>\n    {0}\n</ul>'.format('\n    '.join([
-            '<li>{0}</li>'.format(
-                '{name} - {reason}'.join(name=v[0], reason=v[1]))
-            for v in data.validation_info.failed.dct
-            ])
-        )
-
-        details = data.validation_info.complete_feedback + '\n\n' + image_details
-
-        payload.subject = (''''{id}' Automatic Check for images failed: '''
-                           '''re-submission needed!'''.format(
-                                id=self.assignment_title))
-
-        payload.fullname = data.assignment_info.professional_name,
-        payload.email = data.assignment_info.professional_email
-        payload.subject = ''''{id}' Automatic Check for images failed: '''\
-            '''re-submission needed!'''.format(
-                id=data.assigment_info.code)
-        payload.event_name = 'assigment.invalidate'
-        payload.data = {}
-        payload.data.SUBJECT = payload.subject
-        payload.data.JOB_ID = data.assigment_info.id
-        payload.data.ERRORS = details
-
-        return payload.dct
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        data = self.data
+        recipients = self.recipient
+        assignment = data.get('assignment', {})
+        validation = data.get('validation', {})
+        feedback = validation.get('complete_feedback', '')
+        if isinstance(recipients, dict):
+            recipients = [recipients, ]
+        elif not recipients:
+            return []
+        payload = []
+        for recipient in recipients:
+            payload_item = {}
+            payload_item.update(base_payload)
+            payload_item['fullname'] = recipient.get('fullname')
+            payload_item['email'] = recipient.get('email')
+            payload_item['data'] = {
+                'ID': data.get('id'),
+                'ACTION_URL': self.action_url,
+                'TITLE': data.get('title'),
+                'EMAIL': recipient.get('email'),
+                'ERRORS': feedback,
+                'FULLNAME': recipient.get('fullname'),
+                'FIRSTNAME': recipient.get('first_name', recipient.get('fullname')),
+                'SLUG': assignment.get('code', ''),
+                'ASSIGNMENT_ID': assignment.get('id', ''),
+            }
+            subject = self.subject.format(**payload_item['data'])
+            payload_item['subject'] = subject
+            payload_item['data']['SUBJECT'] = subject
+            payload.append(payload_item)
+        return payload

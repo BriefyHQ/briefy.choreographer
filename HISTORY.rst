@@ -8,6 +8,7 @@ History
 * Laure validation events on Slack use the complete_feedback field, not feedback (ericof).
 * Professional: On approval send slack message to Finance (ericof).
 * Professional: On validation send slack message to Scouters (ericof).
+* Comment: On comment from Customer to PM send an email (ericof).
 
 2.0.6 (2017-02-21)
 ------------------

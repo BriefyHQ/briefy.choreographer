@@ -92,7 +92,16 @@ class CommentCreativeMail(CommentMail):
         return self._recipients('professional_user')
 
 
-# Order Created by Customer
+class CommentPMMail(CommentMail):
+    """Base class for emails sent to the PMs on Comment events."""
+
+    @property
+    def recipient(self):
+        """Return the data to be used as the recipient of this message."""
+        return self._recipients('project_managers')
+
+
+# Comment Created to Customer
 @adapter(events.ICommentCreated)
 @implementer(IMail)
 class CommentCreatedToCreative(CommentCreativeMail):
@@ -119,7 +128,7 @@ class CommentCreatedToCreative(CommentCreativeMail):
         return (to_role == 'professional_user') and available
 
 
-# Order Created by Customer
+# Comment Created to Customer
 @adapter(events.ICommentCreated)
 @implementer(IMail)
 class CommentCreatedToCustomer(CommentCustomerMail):
@@ -145,3 +154,31 @@ class CommentCreatedToCustomer(CommentCustomerMail):
         data = self.data
         to_role = data['to_role']
         return (to_role == 'customer_user') and available
+
+
+# Comment Created by Customer to PM
+@adapter(events.ICommentCreated)
+@implementer(IMail)
+class CommentCreatedByCustomerToPM(CommentPMMail):
+    """Email to customer on comment created."""
+
+    template_name = 'platform-comment-created-to-pm'
+    subject = '''{COMMENTER_FIRSTNAME} commented on an order'''
+
+    @property
+    def action_url(self):
+        """Action URL."""
+        data = self.data
+        return '{base}orders/{id}'.format(
+            id=data['entity']['id'],
+            base=PLATFORM_URL
+        )
+
+    @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        data = self.data
+        from_role = data['author_role']
+        to_role = data['to_role']
+        return (from_role == 'customer_user') and (to_role == 'project_manager') and available

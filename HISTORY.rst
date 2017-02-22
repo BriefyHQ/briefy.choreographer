@@ -13,6 +13,7 @@ History
 * Order: Set refused from Customer, send an email to PM (ericof).
 * Assignment: On set rejected by QA, send message to creative (ericof).
 * Assignment: On set rejected by Ms. Laure, send message to creative (ericof).
+* Customer User: On user profile activation, send message to user (ericof).
 
 2.0.6 (2017-02-21)
 ------------------

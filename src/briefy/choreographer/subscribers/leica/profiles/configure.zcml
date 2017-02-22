@@ -26,6 +26,7 @@
 
     <!-- customeruserprofile.workflow.activate -->
         <adapter name="customeruserprofile.workflow.activate" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileWfActivate" />
+        <adapter name="customeruserprofile.workflow.activate.mail" factory="briefy.choreographer.actions.mail.leica.customer_profile.CustomerUserProfileWfActivate" />
 
     <!-- customeruserprofile.workflow.inactivate -->
         <adapter name="customeruserprofile.workflow.inactivate" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileWfInactivate" />

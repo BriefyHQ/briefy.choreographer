@@ -1,44 +1,22 @@
-"""Mail action for Professional."""
+"""Mail actions for CustomerUserProfiles."""
 from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
-from briefy.choreographer.events.leica import professional as events
+from briefy.choreographer.events.leica.profiles import customer_profile as events
 from zope.component import adapter
 from zope.interface import implementer
 
 
-class ProfessionalMail(LeicaMail):
-    """Base class for emails sent on Professional events."""""
+class CustomerUserProfileMail(LeicaMail):
+    """Base class for emails sent on CustomerProfile events."""""
 
-    entity = 'Professional'
+    entity = 'CustomerUserProfile'
     """Name of the entity to be processed here."""
 
     @property
     def action_url(self):
         """Action URL."""
         return self._action_url
-
-    def _recipients(self, field_name: str):
-        """Return a list of valid recipients."""
-        data = self.data['entity']
-        recipients = []
-        if field_name == 'last_transition':
-            history = data['state_history']
-            actor = history[0]['actor']
-            users = [actor, ]
-        else:
-            users = data[field_name]
-        for user in users:
-            if not user['internal']:
-                continue
-            recipients.append(
-                {
-                    'first_name': user['first_name'],
-                    'fullname': user['fullname'],
-                    'email': user['email'],
-                }
-            )
-        return recipients
 
     def transform(self) -> list:
         """Transform data."""
@@ -70,8 +48,18 @@ class ProfessionalMail(LeicaMail):
         return payload
 
 
-class ProfessionalCreativeMail(ProfessionalMail):
-    """Base class for emails sent to the Creative on Professional events."""
+@adapter(events.ICustomerUserProfileWfActivate)
+@implementer(IMail)
+class CustomerUserProfileWfActivate(CustomerUserProfileMail):
+    """After activating a new CustomerUserProfile, send a welcome email."""
+
+    template_name = 'platform-customer-onboarding'
+    subject = '''Your Login Details to Briefy's Platform'''
+
+    @property
+    def action_url(self):
+        """Action URL."""
+        return '{base}login'.format(base=PLATFORM_URL)
 
     @property
     def recipient(self):
@@ -84,21 +72,6 @@ class ProfessionalCreativeMail(ProfessionalMail):
                 'email': data['email'],
             }
         ]
-
-
-# Email sent on account creation
-@adapter(events.IProfessionalWfApprove)
-@implementer(IMail)
-class ProfessionalWfApproveCreative(ProfessionalCreativeMail):
-    """Email to creative when their account is approved."""
-
-    template_name = 'platform-creative-onboarding'
-    subject = '''Your Login Details to Briefy's Platform'''
-
-    @property
-    def action_url(self):
-        """Action URL."""
-        return '{base}login'.format(base=PLATFORM_URL)
 
     def transform(self) -> list:
         """Transform data."""

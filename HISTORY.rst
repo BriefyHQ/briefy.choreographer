@@ -14,6 +14,7 @@ History
 * Assignment: On set rejected by QA, send message to creative (ericof).
 * Assignment: On set rejected by Ms. Laure, send message to creative (ericof).
 * Customer User: On user profile activation, send message to user (ericof).
+* Add support for Laure's ignored_copy event (jsbueno)
 
 2.0.6 (2017-02-21)
 ------------------

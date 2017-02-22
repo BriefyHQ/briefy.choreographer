@@ -16,6 +16,7 @@
     <!-- professional.workflow.approve -->
         <adapter name="professional.approve.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfApprove" />
         <adapter name="professional.approve.slack.finance" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfApproveFinance" />
+        <adapter name="professional.approve.email.creative" factory="briefy.choreographer.actions.mail.leica.professional.ProfessionalWfApproveCreative" />
 
     <!-- professional.workflow.delete -->
 

@@ -45,9 +45,9 @@ class AssignmentMail(LeicaMail):
                 'FULLNAME': recipient.get('fullname'),
                 'SLUG': data.get('slug'),
                 'PROJECT': data.get('project', {}).get('title'),
-                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
-                'CONTACT_FULLNAME': data.get('location', {}).get('fullname'),
-                'CONTACT_PHONE': data.get('location', {}).get('mobile'),
+                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address', ''),
+                'CONTACT_FULLNAME': data.get('location', {}).get('fullname', ''),
+                'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
                 'SCHEDULED_SHOOT_TIME': scheduled_datetime,
                 'SUBJECT': self.subject,
             }

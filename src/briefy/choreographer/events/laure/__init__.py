@@ -25,7 +25,11 @@ class ILaureAssignmentIgnored(ILaureAssignmentEvent):
 
 
 class ILaureAssignmentCopied(ILaureAssignmentEvent):
-    """An Assignment's assets were copyed to other folder(s)."""
+    """An Assignment's assets were copied to other folder(s)."""
+
+
+class ILaureAssignmentIgnoredCopy(ILaureAssignmentEvent):
+    """An Assignment's assets were not copied to other folders."""
 
 
 class ILaureAssignmentCopyFailure(ILaureAssignmentEvent):
@@ -65,6 +69,17 @@ class LaureAssignmentCopied(LaureAssignmentEvent):
     """An Assignment's assets were copyed to other folder(s)."""
 
     event_name = 'laure.assignment.copied'
+    """Event name."""
+
+
+@implementer(ILaureAssignmentIgnoredCopy)
+class LaureAssignmentIgnoredCopy(LaureAssignmentEvent):
+    """An Assignment's assets were not copied to other folders.
+
+    when it happens due to desired settings, not due to failure.
+    """
+
+    event_name = 'laure.assignment.ignored_copy'
     """Event name."""
 
 

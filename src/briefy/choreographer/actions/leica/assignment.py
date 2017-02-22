@@ -36,6 +36,12 @@ class AssignmentCopied(LeicaAssignment):
     """Send data on assignment copied data to Leica."""
 
 
+@adapter(events.ILaureAssignmentIgnoredCopy)
+@implementer(ILeicaAction)
+class AssignmentIgnoredCopy(LeicaAssignment):
+    """Send data on assignment not-copied data to Leica."""
+
+
 @adapter(events.ILaureAssignmentCopyFailure)
 @implementer(ILeicaAction)
 class AssignmentCopyFailure(LeicaAssignment):

@@ -129,6 +129,40 @@ class ProfessionalWfApprove(ProfessionalSlack):
         return payload
 
 
+@adapter(events.IProfessionalWfApprove)
+@implementer(ISlack)
+class ProfessionalWfApproveFinance(ProfessionalSlack):
+    """After quality approving a Creative, post on Slack."""
+
+    _channel = '#creatives-validation'
+    title = 'A new creative was approved, please proceed with legal validation'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        data = self.data
+        payload['data'] = {
+            'fields': [
+                {
+                    'title': 'Fullname',
+                    'value': data['title'],
+                    'short': True,
+                },
+                {
+                    'title': 'Email',
+                    'value': data['email'],
+                    'short': True,
+                },
+                {
+                    'title': 'Phone',
+                    'value': data['mobile'],
+                    'short': True,
+                }
+            ]
+        }
+        return payload
+
+
 @adapter(events.IProfessionalWfValidate)
 @implementer(ISlack)
 class ProfessionalWfValidate(ProfessionalSlack):

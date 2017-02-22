@@ -219,6 +219,15 @@ class OrderSetRefusedCustomerMail(OrderCustomerMail):
         return self._recipients('last_transition')
 
 
+@adapter(events.IOrderWfRefuse)
+@implementer(IMail)
+class OrderSetRefusedPMMail(OrderPMMail):
+    """Email to Project Managers on order refusal."""
+
+    template_name = 'platform-set-refused-pm'
+    subject = '''{CUSTOMER} has requested further revision on order {SLUG}'''
+
+
 # Set delivered by QA
 @adapter(events.IOrderWfDeliver)
 @implementer(IMail)

@@ -45,10 +45,10 @@
         <adapter name="assignment.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfRefuse" />
 
     <!-- assignment.workflow.reject -->
+        <adapter name="assignment.workflow.reject.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfRejectCreative" />
         <adapter name="assignment.workflow.reject.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfReject" />
 
     <!-- assignment.workflow.remove_schedule -->
-        <!-- <adapter name="assignment.workflow.remove_schedule.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfRemoveSchedule" /> -->
         <adapter name="assignment.workflow.remove_schedule.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfRemoveSchedule" />
 
     <!-- assignment.workflow.reschedule -->

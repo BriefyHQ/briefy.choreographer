@@ -41,6 +41,7 @@
 
     <!-- order.workflow.refuse -->
         <adapter name="order.workflow.refuse.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSetRefusedCustomerMail" />
+        <adapter name="order.workflow.refuse.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSetRefusedPMMail" />
         <adapter name="order.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRefuse" />
 
     <!-- order.workflow.remove_availability -->

@@ -45,9 +45,9 @@ class AssignmentMail(LeicaMail):
                 'FULLNAME': recipient.get('fullname'),
                 'SLUG': data.get('slug'),
                 'PROJECT': data.get('project', {}).get('title'),
-                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
-                'CONTACT_FULLNAME': data.get('location', {}).get('fullname'),
-                'CONTACT_PHONE': data.get('location', {}).get('mobile'),
+                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address', ''),
+                'CONTACT_FULLNAME': data.get('location', {}).get('fullname', ''),
+                'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
                 'SCHEDULED_SHOOT_TIME': scheduled_datetime,
                 'SUBJECT': self.subject,
             }
@@ -132,6 +132,25 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
 
     template_name = 'platform-set-approved'
     subject = '''Good job! Your set has been approved!'''
+
+
+@adapter(events.IAssignmentWfReject)
+@implementer(IMail)
+class AssignmentWfRejectCreative(AssignmentCreativeMail):
+    """Email to Creative when the set is rejected."""
+
+    template_name = 'platform-set-rejected'
+    subject = '''Important: Your set did not pass our Quality Assurance check'''
+
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        data = self.data
+        history = data['state_history']
+        last_transition = history[-1]
+        payload = base_payload[0]
+        payload['data']['FEEDBACK'] = last_transition['message']
+        return base_payload
 
 
 @adapter(events.IAssignmentWfSchedule)

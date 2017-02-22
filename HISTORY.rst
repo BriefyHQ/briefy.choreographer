@@ -2,10 +2,24 @@
 History
 =======
 
+2.0.7 (2017-02-22)
+------------------
+
+* Laure validation events on Slack use the complete_feedback field, not feedback (ericof).
+* Professional: On approval send slack message to Finance (ericof).
+* Professional: On validation send slack message to Scouters (ericof).
+* Professional: On approval send welcome email to Creative (ericof).
+* Comment: On comment from Customer to PM send an email (ericof).
+* Order: Set refused from Customer, send an email to PM (ericof).
+* Assignment: On set rejected by QA, send message to creative (ericof).
+* Assignment: On set rejected by Ms. Laure, send message to creative (ericof).
+* Customer User: On user profile activation, send message to user (ericof).
+* Add support for Laure's ignored_copy event (jsbueno)
+
 2.0.6 (2017-02-21)
 ------------------
 
- * Register new slack action adapters for Assignment workflow transitions (rudaporto).
+* Register new slack action adapters for Assignment workflow transitions (rudaporto).
 
 2.0.5 (2017-02-20)
 ------------------

@@ -30,7 +30,7 @@ class ProfessionalSlack(Slack):
         payload['data'] = {
             'fields': [
                 {
-                    'title': 'Fullname',
+                    'title': 'Full name',
                     'value': data['title'],
                     'short': True,
                 },
@@ -100,7 +100,7 @@ class ProfessionalWfApprove(ProfessionalSlack):
         payload['data'] = {
             'fields': [
                 {
-                    'title': 'Fullname',
+                    'title': 'Full name',
                     'value': data['title'],
                     'short': True,
                 },
@@ -144,7 +144,7 @@ class ProfessionalWfApproveFinance(ProfessionalSlack):
         payload['data'] = {
             'fields': [
                 {
-                    'title': 'Fullname',
+                    'title': 'Full name',
                     'value': data['title'],
                     'short': True,
                 },
@@ -166,8 +166,17 @@ class ProfessionalWfApproveFinance(ProfessionalSlack):
 @adapter(events.IProfessionalWfValidate)
 @implementer(ISlack)
 class ProfessionalWfValidate(ProfessionalSlack):
-    """After activating a new Professional, post on Slack."""
+    """After validating a new Professional, post on Slack."""
 
+    title = 'Creative was validated by legal'
+
+
+@adapter(events.IProfessionalWfValidate)
+@implementer(ISlack)
+class ProfessionalWfValidate(ProfessionalSlack):
+    """After validating a new Professional, post on Slack."""
+
+    _channel = '#scouting-team'
     title = 'Creative was validated by legal'
 
 

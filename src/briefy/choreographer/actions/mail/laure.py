@@ -32,13 +32,8 @@ class LaureMail(Mail):
         }
 
 
-@adapter(laure.ILaureAssignmentRejected)
-@implementer(IMail)
-class LaureAssignmentRejectedCreative(LaureMail):
+class LaureAssignmentRejected(LaureMail):
     """Email to be sent when automatic validation failed."""
-
-    template_name = 'qa-automatic-reject'
-    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
 
     @property
     def action_url(self):
@@ -98,3 +93,41 @@ class LaureAssignmentRejectedCreative(LaureMail):
             payload_item['data']['SUBJECT'] = subject
             payload.append(payload_item)
         return payload
+
+
+@adapter(laure.ILaureAssignmentRejected)
+@implementer(IMail)
+class LaureAssignmentRejectedTech(LaureAssignmentRejected):
+    """Email to be sent when automatic validation failed due to failing requirements."""
+
+    template_name = 'qa-automatic-reject-tech'
+    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
+
+    @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        data = self.data
+        validation = data.get('validation', {})
+        total_images = validation.get('total_images', 0)
+        number_of_photos = validation.get('number_of_photos', 0)
+        return (total_images >= number_of_photos) and available
+
+
+@adapter(laure.ILaureAssignmentRejected)
+@implementer(IMail)
+class LaureAssignmentRejectedLessImages(LaureAssignmentRejected):
+    """Email to be sent when automatic validation failed due to less pictures than required."""
+
+    template_name = 'qa-automatic-not-enough'
+    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
+
+    @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        data = self.data
+        validation = data.get('validation', {})
+        total_images = validation.get('total_images', 0)
+        number_of_photos = validation.get('number_of_photos', 0)
+        return (total_images < number_of_photos) and available

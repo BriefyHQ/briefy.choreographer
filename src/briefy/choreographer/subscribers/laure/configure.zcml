@@ -10,7 +10,8 @@
     <!-- laure.assignment.rejected -->
         <adapter name="laure.assignment.rejected.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentInvalidated" />
         <adapter name="laure.assignment.rejected.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentInvalidated" />
-        <adapter name="laure.assignment.rejected.email.creative" factory="briefy.choreographer.actions.mail.laure.LaureAssignmentRejectedCreative" />
+        <adapter name="laure.assignment.rejected.fail.email.creative" factory="briefy.choreographer.actions.mail.laure.LaureAssignmentRejectedTech" />
+        <adapter name="laure.assignment.rejected.less.email.creative" factory="briefy.choreographer.actions.mail.laure.LaureAssignmentRejectedLessImages" />
 
     <!-- laure.assignment.ignored -->
         <adapter name="laure.assignment.ignored.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnored" />

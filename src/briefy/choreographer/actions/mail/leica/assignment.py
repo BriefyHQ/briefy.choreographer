@@ -134,6 +134,25 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
     subject = '''Good job! Your set has been approved!'''
 
 
+@adapter(events.IAssignmentWfReject)
+@implementer(IMail)
+class AssignmentWfRejectCreative(AssignmentCreativeMail):
+    """Email to Creative when the set is rejected."""
+
+    template_name = 'platform-set-rejected'
+    subject = '''Important: Your set did not pass our Quality Assurance check'''
+
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        data = self.data
+        history = data['state_history']
+        last_transition = history[-1]
+        payload = base_payload[0]
+        payload['data']['FEEDBACK'] = last_transition['message']
+        return base_payload
+
+
 @adapter(events.IAssignmentWfSchedule)
 @implementer(IMail)
 class AssignmentScheduleCreativeMail(AssignmentCreativeMail):

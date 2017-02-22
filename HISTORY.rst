@@ -11,6 +11,7 @@ History
 * Professional: On approval send welcome email to Creative (ericof).
 * Comment: On comment from Customer to PM send an email (ericof).
 * Order: Set refused from Customer, send an email to PM (ericof).
+* Assignment: On set rejected by QA, send message to creative (ericof).
 
 2.0.6 (2017-02-21)
 ------------------

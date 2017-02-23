@@ -2,6 +2,11 @@
 History
 =======
 
+2.0.8 (2017-02-23)
+------------------
+
+* BUG: Reset password email should use code and not id to create the URL (ericof).
+
 2.0.7 (2017-02-22)
 ------------------
 

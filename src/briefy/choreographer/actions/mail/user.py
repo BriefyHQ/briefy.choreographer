@@ -78,7 +78,7 @@ class PasswordReset(UserMail):
         data = self.data
         return '{base}reset-password/{code}'.format(
             base=PLATFORM_URL,
-            code=data['id']
+            code=data['code']
         )
 
     @property

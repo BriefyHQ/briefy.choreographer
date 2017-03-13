@@ -8,6 +8,7 @@
         <adapter name="comment.created.email.customer" factory="briefy.choreographer.actions.mail.leica.comment.CommentCreatedToCustomer" />
         <adapter name="comment.created.email.professional" factory="briefy.choreographer.actions.mail.leica.comment.CommentCreatedToCreative" />
         <adapter name="comment.created.email.pm" factory="briefy.choreographer.actions.mail.leica.comment.CommentCreatedByCustomerToPM" />
+        <adapter name="comment.created.slack" factory="briefy.choreographer.actions.slack.leica.comment.CommentCreated" />
 
     <!-- comment.updated -->
         <!-- <adapter name="comment.updated.email" factory="briefy.choreographer.actions.mail.leica.CommentUpdated.CommentUpdated" /> -->

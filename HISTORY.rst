@@ -2,6 +2,12 @@
 History
 =======
 
+2.0.9 (2017-03-13)
+------------------
+
+* Comment: Action to notify on slack about new comment created (ericof).
+* Logger subscriber: Serialize the data payload before sending it to Kibana (ericof).
+
 2.0.8 (2017-02-23)
 ------------------
 

@@ -2,7 +2,7 @@
 History
 =======
 
-2.0.9 (2017-03-13)
+2.0.9 (2017-03-14)
 ------------------
 
 * Comment: Action to notify on slack about new comment created (ericof).

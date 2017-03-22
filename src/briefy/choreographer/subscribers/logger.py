@@ -1,5 +1,6 @@
 """Logger handler."""
 from briefy.choreographer.events import InternalEvent
+from briefy.common.utils.transformers import json_dumps
 import logging
 
 logger = logging.getLogger(__name__)
@@ -24,7 +25,7 @@ def handler(event: InternalEvent):
                 'entity': event.entity,
                 'actor': event.actor,
                 'request_id': event.request_id,
-                'data': event.data
+                'data_payload': json_dumps(event.data)
             }
         }
     )

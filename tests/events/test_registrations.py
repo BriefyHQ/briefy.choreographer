@@ -127,6 +127,7 @@ ROLLEIFLEX_EVENTS = [
 LAURE_EVENTS = [
     'laure.assignment.copy_failure',
     'laure.assignment.copied',
+    'laure.assignment.ignored_copy',
     'laure.assignment.ignored',
     'laure.assignment.rejected',
     'laure.assignment.validated',

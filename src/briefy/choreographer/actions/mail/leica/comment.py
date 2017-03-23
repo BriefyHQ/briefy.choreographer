@@ -160,7 +160,7 @@ class CommentCreatedToCustomer(CommentCustomerMail):
 @adapter(events.ICommentCreated)
 @implementer(IMail)
 class CommentCreatedByCustomerToPM(CommentPMMail):
-    """Email to customer on comment created."""
+    """Email to PM on comment created."""
 
     template_name = 'platform-comment-created-to-pm'
     subject = '''{COMMENTER_FIRSTNAME} commented on an order'''

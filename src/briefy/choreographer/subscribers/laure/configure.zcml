@@ -25,4 +25,8 @@
         <adapter name="laure.assignment.copy_failure.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopyFailure" />
         <adapter name="laure.assignment.copy_failure.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentCopyFailure" />
 
+    <!-- laure.assignment.copy_ignored -->
+        <adapter name="laure.assignment.ignored_copy.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnoredCopy" />
+        <adapter name="laure.assignment.ignored_copy.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentIgnoredCopy" />
+
 </configure>

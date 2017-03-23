@@ -2,6 +2,11 @@
 History
 =======
 
+2.0.10 (2017-03-23)
+-------------------
+
+* Laure: Register adapters for laure.assignment.ignored_copy (jsbueno).
+
 2.0.9 (2017-03-14)
 ------------------
 

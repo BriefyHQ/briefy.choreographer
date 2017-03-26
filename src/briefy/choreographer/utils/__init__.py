@@ -3,7 +3,6 @@ from briefy.choreographer.actions import IAction
 from briefy.choreographer.events import IInternalEvent
 from zope.component import getGlobalSiteManager
 
-import operator
 
 _DUMMY_EVENT_PAYLOAD = {
     'id': '9b76dfba-fdd7-4773-9f2b-645c2d1e2ca6',
@@ -23,8 +22,7 @@ def get_events() -> dict:
 
 
 def get_event_actions(events: dict) -> dict:
-    """Return a dict with event names and actions registered.
-    """
+    """Return a dict with event names and actions registered."""
     registry = getGlobalSiteManager()
     event_actions = {}
 

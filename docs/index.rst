@@ -13,6 +13,7 @@ Table of Contents
 
    intro
    contributing
+   events
    actions/index
    codebase/index
    history

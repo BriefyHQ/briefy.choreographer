@@ -2,6 +2,11 @@
 History
 =======
 
+2.0.11 (unreleased)
+-------------------
+
+*Improve documentation (ericof).
+
 2.0.10 (2017-03-23)
 -------------------
 

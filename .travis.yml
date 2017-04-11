@@ -24,6 +24,9 @@ after_success:
 notifications:
   slack: briefy:qxjOPwcrGEtVx3aCQBr812t9
 addons:
+  apt:
+    packages:
+    - graphviz
   artifacts:
     key:
       secure: blNOKrPKBVKcQwVnqG8KKK18WKhfL5ptbi6ooOVLBT9QGp1zLJr6RGPtjfIj+oYdjCKp2x3QP73v8ze7t4KwVAolxmaN8vBFavIfLklPjrngA/JPR7OCZ5itMIDrBkDK368tQoEdmCnvEhEd2e1dC3VGMuvm+FAeVcmkokTDCmsk0C0nCa84iZtdT7D9/ypVDcQwa5BIym9tdQ48gOtEDQ859roKGHilqAk1pcVEplT9olc0lKhdbUTzHAkMU/4Ho9GlwNAY2ov3bQ+S00esyRjmjNgocls7UXN2VTf65HZXCIXp6tNSuSY5Y12kd2O8tcktxd/n7DsytrYKx7Dsxm86GOQzLnSPGNXnetnr/QqQdf5uj2qOyQ2W39Lne3YYpX1euvuI0h95e5Jlbyba2ObgIkNhkcs/N/KQ5i7MM33ILz5pRU2xgFxb7io9m1HcBtzaBQ5vSAYVZJExFp3eLNER8y2u9/jSPSuEJOATt5x0McvlKhgXbckdQsm1MvH0eP5eDEKEhYWrRjsj+dKMaYWoPfm7Zf88a5YQWRvytPGDLG43Y/jC4tb/QBnLdBiYsfWA9s05cuiN83ijDRxIS2ojMNcbATWFu3VRh+GXpe/c+au8nblGwB6ZmXWuo0FwNtlbQTVe9D5iAHFp0MbDk1izaweZ2vKln7bzNuai30o=

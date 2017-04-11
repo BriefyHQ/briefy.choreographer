@@ -1451,3 +1451,9 @@ a.list-group-item-warning.active{background-color:#ff7518}
 a.list-group-item-warning.active:focus,a.list-group-item-warning.active:hover{background-color:#fe6600}
 a.list-group-item-danger.active{background-color:#ff0039}
 a.list-group-item-danger.active:focus,a.list-group-item-danger.active:hover{background-color:#e60033}
+div.event {
+    padding-left: 10px;
+}
+div.actions {
+    padding-left: 10px;
+}

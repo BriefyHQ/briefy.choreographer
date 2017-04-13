@@ -1453,6 +1453,8 @@ a.list-group-item-danger.active{background-color:#ff0039}
 a.list-group-item-danger.active:focus,a.list-group-item-danger.active:hover{background-color:#e60033}
 div.event {
     padding-left: 10px;
+    background-color: wheat;
+    padding-bottom: 10px;
 }
 div.actions {
     padding-left: 10px;

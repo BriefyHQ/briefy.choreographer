@@ -1,0 +1,12 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+    <utility name="leica.task.assignment_awaiting_assets.success" component=".AssignmentAwaitingAssetsSuccess" provides=".IAssignmentAwaitingAssetsSuccess" />
+    <utility name="leica.task.assignment_awaiting_assets.failure" component=".AssignmentAwaitingAssetsFailure" provides=".IAssignmentAwaitingAssetsFailure" />
+    <utility name="leica.task.order_accepted.success" component=".OrderAcceptedSuccess" provides=".IOrderAcceptedSuccess" />
+    <utility name="leica.task.order_accepted.failure" component=".OrderAcceptedFailure" provides=".IOrderAcceptedFailure" />
+    <utility name="leica.task.assignment_pool.success" component=".AssignmentPoolSuccess" provides=".IAssignmentPoolSuccess" />
+    <utility name="leica.task.assignment_pool.no_availability" component=".AssignmentPoolNoAvailability" provides=".IAssignmentPoolNoAvailability" />
+    <utility name="leica.task.assignment_pool.has_pool_id" component=".AssignmentPoolHasPoolId" provides=".IAssignmentPoolHasPoolId" />
+    <utility name="leica.task.assignment_pool.no_payout" component=".AssignmentPoolNoPayout" provides=".IAssignmentPoolNoPayout" />
+
+</configure>

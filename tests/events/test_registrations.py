@@ -114,6 +114,16 @@ LEICA_EVENTS = [
     'workinglocation.workflow.submit'
 ]
 
+LEICA_TASK_EVENTS = [
+    'leica.task.assignment_awaiting_assets.success',
+    'leica.task.assignment_awaiting_assets.failure',
+    'leica.task.order_accepted.success',
+    'leica.task.order_accepted.failure',
+    'leica.task.assignment_pool.success',
+    'leica.task.assignment_pool.no_availability',
+    'leica.task.assignment_pool.has_pool_id',
+    'leica.task.assignment_pool.no_payout',
+]
 
 ROLLEIFLEX_EVENTS = [
     'user.created',
@@ -133,7 +143,7 @@ LAURE_EVENTS = [
     'laure.assignment.validated',
 ]
 
-EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS
+EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS + LEICA_TASK_EVENTS
 
 
 @pytest.mark.parametrize("event_name", EVENTS)

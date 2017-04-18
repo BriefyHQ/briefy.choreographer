@@ -2,10 +2,16 @@
 History
 =======
 
-2.0.11 (unreleased)
+
+2.0.12 (2017-04-18)
 -------------------
 
-*Improve documentation (ericof).
+* Fix: check if professional is available before to try do add it to the slack payload (rudaporto).
+
+2.0.11 (2017-04-18)
+-------------------
+
+* Improve documentation (ericof).
 
 2.0.10 (2017-03-23)
 -------------------

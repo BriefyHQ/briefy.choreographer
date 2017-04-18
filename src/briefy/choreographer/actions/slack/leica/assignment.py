@@ -32,12 +32,16 @@ class AssignmentSlack(Slack):
                  'value': data.get('project', {}).get('title'),
                  'short': True,
                  },
+            ]
+        }
+        professional = data.get('professional')
+        if professional:
+            payload['data']['fields'].append(
                 {'title': 'Creative',
                  'value': data.get('professional', {}).get('title'),
                  'short': True,
                  },
-            ]
-        }
+            )
         return payload
 
 

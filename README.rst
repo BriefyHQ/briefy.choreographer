@@ -6,15 +6,15 @@ Choreographer is the core of events processing in Briefy *microservices architec
 When some *microservice* fire an event to our AWS SQS event queue, like *briefy.leads*,
 Choreographer is waiting to:
 
-* read events from SQS queue *events*
-* for each event identify event type and dispatch internal event (*zope.events.notify*)
-* lookup internal event handlers subscribers to get event data and log handler invocation
-* find all multi adapters registered (actions) for a given data type, event name pair
-* order and run each action adapter, which in fact do:
+    * read events from SQS queue *events*
+    * for each event identify event type and dispatch internal event (*zope.events.notify*)
+    * lookup internal event handlers subscribers to get event data and log handler invocation
+    * find all multi adapters registered (actions) for a given data type, event name pair
+    * order and run each action adapter, which in fact do:
 
-  * transform event data to new payload format (transform)
-  * send new payload to the queue name defined in the action class
-  * log action execution
+      * transform event data to new payload format (transform)
+      * send new payload to the queue name defined in the action class
+      * log action execution
 
 Choreographer Dancing Events
 ----------------------------

@@ -10,6 +10,7 @@ major_version = version[0]
 minor_version = version[1]
 
 extensions = [
+    'briefy.choreographer.docs.events',
     'sphinx.ext.autodoc',
     'sphinx_autodoc_typehints',
     'sphinx.ext.coverage',

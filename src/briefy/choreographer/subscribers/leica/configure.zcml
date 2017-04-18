@@ -12,4 +12,6 @@
     <include package=".project" />
     <include package=".workinglocation" />
 
+    <include package=".task" />
+
 </configure>

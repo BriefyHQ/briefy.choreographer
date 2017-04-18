@@ -2,6 +2,14 @@
 History
 =======
 
+
+2.0.11 (2017-04-18)
+-------------------
+
+* Fix: check if professional is available before to try do add it to the slack payload (rudaporto).
+* Card #142: Support for Leica task events, including Slack notifications (ericof).
+* Improve documentation (ericof).
+
 2.0.10 (2017-03-23)
 -------------------
 

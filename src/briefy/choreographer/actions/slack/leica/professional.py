@@ -185,7 +185,7 @@ class ProfessionalWfValidateScout(ProfessionalSlack):
 class ProfessionalWfAssign(ProfessionalSlack):
     """After managing pools of a Professional, post on Slack."""
 
-    title = 'Creative pools assigments changed'
+    title = 'Creative pools assignments changed'
 
 
 @adapter(events.IProfessionalWfActivate)

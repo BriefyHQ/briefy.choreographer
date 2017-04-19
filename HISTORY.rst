@@ -8,6 +8,7 @@ History
 
 * Card #219: Notification to customers when PM leaves a comment on an order (ericof).
 * Added import order, string quotes and formatting (ericof).
+* Custom JSON class to monkey patch logstash.formater.json module and serialize complex objects (rudaporto).
 
 2.0.11 (2017-04-18)
 -------------------

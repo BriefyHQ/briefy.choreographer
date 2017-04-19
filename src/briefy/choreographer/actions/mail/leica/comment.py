@@ -150,7 +150,6 @@ class CommentCreatedToCustomer(CommentCustomerMail):
     def available(self) -> bool:
         """Check if this action is available."""
         available = super().available
-        available = False and available  # Disabled on 2017/02/12
         data = self.data
         to_role = data['to_role']
         return (to_role == 'customer_user') and available

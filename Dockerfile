@@ -1,4 +1,4 @@
-FROM briefy/python3:1.1.0
+FROM briefy/python3:1.3.0
 MAINTAINER Briefy <developers@briefy.com>
 
 ADD . /app

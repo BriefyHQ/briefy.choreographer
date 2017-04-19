@@ -1,14 +1,14 @@
 """Mail action for Comments."""
-from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
+from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.events.leica import comment as events
 from zope.component import adapter
 from zope.interface import implementer
 
 
 class CommentMail(LeicaMail):
-    """Base class for emails sent on Comment events."""""
+    """Base class for emails sent on Comment events."""
 
     entity = 'Comment'
     """Name of the entity to be processed here."""
@@ -150,7 +150,6 @@ class CommentCreatedToCustomer(CommentCustomerMail):
     def available(self) -> bool:
         """Check if this action is available."""
         available = super().available
-        available = False and available  # Disabled on 2017/02/12
         data = self.data
         to_role = data['to_role']
         return (to_role == 'customer_user') and available

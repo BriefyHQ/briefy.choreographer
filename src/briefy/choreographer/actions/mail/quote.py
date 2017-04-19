@@ -1,6 +1,6 @@
 """Mail action for Lead."""
-from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.actions.mail import IMail
+from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_QUOTE_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_QUOTE_SENDER_NAME
 from briefy.choreographer.events import lead

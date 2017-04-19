@@ -1,6 +1,6 @@
 """Briefy Login Events."""
-from briefy.choreographer.events.user import IUserLogin
 from briefy.choreographer.events.user import IUserFirstLogin
+from briefy.choreographer.events.user import IUserLogin
 from briefy.choreographer.events.user import UserEvent
 from zope.interface import implementer
 

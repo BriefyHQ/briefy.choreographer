@@ -5,6 +5,7 @@ from zope.component import getGlobalSiteManager
 import logging
 import operator
 
+
 _logger = logging.getLogger('briefy.choreographer')
 
 

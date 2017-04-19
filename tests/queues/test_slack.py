@@ -1,12 +1,12 @@
 """Tests for `briefy.choreographer.queues` module."""
-from briefy.choreographer.queues.slack import Queue
+from briefy.choreographer.queues.slack import SQSQueue
 from conftest import BaseQueueCase
 
 
 class TestChoreographerQueue(BaseQueueCase):
     """Tests for Choreographer Slack Queue."""
 
-    queue = Queue
+    queue = SQSQueue
     utility_name = 'slack.queue'
 
     def get_payload(self):

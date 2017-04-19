@@ -1,6 +1,6 @@
 """Slack actions for Professionals."""
-from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events.leica import professional as events
 from zope.component import adapter
 from zope.interface import implementer

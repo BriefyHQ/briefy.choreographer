@@ -1,7 +1,9 @@
 """Logger handler."""
 from briefy.choreographer.events import InternalEvent
 from briefy.common.utils.transformers import json_dumps
+
 import logging
+
 
 logger = logging.getLogger(__name__)
 

@@ -1,10 +1,11 @@
 """Briefy Choreographer."""
 from briefy import choreographer
-from briefy.common.log import logstash
 from briefy.common.log import LOG_SERVER
+from briefy.common.log import logstash
 from zope.configuration.xmlconfig import XMLConfig
 
 import logging
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)

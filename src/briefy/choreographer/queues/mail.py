@@ -1,7 +1,7 @@
 """Briefy Mail Queue."""
 from briefy.choreographer.config import MAIL_QUEUE
 from briefy.common.queue import IQueue
-from briefy.common.queue import Queue as BaseQueue
+from briefy.common.queue import Queue
 from briefy.common.utils.schema import Dictionary
 from briefy.common.utils.schema import List
 from briefy.common.validators import EventName
@@ -9,6 +9,7 @@ from zope.interface import implementer
 
 import colander
 import logging
+
 
 logger = logging.getLogger('briefy.choreographer')
 
@@ -51,7 +52,7 @@ class Schema(colander.MappingSchema):
 
 
 @implementer(IQueue)
-class Queue(BaseQueue):
+class SQSQueue(Queue):
     """A Queue to handle messages to send emails."""
 
     name = MAIL_QUEUE
@@ -78,4 +79,4 @@ class Queue(BaseQueue):
         }
 
 
-MailQueue = Queue()
+MailQueue = SQSQueue()

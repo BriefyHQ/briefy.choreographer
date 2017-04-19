@@ -5,6 +5,9 @@ alabaster==0.7.10
 coverage==4.4b1
 flake8
 flake8_docstrings
+flake8-string-format
+flake8-quotes
+flake8-isort
 graphviz
 pydocstyle==1.1.1
 pytest==3.0.7

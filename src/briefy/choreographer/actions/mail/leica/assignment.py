@@ -7,7 +7,7 @@ from zope.interface import implementer
 
 
 class AssignmentMail(LeicaMail):
-    """Base class for emails sent on Assignment events."""""
+    """Base class for emails sent on Assignment events."""
 
     entity = 'Assignment'
     """Name of the entity to be processed here."""

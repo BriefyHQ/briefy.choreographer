@@ -1,6 +1,6 @@
 """Tests for `briefy.choreographer.worker` module."""
-from briefy.choreographer.worker import Worker
 from briefy.choreographer.worker import main
+from briefy.choreographer.worker import Worker
 from collections import defaultdict
 from datetime import datetime
 from unittest import mock
@@ -72,8 +72,8 @@ def message():
 
 
 # Unit tests for Worker class
-@mock.patch("briefy.choreographer.worker.queryUtility")
-@mock.patch("briefy.choreographer.worker.notify")
+@mock.patch('briefy.choreographer.worker.queryUtility')
+@mock.patch('briefy.choreographer.worker.notify')
 def test_worker_process_message_with_missing_fields(notify_mock, query_mock, message):
     query_mock.side_effect = lambda interface, name, context: dict
     body = message.body.copy()
@@ -87,8 +87,8 @@ def test_worker_process_message_with_missing_fields(notify_mock, query_mock, mes
     assert answer
 
 
-@mock.patch("briefy.choreographer.worker.queryUtility")
-@mock.patch("briefy.choreographer.worker.notify")
+@mock.patch('briefy.choreographer.worker.queryUtility')
+@mock.patch('briefy.choreographer.worker.notify')
 def test_worker_process_message_when_event_factory_not_found(
         notify_mock,
         query_mock,
@@ -100,8 +100,8 @@ def test_worker_process_message_when_event_factory_not_found(
     assert 'has no handler' in logger_mock.info.call_args[0][0]
 
 
-@mock.patch("briefy.choreographer.worker.queryUtility")
-@mock.patch("briefy.choreographer.worker.notify")
+@mock.patch('briefy.choreographer.worker.queryUtility')
+@mock.patch('briefy.choreographer.worker.notify')
 def test_all_body_parameters_are_used(notify_mock, query_mock, message):
     query_mock.side_effect = lambda interface, name, context: dict
     logger_mock = mock.Mock()
@@ -116,8 +116,8 @@ def test_all_body_parameters_are_used(notify_mock, query_mock, message):
     assert logger_mock.debug.call_args
 
 
-@mock.patch("briefy.choreographer.worker.Worker")
-@mock.patch("briefy.choreographer.worker.queryUtility")
+@mock.patch('briefy.choreographer.worker.Worker')
+@mock.patch('briefy.choreographer.worker.queryUtility')
 def test_worker_main(query_mock, worker_mock):
 
     def worker_call():

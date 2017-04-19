@@ -1,6 +1,6 @@
 """Slack actions for BriefyUserProfiles."""
-from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events.leica.profiles import briefy_profile as events
 from zope.component import adapter
 from zope.interface import implementer

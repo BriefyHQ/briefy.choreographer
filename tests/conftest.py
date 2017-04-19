@@ -20,7 +20,7 @@ def get_url():
     """Return the url for the SQS server."""
     host = os.environ.get('SQS_IP', '127.0.0.1')
     port = os.environ.get('SQS_PORT', '5000')
-    return 'http://{}:{}'.format(host, port)
+    return 'http://{0}:{1}'.format(host, port)
 
 
 def mock_sqs():

@@ -146,6 +146,6 @@ LAURE_EVENTS = [
 EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS + LEICA_TASK_EVENTS
 
 
-@pytest.mark.parametrize("event_name", EVENTS)
+@pytest.mark.parametrize('event_name', EVENTS)
 def test_events_with_factories(event_name):
     assert queryUtility(IInternalEvent, event_name, None) is not None

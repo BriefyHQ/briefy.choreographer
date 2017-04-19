@@ -1,6 +1,6 @@
 """Slack actions for Tasks in Leica."""
-from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events.leica import task as events
 from zope.component import adapter
 from zope.interface import implementer

@@ -1,9 +1,9 @@
 """Briefy base worker."""
+from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
+from briefy.choreographer.events import IInternalEvent
 from briefy.common.queue import IQueue
 from briefy.common.queue.message import SQSMessage
 from briefy.common.worker import QueueWorker
-from briefy.choreographer.config import NEW_RELIC_LICENSE_KEY
-from briefy.choreographer.events import IInternalEvent
 from uuid import uuid4
 from zope.component import getUtility
 from zope.component import queryUtility

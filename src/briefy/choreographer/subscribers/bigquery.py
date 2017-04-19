@@ -1,12 +1,13 @@
 """BigQuery handler."""
-from briefy.common.config import MOCK_SQS
 from briefy.choreographer.config import DATASET
 from briefy.choreographer.config import GOOGLE_APPLICATION_CREDENTIALS
 from briefy.choreographer.config import TABLE
 from briefy.choreographer.events import InternalEvent
+from briefy.common.config import MOCK_SQS
 from google.cloud import bigquery
 
 import logging
+
 
 logger = logging.getLogger(__name__)
 

@@ -1,6 +1,6 @@
 """Slack Actions for Ms. Laure Assignment events."""
-from briefy.choreographer.actions.slack.laure import LaureSlack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack.laure import LaureSlack
 from briefy.choreographer.events import laure as events
 from textwrap import dedent
 from zope.component import adapter

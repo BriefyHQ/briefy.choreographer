@@ -7,6 +7,7 @@ History
 -------------------
 
 * Card #219: Notification to customers when PM leaves a comment on an order (ericof).
+* Added import order, string quotes and formatting (ericof).
 
 2.0.11 (2017-04-18)
 -------------------

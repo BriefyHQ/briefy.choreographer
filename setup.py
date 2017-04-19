@@ -4,6 +4,7 @@ from setuptools import setup
 
 import os
 
+
 here = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
     README = f.read()
@@ -35,7 +36,7 @@ setup(
     description='Briefy Choreographer composes actions based on events.',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[
-        "Programming Language :: Python",
+        'Programming Language :: Python',
     ],
     author='Briefy Tech Team',
     author_email='developers@briefy.co',

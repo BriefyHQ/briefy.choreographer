@@ -1,7 +1,6 @@
 """Briefy Leica actions."""
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
-
 from uuid import uuid4
 
 

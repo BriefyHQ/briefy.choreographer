@@ -1,6 +1,6 @@
 """Mail action for Event."""
-from briefy.choreographer.actions.notification import Notification
 from briefy.choreographer.actions.notification import INotification
+from briefy.choreographer.actions.notification import Notification
 from briefy.choreographer.events import mail as events
 from zope.component import adapter
 from zope.interface import implementer

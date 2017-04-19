@@ -1,6 +1,6 @@
 """Slack actions for Orders."""
-from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events.leica import order as events
 from zope.component import adapter
 from zope.interface import implementer

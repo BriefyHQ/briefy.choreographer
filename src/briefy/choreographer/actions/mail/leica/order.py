@@ -1,14 +1,14 @@
 """Mail action for Orders."""
-from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
+from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.events.leica import order as events
 from zope.component import adapter
 from zope.interface import implementer
 
 
 class OrderMail(LeicaMail):
-    """Base class for emails sent on Order events."""""
+    """Base class for emails sent on Order events."""
 
     entity = 'Order'
     """Name of the entity to be processed here."""

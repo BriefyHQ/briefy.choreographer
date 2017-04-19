@@ -1,6 +1,6 @@
 """Slack action for Lead."""
-from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.actions.slack import ISlack
+from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events import lead
 from zope.component import adapter
 from zope.interface import implementer

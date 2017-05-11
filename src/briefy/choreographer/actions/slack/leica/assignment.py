@@ -286,3 +286,11 @@ class AssignmentWfSubmitScout(AssignmentSlack):
 
     _channel = '#scouting-team'
     title = 'New assignment is available'
+
+
+@adapter(events.IAssignmentWfStartPostProcess)
+@implementer(ISlack)
+class AssignmentWfStartPostProcess(AssignmentSlack):
+    """Post on Slack when an assignment is moved to post_processing state."""
+
+    title = 'Assignment start to be post processed.'

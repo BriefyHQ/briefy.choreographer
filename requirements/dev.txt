@@ -1,19 +1,15 @@
+-e git+git@github.com:BriefyHQ/octopus.checkstyle.git@master#egg=octopus.checkstyle
 -r prod.txt
-Jinja2==2.8
+Jinja2==2.9.6
 Sphinx==1.5.5
 alabaster==0.7.10
-coverage==4.4b1
-flake8
-flake8_docstrings
-flake8-string-format
-flake8-quotes
-flake8-isort
+coverage==4.4
 graphviz
 pydocstyle==1.1.1
 pytest==3.0.7
-pytest-cov==2.4.0
+pytest-cov==2.5.0
 snowballstemmer==1.2.1
 sphinx-autodoc-typehints
 sphinx-bootstrap-theme==0.4.14
 sphinx-rtd-theme==0.1.9
-tox==2.3.1
+tox==2.7

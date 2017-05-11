@@ -124,6 +124,10 @@ class IAssignmentWfAssignPool(IAssignmentWfEvent):
     """Interface for assignment.workflow.assign_pool."""
 
 
+class IAssignmentWfStartPostProcess(IAssignmentWfEvent):
+    """Interface for assignment.workflow.start_post_process."""
+
+
 class AssignmentEvent(InternalEvent):
     """An event of a Assignment."""
 
@@ -328,3 +332,10 @@ class AssignmentWfAssignPool(AssignmentWfEvent):
     """Implement AssignmentWfAssignPool."""
 
     event_name = 'assignment.workflow.assign_pool'
+
+
+@implementer(IAssignmentWfStartPostProcess)
+class AssignmentWfStartPostProcess(AssignmentWfEvent):
+    """Implement AssignmentWfStartPostProcess."""
+
+    event_name = 'assignment.workflow.start_post_process'

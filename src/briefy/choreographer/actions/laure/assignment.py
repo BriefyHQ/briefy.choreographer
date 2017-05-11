@@ -22,3 +22,12 @@ class AssignmentWfApprove(LaureAction):
 
     entity = 'Assignment'
     weight = 100
+
+
+@adapter(events.IAssignmentWfStartPostProcess)
+@implementer(ILaureAction)
+class AssignmentWfStartPostProcess(LaureAction):
+    """Send assignment start post process to Ms. Laure."""
+
+    entity = 'Assignment'
+    weight = 100

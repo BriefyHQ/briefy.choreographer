@@ -28,5 +28,6 @@
     <utility name="assignment.workflow.edit_compensation" component=".AssignmentWfEditCompensation" provides=".IAssignmentWfEditCompensation" />
     <utility name="assignment.workflow.assign_qa_manager" component=".AssignmentWfAssignQAManager" provides=".IAssignmentWfAssignQAManager" />
     <utility name="assignment.workflow.assign_pool" component=".AssignmentWfAssignPool" provides=".IAssignmentWfAssignPool" />
+    <utility name="assignment.workflow.start_post_process" component=".AssignmentWfStartPostProcess" provides=".IAssignmentWfStartPostProcess" />
 
 </configure>

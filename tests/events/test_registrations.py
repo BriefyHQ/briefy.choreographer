@@ -49,6 +49,7 @@ LEICA_EVENTS = [
     'assignment.workflow.schedule',
     'assignment.workflow.scheduling_issues',
     'assignment.workflow.self_assign',
+    'assignment.workflow.start_post_process',
     'assignment.workflow.submit',
     'assignment.workflow.upload',
     'assignment.workflow.validate_assets',

@@ -29,5 +29,6 @@ class AssignmentWfApprove(LaureAction):
 class AssignmentWfStartPostProcess(LaureAction):
     """Send assignment start post process to Ms. Laure."""
 
+    _queue_name = 'delivery.queue'
     entity = 'Assignment'
     weight = 100

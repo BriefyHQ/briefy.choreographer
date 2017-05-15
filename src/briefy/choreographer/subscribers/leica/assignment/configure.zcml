@@ -98,4 +98,8 @@
     <!-- assignment.workflow.assign_qa_manager -->
          <adapter name="assignment.workflow.assign_qa_manager.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfAssignQAManager" />
 
+    <!-- assignment.workflow.start_post_process -->
+        <adapter name="assignment.workflow.start_post_process.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfStartPostProcess" />
+        <adapter name="assignment.workflow.start_post_process.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfStartPostProcess" />
+
 </configure>

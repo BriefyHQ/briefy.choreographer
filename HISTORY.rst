@@ -2,9 +2,11 @@
 History
 =======
 
-2.0.14 (2017-05-15)
+2.0.14 (2017-05-16)
 -------------------
 * Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
+* New queue utility to route message directly to ms.laure delivery queue (rudaporto).
+* Update laure actions for approve and post processing assignment transition to use the new delivery queue (rudaporto).
 
 2.0.13 (2017-05-11)
 -------------------

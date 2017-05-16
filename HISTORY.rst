@@ -2,16 +2,16 @@
 History
 =======
 
-2.0.14 (2017-05-16)
+2.0.14 (2017-05-15)
 -------------------
 * Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
-* New queue utility to route message directly to ms.laure delivery queue (rudaporto).
-* Update laure actions for approve and post processing assignment transition to use the new delivery queue (rudaporto).
+* Added events, subscribers config and actions (leica and slack) for ms.laure post processing result events (rudaporto).
 
 2.0.13 (2017-05-11)
 -------------------
 * Card #291: Added AssignmentWfStartPostProcess subscriber and actions to post on slack and send to ms.laure (rudaporto).
 * Added octopus.checkstyle as a dev dependency and update setup.cfg settings. (rudaporto)
+* Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
 
 2.0.12 (2017-04-19)
 -------------------

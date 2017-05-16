@@ -29,4 +29,15 @@
         <adapter name="laure.assignment.ignored_copy.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnoredCopy" />
         <adapter name="laure.assignment.ignored_copy.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentIgnoredCopy" />
 
+    <!-- laure.assignment.post_processing_started -->
+        <adapter name="laure.assignment.post_processing_started.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingStarted" />
+
+    <!-- laure.assignment.post_processing_complete -->
+        <adapter name="laure.assignment.post_processing_complete.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingComplete" />
+        <adapter name="laure.assignment.post_processing_complete.leica" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentPostProcessingComplete" />
+
+    <!-- laure.assignment.post_processing_failed -->
+        <adapter name="laure.assignment.post_processing_failed.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingFailed" />
+        <adapter name="laure.assignment.post_processing_failed.leica" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentPostProcessingFailed" />
+
 </configure>

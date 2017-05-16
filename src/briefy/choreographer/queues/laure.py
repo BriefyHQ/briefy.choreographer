@@ -1,6 +1,5 @@
 """Ms Laure Queue."""
-from briefy.choreographer.config import LAURE_DELIVERY_QUEUE
-from briefy.choreographer.config import LAURE_VALIDATION_QUEUE
+from briefy.choreographer.config import LAURE_QUEUE
 from briefy.common.queue import IQueue
 from briefy.common.queue import Queue
 from briefy.common.utils.schema import Dictionary
@@ -34,10 +33,10 @@ class Schema(colander.MappingSchema):
 
 
 @implementer(IQueue)
-class ValidationQueue(Queue):
-    """A Queue to handle validation messages to Ms. Laure."""
+class SQSQueue(Queue):
+    """A Queue to handle messages to Ms. Laure."""
 
-    name = LAURE_VALIDATION_QUEUE
+    name = LAURE_QUEUE
     _schema = Schema
 
     @property
@@ -55,12 +54,4 @@ class ValidationQueue(Queue):
         }
 
 
-@implementer(IQueue)
-class DeliveryQueue(ValidationQueue):
-    """A Queue to handle delivery messages to Ms. Laure."""
-
-    name = LAURE_DELIVERY_QUEUE
-
-
-LaureValidationQueue = ValidationQueue()
-LaureDeliveryQueue = DeliveryQueue()
+LaureQueue = SQSQueue()

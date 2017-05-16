@@ -2,9 +2,9 @@
 History
 =======
 
-2.0.14 (2017-05-16)
+2.0.14 (2017-05-15)
 -------------------
-q* Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
+* Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
 * Added events, subscribers config and actions (leica and slack) for ms.laure post processing result events (rudaporto).
 * New queue utility to route message directly to ms.laure delivery queue (rudaporto).
 * Update laure actions for approve and post processing assignment transition to use the new delivery queue (rudaporto).

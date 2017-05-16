@@ -1,6 +1,5 @@
 """Tests for `briefy.choreographer.queues` module."""
-from briefy.choreographer.queues.laure import DeliveryQueue
-from briefy.choreographer.queues.laure import ValidationQueue
+from briefy.choreographer.queues.laure import SQSQueue
 from conftest import BaseQueueCase
 
 
@@ -254,10 +253,10 @@ payload = {
 }
 
 
-class TestLaureValidationQueue(BaseQueueCase):
-    """Tests for Choreographer Ms Laure validation queue."""
+class TestChoreographerQueue(BaseQueueCase):
+    """Tests for Choreographer Ms Laure Queue."""
 
-    queue = ValidationQueue
+    queue = SQSQueue
     utility_name = 'laure.queue'
 
     def get_payload(self):
@@ -289,10 +288,3 @@ class TestLaureValidationQueue(BaseQueueCase):
         assert messages[0].message.message_id == resp
         assert messages[0].body['guid'] == payload['guid']
         assert messages[0].body['data']['total_assets'] == payload['data']['total_assets']
-
-
-class TestLaureDeliveryQueue(TestLaureValidationQueue):
-    """Tests for Choreographer Ms Laure delivery queue."""
-
-    queue = DeliveryQueue
-    utility_name = 'delivery.queue'

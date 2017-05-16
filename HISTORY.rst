@@ -12,7 +12,6 @@ History
 -------------------
 * Card #291: Added AssignmentWfStartPostProcess subscriber and actions to post on slack and send to ms.laure (rudaporto).
 * Added octopus.checkstyle as a dev dependency and update setup.cfg settings. (rudaporto)
-* Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
 
 2.0.12 (2017-04-19)
 -------------------

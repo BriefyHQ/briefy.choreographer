@@ -158,8 +158,8 @@ class AssignmentCopied(Assignment):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        delivery_link = data['delivery_url']
-        archive_link = data['archive_url']
+        delivery_link = data.get('delivery_url')
+        archive_link = data.get('archive_url')
         payload['text'] = (
             'Assignment can be seen <{url}|here>, <{url_1}|delivery> and <{url_2}|archive>'.format(
                 url=self._action_url,

@@ -8,8 +8,8 @@ class ILaureAction(IAction):
     """Action that deals with Ms. Laure."""
 
 
-class LaureAction(Action):
-    """Action that deals with Ms. Laure."""
+class LaureValidationAction(Action):
+    """Action that deals with Ms. Laure validation process."""
 
     weight = 100
     _queue_name = 'laure.queue'
@@ -31,3 +31,10 @@ class LaureAction(Action):
             'event_name': event.event_name,
         }
         return payload
+
+
+class LaureDeliveryAction(LaureValidationAction):
+    """Action that deals with Ms. Laure delivery process."""
+
+    weight = 100
+    _queue_name = 'delivery.queue'

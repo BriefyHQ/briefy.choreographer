@@ -2,7 +2,7 @@
 History
 =======
 
-2.0.14 (2017-05-15)
+2.0.14 (2017-05-17)
 -------------------
 * Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).
 * Added events, subscribers config and actions (leica and slack) for ms.laure post processing result events (rudaporto).

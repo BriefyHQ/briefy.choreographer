@@ -6,5 +6,8 @@
     <utility name="laure.assignment.copied" component=".LaureAssignmentCopied" provides=".ILaureAssignmentCopied" />
     <utility name="laure.assignment.ignored_copy" component=".LaureAssignmentIgnoredCopy" provides=".ILaureAssignmentIgnoredCopy" />
     <utility name="laure.assignment.copy_failure" component=".LaureAssignmentCopyFailure" provides=".ILaureAssignmentCopyFailure" />
+    <utility name="laure.assignment.post_processing_started" component=".LaureAssignmentPostProcessingStarted" provides=".ILaureAssignmentPostProcessingStarted" />
+    <utility name="laure.assignment.post_processing_failed" component=".LaureAssignmentPostProcessingFailed" provides=".ILaureAssignmentPostProcessingFailed" />
+    <utility name="laure.assignment.post_processing_complete" component=".LaureAssignmentPostProcessingComplete" provides=".ILaureAssignmentPostProcessingComplete" />
 
 </configure>

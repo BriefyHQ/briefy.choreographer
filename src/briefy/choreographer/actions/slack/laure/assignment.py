@@ -158,8 +158,8 @@ class AssignmentCopied(Assignment):
         """Transform data."""
         payload = super().transform()
         data = self.data
-        delivery_link = data['delivery_url']
-        archive_link = data['archive_url']
+        delivery_link = data.get('delivery_url')
+        archive_link = data.get('archive_url')
         payload['text'] = (
             'Assignment can be seen <{url}|here>, <{url_1}|delivery> and <{url_2}|archive>'.format(
                 url=self._action_url,
@@ -206,3 +206,33 @@ class AssignmentCopyFailure(Assignment):
         payload = super().transform()
         payload['color'] = 'danger'
         return payload
+
+
+@adapter(events.ILaureAssignmentPostProcessingStarted)
+@implementer(ISlack)
+class AssignmentPostProcessingStarted(Assignment):
+    """Send notification that assets start to be post processed by ms.laure."""
+
+    title = 'Started to post process the assets.'
+
+
+@adapter(events.ILaureAssignmentPostProcessingFailed)
+@implementer(ISlack)
+class AssignmentPostProcessingFailed(Assignment):
+    """Send notification that assets failed to be post processed."""
+
+    title = 'There was an issue post processing the assets.'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        payload['color'] = 'danger'
+        return payload
+
+
+@adapter(events.ILaureAssignmentPostProcessingComplete)
+@implementer(ISlack)
+class AssignmentPostProcessingComplete(Assignment):
+    """Send notification that post process complete with success  by ms.laure."""
+
+    title = 'Post process complete with success.'

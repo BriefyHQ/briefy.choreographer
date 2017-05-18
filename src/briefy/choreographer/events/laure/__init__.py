@@ -36,6 +36,18 @@ class ILaureAssignmentCopyFailure(ILaureAssignmentEvent):
     """An Assignment's assets failed to be copied to other folder(s)."""
 
 
+class ILaureAssignmentPostProcessingStarted(ILaureAssignmentEvent):
+    """An Assignment's assets start the post process execution on ms.laure."""
+
+
+class ILaureAssignmentPostProcessingFailed(ILaureAssignmentEvent):
+    """An Assignment's assets failed the post process execution on ms.laure."""
+
+
+class ILaureAssignmentPostProcessingComplete(ILaureAssignmentEvent):
+    """An Assignment's assets complete the post process execution on ms.laure."""
+
+
 class LaureAssignmentEvent(InternalEvent):
     """An event to an Assignment."""
 
@@ -88,4 +100,28 @@ class LaureAssignmentCopyFailure(LaureAssignmentEvent):
     """An Assignment's assets failed to be copied to other folder(s)."""
 
     event_name = 'laure.assignment.copy_failure'
+    """Event name."""
+
+
+@implementer(ILaureAssignmentPostProcessingStarted)
+class LaureAssignmentPostProcessingStarted(LaureAssignmentEvent):
+    """An Assignment's assets started post processing."""
+
+    event_name = 'laure.assignment.post_processing_started'
+    """Event name."""
+
+
+@implementer(ILaureAssignmentPostProcessingFailed)
+class LaureAssignmentPostProcessingFailed(LaureAssignmentEvent):
+    """An Assignment's assets failed post processing."""
+
+    event_name = 'laure.assignment.post_processing_failed'
+    """Event name."""
+
+
+@implementer(ILaureAssignmentPostProcessingComplete)
+class LaureAssignmentPostProcessingComplete(LaureAssignmentEvent):
+    """An Assignment's assets complete post processing."""
+
+    event_name = 'laure.assignment.post_processing_complete'
     """Event name."""

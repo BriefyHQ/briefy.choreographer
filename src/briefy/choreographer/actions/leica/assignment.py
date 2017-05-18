@@ -46,3 +46,21 @@ class AssignmentIgnoredCopy(LeicaAssignment):
 @implementer(ILeicaAction)
 class AssignmentCopyFailure(LeicaAssignment):
     """Send notification that assets failed to be copied to Leica."""
+
+
+@adapter(events.ILaureAssignmentPostProcessingStarted)
+@implementer(ILeicaAction)
+class AssignmentPostProcessingStarted(LeicaAssignment):
+    """Send notification that assets start post process."""
+
+
+@adapter(events.ILaureAssignmentPostProcessingComplete)
+@implementer(ILeicaAction)
+class AssignmentPostProcessingComplete(LeicaAssignment):
+    """Send notification that assets complete post process."""
+
+
+@adapter(events.ILaureAssignmentPostProcessingFailed)
+@implementer(ILeicaAction)
+class AssignmentPostProcessingFailed(LeicaAssignment):
+    """Send notification that assets failed post process."""

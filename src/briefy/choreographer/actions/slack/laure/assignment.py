@@ -39,7 +39,7 @@ class Assignment(LaureSlack):
                     'short': True
                 },
                 {
-                    'title': 'Responsible Photographer',
+                    'title': 'Content Creator',
                     'value': assignment['professional_name'],
                     'short': True
                 }

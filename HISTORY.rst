@@ -2,6 +2,12 @@
 History
 =======
 
+2.0.15 (Unreleased)
+-------------------
+
+* Card #327: Update actions to replace Photographer by Content creator (ericof).
+
+
 2.0.14 (2017-05-18)
 -------------------
 * Fix: added missing subscriber registration for assignment.workflow.start_post_process (rudaporto).

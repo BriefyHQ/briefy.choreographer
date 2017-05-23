@@ -245,7 +245,7 @@ class OrderAssignedCustomerMail(OrderCustomerMail):
     """Email to customer on order assigned."""
 
     template_name = 'platform-order-assigned'
-    subject = '''A Briefy photographer has been assigned to your order {SLUG}'''
+    subject = '''A Briefy content creator has been assigned to your order {SLUG}'''
 
 
 # Order has been scheduled

@@ -2,7 +2,7 @@
 History
 =======
 
-2.0.15 (Unreleased)
+2.0.15 (2017-05-23)
 -------------------
 
 * Card #327: Update actions to replace Photographer by Content creator (ericof).

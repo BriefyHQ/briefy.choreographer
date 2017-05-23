@@ -104,7 +104,7 @@ class AssignmentCancelledCreativeMail(AssignmentCreativeMail):
     """Email to Creative on assignment is cancelled."""
 
     template_name = 'platform-order-cancellation-creative'
-    subject = '''Important: Assignment {SLUG} cancelled'''
+    subject = 'Important: Assignment {SLUG} cancelled'
 
 
 @adapter(events.IAssignmentWfAssign)
@@ -113,7 +113,7 @@ class AssignmentAssignedCreativeMail(AssignmentCreativeMail):
     """Email to Creative on assignment is assigned."""
 
     template_name = 'platform-assignment-assigned'
-    subject = '''Your Briefy Assignment {SLUG}'''
+    subject = 'Your Briefy Assignment {SLUG}'
 
 
 @adapter(events.IAssignmentWfSelfAssign)
@@ -122,7 +122,7 @@ class AssignmentSelfCreativeMail(AssignmentCreativeMail):
     """Email to Creative when they self-assign."""
 
     template_name = 'platform-pool-assigned'
-    subject = '''Your Briefy Assignment {SLUG}'''
+    subject = 'Your Briefy Assignment {SLUG}'
 
 
 @adapter(events.IAssignmentWfApprove)
@@ -131,7 +131,7 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
     """Email to Creative when the set is approved."""
 
     template_name = 'platform-set-approved'
-    subject = '''Good job! Your set has been approved!'''
+    subject = 'Good job! Your set has been approved!'
 
 
 @adapter(events.IAssignmentWfReject)
@@ -140,7 +140,7 @@ class AssignmentWfRejectCreative(AssignmentCreativeMail):
     """Email to Creative when the set is rejected."""
 
     template_name = 'platform-set-rejected'
-    subject = '''Important: Your set did not pass our Quality Assurance check'''
+    subject = 'Important: Your set did not pass our Quality Assurance check'
 
     def transform(self) -> list:
         """Transform data."""
@@ -159,7 +159,7 @@ class AssignmentScheduleCreativeMail(AssignmentCreativeMail):
     """Email to Creative when the assignment is scheduled."""
 
     template_name = 'platform-assignment-scheduled'
-    subject = '''Hurray! Assignment {SLUG} is Now Scheduled!'''
+    subject = 'Hurray! Assignment {SLUG} is Now Scheduled!'
 
 
 @adapter(events.IAssignmentWfReschedule)
@@ -168,4 +168,4 @@ class AssignmentRescheduleCreativeMail(AssignmentCreativeMail):
     """Email to Creative when the assignment is re-scheduled."""
 
     template_name = 'platform-assignment-rescheduled'
-    subject = '''Your New Shooting Time for Assignment {SLUG}"'''
+    subject = 'Your New Shooting Time for Assignment {SLUG}'

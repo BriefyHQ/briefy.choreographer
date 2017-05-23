@@ -93,7 +93,7 @@ class ProfessionalWfApproveCreative(ProfessionalCreativeMail):
     """Email to creative when their account is approved."""
 
     template_name = 'platform-creative-onboarding'
-    subject = '''Your Login Details to Briefy's Platform'''
+    subject = 'Your Login Details to Briefy\'s Platform'
 
     @property
     def action_url(self):

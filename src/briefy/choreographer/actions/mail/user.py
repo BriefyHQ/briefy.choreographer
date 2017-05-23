@@ -54,7 +54,7 @@ class UserCreated(UserMail):
     """After creating a new User, send an email."""
 
     template_name = 'platform-user-created'
-    subject = '''Welcome to Briefy!'''
+    subject = 'Welcome to Briefy!'
 
     @property
     def available(self) -> bool:
@@ -70,7 +70,7 @@ class PasswordReset(UserMail):
     """Send an email to the user the details of a password reset request."""
 
     template_name = 'platform-user-password-request'
-    subject = '''Reset your password'''
+    subject = 'Reset your password'
 
     @property
     def _action_url(self) -> str:

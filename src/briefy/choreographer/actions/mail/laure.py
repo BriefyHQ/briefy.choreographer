@@ -101,7 +101,7 @@ class LaureAssignmentRejectedTech(LaureAssignmentRejected):
     """Email to be sent when automatic validation failed due to failing requirements."""
 
     template_name = 'qa-automatic-reject-tech'
-    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
+    subject = 'Please re-submit your images for assignment {SLUG}: Technical check failed'
 
     @property
     def available(self) -> bool:
@@ -120,7 +120,7 @@ class LaureAssignmentRejectedLessImages(LaureAssignmentRejected):
     """Email to be sent when automatic validation failed due to less pictures than required."""
 
     template_name = 'qa-automatic-not-enough'
-    subject = '''Please re-submit your images for assignment {SLUG}: Technical check failed'''
+    subject = 'Please re-submit your images for assignment {SLUG}: Technical check failed'
 
     @property
     def available(self) -> bool:

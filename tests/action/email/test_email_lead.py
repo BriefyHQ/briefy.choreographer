@@ -35,9 +35,9 @@ class TestLeadCreated(BaseActionCase):
         assert payload['fullname'] == 'Leo'
         assert payload['email'] == 'leo@picsastock.com'
         assert payload['template'] == 'briefy-new-lead-professional-en-gb'
-        assert payload['subject'] == '''You're Officially a Briefy Insider!'''
+        assert payload['subject'] == 'You\'re Officially a Briefy Insider!'
 
         assert data['FULLNAME'] == 'Leo'
         assert data['EMAIL'] == 'leo@picsastock.com'
-        assert data['SUBJECT'] == '''You're Officially a Briefy Insider!'''
+        assert data['SUBJECT'] == 'You\'re Officially a Briefy Insider!'
         assert data['CATEGORY'] == 'other'

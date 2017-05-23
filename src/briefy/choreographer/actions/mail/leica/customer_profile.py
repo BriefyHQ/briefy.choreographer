@@ -54,7 +54,7 @@ class CustomerUserProfileWfActivate(CustomerUserProfileMail):
     """After activating a new CustomerUserProfile, send a welcome email."""
 
     template_name = 'platform-customer-onboarding'
-    subject = '''Your Login Details to Briefy's Platform'''
+    subject = 'Your Login Details to Briefy\'s Platform'
 
     @property
     def action_url(self):

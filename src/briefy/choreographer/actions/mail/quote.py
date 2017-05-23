@@ -53,4 +53,4 @@ class QuoteCreated(QuoteMail):
     """After creating a new Quote, send an email."""
 
     template_name = 'briefy-new-quote'
-    subject = '''Your Quote has been Requested!'''
+    subject = 'Your Quote has been Requested!'

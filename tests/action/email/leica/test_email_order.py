@@ -69,7 +69,7 @@ class TestOrderCreatedScoutMail(MailTest, BaseActionCase):
             assert payload['template'] == 'platform-order-created-scouting-en-gb'
             assert data['FULLNAME'] == 'Briefy Scouters'
             assert data['EMAIL'] == 'scouting@briefy.co'
-            assert data['SUBJECT'].startswith('''New order created by''')
+            assert data['SUBJECT'].startswith('New order created by')
 
 
 class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):

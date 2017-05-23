@@ -108,7 +108,7 @@ class CommentCreatedToCreative(CommentCreativeMail):
     """Email to creative on new comment created."""
 
     template_name = 'platform-comment-created'
-    subject = '''{COMMENTER_FIRSTNAME} has commented on your assignment'''
+    subject = '{COMMENTER_FIRSTNAME} has commented on your assignment'
 
     @property
     def action_url(self):
@@ -135,7 +135,7 @@ class CommentCreatedToCustomer(CommentCustomerMail):
     """Email to customer on comment created."""
 
     template_name = 'platform-comment-created-to-customer'
-    subject = '''{COMMENTER_FIRSTNAME} has commented on your order'''
+    subject = '{COMMENTER_FIRSTNAME} has commented on your order'
 
     @property
     def action_url(self):
@@ -162,7 +162,7 @@ class CommentCreatedByCustomerToPM(CommentPMMail):
     """Email to PM on comment created."""
 
     template_name = 'platform-comment-created-to-pm'
-    subject = '''{COMMENTER_FIRSTNAME} commented on an order'''
+    subject = '{COMMENTER_FIRSTNAME} commented on an order'
 
     @property
     def action_url(self):

@@ -69,7 +69,7 @@ class TestOrderCreatedScoutMail(MailTest, BaseActionCase):
             assert payload['template'] == 'platform-order-created-scouting-en-gb'
             assert data['FULLNAME'] == 'Briefy Scouters'
             assert data['EMAIL'] == 'scouting@briefy.co'
-            assert data['SUBJECT'].startswith('''New order created by''')
+            assert data['SUBJECT'].startswith('New order created by')
 
 
 class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
@@ -108,7 +108,9 @@ class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
 
             assert payload['email'].endswith('.agoda@briefy.co')
             assert payload['template'] == 'platform-order-assigned-en-gb'
-            assert payload['subject']
+            assert payload['subject'].startswith(
+                'A Briefy content creator has been assigned to your order'
+            )
             all_recipients.append(payload['fullname'])
 
         # Eyal Schondorf is set as internal=false

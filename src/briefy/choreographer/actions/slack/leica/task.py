@@ -77,3 +77,47 @@ class AssignmentPoolNoPayout(TaskSlack):
             )
         )
         return payload
+
+
+@adapter(events.IAssignmentNotifyLateSubmissionFailure)
+@implementer(ISlack)
+class AssignmentNotifyLateSubmissionFailure(TaskSlack):
+    """Slack notification for a failure when tried to notify about late submission."""
+
+    entity = 'Assignment'
+    title = 'Late Submission Notification Failure'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        payload['title'] = self.title
+        payload['username'] = 'Briefy Bot'
+        payload['text'] = (
+            'Failure when tried to notify professional about late submission. '
+            'Assignment can be seen <{url}|here>'.format(
+                url=self._action_url,
+            )
+        )
+        return payload
+
+
+@adapter(events.IAssignmentNotifyBeforeShootingFailure)
+@implementer(ISlack)
+class AssignmentNotifyBeforeShootingFailure(TaskSlack):
+    """Slack notification for a failure when tried to notify about late submission."""
+
+    entity = 'Assignment'
+    title = 'Before Shooting Notification Failure'
+
+    def transform(self) -> dict:
+        """Transform data."""
+        payload = super().transform()
+        payload['title'] = self.title
+        payload['username'] = 'Briefy Bot'
+        payload['text'] = (
+            'Failure when tried to notify professional before shooting. '
+            'Assignment can be seen <{url}|here>'.format(
+                url=self._action_url,
+            )
+        )
+        return payload

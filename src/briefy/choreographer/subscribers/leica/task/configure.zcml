@@ -9,6 +9,18 @@
     <!-- leica.task.assignment_awaiting_assets.failure -->
         <!-- <adapter name="leica.task.assignment_awaiting_assets.failure.slack" factory="briefy.choreographer.actions.slack.leica.task.AssignmentAwaitingAssetsFailure" /> -->
 
+    <!-- leica.task.notify_late_submission.success -->
+        <adapter name="leica.task.notify_late_submission.success.mail" factory="briefy.choreographer.actions.mail.leica.task.AssignmentNotifyLateSubmissionSuccess" />
+
+    <!-- leica.task.notify_late_submission.failure -->
+        <adapter name="leica.task.notify_late_submission.failure.slack" factory="briefy.choreographer.actions.slack.leica.task.AssignmentNotifyLateSubmissionFailure" />
+
+    <!-- leica.task.notify_before_shooting.success -->
+        <adapter name="leica.task.notify_before_shooting.success.mail" factory="briefy.choreographer.actions.mail.leica.task.AssignmentNotifyBeforeShootingSuccess" />
+
+    <!-- leica.task.notify_before_shooting.failure -->
+        <adapter name="leica.task.notify_before_shooting.failure.slack" factory="briefy.choreographer.actions.slack.leica.task.AssignmentNotifyBeforeShootingFailure" />
+
     <!-- leica.task.order_accepted.success -->
         <!-- <adapter name="leica.task.order_accepted.success.slack" factory="briefy.choreographer.actions.slack.leica.task.OrderAcceptedSuccess" /> -->
 

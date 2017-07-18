@@ -118,6 +118,10 @@ LEICA_EVENTS = [
 LEICA_TASK_EVENTS = [
     'leica.task.assignment_awaiting_assets.success',
     'leica.task.assignment_awaiting_assets.failure',
+    'leica.task.notify_late_submission.success',
+    'leica.task.notify_late_submission.failure',
+    'leica.task.notify_before_shooting.success',
+    'leica.task.notify_before_shooting.failure',
     'leica.task.order_accepted.success',
     'leica.task.order_accepted.failure',
     'leica.task.assignment_pool.success',

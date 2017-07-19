@@ -50,6 +50,8 @@ class AssignmentMail(LeicaMail):
                 'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
                 'SCHEDULED_SHOOT_TIME': scheduled_datetime,
                 'SUBJECT': self.subject,
+                'NUMBER_REQUIRED_ASSETS': data.get('number_required_assets'),
+                'REQUIREMENTS': data.get('requirements')
             }
             subject = self.subject.format(**payload_item['data'])
             payload_item['subject'] = subject

@@ -47,3 +47,5 @@ deploy:
   on:
     repo: BriefyHQ/briefy.choreographer
     branch: develop
+after_deploy:
+- ./notify_newrelic_deploy.sh develop

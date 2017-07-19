@@ -2,6 +2,11 @@
 History
 =======
 
+2.0.16 (2017-07-18)
+-------------------
+
+* Created events subscribers and actions for new task events: notify before shooting and notify late submission (rudaporto).
+
 2.0.15 (2017-05-23)
 -------------------
 

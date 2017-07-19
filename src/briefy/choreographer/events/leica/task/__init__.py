@@ -16,6 +16,22 @@ class IAssignmentAwaitingAssetsFailure(ILeicaTaskEvent):
     """Interface for leica.task.assignment_awaiting_assets.failure."""
 
 
+class IAssignmentNotifyLateSubmissionSuccess(ILeicaTaskEvent):
+    """Interface for leica.task.notify_late_submission.success."""
+
+
+class IAssignmentNotifyLateSubmissionFailure(ILeicaTaskEvent):
+    """Interface for leica.task.notify_late_submission.failure."""
+
+
+class IAssignmentNotifyBeforeShootingSuccess(ILeicaTaskEvent):
+    """Interface for leica.task.notify_before_shooting.success."""
+
+
+class IAssignmentNotifyBeforeShootingFailure(ILeicaTaskEvent):
+    """Interface for leica.task.notify_before_shooting.failure."""
+
+
 class IOrderAcceptedSuccess(ILeicaTaskEvent):
     """Interface for leica.task.order_accepted.success."""
 
@@ -60,6 +76,38 @@ class AssignmentAwaitingAssetsFailure(LeicaTaskEvent):
 
     entity = 'Assignment'
     event_name = 'leica.task.assignment_awaiting_assets.failure'
+
+
+@implementer(IAssignmentNotifyLateSubmissionSuccess)
+class AssignmentNotifyLateSubmissionSuccess(LeicaTaskEvent):
+    """Event for Leica Task leica.task.notify_late_submission.success."""
+
+    entity = 'Assignment'
+    event_name = 'leica.task.notify_late_submission.success'
+
+
+@implementer(IAssignmentNotifyLateSubmissionFailure)
+class AssignmentNotifyLateSubmissionFailure(LeicaTaskEvent):
+    """Event for Leica Task leica.task.notify_late_submission.failure."""
+
+    entity = 'Assignment'
+    event_name = 'leica.task.notify_late_submission.failure'
+
+
+@implementer(IAssignmentNotifyBeforeShootingSuccess)
+class AssignmentNotifyBeforeShootingSuccess(LeicaTaskEvent):
+    """Event for Leica Task leica.task.notify_before_shooting.success."""
+
+    entity = 'Assignment'
+    event_name = 'leica.task.notify_before_shooting.success'
+
+
+@implementer(IAssignmentNotifyBeforeShootingFailure)
+class AssignmentNotifyBeforeShootingFailure(LeicaTaskEvent):
+    """Event for Leica Task leica.task.notify_before_shooting.failure."""
+
+    entity = 'Assignment'
+    event_name = 'leica.task.notify_before_shooting.failure'
 
 
 @implementer(IOrderAcceptedSuccess)

@@ -2,6 +2,10 @@
 
     <utility name="leica.task.assignment_awaiting_assets.success" component=".AssignmentAwaitingAssetsSuccess" provides=".IAssignmentAwaitingAssetsSuccess" />
     <utility name="leica.task.assignment_awaiting_assets.failure" component=".AssignmentAwaitingAssetsFailure" provides=".IAssignmentAwaitingAssetsFailure" />
+    <utility name="leica.task.notify_late_submission.success" component=".AssignmentNotifyLateSubmissionSuccess" provides=".IAssignmentNotifyLateSubmissionSuccess" />
+    <utility name="leica.task.notify_late_submission.failure" component=".AssignmentNotifyLateSubmissionFailure" provides=".IAssignmentNotifyLateSubmissionFailure" />
+    <utility name="leica.task.notify_before_shooting.success" component=".AssignmentNotifyBeforeShootingSuccess" provides=".IAssignmentNotifyBeforeShootingSuccess" />
+    <utility name="leica.task.notify_before_shooting.failure" component=".AssignmentNotifyBeforeShootingFailure" provides=".IAssignmentNotifyBeforeShootingFailure" />
     <utility name="leica.task.order_accepted.success" component=".OrderAcceptedSuccess" provides=".IOrderAcceptedSuccess" />
     <utility name="leica.task.order_accepted.failure" component=".OrderAcceptedFailure" provides=".IOrderAcceptedFailure" />
     <utility name="leica.task.assignment_pool.success" component=".AssignmentPoolSuccess" provides=".IAssignmentPoolSuccess" />

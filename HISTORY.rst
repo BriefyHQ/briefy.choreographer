@@ -2,8 +2,15 @@
 History
 =======
 
+2.0.18 (Unreleased)
+-------------------
+
+* Add calendar information to emails sent to Creatives (ericof).
+
+
 2.0.17 (2017-07-19)
 -------------------
+
 * Including two new variables in the assignment mail data payload: NUMBER_REQUIRED_ASSETS, REQUIREMENTS (rudaporto).
 
 2.0.16 (2017-07-18)

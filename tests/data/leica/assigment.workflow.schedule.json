@@ -1,0 +1,274 @@
+{
+    "location": {
+        "fullname": "Jody Baker",
+        "country": "US",
+        "locality": "Baltimore",
+        "formatted_address": "231 S High St, Baltimore, MD 21202, USA",
+        "info": {
+            "additional_info": "",
+            "province": "Maryland",
+            "locality": "Baltimore",
+            "sublocality": "Little Italy",
+            "route": "South High Street",
+            "street_number": "231",
+            "country": "US",
+            "postal_code": "21202"
+        },
+        "id": "d55af82e-0f2e-4f62-9997-fe4310ba1d00",
+        "first_name": "Jody",
+        "last_name": "Baker",
+        "email": "jody@email.briefy.co",
+        "mobile": "+1 410-528-1096",
+        "additional_phone": null,
+        "order_id": "1438e753-eeb6-42cd-90f1-897dd1db45d8",
+        "coordinates": {
+            "type": "Point",
+            "coordinates": [
+                -76.6018227,
+                39.286707
+            ]
+        }
+    },
+    "title": "Amicci's of Little Italy",
+    "order_slug": "1708-TI4-WE4",
+    "requirements": "Here's the shot list: https://docs.google.com/document/d/1yF9mjOpfU1QomTwo_0dI5eXlTUq2uTUjvYf3StQfMB0/edit?usp=sharing",
+    "number_required_assets": 20,
+    "availability": [],
+    "id": "cb1fcec8-dce7-4eb2-89b9-f26b4e1b46bd",
+    "created_at": "2017-08-02T20:11:24.386989+00:00",
+    "state": "scheduled",
+    "payout_currency": "USD",
+    "payout_value": 10000,
+    "travel_expenses": 0,
+    "additional_compensation": 0,
+    "reason_additional_compensation": null,
+    "payable": true,
+    "scheduled_datetime": "2017-08-08T21:31:00+00:00",
+    "assignment_date": "2017-08-04T11:15:56.525519+00:00",
+    "last_approval_date": null,
+    "submission_date": null,
+    "last_submission_date": null,
+    "refused_times": 0,
+    "set_type": "new",
+    "order_id": "1438e753-eeb6-42cd-90f1-897dd1db45d8",
+    "pool_id": null,
+    "professional_id": "cd93581f-85f7-48e0-1c7d-e3bce5514d87",
+    "asset_types": [
+        "Image"
+    ],
+    "submission_path": null,
+    "release_contract": null,
+    "timezone": "America/New_York",
+    "total_assets": 0,
+    "total_approvable_assets": 0,
+    "customer_approval_date": null,
+    "updated_at": "2017-08-04T15:00:00.845366+00:00",
+    "order": {
+        "location": {
+            "fullname": "Jody Baker",
+            "country": "US",
+            "locality": "Baltimore",
+            "formatted_address": "231 S High St, Baltimore, MD 21202, USA",
+            "info": {
+                "additional_info": "",
+                "province": "Maryland",
+                "locality": "Baltimore",
+                "sublocality": "Little Italy",
+                "route": "South High Street",
+                "street_number": "231",
+                "country": "US",
+                "postal_code": "21202"
+            },
+            "id": "d55af82e-0f2e-4f62-9997-fe4310ba1d00",
+            "first_name": "Jody",
+            "last_name": "Baker",
+            "email": "jody@email.briefy.co",
+            "mobile": "+1 410-528-1096",
+            "additional_phone": null,
+            "order_id": "1438e753-eeb6-42cd-90f1-897dd1db45d8",
+            "coordinates": {
+                "type": "Point",
+                "coordinates": [
+                    -76.6018227,
+                    39.286707
+                ]
+            }
+        },
+        "id": "1438e753-eeb6-42cd-90f1-897dd1db45d8",
+        "title": "Amicci's of Little Italy",
+        "description": null,
+        "created_at": "2017-08-01T17:34:52.911579+00:00",
+        "state": "scheduled",
+        "price_currency": "EUR",
+        "customer_order_id": "131502",
+        "category": "food",
+        "number_required_assets": 20,
+        "scheduled_datetime": "2017-08-08T21:31:00+00:00",
+        "deliver_date": null,
+        "timezone": "America/New_York",
+        "updated_at": "2017-08-04T15:00:00.936819+00:00",
+        "slug": "1708-TI4-WE4",
+        "price": 18800,
+        "delivery": null,
+        "customer_user": [
+            {
+                "id": "6475b12c-0868-4ee6-4277-2d16c9d1951f",
+                "first_name": "Photos",
+                "last_name": " ",
+                "fullname": "Photos  ",
+                "email": "photos@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "project_manager": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "scout_manager": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "customer_users": [
+            {
+                "id": "6475b12c-0868-4ee6-4277-2d16c9d1951f",
+                "first_name": "Photos",
+                "last_name": " ",
+                "fullname": "Photos  ",
+                "email": "photos@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "23ed78a5-8c1d-4f70-8ed7-3d0d6c36a073",
+                "first_name": "Neal",
+                "last_name": "Singleton",
+                "fullname": "Neal Singleton",
+                "email": "nsingleton@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "project_managers": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "scout_managers": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ]
+    },
+    "briefing": "https://drive.google.com/file/d/0B1Cpa54F2k6vOHVkcDNHN1ZmbDg/view?usp=sharing",
+    "last_transition_message": "",
+    "closed_on_date": null,
+    "slug": "1708-TI4-WE4_01",
+    "tech_requirements": {
+        "set": {
+            "minimum_number_of_photos": 20
+        },
+        "asset": {
+            "mimetype": [
+                {
+                    "value": "image/jpeg",
+                    "operator": "eq"
+                }
+            ],
+            "orientation": [
+                {
+                    "value": "landscape",
+                    "operator": "eq"
+                }
+            ],
+            "dimensions": [
+                {
+                    "value": "2950x2000",
+                    "operator": "min"
+                }
+            ]
+        }
+    },
+    "external_state": "scheduled",
+    "professional_user": [
+        {
+            "id": "cd93581f-85f7-48e0-1c7d-e3bce5514d87",
+            "first_name": "Tessa ",
+            "last_name": "Sollway Blische",
+            "fullname": "Tessa  Sollway Blische",
+            "email": "tsolphoto@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "project_manager": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "scout_manager": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "qa_manager": [],
+    "professional_users": [
+        {
+            "id": "cd93581f-85f7-48e0-1c7d-e3bce5514d87",
+            "first_name": "Tessa ",
+            "last_name": "Sollway Blische",
+            "fullname": "Tessa  Sollway Blische",
+            "email": "tsolphoto@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "project_managers": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "scout_managers": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "qa_managers": []
+}

@@ -19,7 +19,7 @@ class AssignmentNotifyLateSubmissionSuccess(AssignmentCreativeMail):
         :return: Boolean indicating if this is a re-submission.
         """
         data = self.data
-        return True if data.get('submission_path', '') else False
+        return True if data.get('submission_date', '') else False
 
     @property
     def template_name(self) -> str:

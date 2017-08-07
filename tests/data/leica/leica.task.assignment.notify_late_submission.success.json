@@ -1,0 +1,533 @@
+{
+    "project": {
+        "id": "ac219357-0273-4e54-ab57-470cbf2467e3",
+        "title": "ezCater USA",
+        "description": " ",
+        "created_at": "2016-06-30T00:00:00+00:00",
+        "state": "ongoing",
+        "asset_types": [
+            "Image"
+        ],
+        "updated_at": "2017-08-05T17:00:00.296605+00:00",
+        "slug": "ezcater-usa",
+        "delivery": {
+            "approve": {
+                "archive": {
+                    "subfolders": true,
+                    "parentId": "0B2QYuPa8WdDsY2Y0WjN5M1NTaTQ",
+                    "resize": [],
+                    "images": true,
+                    "other": true,
+                    "name": "order.customer_order_id",
+                    "driver": "gdrive"
+                },
+                "delivery": {
+                    "subfolders": false,
+                    "parentId": "0B1Cpa54F2k6vOWdLXzZqenZhSXM",
+                    "resize": [],
+                    "images": true,
+                    "other": false,
+                    "name": "order.customer_order_id",
+                    "driver": "gdrive"
+                }
+            }
+        }
+    },
+    "comments": [
+        {
+            "id": "67d46ab1-6788-4dbd-b8cd-ed9d8e02b33d",
+            "created_at": "2017-08-05T17:00:00.290173+00:00",
+            "content": "** notify task **: The creative was notified about late submission.",
+            "author_role": "project_manager",
+            "to_role": "professional_user",
+            "internal": true,
+            "updated_at": "2017-08-05T17:00:00.290194+00:00",
+            "author": {
+                "id": "be319e15-d256-4587-a871-c3476affa309",
+                "first_name": "Briefy",
+                "last_name": "",
+                "fullname": "Briefy",
+                "email": "app@email.briefy.co",
+                "internal": null
+            }
+        },
+        {
+            "id": "6d23748c-35bb-45b8-8dc8-d112fd4a4bb2",
+            "created_at": "2017-08-03T18:39:01.706522+00:00",
+            "content": "The files listed below do not meet our technical requirements:\n\nVeggie Platter_1.jpg - Dimensions check failed 3000 x 1993\nVeggie Medley_1.jpg - Dimensions check failed 3000 x 1993\nVegan Stuffed Mushrooms_2.jpg - Dimensions check failed 3000 x 1993\nVegan Stuffed Mushrooms_1.jpg - Dimensions check failed 3000 x 1993\nStrawberry Delight Salad_1.jpg - Dimensions check failed 3000 x 1993\nStrawberry Brie Crostini_1.jpg - Dimensions check failed 3000 x 1993\nSteak Crostini_1.jpg - Dimensions check failed 3000 x 1993\nShrimp Skewers_2jpg.jpg - Dimensions check failed 3000 x 1993\nShrimp Skewers_1.jpg - Dimensions check failed 3000 x 1993\nPulled Pork Sliders_1.jpg - Dimensions check failed 3000 x 1993\nPortobello Stacks_1.jpg - Dimensions check failed 3000 x 1993\nPastry Platter_1.jpg - Dimensions check failed 3000 x 1993\nMeatball Skewer_1.jpg - Dimensions check failed 3000 x 1993\nMan Candy_1.jpg - Dimensions check failed 3000 x 1993\nGroup3.jpg - Dimensions check failed 3000 x 1993\nGroup2.jpg - Dimensions check failed 3000 x 1993\nGroup1.jpg - Dimensions check failed 3000 x 1993\nGranola Bar_1.jpg - Dimensions check failed 3000 x 1993\nGFCookieDough:Brownie Balls_2.jpg - Dimensions check failed 3000 x 1993\nGFCookieDough:Brownie Balls_1 .jpg - Dimensions check failed 3000 x 1993\nDeviled Eggs_1.jpg - Dimensions check failed 3000 x 1993\nDark Chocolate-Dipped Tuxedo Strawberries_2.jpg - Dimensions check failed 3000 x 1993\nDark Chocolate-Dipped Tuxedo Strawberries_1.jpg - Dimensions check failed 3000 x 1993\nCruffin_1.jpg - Dimensions check failed 3000 x 1993\nCheese And Cracker Platter_1.jpg - Dimensions check failed 3000 x 1993\nCaprese Salad_1.jpg - Dimensions check failed 3000 x 1993\nNext steps:\nSTEP 1: please make the changes needed in order to meet our requirements and upload the new files into your Google Drive folder.\nSTEP 2: Resubmit the set.\nPlease note: Files will only be sent to our Quality Assurance team once the update has been made.",
+            "author_role": "qa_manager",
+            "to_role": "professional_user",
+            "internal": false,
+            "updated_at": "2017-08-03T18:39:01.706535+00:00",
+            "author": {
+                "id": "be319e15-d256-4587-a871-c3476affa309",
+                "first_name": "Briefy",
+                "last_name": "",
+                "fullname": "Briefy",
+                "email": "app@email.briefy.co",
+                "internal": null
+            }
+        },
+        {
+            "id": "03b46ea4-a403-4efc-93df-df9670463a96",
+            "created_at": "2017-08-03T18:38:58.490827+00:00",
+            "content": "I got on a ladder for the group shot, but it was still too tight to get the whole table, So I just took a few different ones. If needed I did take one with my cell phone just in case since it's all I could get!",
+            "author_role": "professional_user",
+            "to_role": "qa_manager",
+            "internal": false,
+            "updated_at": "2017-08-03T18:38:58.490840+00:00",
+            "author": {
+                "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+                "first_name": "Jessica",
+                "last_name": "Martin",
+                "fullname": "Jessica Martin",
+                "email": "jlmartin1215@email.briefy.co",
+                "internal": true
+            }
+        },
+        {
+            "id": "93de25be-25e5-4d52-8994-eca70b411069",
+            "created_at": "2017-08-03T16:43:33.245542+00:00",
+            "content": "Hi Jessica, \nThank you for your question, for this assignment and all on this project we aim to have full-frame focus for each dish. Shallow-depth of field does not always match what we are looking for and we ask that you use which aperture is best to achieve the look/feel required for this project and depending on the location. Your set from last year for this project was great and we expect the same style of images this time around! ",
+            "author_role": "project_manager",
+            "to_role": "professional_user",
+            "internal": false,
+            "updated_at": "2017-08-03T16:43:33.245559+00:00",
+            "author": {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        },
+        {
+            "id": "91039c19-f419-47e7-8693-57762c123fa4",
+            "created_at": "2017-08-02T17:00:00.451542+00:00",
+            "content": "** notify task **: The creative was notified before the shooting.",
+            "author_role": "project_manager",
+            "to_role": "professional_user",
+            "internal": true,
+            "updated_at": "2017-08-02T17:00:00.451569+00:00",
+            "author": {
+                "id": "be319e15-d256-4587-a871-c3476affa309",
+                "first_name": "Briefy",
+                "last_name": "",
+                "fullname": "Briefy",
+                "email": "app@email.briefy.co",
+                "internal": null
+            }
+        },
+        {
+            "id": "6f4d5962-9f43-4a00-aaf8-0c311aa78b92",
+            "created_at": "2017-08-02T08:27:00.427957+00:00",
+            "content": "Hi Jessica \n\nHope you are doing well. In preparation for this shoot and any shoot for this project, please review the updated briefing: https://drive.google.com/file/d/0B1Cpa54F2k6vOHVkcDNHN1ZmbDg/view",
+            "author_role": "project_manager",
+            "to_role": "professional_user",
+            "internal": false,
+            "updated_at": "2017-08-02T08:27:00.427973+00:00",
+            "author": {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        },
+        {
+            "id": "254dab0c-689a-46d0-8237-2cb70b8eb0ab",
+            "created_at": "2017-07-28T16:30:18.930630+00:00",
+            "content": "11 AM. Food will be ready when I arrive. ",
+            "author_role": "professional_user",
+            "to_role": "project_manager",
+            "internal": false,
+            "updated_at": "2017-07-28T16:30:18.930651+00:00",
+            "author": {
+                "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+                "first_name": "Jessica",
+                "last_name": "Martin",
+                "fullname": "Jessica Martin",
+                "email": "jlmartin1215@email.briefy.co",
+                "internal": true
+            }
+        },
+        {
+            "id": "b0d34957-447b-4cb6-b621-371027c05fa8",
+            "created_at": "2017-07-26T16:50:58.112917+00:00",
+            "content": "Contacted, but shoot time is not confirmed\n\nDecided on first week of august but she has not confirmed exact time/date - July 21, 2017",
+            "author_role": "professional_user",
+            "to_role": "project_manager",
+            "internal": false,
+            "updated_at": "2017-07-26T16:50:58.112940+00:00",
+            "author": {
+                "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+                "first_name": "Jessica",
+                "last_name": "Martin",
+                "fullname": "Jessica Martin",
+                "email": "jlmartin1215@email.briefy.co",
+                "internal": true
+            }
+        },
+        {
+            "id": "f611c72d-b5ab-48a7-8224-58c3151560a7",
+            "created_at": "2017-07-26T15:23:51.796200+00:00",
+            "content": "Hi Jessica, I look forward to working with you again on this project. For now, please login and call this contact person. If you have any questions please let me know anytime! ",
+            "author_role": "project_manager",
+            "to_role": "professional_user",
+            "internal": false,
+            "updated_at": "2017-07-26T15:23:51.796217+00:00",
+            "author": {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        }
+    ],
+    "location": {
+        "fullname": "Maggie   Kates",
+        "country": "US",
+        "locality": "Denver",
+        "formatted_address": "1330 Glenarm Pl, Denver, CO 80204, USA",
+        "info": {
+            "route": "Glenarm Place",
+            "street_number": "1330",
+            "province": "Colorado",
+            "postal_code": "80204",
+            "place_id": "ChIJ82zZwNN4bIcR51w5ZfHtwTk",
+            "formatted_address": "1330 Glenarm Pl, Denver, CO 80204, USA",
+            "coordinates": [
+                39.7413024,
+                -104.99324469999999
+            ],
+            "locality": "Denver",
+            "country": "US"
+        },
+        "id": "6dc260b0-7dcc-4c8b-91f0-33fdf8a6ad45",
+        "first_name": "Maggie ",
+        "last_name": " Kates",
+        "email": "mezclamaggie@email.briefy.co",
+        "mobile": "+1 315-663-6270",
+        "additional_phone": "+1 315-663-6270",
+        "order_id": "73a9d1c2-f2b7-4d08-f7a7-279c96940e3c",
+        "coordinates": {
+            "type": "Point",
+            "coordinates": [
+                -104.9932447,
+                39.7413024
+            ]
+        }
+    },
+    "professional": {
+        "title": "Jessica Martin",
+        "first_name": "Jessica",
+        "last_name": "Martin",
+        "description": null,
+        "mobile": "+1 814-574-6668",
+        "created_at": "2017-02-13T04:21:45.837263+00:00",
+        "state": "active",
+        "email": "jlmartin1215@email.briefy.co",
+        "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+        "type": "photographers",
+        "updated_at": "2017-02-13T04:21:45.837275+00:00",
+        "photo_path": null,
+        "slug": "b953ab0e"
+    },
+    "customer": null,
+    "pool": null,
+    "external_id": null,
+    "title": "Mezcla Maggie Catering",
+    "delivery": null,
+    "description": null,
+    "customer_order_id": "98791",
+    "order_slug": "1707-Z1C-02H",
+    "requirements": "https://docs.google.com/document/d/1T_WOo67CiOpa4-WJbVIpj7Gd9O639-wRf1N_Bb-8IJY/edit?usp=sharing\n\nMaggie will be out next week but is interested in getting this set up!",
+    "category": "food",
+    "number_required_assets": 20,
+    "availability": null,
+    "id": "0704ff76-a5af-4f73-8043-d22214e52027",
+    "created_at": "2017-07-20T13:51:10.118289+00:00",
+    "state": "awaiting_assets",
+    "payout_currency": "EUR",
+    "payout_value": 10000,
+    "travel_expenses": 0,
+    "additional_compensation": 0,
+    "reason_additional_compensation": null,
+    "payable": true,
+    "scheduled_datetime": "2017-08-03T17:00:00+00:00",
+    "assignment_date": "2017-07-21T13:59:14.050337+00:00",
+    "last_approval_date": null,
+    "submission_date": null,
+    "last_submission_date": null,
+    "refused_times": 0,
+    "set_type": "new",
+    "order_id": "73a9d1c2-f2b7-4d08-f7a7-279c96940e3c",
+    "pool_id": null,
+    "professional_id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+    "asset_types": [
+        "Image"
+    ],
+    "submission_path": "",
+    "release_contract": null,
+    "timezone": "America/Denver",
+    "total_assets": 0,
+    "total_approvable_assets": 0,
+    "customer_approval_date": null,
+    "updated_at": "2017-08-03T18:39:01.671605+00:00",
+    "order": {
+        "location": {
+            "fullname": "Maggie   Kates",
+            "country": "US",
+            "locality": "Denver",
+            "formatted_address": "1330 Glenarm Pl, Denver, CO 80204, USA",
+            "info": {
+                "route": "Glenarm Place",
+                "street_number": "1330",
+                "province": "Colorado",
+                "postal_code": "80204",
+                "place_id": "ChIJ82zZwNN4bIcR51w5ZfHtwTk",
+                "formatted_address": "1330 Glenarm Pl, Denver, CO 80204, USA",
+                "coordinates": [
+                    39.7413024,
+                    -104.99324469999999
+                ],
+                "locality": "Denver",
+                "country": "US"
+            },
+            "id": "6dc260b0-7dcc-4c8b-91f0-33fdf8a6ad45",
+            "first_name": "Maggie ",
+            "last_name": " Kates",
+            "email": "mezclamaggie@email.briefy.co",
+            "mobile": "+1 315-663-6270",
+            "additional_phone": "+1 315-663-6270",
+            "order_id": "73a9d1c2-f2b7-4d08-f7a7-279c96940e3c",
+            "coordinates": {
+                "type": "Point",
+                "coordinates": [
+                    -104.9932447,
+                    39.7413024
+                ]
+            }
+        },
+        "id": "73a9d1c2-f2b7-4d08-f7a7-279c96940e3c",
+        "title": "Mezcla Maggie Catering",
+        "description": null,
+        "created_at": "2017-07-20T13:51:09.626016+00:00",
+        "state": "scheduled",
+        "price_currency": "EUR",
+        "customer_order_id": "98791",
+        "category": "food",
+        "number_required_assets": 20,
+        "scheduled_datetime": "2017-08-03T17:00:00+00:00",
+        "deliver_date": null,
+        "timezone": "America/Denver",
+        "updated_at": "2017-07-28T16:30:18.557598+00:00",
+        "slug": "1707-Z1C-02H",
+        "price": 18800,
+        "delivery": null,
+        "customer_user": [
+            {
+                "id": "59082f86-db13-449d-8561-72bae458ddb7",
+                "first_name": "Anne",
+                "last_name": "Mello",
+                "fullname": "Anne Mello",
+                "email": "amello@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "project_manager": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "scout_manager": [
+            {
+                "id": "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+                "first_name": "Nayeon",
+                "last_name": "Kim",
+                "fullname": "Nayeon Kim",
+                "email": "nayeon@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "customer_users": [
+            {
+                "id": "59082f86-db13-449d-8561-72bae458ddb7",
+                "first_name": "Anne",
+                "last_name": "Mello",
+                "fullname": "Anne Mello",
+                "email": "amello@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "23ed78a5-8c1d-4f70-8ed7-3d0d6c36a073",
+                "first_name": "Neal",
+                "last_name": "Singleton",
+                "fullname": "Neal Singleton",
+                "email": "nsingleton@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "f42f7dc8-dd28-4981-7a5d-63c4212e29a9",
+                "first_name": "Jillian ",
+                "last_name": "Medugno",
+                "fullname": "Jillian  Medugno",
+                "email": "jmedugno@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "85b2deab-f776-481d-2984-16408719cb75",
+                "first_name": "Topher ",
+                "last_name": "Baldwin ",
+                "fullname": "Topher  Baldwin ",
+                "email": "tbaldwin@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "ee700e59-7b8d-4141-8646-a191e197cf1e",
+                "first_name": "Anna ",
+                "last_name": "Rausa",
+                "fullname": "Anna  Rausa",
+                "email": "arausa@email.briefy.co",
+                "internal": true
+            },
+            {
+                "id": "6475b12c-0868-4ee6-4277-2d16c9d1951f",
+                "first_name": "Photos",
+                "last_name": " ",
+                "fullname": "Photos  ",
+                "email": "photos@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "project_managers": [
+            {
+                "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+                "first_name": "Grace",
+                "last_name": "Farson",
+                "fullname": "Grace Farson",
+                "email": "grace@email.briefy.co",
+                "internal": true
+            }
+        ],
+        "scout_managers": [
+            {
+                "id": "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+                "first_name": "Nayeon",
+                "last_name": "Kim",
+                "fullname": "Nayeon Kim",
+                "email": "nayeon@email.briefy.co",
+                "internal": true
+            }
+        ]
+    },
+    "briefing": "https://drive.google.com/file/d/0B1Cpa54F2k6vOHVkcDNHN1ZmbDg/view?usp=sharing",
+    "last_transition_message": "The files listed below do not meet our technical requirements:\n\nVeggie Platter_1.jpg - Dimensions check failed 3000 x 1993\nVeggie Medley_1.jpg - Dimensions check failed 3000 x 1993\nVegan Stuffed Mushrooms_2.jpg - Dimensions check failed 3000 x 1993\nVegan Stuffed Mushrooms_1.jpg - Dimensions check failed 3000 x 1993\nStrawberry Delight Salad_1.jpg - Dimensions check failed 3000 x 1993\nStrawberry Brie Crostini_1.jpg - Dimensions check failed 3000 x 1993\nSteak Crostini_1.jpg - Dimensions check failed 3000 x 1993\nShrimp Skewers_2jpg.jpg - Dimensions check failed 3000 x 1993\nShrimp Skewers_1.jpg - Dimensions check failed 3000 x 1993\nPulled Pork Sliders_1.jpg - Dimensions check failed 3000 x 1993\nPortobello Stacks_1.jpg - Dimensions check failed 3000 x 1993\nPastry Platter_1.jpg - Dimensions check failed 3000 x 1993\nMeatball Skewer_1.jpg - Dimensions check failed 3000 x 1993\nMan Candy_1.jpg - Dimensions check failed 3000 x 1993\nGroup3.jpg - Dimensions check failed 3000 x 1993\nGroup2.jpg - Dimensions check failed 3000 x 1993\nGroup1.jpg - Dimensions check failed 3000 x 1993\nGranola Bar_1.jpg - Dimensions check failed 3000 x 1993\nGFCookieDough:Brownie Balls_2.jpg - Dimensions check failed 3000 x 1993\nGFCookieDough:Brownie Balls_1 .jpg - Dimensions check failed 3000 x 1993\nDeviled Eggs_1.jpg - Dimensions check failed 3000 x 1993\nDark Chocolate-Dipped Tuxedo Strawberries_2.jpg - Dimensions check failed 3000 x 1993\nDark Chocolate-Dipped Tuxedo Strawberries_1.jpg - Dimensions check failed 3000 x 1993\nCruffin_1.jpg - Dimensions check failed 3000 x 1993\nCheese And Cracker Platter_1.jpg - Dimensions check failed 3000 x 1993\nCaprese Salad_1.jpg - Dimensions check failed 3000 x 1993\nNext steps:\nSTEP 1: please make the changes needed in order to meet our requirements and upload the new files into your Google Drive folder.\nSTEP 2: Resubmit the set.\nPlease note: Files will only be sent to our Quality Assurance team once the update has been made.",
+    "closed_on_date": null,
+    "slug": "1707-Z1C-02H_01",
+    "tech_requirements": {
+        "set": {
+            "minimum_number_of_photos": 20
+        },
+        "asset": {
+            "mimetype": [
+                {
+                    "value": "image/jpeg",
+                    "operator": "eq"
+                }
+            ],
+            "orientation": [
+                {
+                    "value": "landscape",
+                    "operator": "eq"
+                }
+            ],
+            "dimensions": [
+                {
+                    "value": "2950x2000",
+                    "operator": "min"
+                }
+            ]
+        }
+    },
+    "external_state": "awaiting_assets",
+    "professional_user": [
+        {
+            "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+            "first_name": "Jessica",
+            "last_name": "Martin",
+            "fullname": "Jessica Martin",
+            "email": "jlmartin1215@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "project_manager": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "scout_manager": [
+        {
+            "id": "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+            "first_name": "Nayeon",
+            "last_name": "Kim",
+            "fullname": "Nayeon Kim",
+            "email": "nayeon@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "qa_manager": [],
+    "professional_users": [
+        {
+            "id": "b953ab0e-0f69-42b6-b47e-fe34285f7698",
+            "first_name": "Jessica",
+            "last_name": "Martin",
+            "fullname": "Jessica Martin",
+            "email": "jlmartin1215@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "project_managers": [
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        },
+        {
+            "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+            "first_name": "Grace",
+            "last_name": "Farson",
+            "fullname": "Grace Farson",
+            "email": "grace@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "scout_managers": [
+        {
+            "id": "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+            "first_name": "Nayeon",
+            "last_name": "Kim",
+            "fullname": "Nayeon Kim",
+            "email": "nayeon@email.briefy.co",
+            "internal": true
+        }
+    ],
+    "qa_managers": []
+}

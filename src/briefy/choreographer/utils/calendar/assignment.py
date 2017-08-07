@@ -1,6 +1,6 @@
 """Assignment calendar helpers."""
-from briefy.choreographer.utils.calendar.schemas import AssignmentEvent
-from briefy.choreographer.utils.calendar.schemas import AssignmentEventSchema
+from briefy.choreographer.utils.calendar.schemas import AssignmentCalendarEvent
+from briefy.choreographer.utils.calendar.schemas import AssignmentCalendarEventSchema
 from briefy.common.db import datetime_utcnow
 from datetime import timedelta
 from icalendar import Alarm
@@ -15,7 +15,10 @@ import typing as t
 
 
 def _calendar_envelope() -> Calendar:
-    """Return the Calendar envelope to be used."""
+    """Return the Calendar envelope to be used.
+
+    :return: An icalendar.Calendar object to envelope the event.
+    """
     cal = Calendar()
     cal.add('prodid', '-//Briefy')
     cal.add('version', '2.0')
@@ -23,7 +26,11 @@ def _calendar_envelope() -> Calendar:
 
 
 def _get_alarm(hours: int =1) -> Alarm:
-    """Return the alarm object."""
+    """Return the alarm object.
+
+    :param hours: Number of hours before the event to trigger the alarm.
+    :return: An instance of icalendar.Alarm.
+    """
     seconds = hours * 3600 * -1
     alarm = Alarm()
     alarm_time = timedelta(seconds=-seconds)
@@ -34,14 +41,21 @@ def _get_alarm(hours: int =1) -> Alarm:
 
 
 def _get_organizer() -> vCalAddress:
-    """Return information about the Event Organizer."""
+    """Return information about the Organizer of this event.
+
+    :return: An instance of icalendar.vCalAddress with the organizer information.
+    """
     organizer = vCalAddress('site@briefy.co')
     organizer.params['cn'] = vText('Briefy')
     return organizer
 
 
-def _get_attendees(data: AssignmentEvent) -> t.Sequence[vCalAddress]:
-    """Return information about the Event Organizer."""
+def _get_attendees(data: AssignmentCalendarEvent) -> t.Sequence[vCalAddress]:
+    """Extract information about the contact person for the event.
+
+    :param data: An instance of AssignmentCalendarEvent.
+    :return: A sequence icalendar.vCalAddress attendees for the event.
+    """
     attendees = []
     # Contact person at the location
     attendee = vCalAddress(data.contact_email)
@@ -50,13 +64,17 @@ def _get_attendees(data: AssignmentEvent) -> t.Sequence[vCalAddress]:
     return attendees
 
 
-def _get_event(data: AssignmentEvent) -> Event:
-    """Generate event information."""
+def _get_event(data: AssignmentCalendarEvent) -> Event:
+    """Generate icalendar.Event from an AssignmentCalendarEvent instance.
+
+    :param data: An instance of AssignmentCalendarEvent.
+    :return: An icalendar.Event object from the AssignmentCalendarEvent.
+    """
     now = datetime_utcnow()
     event = Event()
     event['uid'] = data.id
     event.add('status', data.status)
-    event.add('summary', f'Shooting for Briefy Assignment {data.slug}')
+    event.add('summary', data.summary)
     event.add('description', data.description)
     event.add('location', data.address)
     event.add('dtstart', data.start)
@@ -72,8 +90,12 @@ def _get_event(data: AssignmentEvent) -> Event:
     return event
 
 
-def _generate_calendar(data: AssignmentEvent) -> Calendar:
-    """Generate a Calendar object from an AssignmentEvent."""
+def _generate_calendar(data: AssignmentCalendarEvent) -> Calendar:
+    """Generate a icalendar.Calendar object from an AssignmentCalendarEvent.
+
+    :param data: An instance of AssignmentCalendarEvent
+    :return: icalendar.Calendar object.
+    """
     cal = _calendar_envelope()
     event = _get_event(data)
     cal.add_component(event)
@@ -83,25 +105,25 @@ def _generate_calendar(data: AssignmentEvent) -> Calendar:
 def assignment_to_ical(payload: dict) -> t.ByteString:
     """Generate an iCal file from an Assigment Payload.
 
-    :param payload: Assignment payload, received from the event.
+    :param payload: Assignment.to_dict payload, received from the queue event.
     :return: ICalendar file, encoded in utf-8
     """
-    schema = AssignmentEventSchema()
+    schema = AssignmentCalendarEventSchema()
     try:
         payload = schema.deserialize(payload)
     except colander.Invalid:
         ics = b''
     else:
-        data = AssignmentEvent(**payload)
+        data = AssignmentCalendarEvent(**payload)
         calendar = _generate_calendar(data)
         ics = calendar.to_ical()
     return ics
 
 
 def assignment_to_ical_attachment(payload: dict) -> t.Optional[dict]:
-    """Generate an iCal file from an Assigment Payload.
+    """Generate an iCal file from an Assignment Payload.
 
-    :param payload: Assignment payload, received from the event.
+    :param payload: Assignment.to_dict payload, received from the queue event.
     :return: Dictionary with type, name and content.
     """
     attachment = None

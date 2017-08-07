@@ -49,7 +49,7 @@ class LocationSchema(colander.MappingSchema):
     """GeoJson Coordinates."""
 
 
-class AssignmentEventSchema(colander.MappingSchema):
+class AssignmentCalendarEventSchema(colander.MappingSchema):
     """An Event definition from an Assignment info."""
 
     id = colander.SchemaNode(colander.String(), validator=colander.uuid)
@@ -83,15 +83,16 @@ class AssignmentEventSchema(colander.MappingSchema):
     """Location schema."""
 
 
-class AssignmentEvent:
+class AssignmentCalendarEvent:
     """Event information from an Assignment."""
 
     id = ''
     state = ''
     title = ''
-    description = ''
+    requirements = ''
     contact_name = ''
     contact_email = ''
+    contact_phone = ''
     slug = ''
     _start = None
     _end = None
@@ -104,9 +105,10 @@ class AssignmentEvent:
         self.id = kwargs['id']
         self.state = kwargs['state']
         self.title = kwargs['title']
-        self.description = kwargs['requirements']
+        self.requirements = kwargs['requirements']
         self.contact_email = kwargs['location']['email']
         self.contact_name = kwargs['location']['fullname']
+        self.contact_phone = kwargs['location']['mobile']
         self.slug = kwargs['slug']
         duration = (kwargs['duration']) * 3600
         self._start = kwargs['scheduled_datetime']
@@ -114,6 +116,29 @@ class AssignmentEvent:
         self.timezone = kwargs['timezone']
         self.address = kwargs['location']['formatted_address']
         self.geo = kwargs['location']['coordinates']['coordinates']
+
+    @property
+    def description(self) -> str:
+        """Description of this event.
+
+        It contains the contact information and the requirements for the shoot.
+        :return: Description of this event.
+        """
+        description = (
+            f'Briefy assignment {self.slug}.\nLocation: {self.address}\n'
+            f'Contact person: {self.contact_name}\nPhone number {self.contact_phone}'
+        )
+        if self.requirements:
+            description = f'{description}\nRequirements\n------------\n{self.requirements}'
+        return description
+
+    @property
+    def summary(self) -> str:
+        """Summary information about this event.
+
+        :return: A summary for this event.
+        """
+        return f'Shooting for Briefy Assignment {self.slug}'
 
     @property
     def start(self) -> datetime:

@@ -125,7 +125,7 @@ class AssignmentCalendarEvent:
         :return: Description of this event.
         """
         description = (
-            f'Briefy assignment {self.slug}.\nLocation: {self.address}\n'
+            f'Briefy assignment {self.slug}.\n{self.title}\nLocation: {self.address}\n'
             f'Contact person: {self.contact_name}\nPhone number {self.contact_phone}'
         )
         if self.requirements:

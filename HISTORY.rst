@@ -2,6 +2,12 @@
 History
 =======
 
+2.0.19 (2017-08-07)
+-------------------
+
+* Add Assignment title to calendar invitation (ericof).
+
+
 2.0.18 (2017-08-07)
 -------------------
 

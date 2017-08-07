@@ -6,6 +6,7 @@ History
 -------------------
 
 * Add calendar information to emails sent to Creatives (ericof).
+* Card #483: Implement late re-submission email (ericof).
 
 
 2.0.17 (2017-07-19)

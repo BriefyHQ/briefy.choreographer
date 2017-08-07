@@ -12,8 +12,32 @@ from zope.interface import implementer
 class AssignmentNotifyLateSubmissionSuccess(AssignmentCreativeMail):
     """Email to Creative when late submission detected."""
 
-    template_name = 'platform-assignment-reminder-late-submission'
-    subject = 'Reminder: Late submission for Assignment {SLUG}'
+    @property
+    def is_resubmission(self) -> bool:
+        """Check if this is a re-submission.
+
+        :return: Boolean indicating if this is a re-submission.
+        """
+        data = self.data
+        return True if data.get('submission_path', '') else False
+
+    @property
+    def template_name(self) -> str:
+        """Return the appropriate template name."""
+        template_name = 'platform-assignment-reminder-late-submission'
+        resubmission = self.is_resubmission
+        if resubmission:
+            template_name = 'platform-assignment-reminder-late-resubmission'
+        return template_name
+
+    @property
+    def subject(self) -> str:
+        """Return the appropriate subject."""
+        subject = 'Reminder: Late submission for Assignment {SLUG}'
+        resubmission = self.is_resubmission
+        if resubmission:
+            subject = 'Reminder: Late re-submission for Assignment {SLUG}'
+        return subject
 
 
 @adapter(events.IAssignmentNotifyBeforeShootingSuccess)

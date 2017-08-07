@@ -5,6 +5,8 @@ from briefy.choreographer.events import lead
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class LeadSlack(Slack):
     """Base class for Slack message sent on Lead events."""
@@ -19,14 +21,15 @@ class LeadSlack(Slack):
 class LeadCreated(LeadSlack):
     """After creating a new Lead, post on Slack."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'New Lead created!'
-        payload['text'] = 'New Lead was created, please take a look into the details:'
-        payload['username'] = 'Briefy Bot'
-        payload['data'] = {
+        payload_item = payload[0]
+        payload_item['title'] = 'New Lead created!'
+        payload_item['text'] = 'New Lead was created, please take a look into the details:'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Fullname',
                  'value': data.get('fullname'),

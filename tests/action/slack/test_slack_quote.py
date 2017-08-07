@@ -17,6 +17,9 @@ class TestQuoteCreated(BaseActionCase):
         """Test data transform."""
         obj = self.obj
         payload = obj.transform()
+        assert isinstance(payload, list)
+        assert len(payload) == 1
+        payload = payload[0]
         data = payload['data']
         assert isinstance(payload['channel'], str)
         assert isinstance(payload['title'], str)

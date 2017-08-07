@@ -1,12 +1,12 @@
 """Mail action for User."""
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail import Mail
-from briefy.choreographer.config import MAIL_ACTION_SENDER_EMAIL
-from briefy.choreographer.config import MAIL_ACTION_SENDER_NAME
 from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.events import user
 from zope.component import adapter
 from zope.interface import implementer
+
+import typing as t
 
 
 class UserMail(Mail):
@@ -21,24 +21,13 @@ class UserMail(Mail):
     entity = 'User'
     """Name of the entity to be processed here."""
 
-    @property
-    def sender(self) -> dict:
-        """Return sender information for this action.
-
-        :returns: Dictionary with two keys - name, email
-        """
-        return {
-            'name': MAIL_ACTION_SENDER_NAME,
-            'email': MAIL_ACTION_SENDER_EMAIL,
-        }
-
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.get('fullname')
-        payload['email'] = data.get('email')
-        payload['data'] = {
+        payload[0]['fullname'] = data.get('fullname')
+        payload[0]['email'] = data.get('email')
+        payload[0]['data'] = {
             'FIRSTNAME': data.get('first_name'),
             'FULLNAME': data.get('fullname'),
             'EMAIL': data.get('email'),
@@ -76,18 +65,10 @@ class PasswordReset(UserMail):
     def _action_url(self) -> str:
         """Return the action URL for the object."""
         data = self.data
-        return '{base}reset-password/{code}'.format(
-            base=PLATFORM_URL,
-            code=data['code']
-        )
+        code = data['code']
+        return f'{PLATFORM_URL}reset-password/{code}'
 
-    @property
-    def available(self) -> bool:
-        """Send email only if internal attribute is set on the payload."""
-        available = super().available
-        return available
-
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
@@ -95,8 +76,8 @@ class PasswordReset(UserMail):
         if expires.endswith('Z'):
             expires = expires[:-1]
         expires = self._format_datetime(expires)
-        payload['data']['CODE'] = data.get('code')
-        payload['data']['REQUESTED_FROM'] = data.get('requested_from')
-        payload['data']['EXPIRES'] = expires
-        payload['data']['ACTION_URL'] = self._action_url
+        payload[0]['data']['CODE'] = data.get('code')
+        payload[0]['data']['REQUESTED_FROM'] = data.get('requested_from')
+        payload[0]['data']['EXPIRES'] = expires
+        payload[0]['data']['ACTION_URL'] = self._action_url
         return payload

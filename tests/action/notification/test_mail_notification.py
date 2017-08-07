@@ -17,6 +17,9 @@ class TestMailSent(BaseActionCase):
         """Test data transform."""
         obj = self.obj
         payload = obj.transform()
+        assert isinstance(payload, list)
+        assert len(payload) == 1
+        payload = payload[0]
         assert isinstance(payload['fullname'], str)
         assert isinstance(payload['address'], str)
         assert isinstance(payload['subject'], str)

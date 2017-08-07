@@ -3,6 +3,8 @@ from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 from briefy.choreographer.config import is_production
 
+import typing as t
+
 
 class ISlack(IAction):
     """Action that queue slack messages."""
@@ -34,25 +36,21 @@ class Slack(Action):
             channel = '#tests-leica'
         return channel
 
-    @property
-    def available(self) -> bool:
-        """Check if this action is available."""
-        available = super().available
-        return True and available
-
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         event = self.event
-        payload = {
-            'channel': self.channel,
-            'title': '',
-            'text': '',
-            'color': self.color,
-            'icon': self.icon,
-            'username': '',
-            'entity': self.entity,
-            'guid': event.guid,
-            'event_name': event.event_name,
-            'data': {}
-        }
+        payload = [
+            {
+                'channel': self.channel,
+                'title': '',
+                'text': '',
+                'color': self.color,
+                'icon': self.icon,
+                'username': '',
+                'entity': self.entity,
+                'guid': event.guid,
+                'event_name': event.event_name,
+                'data': {}
+            }
+        ]
         return payload

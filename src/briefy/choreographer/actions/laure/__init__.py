@@ -3,6 +3,8 @@ from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 from uuid import uuid4
 
+import typing as t
+
 
 class ILaureAction(IAction):
     """Action that deals with Ms. Laure."""
@@ -20,16 +22,18 @@ class LaureValidationAction(Action):
         available = super().available
         return True and available
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         event = self.event
-        payload = {
-            'id': str(uuid4()),
-            'created_at': event.created_at,
-            'data': event.data,
-            'guid': event.guid,
-            'event_name': event.event_name,
-        }
+        payload = [
+            {
+                'id': str(uuid4()),
+                'created_at': event.created_at,
+                'data': event.data,
+                'guid': event.guid,
+                'event_name': event.event_name,
+            },
+        ]
         return payload
 
 

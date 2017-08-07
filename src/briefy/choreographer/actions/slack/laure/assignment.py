@@ -6,6 +6,8 @@ from textwrap import dedent
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class Assignment(LaureSlack):
     """Handle assignment events to be sent to Slack."""
@@ -14,24 +16,23 @@ class Assignment(LaureSlack):
     title = 'Assignment'
     text = ''
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
         assignment = data['assignment'] or {}
-        payload['title'] = self.title
-        payload['text'] = (
-            'Assignment can be seen <{url}|here> and the submission <{link}|here>'.format(
-                url=self._action_url,
-                link=assignment['submission_link']
-            )
+        url = self._action_url
+        link = assignment.get('submission_link', '')
+        project_name = assignment.get('project_name', '')
+        slug = assignment.get('slug')
+        payload_item['title'] = self.title
+        payload_item['text'] = (
+            f'Assignment can be seen <{url}|here> and the submission <{link}|here>'
         )
-        payload['username'] = 'Ms. Laure'
-        payload['pretext'] = '{project}: Assignment #{code}'.format(
-            project=assignment['project_name'],
-            code=assignment['code']
-        ),
-        payload['data'] = {
+        payload_item['username'] = 'Ms. Laure'
+        payload_item['pretext'] = f'{project_name}: Assignment #{slug}'
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Internal Status',
@@ -55,34 +56,33 @@ class AssignmentValidated(Assignment):
 
     title = 'Assignment validated by Ms. Laure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
         validation = data.get('validation', {})
-        fields = payload['data']['fields']
+        total_images = validation.get('total_images', 0)
+        number_of_photos = validation.get('number_of_photos', 0)
+        total_passed = validation.get('total_passed', 0)
+        total_failed = validation.get('total_failed', 0)
+        fields = payload_item['data']['fields']
         fields.append(
             {
                 'title': '# submitted / required',
-                'value': '{0} / {1}'.format(
-                    validation['total_images'],
-                    validation['number_of_photos']
-                ),
+                'value': f'{total_images} / {number_of_photos}',
                 'short': True
             },
         )
         fields.append(
             {
                 'title': '# validated / failed',
-                'value': '{0} / {1}'.format(
-                    validation['total_passed'],
-                    validation['total_failed']
-                ),
+                'value': f'{total_passed} / {total_failed}',
                 'short': True
             }
         )
-        payload['data']['fields'] = fields
-        payload['color'] = 'good'
+        payload_item['data']['fields'] = fields
+        payload_item['color'] = 'good'
         return payload
 
 
@@ -93,30 +93,29 @@ class AssignmentInvalidated(Assignment):
 
     title = 'Assignment rejected by Ms. Laure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
         validation = data.get('validation', {})
-        fields = payload['data']['fields']
+        fields = payload_item['data']['fields']
         feedback = validation.get('complete_feedback', '')
+        total_images = validation.get('total_images', 0)
+        number_of_photos = validation.get('number_of_photos', 0)
+        total_passed = validation.get('total_passed', 0)
+        total_failed = validation.get('total_failed', 0)
         fields.append(
             {
                 'title': '# submitted / required',
-                'value': '{0} / {1}'.format(
-                    validation['total_images'],
-                    validation['number_of_photos']
-                ),
+                'value': f'{total_images} / {number_of_photos}',
                 'short': True
             },
         )
         fields.append(
             {
                 'title': '# validated / failed',
-                'value': '{0} / {1}'.format(
-                    validation['total_passed'],
-                    validation['total_failed']
-                ),
+                'value': f'{total_passed} / {total_failed}',
                 'short': True
             }
         )
@@ -128,8 +127,8 @@ class AssignmentInvalidated(Assignment):
                     'short': False
                 }
             )
-        payload['data']['fields'] = fields
-        payload['color'] = 'danger'
+        payload_item['data']['fields'] = fields
+        payload_item['color'] = 'danger'
         return payload
 
 
@@ -140,10 +139,11 @@ class AssignmentIgnored(Assignment):
 
     title = 'Assignment ignored by Ms. Laure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['color'] = 'warning'
+        payload_item = payload[0]
+        payload_item['color'] = 'warning'
         return payload
 
 
@@ -154,20 +154,19 @@ class AssignmentCopied(Assignment):
 
     title = 'Assignment copied by Ms. Laure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
+        url = self._action_url
         delivery_link = data.get('delivery_url')
         archive_link = data.get('archive_url')
-        payload['text'] = (
-            'Assignment can be seen <{url}|here>, <{url_1}|delivery> and <{url_2}|archive>'.format(
-                url=self._action_url,
-                url_1=delivery_link,
-                url_2=archive_link,
-            )
+        payload_item['text'] = (
+            f'Assignment can be seen <{url}|here>, <{delivery_link}|delivery>'
+            f'and <{archive_link}|archive_link>'
         )
-        payload['color'] = 'good'
+        payload_item['color'] = 'good'
         return payload
 
 
@@ -178,10 +177,11 @@ class AssignmentIgnoredCopy(AssignmentCopied):
 
     title = 'Assignment photos not touched by Ms. Laure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['text'] = dedent(
+        payload_item = payload[0]
+        payload_item['text'] = dedent(
             """\
             This approval was a result of photo reviewing after an initial
             client refusal for the set. The system can't know in which folders the photos
@@ -189,8 +189,8 @@ class AssignmentIgnoredCopy(AssignmentCopied):
             The Approver is **responsible** for manually copying the modified assets
             to the appropriate folder!
             """
-        ).replace('\n', ' ') + '\n\n' + payload['text']
-        payload['color'] = 'warning'
+        ).replace('\n', ' ') + '\n\n' + payload_item['text']
+        payload_item['color'] = 'warning'
         return payload
 
 
@@ -201,10 +201,11 @@ class AssignmentCopyFailure(Assignment):
 
     title = 'There was an issue copying the files to delivery and archive'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['color'] = 'danger'
+        payload_item = payload[0]
+        payload_item['color'] = 'danger'
         return payload
 
 
@@ -223,10 +224,11 @@ class AssignmentPostProcessingFailed(Assignment):
 
     title = 'There was an issue post processing the assets.'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['color'] = 'danger'
+        payload_item = payload[0]
+        payload_item['color'] = 'danger'
         return payload
 
 

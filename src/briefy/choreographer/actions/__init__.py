@@ -10,6 +10,7 @@ from zope.interface import Interface
 import dateutil.parser
 import logging
 import pytz
+import typing as t
 
 
 logger = logging.getLogger('briefy.choreographer')
@@ -53,15 +54,14 @@ class Action:
     @property
     def _action_url(self) -> str:
         """Return the action URL for the object."""
+        url = ''
         data = self.data
         entity = self.entity
         id_ = data.get('id', data.get('guid', None))
         if id_ and entity:
-            return '{base}{entity}s/{id}'.format(
-                base=PLATFORM_URL,
-                entity=entity.lower(),
-                id=id_
-            )
+            entity_name = entity.lower()
+            url = f'{PLATFORM_URL}{entity_name}s/{id_}'
+        return url
 
     def _format_date(self, value: str, timezone: str = '') -> str:
         """Format a date."""
@@ -71,7 +71,7 @@ class Action:
             if timezone:
                 tz_info = pytz.timezone(timezone)
                 value = value.astimezone(tz_info)
-            response = '{0:%d-%m-%Y}'.format(value)
+            response = f'{value:%d-%m-%Y}'
         return response
 
     def _format_datetime(self, value: str,  timezone: str = '') -> str:
@@ -82,7 +82,7 @@ class Action:
             if timezone:
                 tz_info = pytz.timezone(timezone)
                 value = value.astimezone(tz_info)
-            response = '{0:%d-%m-%Y %H:%M}'.format(value)
+            response = f'{value:%d-%m-%Y %H:%M}'
         return response
 
     @property
@@ -99,72 +99,51 @@ class Action:
             self._queue = queue
         return queue
 
-    def transform(self):
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         raise NotImplementedError()
 
-    def log(self, payload: dict, response: str) -> None:
-        """Log results from this action."""
+    def _get_log_extra(self, payload: t.List[dict]) -> dict:
+        """Return extra information to be passed to log."""
         event = self.event
-        logger.info(
-            '{event}: {queue} action {action} with response {response}'.format(
-                event=event.event_name if event else '',
-                queue=self._queue_name if self._queue_name else '',
-                action=self.__class__.__name__,
-                response=response
-            ),
-            extra={
-                'action': {
-                    'guid': event.guid,
-                    'actor': event.actor,
-                    'request_id': event.request_id,
-                    'entity': self.entity,
-                    'event_name': event.event_name,
-                    'payload': payload
-                }
+        extra = {
+            'action': {
+                'guid': event.guid,
+                'actor': event.actor,
+                'request_id': event.request_id,
+                'entity': self.entity,
+                'event_name': event.event_name,
+                'payload': payload
             }
-        )
+        }
+        return extra
 
     def __call__(self) -> None:
         """Execute the action."""
+        queue = self.queue
+        if not queue:
+            raise ValueError('Queue not available')
         if self.available:
+            response = 'No Payload'
             payload = self.transform()
-            queue = self.queue
-            if not queue:
-                raise ValueError('Queue not available')
-            if isinstance(payload, dict):
-                payload = [payload, ]
+            log_extra = self._get_log_extra(payload=payload)
+            event_name = self.event.event_name if self.event else ''
+            queue_name = self._queue_name if self._queue_name else ''
+            action = self.__class__.__name__
             if payload:
                 try:
                     response = queue.write_messages(payload)
                 except Exception as exc:
-                    event = self.event
                     logger.error(
-                        '{event}: {queue} action {action} with response'.format(
-                            event=event.event_name if event else '',
-                            queue=self._queue_name if self._queue_name else '',
-                            action=self.__class__.__name__,
-                        ),
-                        extra={
-                            'action': {
-                                'guid': event.guid,
-                                'actor': event.actor,
-                                'request_id': event.request_id,
-                                'entity': self.entity,
-                                'event_name': event.event_name,
-                                'payload': payload
-                            }
-                        }
+                        f'{event_name}: {queue_name} action {action} with response',
+                        extra=log_extra
                     )
-                else:
-                    self.log(payload, response)
-            else:
-                self.log(payload, 'No Payload')
+                    return None
+            logger.info(
+                f'{event_name}: {queue_name} action {action} with response {response}',
+                extra=log_extra
+            )
 
     def __repr__(self) -> str:
         """Representation of the Action object."""
-        return (
-            """<{0}(weight='{1}')>""").format(
-                self.__class__.__name__,
-                self.weight,
-        )
+        return f"""<{self.__class__.__name__}(weight='{self.weight}')>"""

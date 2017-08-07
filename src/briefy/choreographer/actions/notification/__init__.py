@@ -2,6 +2,8 @@
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 
+import typing as t
+
 
 class INotification(IAction):
     """Action that deals with a notification."""
@@ -13,28 +15,24 @@ class Notification(Action):
     weight = 100
     _queue_name = 'notification.queue'
 
-    @property
-    def available(self) -> bool:
-        """Check if this action is available."""
-        available = super().available
-        return True and available
-
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         event = self.event
         data = self.data
-        payload = {
-            'id': event.guid,
-            'type': self.entity,
-            'fullname': '',
-            'address': '',
-            'subject': '',
-            'gateway': data.get('gateway'),
-            'gateway_id': data.get('gateway_id'),
-            'status': data.get('status'),
-            'additional_info': data.get('additional_info'),
-            'entity': data.get('entity'),
-            'guid': data.get('guid'),
-            'event_name': data.get('event_name'),
-        }
+        payload = [
+            {
+                'id': event.guid,
+                'type': self.entity,
+                'fullname': '',
+                'address': '',
+                'subject': '',
+                'gateway': data.get('gateway'),
+                'gateway_id': data.get('gateway_id'),
+                'status': data.get('status'),
+                'additional_info': data.get('additional_info'),
+                'entity': data.get('entity'),
+                'guid': data.get('guid'),
+                'event_name': data.get('event_name'),
+            }
+        ]
         return payload

@@ -2,8 +2,16 @@
 History
 =======
 
+2.0.18 (2017-08-07)
+-------------------
+
+* Add calendar information to emails sent to Creatives (ericof).
+* Card #483: Implement late re-submission email (ericof).
+
+
 2.0.17 (2017-07-19)
 -------------------
+
 * Including two new variables in the assignment mail data payload: NUMBER_REQUIRED_ASSETS, REQUIREMENTS (rudaporto).
 
 2.0.16 (2017-07-18)

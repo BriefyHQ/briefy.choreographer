@@ -2,8 +2,11 @@
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
 from briefy.choreographer.events.leica import assignment as events
+from briefy.choreographer.utils.calendar import assignment_to_ical_attachment
 from zope.component import adapter
 from zope.interface import implementer
+
+import typing as t
 
 
 class AssignmentMail(LeicaMail):
@@ -44,7 +47,7 @@ class AssignmentMail(LeicaMail):
                 'FIRSTNAME': recipient.get('fullname'),
                 'FULLNAME': recipient.get('fullname'),
                 'SLUG': data.get('slug'),
-                'PROJECT': data.get('project', {}).get('title'),
+                'PROJECT': data.get('project', {}).get('title', ''),
                 'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address', ''),
                 'CONTACT_FULLNAME': data.get('location', {}).get('fullname', ''),
                 'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
@@ -87,6 +90,12 @@ class AssignmentScoutMail(AssignmentMail):
 class AssignmentCreativeMail(AssignmentMail):
     """Base class for emails sent to the Creative on Order events."""
 
+    def get_ics_attachment(self) -> t.Optional[dict]:
+        """Generate a dict with the ics attachment from this assignment."""
+        data = self.data
+        attachment = assignment_to_ical_attachment(data)
+        return attachment
+
     @property
     def available(self) -> bool:
         """Check if this action is available."""
@@ -107,6 +116,15 @@ class AssignmentCancelledCreativeMail(AssignmentCreativeMail):
 
     template_name = 'platform-order-cancellation-creative'
     subject = 'Important: Assignment {SLUG} cancelled'
+
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        ics_attachment = self.get_ics_attachment()
+        for payload in base_payload:
+            attachments = [ics_attachment, ] if ics_attachment else []
+            payload['attachments'] = attachments
+        return base_payload
 
 
 @adapter(events.IAssignmentWfAssign)
@@ -163,6 +181,15 @@ class AssignmentScheduleCreativeMail(AssignmentCreativeMail):
     template_name = 'platform-assignment-scheduled'
     subject = 'Hurray! Assignment {SLUG} is Now Scheduled!'
 
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        ics_attachment = self.get_ics_attachment()
+        for payload in base_payload:
+            attachments = [ics_attachment, ] if ics_attachment else []
+            payload['attachments'] = attachments
+        return base_payload
+
 
 @adapter(events.IAssignmentWfReschedule)
 @implementer(IMail)
@@ -171,3 +198,12 @@ class AssignmentRescheduleCreativeMail(AssignmentCreativeMail):
 
     template_name = 'platform-assignment-rescheduled'
     subject = 'Your New Shooting Time for Assignment {SLUG}'
+
+    def transform(self) -> list:
+        """Transform data."""
+        base_payload = super().transform()
+        ics_attachment = self.get_ics_attachment()
+        for payload in base_payload:
+            attachments = [ics_attachment, ] if ics_attachment else []
+            payload['attachments'] = attachments
+        return base_payload

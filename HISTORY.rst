@@ -2,7 +2,7 @@
 History
 =======
 
-2.0.18 (Unreleased)
+2.0.18 (2017-08-07)
 -------------------
 
 * Add calendar information to emails sent to Creatives (ericof).

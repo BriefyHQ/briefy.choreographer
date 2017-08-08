@@ -23,7 +23,7 @@ if GOOGLE_APPLICATION_CREDENTIALS and not MOCK_SQS:
     logger.info('Choreographer will use BigQuery backend')
 
 
-def _write_to_bigquery(event: InternalEvent, table):
+def _write_to_bigquery(event: InternalEvent, table: bigquery.Table) -> None:
     """Write event to BigQuery.
 
     :param event: Internal event
@@ -41,11 +41,7 @@ def _write_to_bigquery(event: InternalEvent, table):
     ]
     errors = table.insert_data(rows)
     if errors:
-        logger.exception(
-            'An error occurred writing event to bigquery: {exc}'.format(
-                exc=str(errors)
-            )
-        )
+        logger.exception(f'An error occurred writing event to bigquery: {errors}')
 
 
 def handler(event: InternalEvent):
@@ -57,8 +53,4 @@ def handler(event: InternalEvent):
         try:
             _write_to_bigquery(event, _table)
         except Exception as exc:
-            logger.exception(
-                'An error occurred writing event to bigquery: {exc}'.format(
-                    exc=str(exc)
-                )
-            )
+            logger.exception(f'An error occurred writing event to bigquery: {exc}')

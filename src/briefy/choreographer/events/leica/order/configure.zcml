@@ -1,25 +1,67 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Order events -->
+    <subscriber for="briefy.choreographer.events.leica.order.IOrderEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="order.created" component=".OrderCreated" provides=".IOrderCreated" />
     <utility name="order.updated" component=".OrderUpdated" provides=".IOrderUpdated" />
     <utility name="order.workflow.accept" component=".OrderWfAccept" provides=".IOrderWfAccept" />
+
     <utility name="order.workflow.assign" component=".OrderWfAssign" provides=".IOrderWfAssign" />
+        <adapter name="order.workflow.assign.email.customer" factory="briefy.choreographer.actions.mail.leica.order.OrderAssignedCustomerMail" />
+        <adapter name="order.workflow.assign.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfAssign" />
+
     <utility name="order.workflow.cancel" component=".OrderWfCancel" provides=".IOrderWfCancel" />
+        <adapter name="order.workflow.cancel.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledCustomerMail" />
+        <adapter name="order.workflow.cancel.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderCancelledPMMail" />
+        <adapter name="order.workflow.cancel.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfCancel" />
+
     <utility name="order.workflow.deliver" component=".OrderWfDeliver" provides=".IOrderWfDeliver" />
+        <adapter name="order.workflow.deliver.email.customer" factory="briefy.choreographer.actions.mail.leica.order.OrderSetDeliveredCustomerMail" />
+        <adapter name="order.workflow.deliver.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfDeliver" />
+
     <utility name="order.workflow.new_shoot" component=".OrderWfNewShoot" provides=".IOrderWfNewShoot" />
+
     <utility name="order.workflow.perm_refuse" component=".OrderWfPermRefuse" provides=".IOrderWfPermRefuse" />
+
     <utility name="order.workflow.reassign" component=".OrderWfReassign" provides=".IOrderWfReassign" />
+
     <utility name="order.workflow.refuse" component=".OrderWfRefuse" provides=".IOrderWfRefuse" />
+        <adapter name="order.workflow.refuse.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSetRefusedCustomerMail" />
+        <adapter name="order.workflow.refuse.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSetRefusedPMMail" />
+        <adapter name="order.workflow.refuse.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRefuse" />
+
     <utility name="order.workflow.remove_availability" component=".OrderWfRemoveAvailability" provides=".IOrderWfRemoveAvailability" />
+        <adapter name="order.workflow.remove_availability.email.creative" factory="briefy.choreographer.actions.mail.leica.order.OrderRemoveAvailabilityCreativeMail" />
+        <adapter name="order.workflow.remove_availability.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfRemoveAvailability" />
+
     <utility name="order.workflow.remove_schedule" component=".OrderWfRemoveSchedule" provides=".IOrderWfRemoveSchedule" />
+
     <utility name="order.workflow.require_revision" component=".OrderWfRequireRevision" provides=".IOrderWfRequireRevision" />
+
     <utility name="order.workflow.reshoot" component=".OrderWfReshoot" provides=".IOrderWfReshoot" />
+
     <utility name="order.workflow.schedule" component=".OrderWfSchedule" provides=".IOrderWfSchedule" />
+        <adapter name="order.workflow.schedule.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderScheduledCustomerMail" />
+        <adapter name="order.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSchedule" />
+
     <utility name="order.workflow.start_qa" component=".OrderWfStartQa" provides=".IOrderWfStartQa" />
+
     <utility name="order.workflow.submit" component=".OrderWfSubmit" provides=".IOrderWfSubmit" />
+        <adapter name="order.created.scouting.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSubmitScoutMail" />
+        <adapter name="order.created.customer.email" factory="briefy.choreographer.actions.mail.leica.order.OrderSubmitCustomerMail" />
+        <adapter name="order.created.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderSubmit" />
+
     <utility name="order.workflow.unassign" component=".OrderWfUnassign" provides=".IOrderWfUnassign" />
+        <adapter name="order.workflow.unassign" factory="briefy.choreographer.actions.slack.leica.order.OrderWfUnassign" />
+
     <utility name="order.workflow.set_availability" component=".OrderWfSetAvailability" provides=".IOrderWfSetAvailability" />
+        <adapter name="order.workflow.set_availability" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSetAvailability" />
+
     <utility name="order.workflow.edit_location" component=".OrderWfEditLocation" provides=".IOrderWfEditLocation" />
+        <adapter name="order.workflow.edit_location" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
+
     <utility name="order.workflow.edit_requirements" component=".OrderWfEditRequirements" provides=".IOrderWfEditRequirements" />
+        <adapter name="order.workflow.edit_requirements" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
 
 </configure>

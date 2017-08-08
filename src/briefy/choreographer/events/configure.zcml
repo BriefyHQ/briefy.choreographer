@@ -1,5 +1,11 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Logger subscribes to all events -->
+    <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".logger.handler" />
+
+    <!-- BigQuery subscribes to all events -->
+    <subscriber for="briefy.choreographer.events.IInternalEvent" handler=".bigquery.handler" />
+
 	<include package=".leica" />
 	<include package=".lead" />
 	<include package=".laure" />

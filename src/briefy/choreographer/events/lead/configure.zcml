@@ -1,8 +1,15 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <!-- Lead and Quote Flow events -->
+    <!-- Get all lead events -->
+    <subscriber for="briefy.choreographer.events.lead.ILeadEvent" handler="briefy.choreographer.events.subscribers.handler" />
 
-    <utility name="lead.created" component=".lead.LeadCreated" provides=".ILeadCreated" />
-    <utility name="quote.created" component=".lead.QuoteCreated" provides=".IQuoteCreated" />
+    <!-- Lead and Quote Flow events -->
+    <utility name="lead.created" component=".LeadCreated" provides=".ILeadCreated" />
+        <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />
+        <adapter name="lead.created.slack" factory="briefy.choreographer.actions.slack.lead.LeadCreated" />
+
+    <utility name="quote.created" component=".QuoteCreated" provides=".IQuoteCreated" />
+        <adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" />
+        <adapter name="quote.created.slack" factory="briefy.choreographer.actions.slack.quote.QuoteCreated" />
 
 </configure>

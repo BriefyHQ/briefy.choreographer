@@ -8,17 +8,14 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def handler(event: InternalEvent):
+def handler(event: InternalEvent) -> None:
     """Catch all handler that logs the event.
 
     :param event: Event
     """
+    message = f'Event: {event.event_name}, Entity: {event.entity}, GUID: {event.guid}'
     logger.info(
-        'Event: {name}, Entity: {entity}, GUID: {guid}'.format(
-            name=event.event_name,
-            entity=event.entity,
-            guid=event.guid
-        ),
+        message,
         extra={
             'choreographer': {
                 'event_name': event.event_name,

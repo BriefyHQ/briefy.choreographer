@@ -1,5 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Asset events -->
+    <subscriber for="briefy.choreographer.events.leica.asset.IAssetEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="asset.created" component=".AssetCreated" provides=".IAssetCreated" />
     <utility name="asset.updated" component=".AssetUpdated" provides=".IAssetUpdated" />
     <utility name="asset.workflow.approve" component=".AssetWfApprove" provides=".IAssetWfApprove" />

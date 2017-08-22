@@ -1,7 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
     <!-- Get all Order events -->
-    <subscriber for="briefy.choreographer.events.leica.order.IOrderEvent" handler="briefy.choreographer.subscribers.leica.handler" />
+    <subscriber for="briefy.choreographer.events.leica.order.order.IOrderEvent" handler="briefy.choreographer.subscribers.leica.handler" />
 
     
     <!-- order.created -->

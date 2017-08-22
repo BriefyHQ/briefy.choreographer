@@ -1,25 +1,51 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
-    <utility name="order.created" component=".OrderCreated" provides=".IOrderCreated" />
-    <utility name="order.updated" component=".OrderUpdated" provides=".IOrderUpdated" />
-    <utility name="order.workflow.accept" component=".OrderWfAccept" provides=".IOrderWfAccept" />
-    <utility name="order.workflow.assign" component=".OrderWfAssign" provides=".IOrderWfAssign" />
-    <utility name="order.workflow.cancel" component=".OrderWfCancel" provides=".IOrderWfCancel" />
-    <utility name="order.workflow.deliver" component=".OrderWfDeliver" provides=".IOrderWfDeliver" />
-    <utility name="order.workflow.new_shoot" component=".OrderWfNewShoot" provides=".IOrderWfNewShoot" />
-    <utility name="order.workflow.perm_refuse" component=".OrderWfPermRefuse" provides=".IOrderWfPermRefuse" />
-    <utility name="order.workflow.reassign" component=".OrderWfReassign" provides=".IOrderWfReassign" />
-    <utility name="order.workflow.refuse" component=".OrderWfRefuse" provides=".IOrderWfRefuse" />
-    <utility name="order.workflow.remove_availability" component=".OrderWfRemoveAvailability" provides=".IOrderWfRemoveAvailability" />
-    <utility name="order.workflow.remove_schedule" component=".OrderWfRemoveSchedule" provides=".IOrderWfRemoveSchedule" />
-    <utility name="order.workflow.require_revision" component=".OrderWfRequireRevision" provides=".IOrderWfRequireRevision" />
-    <utility name="order.workflow.reshoot" component=".OrderWfReshoot" provides=".IOrderWfReshoot" />
-    <utility name="order.workflow.schedule" component=".OrderWfSchedule" provides=".IOrderWfSchedule" />
-    <utility name="order.workflow.start_qa" component=".OrderWfStartQa" provides=".IOrderWfStartQa" />
-    <utility name="order.workflow.submit" component=".OrderWfSubmit" provides=".IOrderWfSubmit" />
-    <utility name="order.workflow.unassign" component=".OrderWfUnassign" provides=".IOrderWfUnassign" />
-    <utility name="order.workflow.set_availability" component=".OrderWfSetAvailability" provides=".IOrderWfSetAvailability" />
-    <utility name="order.workflow.edit_location" component=".OrderWfEditLocation" provides=".IOrderWfEditLocation" />
-    <utility name="order.workflow.edit_requirements" component=".OrderWfEditRequirements" provides=".IOrderWfEditRequirements" />
+    <!-- Order events -->
+    <utility name="order.created" component=".order.OrderCreated" provides=".order.IOrderCreated" />
+    <utility name="order.updated" component=".order.OrderUpdated" provides=".order.IOrderUpdated" />
+    <utility name="order.workflow.accept" component=".order.OrderWfAccept" provides=".order.IOrderWfAccept" />
+    <utility name="order.workflow.assign" component=".order.OrderWfAssign" provides=".order.IOrderWfAssign" />
+    <utility name="order.workflow.cancel" component=".order.OrderWfCancel" provides=".order.IOrderWfCancel" />
+    <utility name="order.workflow.deliver" component=".order.OrderWfDeliver" provides=".order.IOrderWfDeliver" />
+    <utility name="order.workflow.new_shoot" component=".order.OrderWfNewShoot" provides=".order.IOrderWfNewShoot" />
+    <utility name="order.workflow.perm_refuse" component=".order.OrderWfPermRefuse" provides=".order.IOrderWfPermRefuse" />
+    <utility name="order.workflow.reassign" component=".order.OrderWfReassign" provides=".order.IOrderWfReassign" />
+    <utility name="order.workflow.refuse" component=".order.OrderWfRefuse" provides=".order.IOrderWfRefuse" />
+    <utility name="order.workflow.remove_availability" component=".order.OrderWfRemoveAvailability" provides=".order.IOrderWfRemoveAvailability" />
+    <utility name="order.workflow.remove_schedule" component=".order.OrderWfRemoveSchedule" provides=".order.IOrderWfRemoveSchedule" />
+    <utility name="order.workflow.require_revision" component=".order.OrderWfRequireRevision" provides=".order.IOrderWfRequireRevision" />
+    <utility name="order.workflow.reshoot" component=".order.OrderWfReshoot" provides=".order.IOrderWfReshoot" />
+    <utility name="order.workflow.schedule" component=".order.OrderWfSchedule" provides=".order.IOrderWfSchedule" />
+    <utility name="order.workflow.start_qa" component=".order.OrderWfStartQa" provides=".order.IOrderWfStartQa" />
+    <utility name="order.workflow.submit" component=".order.OrderWfSubmit" provides=".order.IOrderWfSubmit" />
+    <utility name="order.workflow.unassign" component=".order.OrderWfUnassign" provides=".order.IOrderWfUnassign" />
+    <utility name="order.workflow.set_availability" component=".order.OrderWfSetAvailability" provides=".order.IOrderWfSetAvailability" />
+    <utility name="order.workflow.edit_location" component=".order.OrderWfEditLocation" provides=".order.IOrderWfEditLocation" />
+    <utility name="order.workflow.edit_requirements" component=".order.OrderWfEditRequirements" provides=".order.IOrderWfEditRequirements" />
+
+    <!-- LeadOrder events -->
+    <utility name="leadorder.created" component=".leadorder.LeadOrderCreated" provides=".leadorder.ILeadOrderCreated" />
+    <utility name="leadorder.updated" component=".leadorder.LeadOrderUpdated" provides=".leadorder.ILeadOrderUpdated" />
+    <utility name="leadorder.workflow.confirm" component=".leadorder.LeadOrderWfConfirm" provides=".leadorder.ILeadOrderWfConfirm" />
+    <utility name="leadorder.workflow.remove_confirmation" component=".leadorder.LeadOrderWfRemoveConfirmation" provides=".leadorder.ILeadOrderWfRemoveConfirmation" />
+    <utility name="leadorder.workflow.accept" component=".leadorder.LeadOrderWfAccept" provides=".leadorder.ILeadOrderWfAccept" />
+    <utility name="leadorder.workflow.assign" component=".leadorder.LeadOrderWfAssign" provides=".leadorder.ILeadOrderWfAssign" />
+    <utility name="leadorder.workflow.cancel" component=".leadorder.LeadOrderWfCancel" provides=".leadorder.ILeadOrderWfCancel" />
+    <utility name="leadorder.workflow.deliver" component=".leadorder.LeadOrderWfDeliver" provides=".leadorder.ILeadOrderWfDeliver" />
+    <utility name="leadorder.workflow.new_shoot" component=".leadorder.LeadOrderWfNewShoot" provides=".leadorder.ILeadOrderWfNewShoot" />
+    <utility name="leadorder.workflow.perm_refuse" component=".leadorder.LeadOrderWfPermRefuse" provides=".leadorder.ILeadOrderWfPermRefuse" />
+    <utility name="leadorder.workflow.reassign" component=".leadorder.LeadOrderWfReassign" provides=".leadorder.ILeadOrderWfReassign" />
+    <utility name="leadorder.workflow.refuse" component=".leadorder.LeadOrderWfRefuse" provides=".leadorder.ILeadOrderWfRefuse" />
+    <utility name="leadorder.workflow.remove_availability" component=".leadorder.LeadOrderWfRemoveAvailability" provides=".leadorder.ILeadOrderWfRemoveAvailability" />
+    <utility name="leadorder.workflow.remove_schedule" component=".leadorder.LeadOrderWfRemoveSchedule" provides=".leadorder.ILeadOrderWfRemoveSchedule" />
+    <utility name="leadorder.workflow.require_revision" component=".leadorder.LeadOrderWfRequireRevision" provides=".leadorder.ILeadOrderWfRequireRevision" />
+    <utility name="leadorder.workflow.reshoot" component=".leadorder.LeadOrderWfReshoot" provides=".leadorder.ILeadOrderWfReshoot" />
+    <utility name="leadorder.workflow.schedule" component=".leadorder.LeadOrderWfSchedule" provides=".leadorder.ILeadOrderWfSchedule" />
+    <utility name="leadorder.workflow.start_qa" component=".leadorder.LeadOrderWfStartQa" provides=".leadorder.ILeadOrderWfStartQa" />
+    <utility name="leadorder.workflow.submit" component=".leadorder.LeadOrderWfSubmit" provides=".leadorder.ILeadOrderWfSubmit" />
+    <utility name="leadorder.workflow.unassign" component=".leadorder.LeadOrderWfUnassign" provides=".leadorder.ILeadOrderWfUnassign" />
+    <utility name="leadorder.workflow.set_availability" component=".leadorder.LeadOrderWfSetAvailability" provides=".leadorder.ILeadOrderWfSetAvailability" />
+    <utility name="leadorder.workflow.edit_location" component=".leadorder.LeadOrderWfEditLocation" provides=".leadorder.ILeadOrderWfEditLocation" />
+    <utility name="leadorder.workflow.edit_requirements" component=".leadorder.LeadOrderWfEditRequirements" provides=".leadorder.ILeadOrderWfEditRequirements" />
 
 </configure>

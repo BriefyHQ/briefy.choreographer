@@ -1,7 +1,7 @@
 """Briefy slack action for Leica order events tests."""
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.actions.slack.leica.order import OrderWfAssign
-from briefy.choreographer.events.leica import order as events
+from briefy.choreographer.events.leica.order import order as events
 from conftest import BaseActionCase
 
 

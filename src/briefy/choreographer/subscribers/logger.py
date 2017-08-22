@@ -15,7 +15,7 @@ def handler(event: InternalEvent):
     :param event: InternalEvent instance
     """
     actions = get_actions_for_event(event)
-    actions_info = [cls.action_info for cls in actions]
+    actions_info = [cls.action_info() for cls in actions]
     total_actions = len(actions)
     logger.info(
         f'Event {event.event_name} ({event.guid}) with {total_actions:02d} actions',

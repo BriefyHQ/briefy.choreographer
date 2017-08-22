@@ -42,5 +42,5 @@ class BaseHandler:
             try:
                 action()
             except Exception:
-                klass_name = action.__class__.__name__
-                _logger.exception(f'An error occurred executing {klass_name}')
+                info = action.action_info()
+                _logger.exception(f'An error occurred executing {info}')

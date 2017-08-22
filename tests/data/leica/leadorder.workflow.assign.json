@@ -1,0 +1,697 @@
+{
+  "project": {
+    "id": "1dafb433-9431-4295-a349-92c4ad61c59e",
+    "updated_at": "2017-05-19T13:13:59.873119+00:00",
+    "title": "Agoda Bali",
+    "description": "-",
+    "created_at": "2016-09-06T00:00:00+00:00",
+    "state": "ongoing",
+    "asset_types": [
+      "Image"
+    ],
+    "slug": "agoda-bali",
+    "category": "accommodation",
+    "order_type": "leadorder",
+    "customer_user": [
+      {
+        "id": "3e02b612-e599-4e30-bb8d-61a9fee39d8b",
+        "first_name": "Natalia",
+        "last_name": "Laurencia",
+        "fullname": "Natalia Laurencia",
+        "email": "laurencia.natalia@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "project_manager": [
+      {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "customer_users": [
+      {
+          "email": "ponlawit.wisomka.agoda@email.briefy.co",
+          "internal": true,
+          "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+          "first_name": "Ponlawit",
+          "last_name": "Wisomka",
+          "fullname": "Ponlawit Wisomka"
+      },
+      {
+          "email": "naina.chugh.agoda@email.briefy.co",
+          "internal": true,
+          "id": "6ce60a68-75a5-4890-b5a1-bcd5bcc8d92d",
+          "first_name": "Naina",
+          "last_name": "Chugh",
+          "fullname": "Naina Chugh"
+      },
+      {
+          "email": "wanlada.waewkratok.agoda@email.briefy.co",
+          "internal": true,
+          "id": "6f3c6288-f31d-4fb7-bbdd-6c4b3b505108",
+          "first_name": "Waewkratok",
+          "last_name": "Wanlada",
+          "fullname": "Waewkratok Wanlada"
+      },
+      {
+          "email": "nicharee.parasingha.agoda@email.briefy.co",
+          "internal": true,
+          "id": "7d3ab033-7958-4495-afe9-fc26d2ef25d9",
+          "first_name": "Parasingha",
+          "last_name": "Nicharee",
+          "fullname": "Parasingha Nicharee"
+      },
+      {
+          "email": "suthapa.borsub.agoda@email.briefy.co",
+          "internal": true,
+          "id": "f038e538-c498-4e31-848b-6f717623a893",
+          "first_name": "Borsub",
+          "last_name": "Suthapa",
+          "fullname": "Borsub Suthapa"
+      },
+      {
+          "email": "sarawadee.jiramaroota.agoda@email.briefy.co",
+          "internal": true,
+          "id": "99d98642-d4a8-4aba-b4d4-d3a2c83fd444",
+          "first_name": "Jiramarootapong",
+          "last_name": "Sarawadee",
+          "fullname": "Jiramarootapong Sarawadee"
+      }
+  ],
+    "project_managers": [
+      {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    ]
+  },
+  "comments": [
+    {
+      "content": "This is a reshoot case mentioned before due to the PG´s original image quality. The PIC informed that during mid-February is more likely for the reshoot to our PG. Please kindly get in touch with the PIC and we will assign a different PG for the new shoot. Thank you! ",
+      "updated_at": "2017-02-15T11:00:09.968373+00:00",
+      "author_role": "project_manager",
+      "to_role": "customer_user",
+      "id": "7fbc9bc3-3fb5-4499-be65-ae681fc2db52",
+      "created_at": "2017-02-15T11:00:09.968353+00:00",
+      "internal": false,
+      "author": {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    },
+    {
+      "content": "PG reshoot is most likely to be in mid-Feb after talking with the PIC.",
+      "updated_at": "2017-01-20T00:00:00+00:00",
+      "author_role": "project_manager",
+      "to_role": "briefy",
+      "id": "6f16f6e9-93cc-4e0c-967c-db373abdb0a6",
+      "created_at": "2017-01-20T00:00:00+00:00",
+      "internal": true,
+      "author": {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    }
+  ],
+  "customer": {
+    "tax_country": "SG",
+    "id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+    "legal_name": "Agoda Company Pte Ltd",
+    "title": "Agoda",
+    "updated_at": "2017-02-14T09:57:03.215838+00:00",
+    "description": "Agoda Company Pte Ltd is an Online Travel Agency based in Singapore that offers accommodation booking services through its website and mobile app. Founded in 1998, the company has its headquarters in Singapore and is part of The Priceline Group.",
+    "created_at": "2016-09-06T00:00:00+00:00",
+    "state": "active",
+    "slug": "agoda"
+  },
+  "assignment": {
+    "professional": {
+      "first_name": "Johan",
+      "updated_at": "2017-03-10T11:40:38.945382+00:00",
+      "last_name": "Tjia",
+      "description": null,
+      "created_at": "2017-02-13T04:21:17.761555+00:00",
+      "title": "Johan Tjia",
+      "state": "active",
+      "id": "1d48d183-4bb4-4554-880b-09329a255356",
+      "email": "johan.tjia@email.briefy.co",
+      "mobile": "+62 822-8011-1818",
+      "photo_path": null,
+      "type": "photographers",
+      "slug": "1d48d183"
+    },
+    "scheduled_datetime": "2016-12-13T01:00:00+00:00",
+    "created_at": "2016-09-16T00:00:00+00:00",
+    "updated_at": "2017-04-19T15:24:34.251352+00:00",
+    "state": "perm_rejected",
+    "payout_currency": "EUR",
+    "payout_value": 0,
+    "submission_path": "https://drive.google.com/drive/folders/0B33_gfxOtx8pVDNzMjdGUHhZTDQ",
+    "travel_expenses": 0,
+    "timezone": "Asia/Makassar",
+    "total_assets": 0,
+    "id": "891cc12f-081d-41bc-9830-a2309b371799",
+    "total_approvable_assets": 0,
+    "title": "Kamandalu Ubud Resort",
+    "description": "",
+    "slug": "1701-PS9-763_01",
+    "number_required_assets": 136,
+    "approvable": false,
+    "category": "accommodation",
+    "professional_user": [
+      {
+        "id": "1d48d183-4bb4-4554-880b-09329a255356",
+        "first_name": "Johan",
+        "last_name": "Tjia",
+        "fullname": "Johan Tjia",
+        "email": "johan.tjia@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "project_manager": [
+      {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "scout_manager": [
+      {
+        "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+        "first_name": "Self",
+        "last_name": "Assigned",
+        "fullname": "Self Assigned",
+        "email": "site@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "qa_manager": [
+      {
+        "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+        "first_name": "Laure",
+        "last_name": "d'Utruy",
+        "fullname": "Laure d'Utruy",
+        "email": "laure@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "professional_users": [
+      {
+        "id": "1d48d183-4bb4-4554-880b-09329a255356",
+        "first_name": "Johan",
+        "last_name": "Tjia",
+        "fullname": "Johan Tjia",
+        "email": "johan.tjia@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "project_managers": [
+      {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "scout_managers": [
+      {
+        "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+        "first_name": "Self",
+        "last_name": "Assigned",
+        "fullname": "Self Assigned",
+        "email": "site@email.briefy.co",
+        "internal": true
+      }
+    ],
+    "qa_managers": [
+      {
+        "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+        "first_name": "Laure",
+        "last_name": "d'Utruy",
+        "fullname": "Laure d'Utruy",
+        "email": "laure@email.briefy.co",
+        "internal": true
+      }
+    ]
+  },
+  "assignments": [
+    {
+      "professional": null,
+      "scheduled_datetime": null,
+      "created_at": "2016-09-16T00:00:00+00:00",
+      "updated_at": "2017-05-23T14:37:46.790735+00:00",
+      "state": "published",
+      "payout_currency": "EUR",
+      "payout_value": 18000,
+      "submission_path": null,
+      "travel_expenses": 0,
+      "timezone": "Asia/Makassar",
+      "total_assets": 0,
+      "id": "a70e1688-e9e5-4caa-821b-43feaa743e4a",
+      "total_approvable_assets": 0,
+      "title": "Kamandalu Ubud Resort",
+      "description": "",
+      "slug": "1701-PS9-763_02",
+      "number_required_assets": 136,
+      "approvable": false,
+      "category": "accommodation",
+      "professional_user": [],
+      "project_manager": [
+        {
+          "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "fullname": "Ariana Shauh",
+          "email": "ariana@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "scout_manager": [],
+      "qa_manager": [],
+      "professional_users": [],
+      "project_managers": [
+        {
+          "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "fullname": "Ariana Shauh",
+          "email": "ariana@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "scout_managers": [],
+      "qa_managers": []
+    },
+    {
+      "professional": {
+        "first_name": "Johan",
+        "updated_at": "2017-03-10T11:40:38.945382+00:00",
+        "last_name": "Tjia",
+        "description": null,
+        "created_at": "2017-02-13T04:21:17.761555+00:00",
+        "title": "Johan Tjia",
+        "state": "active",
+        "id": "1d48d183-4bb4-4554-880b-09329a255356",
+        "email": "johan.tjia@email.briefy.co",
+        "mobile": "+62 822-8011-1818",
+        "photo_path": null,
+        "type": "photographers",
+        "slug": "1d48d183"
+      },
+      "scheduled_datetime": "2016-12-13T01:00:00+00:00",
+      "created_at": "2016-09-16T00:00:00+00:00",
+      "updated_at": "2017-04-19T15:24:34.251352+00:00",
+      "state": "perm_rejected",
+      "payout_currency": "EUR",
+      "payout_value": 0,
+      "submission_path": "https://drive.google.com/drive/folders/0B33_gfxOtx8pVDNzMjdGUHhZTDQ",
+      "travel_expenses": 0,
+      "timezone": "Asia/Makassar",
+      "total_assets": 0,
+      "id": "891cc12f-081d-41bc-9830-a2309b371799",
+      "total_approvable_assets": 0,
+      "title": "Kamandalu Ubud Resort",
+      "description": "",
+      "slug": "1701-PS9-763_01",
+      "number_required_assets": 136,
+      "approvable": false,
+      "category": "accommodation",
+      "professional_user": [
+        {
+          "id": "1d48d183-4bb4-4554-880b-09329a255356",
+          "first_name": "Johan",
+          "last_name": "Tjia",
+          "fullname": "Johan Tjia",
+          "email": "johan.tjia@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "project_manager": [
+        {
+          "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "fullname": "Ariana Shauh",
+          "email": "ariana@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "scout_manager": [
+        {
+          "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+          "first_name": "Self",
+          "last_name": "Assigned",
+          "fullname": "Self Assigned",
+          "email": "site@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "qa_manager": [
+        {
+          "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+          "first_name": "Laure",
+          "last_name": "d'Utruy",
+          "fullname": "Laure d'Utruy",
+          "email": "laure@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "professional_users": [
+        {
+          "id": "1d48d183-4bb4-4554-880b-09329a255356",
+          "first_name": "Johan",
+          "last_name": "Tjia",
+          "fullname": "Johan Tjia",
+          "email": "johan.tjia@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "project_managers": [
+        {
+          "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "fullname": "Ariana Shauh",
+          "email": "ariana@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "scout_managers": [
+        {
+          "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+          "first_name": "Self",
+          "last_name": "Assigned",
+          "fullname": "Self Assigned",
+          "email": "site@email.briefy.co",
+          "internal": true
+        }
+      ],
+      "qa_managers": [
+        {
+          "id": "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+          "first_name": "Laure",
+          "last_name": "d'Utruy",
+          "fullname": "Laure d'Utruy",
+          "email": "laure@email.briefy.co",
+          "internal": true
+        }
+      ]
+    }
+  ],
+  "location": {
+    "mobile": "+62 623 61975825",
+    "formatted_address": "Jl. Andong, Banjar Nagi, Bali, 80571, Indonesia",
+    "additional_phone": null,
+    "info": {
+      "street_number": "",
+      "formatted_address": "Jl. Andong, Banjar Nagi, Bali, 80571, Indonesia",
+      "country": "ID",
+      "route": "Jl. Andong, Banjar Nagi",
+      "locality": "Bali",
+      "postal_code": "80571",
+      "province": ""
+    },
+    "fullname": "Made Wijaya",
+    "id": "5afc30de-f0b1-4e47-acfb-e283cc43bc6f",
+    "order_id": "6554bebe-e249-4e0f-bdf8-13eeeee91385",
+    "first_name": "Made",
+    "last_name": "Wijaya",
+    "country": "ID",
+    "locality": "Bali",
+    "email": "marketing@email.briefy.co",
+    "coordinates": {
+      "type": "Point",
+      "coordinates": [
+        115.2760327,
+        -8.495770485
+      ]
+    }
+  },
+  "refused_times": 0,
+  "type": "leadorder",
+  "updated_at": "2017-05-23T14:39:04.825021+00:00",
+  "external_id": "589c5d43269d295060efeb33",
+  "requirements": "Total: 136 photos\n\nUbud Chalet - Photos: 5 - Filenames: 48711_ubud-chalet_XX.jpg\n\nVilla Half-Board Package - Photos: 5 - Filenames: 48711_villa-half-board-package_XX.jpg\n\n3 Bedroom Pool Villa - Photos: 5 - Filenames: 48711_3-bedroom-pool-villa_XX.jpg\n\nDeluxe Pool Villa - Photos: 5 - Filenames: 48711_deluxe-pool-villa_XX.jpg\n\nPool Villa - Photos: 5 - Filenames: 48711_pool-villa_XX.jpg\n\nPool Villa Honeymonn Package - Photos: 5 - Filenames: 48711_pool-villa-honeymonn-package_XX.jpg\n\n2 Bedroom Pool Villa - Photos: 5 - Filenames: 48711_2-bedroom-pool-villa_XX.jpg\n\nGarden Villa - Photos: 5 - Filenames: 48711_garden-villa_XX.jpg\n\nUbud Chalet, Private Pool - Photos: 5 - Filenames: 48711_ubud-chalet_private-pool_XX.jpg\n\nVilla Half-Board Package, Private Pool - Photos: 5 - Filenames: 48711_villa-half-board-package_private-pool_XX.jpg\n\n3 Bedroom Pool Villa, Private Pool - Photos: 5 - Filenames: 48711_3-bedroom-pool-villa_private-pool_XX.jpg\n\nDeluxe Pool Villa, Private Pool - Photos: 5 - Filenames: 48711_deluxe-pool-villa_private-pool_XX.jpg\n\nPool Villa, Private Pool - Photos: 5 - Filenames: 48711_pool-villa_private-pool_XX.jpg\n\nPool Villa Honeymonn Package, Private Pool - Photos: 5 - Filenames: 48711_pool-villa-honeymonn-package_private-pool_XX.jpg\n\n2 Bedroom Pool Villa, Private Pool - Photos: 5 - Filenames: 48711_2-bedroom-pool-villa_private-pool_XX.jpg\n\nGarden Villa, Private Pool - Photos: 5 - Filenames: 48711_garden-villa_private-pool_XX.jpg\n\nbar - Photos: 5 - Filenames: 48711_bar_XX.jpg\n\nbusiness center - Photos: 5 - Filenames: 48711_business-center_XX.jpg\n\ngarden - Photos: 5 - Filenames: 48711_garden_XX.jpg\n\noutdoor pool - Photos: 5 - Filenames: 48711_outdoor-pool_XX.jpg\n\npool (kids) - Photos: 5 - Filenames: 48711_pool-(kids)_XX.jpg\n\nrestaurant - Photos: 5 - Filenames: 48711_restaurant_XX.jpg\n\nspa - Photos: 5 - Filenames: 48711_spa_XX.jpg\n\nExterior - Photos: 5 - Filenames: 48711_exterior_XX.jpg\n\nInterior - Photos: 5 - Filenames: 48711_interior_XX.jpg\n\nLobby - Photos: 5 - Filenames: 48711_lobby_XX.jpg\n\nReception - Photos: 5 - Filenames: 48711_reception_XX.jpg\n\nOther - Photos: 1 - Filenames: 48711_other_XX.jpg",
+  "customer_order_id": "48711",
+  "id": "6554bebe-e249-4e0f-bdf8-13eeeee91385",
+  "asset_types": [
+    "Image"
+  ],
+  "job_id": "9763",
+  "title": "Kamandalu Ubud Resort",
+  "scheduled_datetime": null,
+  "customer_id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",
+  "description": "",
+  "deliver_date": null,
+  "project_id": "1dafb433-9431-4295-a349-92c4ad61c59e",
+  "created_at": "2016-09-16T00:00:00+00:00",
+  "last_deliver_date": null,
+  "category": "accommodation",
+  "state": "assigned",
+  "accept_date": null,
+  "source": "customer",
+  "price_currency": "EUR",
+  "timezone": "Asia/Makassar",
+  "number_required_assets": 136,
+  "state_history": [
+    {
+      "transition": "",
+      "actor": {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      },
+      "from": "",
+      "to": "created",
+      "date": "2016-09-16T00:00:00+00:00",
+      "message": "Created by Fachry Muchamad on Knack database"
+    },
+    {
+      "transition": "submit",
+      "actor": {
+        "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+        "first_name": "Ariana",
+        "last_name": "Shauh",
+        "fullname": "Ariana Shauh",
+        "email": "ariana@email.briefy.co",
+        "internal": true
+      },
+      "from": "created",
+      "to": "received",
+      "date": "2016-09-16T00:00:00+00:00",
+      "message": "Automatic transition to received"
+    },
+    {
+      "transition": "remove_confirmation",
+      "actor": {
+        "id": "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+        "first_name": "Grace",
+        "last_name": "Farson",
+        "fullname": "Grace Farson",
+        "email": "grace@email.briefy.co",
+        "internal": true
+      },
+      "from": "received",
+      "to": "new",
+      "date": "2017-05-22T22:31:00+00:00",
+      "message": "Automatic conversion of Order to Lead"
+    },
+    {
+      "from": "new",
+      "to": "received",
+      "date": "2017-05-23T14:31:32.082829+00:00",
+      "actor": {
+        "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+        "first_name": "Ponlawit",
+        "last_name": "Wisomka",
+        "fullname": "Ponlawit Wisomka",
+        "email": "ponlawit.wisomka@email.briefy.co",
+        "internal": true
+      },
+      "transition": "confirm",
+      "message": ""
+    },
+    {
+      "from": "received",
+      "to": "assigned",
+      "date": "2017-05-23T14:39:04.345235+00:00",
+      "actor": {
+        "id": "be319e15-d256-4587-a871-c3476affa309",
+        "first_name": "Briefy",
+        "last_name": "",
+        "fullname": "Briefy",
+        "email": "app@email.briefy.co",
+        "internal": true
+      },
+      "transition": "assign",
+      "message": null
+    }
+  ],
+  "briefing": "https://files.briefy.co/files/projects/1dafb433-9431-4295-a349-92c4ad61c59e/briefing/agodabalibriefing.pdf",
+  "availability": [
+    "2017-05-30T13:15:00+00:00",
+    "2017-05-31T13:15:00+00:00"
+  ],
+  "price": 35380,
+  "slug": "1701-PS9-763",
+  "delivery": {},
+  "tech_requirements": {
+    "set": {
+      "minimum_number_of_photos": 10
+    },
+    "asset": {
+      "dimensions": [
+        {
+          "value": "4150x3100",
+          "operator": "min"
+        },
+        {
+          "value": "5760x3840",
+          "operator": "max"
+        }
+      ],
+      "ratio": [
+        {
+          "value": 1.3333333333333333,
+          "operator": "eq"
+        }
+      ],
+      "orientation": [
+        {
+          "value": "landscape",
+          "operator": "eq"
+        }
+      ],
+      "mimetype": [
+        {
+          "value": "image/jpeg",
+          "operator": "eq"
+        }
+      ]
+    }
+  },
+  "customer_user": [
+    {
+      "id": "a7b1f403-04f4-4649-b1eb-838118931d29",
+      "first_name": "Fachry",
+      "last_name": "Muchamad",
+      "fullname": "Fachry Muchamad",
+      "email": "muchamad.fachry@email.briefy.co",
+      "internal": true
+    }
+  ],
+  "project_manager": [
+    {
+      "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+      "first_name": "Ariana",
+      "last_name": "Shauh",
+      "fullname": "Ariana Shauh",
+      "email": "ariana@email.briefy.co",
+      "internal": true
+    }
+  ],
+  "scout_manager": [
+    {
+      "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+      "first_name": "Self",
+      "last_name": "Assigned",
+      "fullname": "Self Assigned",
+      "email": "site@email.briefy.co",
+      "internal": true
+    }
+  ],
+  "customer_users": [
+      {
+          "email": "ponlawit.wisomka.agoda@email.briefy.co",
+          "internal": true,
+          "id": "69fd7871-a504-43f1-b4c7-6901f9b46557",
+          "first_name": "Ponlawit",
+          "last_name": "Wisomka",
+          "fullname": "Ponlawit Wisomka"
+      },
+      {
+          "email": "naina.chugh.agoda@email.briefy.co",
+          "internal": true,
+          "id": "6ce60a68-75a5-4890-b5a1-bcd5bcc8d92d",
+          "first_name": "Naina",
+          "last_name": "Chugh",
+          "fullname": "Naina Chugh"
+      },
+      {
+          "email": "wanlada.waewkratok.agoda@email.briefy.co",
+          "internal": true,
+          "id": "6f3c6288-f31d-4fb7-bbdd-6c4b3b505108",
+          "first_name": "Waewkratok",
+          "last_name": "Wanlada",
+          "fullname": "Waewkratok Wanlada"
+      },
+      {
+          "email": "nicharee.parasingha.agoda@email.briefy.co",
+          "internal": true,
+          "id": "7d3ab033-7958-4495-afe9-fc26d2ef25d9",
+          "first_name": "Parasingha",
+          "last_name": "Nicharee",
+          "fullname": "Parasingha Nicharee"
+      },
+      {
+          "email": "suthapa.borsub.agoda@email.briefy.co",
+          "internal": true,
+          "id": "f038e538-c498-4e31-848b-6f717623a893",
+          "first_name": "Borsub",
+          "last_name": "Suthapa",
+          "fullname": "Borsub Suthapa"
+      },
+      {
+          "email": "sarawadee.jiramaroota.agoda@email.briefy.co",
+          "internal": true,
+          "id": "99d98642-d4a8-4aba-b4d4-d3a2c83fd444",
+          "first_name": "Jiramarootapong",
+          "last_name": "Sarawadee",
+          "fullname": "Jiramarootapong Sarawadee"
+      }
+  ],
+  "project_managers": [
+    {
+      "id": "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+      "first_name": "Ariana",
+      "last_name": "Shauh",
+      "fullname": "Ariana Shauh",
+      "email": "ariana@email.briefy.co",
+      "internal": true
+    }
+  ],
+  "scout_managers": [
+    {
+      "id": "f1233fb7-c482-454f-a12d-8f9305755774",
+      "first_name": "Self",
+      "last_name": "Assigned",
+      "fullname": "Self Assigned",
+      "email": "site@email.briefy.co",
+      "internal": true
+    }
+  ]
+}

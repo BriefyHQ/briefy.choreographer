@@ -7,6 +7,17 @@ History
 
 * TODO
 
+2.0.21 (2017-08-22)
+-------------------
+
+* Fix registered_actions logging (ericof).
+
+2.0.20 (2017-08-22)
+-------------------
+
+* Card #552: LeadOrder events not being sent (ericof).
+* Improve logging of discarded events (ericof).
+
 2.0.19 (2017-08-07)
 -------------------
 

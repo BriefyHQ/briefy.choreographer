@@ -10,6 +10,8 @@ class IMail(IAction):
 class Mail(Action):
     """An Action that sends an email."""
 
+    category = 'notification'
+
     weight = 100
     _queue_name = 'mail.queue'
     template_name = ''

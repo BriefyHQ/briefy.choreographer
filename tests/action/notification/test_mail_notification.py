@@ -10,6 +10,7 @@ class TestMailSent(BaseActionCase):
 
     action_class = MailSent
     action_interface = INotification
+    action_info = 'service_message - notification.queue - 100 - Mail - MailSent'
     event_class = events.MailSent
     data_file = 'mail.json'
 

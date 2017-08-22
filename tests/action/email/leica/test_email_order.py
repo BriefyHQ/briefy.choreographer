@@ -16,6 +16,7 @@ class TestOrderCreatedCustomerMail(MailTest, BaseActionCase):
     """Test for email sent to customer on Order creation."""
 
     action_class = actions.OrderSubmitCustomerMail
+    action_info = 'notification - mail.queue - 100 - Order - OrderSubmitCustomerMail'
     event_class = events.OrderWfSubmit
 
     def test_transform(self):
@@ -56,6 +57,7 @@ class TestOrderCreatedScoutMail(MailTest, BaseActionCase):
     """Test for email sent to scout on Order creation."""
 
     action_class = actions.OrderSubmitScoutMail
+    action_info = 'notification - mail.queue - 100 - Order - OrderSubmitScoutMail'
     event_class = events.OrderWfSubmit
 
     def test_transform(self):
@@ -76,6 +78,7 @@ class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
     """Test for email sent to customers on Order assigned."""
 
     action_class = actions.OrderAssignedCustomerMail
+    action_info = 'notification - mail.queue - 100 - Order - OrderAssignedCustomerMail'
     event_class = events.OrderWfAssign
     messages = 6
 

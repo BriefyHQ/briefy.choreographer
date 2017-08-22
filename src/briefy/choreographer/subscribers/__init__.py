@@ -1,9 +1,10 @@
 """Briefy Choreographer Subscribers."""
-from briefy.choreographer.actions import IAction
+from briefy.choreographer.actions import Action
+from briefy.choreographer.utils import get_actions_for_event
 from zope.component import getGlobalSiteManager
 
 import logging
-import operator
+import typing as t
 
 
 _logger = logging.getLogger('briefy.choreographer')
@@ -27,16 +28,12 @@ class BaseHandler:
         data.update({'guid': self.guid})
 
     @property
-    def actions(self) -> list:
+    def actions(self) -> t.Sequence[Action]:
         """Return all actions for this event.
 
-        :returns: List of actions registered for this event.
+        :returns: Sequence of actions registered for this event.
         """
-        registry = self.registry
-        action_adapters = registry.getAdapters((self.event,), IAction)
-        actions = [action for name, action in action_adapters]
-        actions.sort(key=operator.attrgetter('weight'))
-        return actions
+        return get_actions_for_event(self.event, self.registry)
 
     def __call__(self) -> None:
         """Execute all actions registered to this event."""
@@ -45,8 +42,5 @@ class BaseHandler:
             try:
                 action()
             except Exception:
-                _logger.exception(
-                    'An error occurred executing {name}'.format(
-                        name=action.__class__.__name__
-                    )
-                )
+                klass_name = action.__class__.__name__
+                _logger.exception(f'An error occurred executing {klass_name}')

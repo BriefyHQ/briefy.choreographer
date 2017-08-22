@@ -11,6 +11,8 @@ class ISlack(IAction):
 class Slack(Action):
     """Action that queue messages to be sent with Slack."""
 
+    category = 'notification'
+
     weight = 100
     _queue_name = 'slack.queue'
     entity = ''

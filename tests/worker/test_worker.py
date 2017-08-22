@@ -1,4 +1,5 @@
 """Tests for `briefy.choreographer.worker` module."""
+from briefy.choreographer.events import InternalEvent
 from briefy.choreographer.worker import main
 from briefy.choreographer.worker import Worker
 from collections import defaultdict
@@ -75,7 +76,7 @@ def message():
 @mock.patch('briefy.choreographer.worker.queryUtility')
 @mock.patch('briefy.choreographer.worker.notify')
 def test_worker_process_message_with_missing_fields(notify_mock, query_mock, message):
-    query_mock.side_effect = lambda interface, name, context: dict
+    query_mock.side_effect = lambda interface, name, default: InternalEvent
     body = message.body.copy()
     message.body['guid'] = None
     w = Worker(TestQueue())
@@ -93,25 +94,29 @@ def test_worker_process_message_when_event_factory_not_found(
         notify_mock,
         query_mock,
         message):
-    query_mock.side_effect = lambda interface, name, context: None
+    query_mock.side_effect = lambda interface, name, default: InternalEvent
     logger_mock = mock.Mock()
     w = Worker(TestQueue(), logger_=logger_mock)
     assert w.process_message(message)
-    assert 'has no handler' in logger_mock.info.call_args[0][0]
+    # Now we create an InternalEvent instead of logging no handler was found
+    assert not logger_mock.info.call_args
 
 
 @mock.patch('briefy.choreographer.worker.queryUtility')
 @mock.patch('briefy.choreographer.worker.notify')
 def test_all_body_parameters_are_used(notify_mock, query_mock, message):
-    query_mock.side_effect = lambda interface, name, context: dict
+    query_mock.side_effect = lambda interface, name, default: InternalEvent
     logger_mock = mock.Mock()
     w = Worker(TestQueue(), logger_mock)
     w.process_message(message)
     notification = notify_mock.call_args[0][0]
-    assert isinstance(notification, dict)
+    assert isinstance(notification, InternalEvent)
     assert all(message.body.read_count.values())
-    message.body.pop('event_name')
-    assert notification == message.body
+
+    assert notification.event_name == message.body['event_name']
+    assert notification.id == message.body['id']
+    assert notification.guid == message.body['guid']
+    assert notification.created_at == message.body['created_at']
     assert not logger_mock.info.call_args
     assert logger_mock.debug.call_args
 

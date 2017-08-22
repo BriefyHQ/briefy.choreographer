@@ -10,6 +10,7 @@ class TestOrderWfAssign(BaseActionCase):
 
     action_class = OrderWfAssign
     action_interface = ISlack
+    action_info = 'notification - slack.queue - 100 - Order - OrderWfAssign'
     event_class = events.OrderWfAssign
     data_file = 'leica/order.created.json'
 

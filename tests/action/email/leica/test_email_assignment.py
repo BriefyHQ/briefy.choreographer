@@ -15,6 +15,7 @@ class TestAssignmentScheduleCreativeMail(MailTest, BaseActionCase):
     """Test for email sent to creative on Assignment schedule."""
 
     data_file = 'leica/assigment.workflow.schedule.json'
+    action_info = 'notification - mail.queue - 100 - Assignment - AssignmentScheduleCreativeMail'
     action_class = actions.AssignmentScheduleCreativeMail
     event_class = events.AssignmentWfSchedule
 
@@ -85,6 +86,7 @@ class TestAssignmentRescheduleCreativeMail(TestAssignmentScheduleCreativeMail):
     """Test for email sent to creative on Assignment reschedule."""
 
     action_class = actions.AssignmentRescheduleCreativeMail
+    action_info = 'notification - mail.queue - 100 - Assignment - AssignmentRescheduleCreativeMail'
     event_class = events.AssignmentWfReschedule
 
     def test_transform(self):
@@ -100,6 +102,7 @@ class TestAssignmentCancelledCreativeMail(MailTest, BaseActionCase):
 
     data_file = 'leica/assignment.workflow.cancel.json'
     action_class = actions.AssignmentCancelledCreativeMail
+    action_info = 'notification - mail.queue - 100 - Assignment - AssignmentCancelledCreativeMail'
     event_class = events.AssignmentWfCancel
 
     def test_transform(self):

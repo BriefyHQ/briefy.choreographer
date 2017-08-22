@@ -16,6 +16,7 @@ class TestCommentCreatedByCustomerToPM(MailTest, BaseActionCase):
     """Test for email sent to Project Manager on Comment creation."""
 
     action_class = actions.CommentCreatedByCustomerToPM
+    action_info = 'notification - mail.queue - 100 - Comment - CommentCreatedByCustomerToPM'
     event_class = events.CommentCreated
 
     def test_transform(self):

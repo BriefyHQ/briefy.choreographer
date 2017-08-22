@@ -13,6 +13,8 @@ class ILeicaAction(IAction):
 class LeicaAction(Action):
     """Action that deals with Ms. Laure."""
 
+    category = 'service_message'
+
     weight = 100
     _queue_name = 'leica.queue'
 

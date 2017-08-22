@@ -11,6 +11,8 @@ class ILaureAction(IAction):
 class LaureValidationAction(Action):
     """Action that deals with Ms. Laure validation process."""
 
+    category = 'service_message'
+
     weight = 100
     _queue_name = 'laure.queue'
 

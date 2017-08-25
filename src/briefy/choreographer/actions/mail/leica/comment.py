@@ -20,28 +20,6 @@ class CommentMail(LeicaMail):
         """Action URL."""
         return self._action_url
 
-    def _recipients(self, field_name: str) -> t.List[dict]:
-        """Return a list of valid recipients."""
-        data = self.data['entity']
-        recipients = []
-        if field_name == 'last_transition':
-            history = data['state_history']
-            actor = history[0]['actor']
-            users = [actor, ]
-        else:
-            users = data[field_name]
-        for user in users:
-            if not user['internal']:
-                continue
-            recipients.append(
-                {
-                    'first_name': user['first_name'],
-                    'fullname': user['fullname'],
-                    'email': user['email'],
-                }
-            )
-        return recipients
-
     def transform(self) -> t.List[dict]:
         """Transform data."""
         base_payload = super().transform()[0]

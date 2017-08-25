@@ -6,6 +6,7 @@ History
 ------------------
 
 * Update notifications to use new roles and actors attributes in the payload (rudaporto).
+* Fix: remove method in actions.leica.comment.CommentMail._recipients that was buggy and exists in the parent class (rudaporto).
 
 2.0.21 (2017-08-22)
 -------------------

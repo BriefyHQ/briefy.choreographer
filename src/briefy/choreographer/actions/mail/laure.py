@@ -2,7 +2,6 @@
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.events import laure
-from briefy.choreographer.utils.user_data import users_data_by_group
 from zope.component import adapter
 from zope.interface import implementer
 

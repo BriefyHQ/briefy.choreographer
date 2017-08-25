@@ -5,7 +5,7 @@ History
 2.1.0 (Unreleased)
 ------------------
 
-* TODO
+* Update notifications to use new roles and actors attributes in the payload (rudaporto).
 
 2.0.21 (2017-08-22)
 -------------------

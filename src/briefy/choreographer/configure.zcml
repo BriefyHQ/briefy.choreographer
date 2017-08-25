@@ -5,6 +5,7 @@
 
 	<include package=".events" />
 	<include package=".queues" />
+	<include package=".utils" />
 	<include package=".worker" />
 
 </configure>

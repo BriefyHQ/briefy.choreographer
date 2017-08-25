@@ -2,6 +2,7 @@
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.actions.slack import Slack
 from briefy.choreographer.events.leica import assignment as events
+from briefy.choreographer.utils.user_data import users_data_by_role
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -255,15 +256,14 @@ class AssignmentWfAssignQAManager(AssignmentSlack):
         """Transform data."""
         payload = super().transform()
         payload_item = payload[0]
-        data = self.data
-        qa_managers = data['qa_managers']
-        if qa_managers:
-            qa_manager = qa_managers[0]
+        internal_qa = users_data_by_role(self.event, 'assignment_internal_qa')
+        if internal_qa:
+            internal_qa = internal_qa[0]
             fields = payload_item['data']['fields']
             fields.append(
                 {
                     'title': 'QA Manager',
-                    'value': qa_manager.get('fullname', ''),
+                    'value': internal_qa.get('fullname', ''),
                     'short': True,
                 },
             )

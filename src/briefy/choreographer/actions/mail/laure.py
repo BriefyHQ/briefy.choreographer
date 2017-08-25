@@ -4,6 +4,7 @@ from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
 from briefy.choreographer.events import laure
+from briefy.choreographer.utils.user_data import users_data_by_group
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -43,21 +44,11 @@ class LaureAssignmentRejected(LaureMail):
     @property
     def recipient(self):
         """Return the data to be used as the recipient of this message."""
-        recipients = []
-        data = self.data
-        assignment = data.get('assignment', {})
-        fullname = assignment.get('professional_name', '')
-        first_name = fullname.split(' ')[0]
-        email = assignment.get('email', '')
-        if fullname and email:
-            recipients = [
-                {
-                    'first_name': first_name,
-                    'fullname': fullname,
-                    'email': email,
-                }
-            ]
-        return recipients
+        return users_data_by_group(
+            self.event,
+            'professional_user',
+            check_notification=True
+        )
 
     def transform(self) -> list:
         """Transform data."""

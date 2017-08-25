@@ -80,7 +80,7 @@ class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
     action_class = actions.OrderAssignedCustomerMail
     action_info = 'notification - mail.queue - 100 - Order - OrderAssignedCustomerMail'
     event_class = events.OrderWfAssign
-    messages = 6
+    messages = 7
 
     def test_transform(self):
         """Test data transform."""
@@ -109,7 +109,7 @@ class TestOrderAssignedCustomerMail(MailTest, BaseActionCase):
             assert isinstance(data['SCHEDULED_SHOOT_TIME'], str)
             assert isinstance(data['SUBJECT'], str)
 
-            assert payload['email'].endswith('.agoda@briefy.co')
+            assert payload['email'].endswith('@email.briefy.co')
             assert payload['template'] == 'platform-order-assigned-en-gb'
             assert payload['subject'].startswith(
                 'A Briefy content creator has been assigned to your order'

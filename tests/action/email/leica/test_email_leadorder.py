@@ -80,7 +80,7 @@ class TestLeadOrderAssignedCustomerMail(MailTest, BaseActionCase):
     action_class = actions.OrderAssignedCustomerMail
     action_info = 'notification - mail.queue - 100 - Order - OrderAssignedCustomerMail'
     event_class = events.LeadOrderWfAssign
-    messages = 6
+    messages = 7
 
     def test_transform(self):
         """Test data transform."""

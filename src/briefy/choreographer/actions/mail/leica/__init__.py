@@ -2,6 +2,7 @@
 from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
+from briefy.choreographer.utils.user_data import users_data_by_group
 
 
 class LeicaMail(Mail):
@@ -30,22 +31,15 @@ class LeicaMail(Mail):
     def _recipients(self, field_name: str):
         """Return a list of valid recipients."""
         data = self.data
-        recipients = []
         if field_name == 'last_transition':
             history = data['state_history']
             actor = history[-1]['actor']
-            users = [actor, ]
+            recipients = [actor, ]
         else:
-            users = data[field_name]
-        for user in users:
-            if not user['internal']:
-                continue
-            recipients.append(
-                {
-                    'first_name': user['first_name'],
-                    'fullname': user['fullname'],
-                    'email': user['email'],
-                }
+            recipients = users_data_by_group(
+                self.event,
+                field_name,
+                check_notification=True
             )
         return recipients
 

@@ -3,6 +3,7 @@ from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
 from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.events.leica.order import order as events
+from briefy.choreographer.utils.user_data import users_data_by_role
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -106,8 +107,7 @@ class OrderCreativeMail(OrderMail):
     @property
     def professional(self):
         """Professional assigned to this Order."""
-        assignment = self.data.get('assignment', {})
-        professional = assignment.get('professional_user')
+        professional = users_data_by_role(self.event, 'professional_user')
         return professional[0] if professional else None
 
     @property

@@ -1,7 +1,7 @@
 """Briefy slack action for Leica order events tests."""
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.actions.slack.leica.order import OrderWfAssign
-from briefy.choreographer.events.leica import order as events
+from briefy.choreographer.events.leica.order import order as events
 from conftest import BaseActionCase
 
 
@@ -10,6 +10,7 @@ class TestOrderWfAssign(BaseActionCase):
 
     action_class = OrderWfAssign
     action_interface = ISlack
+    action_info = 'notification - slack.queue - 100 - Order - OrderWfAssign'
     event_class = events.OrderWfAssign
     data_file = 'leica/order.created.json'
 

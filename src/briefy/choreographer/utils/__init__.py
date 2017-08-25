@@ -1,7 +1,13 @@
 """Utils used by other modules in briefy.choreographer."""
+from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
 from briefy.choreographer.events import IInternalEvent
+from briefy.choreographer.events import InternalEvent
 from zope.component import getGlobalSiteManager
+from zope.component.globalregistry import BaseGlobalComponents
+
+import operator
+import typing as t
 
 
 _DUMMY_EVENT_PAYLOAD = {
@@ -32,3 +38,21 @@ def get_event_actions(events: dict) -> dict:
         actions = dict([(name, action) for name, action in adapters])
         event_actions[event_name] = actions
     return event_actions
+
+
+def get_actions_for_event(
+        event: InternalEvent,
+        registry: t.Optional[BaseGlobalComponents]=None
+) -> t.Sequence[Action]:
+    """Return a sequence of actions for a given event.
+
+    :param event: Instance of InternalEvent.
+    :param registry: GlobalSiteManager.
+    :return: Sequence of Actions.
+    """
+    if not registry:
+        registry = getGlobalSiteManager()
+    action_adapters = registry.getAdapters((event,), IAction)
+    actions = [action for name, action in action_adapters]
+    actions.sort(key=operator.attrgetter('weight'))
+    return actions

@@ -10,6 +10,7 @@ class TestLeadCreated(BaseActionCase):
 
     action_class = LeadCreated
     action_interface = ISlack
+    action_info = 'notification - slack.queue - 100 - Lead - LeadCreated'
     event_class = events.LeadCreated
     data_file = 'lead.json'
 

@@ -2,7 +2,7 @@
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica import LeicaMail
 from briefy.choreographer.config import PLATFORM_URL
-from briefy.choreographer.events.leica import order as events
+from briefy.choreographer.events.leica.order import order as events
 from zope.component import adapter
 from zope.interface import implementer
 

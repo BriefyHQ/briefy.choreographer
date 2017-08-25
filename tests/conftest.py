@@ -54,6 +54,7 @@ class BaseActionCase(BaseTestCase):
 
     action_class = None
     action_interface = None
+    action_info = ''
     event_class = None
     data_class = None
     data_file = ''
@@ -68,6 +69,12 @@ class BaseActionCase(BaseTestCase):
         """Return an action instance."""
         klass = self.action_class
         return klass(event)
+
+    def test_action_info(self):
+        """Test action info for this action."""
+        info = self.action_class.action_info()
+        assert isinstance(info, str)
+        assert info == self.action_info
 
     def _prepare_queue(self):
         mock_sqs()

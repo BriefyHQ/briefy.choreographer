@@ -1,11 +1,10 @@
 """Briefy Choreographer Subscribers."""
 from briefy.choreographer.actions import Action
-from briefy.choreographer.actions import IAction
 from briefy.choreographer.events import InternalEvent
+from briefy.choreographer.utils import get_actions_for_event
 from zope.component import getGlobalSiteManager
 
 import logging
-import operator
 import typing as t
 
 
@@ -33,13 +32,9 @@ class BaseHandler:
     def actions(self) -> t.List[Action]:
         """Return all actions registered this event.
 
-        :returns: List of actions registered for this event.
+        :returns: Sequence of actions registered for this event.
         """
-        registry = self.registry
-        action_adapters = registry.getAdapters((self.event,), IAction)
-        actions = [action for name, action in action_adapters]
-        actions.sort(key=operator.attrgetter('weight'))
-        return actions
+        return get_actions_for_event(self.event, self.registry)
 
     def __call__(self) -> None:
         """Execute all actions registered to this event.
@@ -51,7 +46,8 @@ class BaseHandler:
             try:
                 action()
             except Exception:
-                logger.exception(f'An error occurred executing {action.__class__.__name__}')
+                info = action.action_info()
+                logger.exception(f'An error occurred executing {info}')
 
 
 def handler(event: InternalEvent):

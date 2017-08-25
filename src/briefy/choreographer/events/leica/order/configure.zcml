@@ -64,4 +64,30 @@
     <utility name="order.workflow.edit_requirements" component=".OrderWfEditRequirements" provides=".IOrderWfEditRequirements" />
         <adapter name="order.workflow.edit_requirements" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
 
+
+    <!-- LeadOrder events -->
+    <utility name="leadorder.created" component=".leadorder.LeadOrderCreated" provides=".leadorder.ILeadOrderCreated" />
+    <utility name="leadorder.updated" component=".leadorder.LeadOrderUpdated" provides=".leadorder.ILeadOrderUpdated" />
+    <utility name="leadorder.workflow.confirm" component=".leadorder.LeadOrderWfConfirm" provides=".leadorder.ILeadOrderWfConfirm" />
+    <utility name="leadorder.workflow.remove_confirmation" component=".leadorder.LeadOrderWfRemoveConfirmation" provides=".leadorder.ILeadOrderWfRemoveConfirmation" />
+    <utility name="leadorder.workflow.accept" component=".leadorder.LeadOrderWfAccept" provides=".leadorder.ILeadOrderWfAccept" />
+    <utility name="leadorder.workflow.assign" component=".leadorder.LeadOrderWfAssign" provides=".leadorder.ILeadOrderWfAssign" />
+    <utility name="leadorder.workflow.cancel" component=".leadorder.LeadOrderWfCancel" provides=".leadorder.ILeadOrderWfCancel" />
+    <utility name="leadorder.workflow.deliver" component=".leadorder.LeadOrderWfDeliver" provides=".leadorder.ILeadOrderWfDeliver" />
+    <utility name="leadorder.workflow.new_shoot" component=".leadorder.LeadOrderWfNewShoot" provides=".leadorder.ILeadOrderWfNewShoot" />
+    <utility name="leadorder.workflow.perm_refuse" component=".leadorder.LeadOrderWfPermRefuse" provides=".leadorder.ILeadOrderWfPermRefuse" />
+    <utility name="leadorder.workflow.reassign" component=".leadorder.LeadOrderWfReassign" provides=".leadorder.ILeadOrderWfReassign" />
+    <utility name="leadorder.workflow.refuse" component=".leadorder.LeadOrderWfRefuse" provides=".leadorder.ILeadOrderWfRefuse" />
+    <utility name="leadorder.workflow.remove_availability" component=".leadorder.LeadOrderWfRemoveAvailability" provides=".leadorder.ILeadOrderWfRemoveAvailability" />
+    <utility name="leadorder.workflow.remove_schedule" component=".leadorder.LeadOrderWfRemoveSchedule" provides=".leadorder.ILeadOrderWfRemoveSchedule" />
+    <utility name="leadorder.workflow.require_revision" component=".leadorder.LeadOrderWfRequireRevision" provides=".leadorder.ILeadOrderWfRequireRevision" />
+    <utility name="leadorder.workflow.reshoot" component=".leadorder.LeadOrderWfReshoot" provides=".leadorder.ILeadOrderWfReshoot" />
+    <utility name="leadorder.workflow.schedule" component=".leadorder.LeadOrderWfSchedule" provides=".leadorder.ILeadOrderWfSchedule" />
+    <utility name="leadorder.workflow.start_qa" component=".leadorder.LeadOrderWfStartQa" provides=".leadorder.ILeadOrderWfStartQa" />
+    <utility name="leadorder.workflow.submit" component=".leadorder.LeadOrderWfSubmit" provides=".leadorder.ILeadOrderWfSubmit" />
+    <utility name="leadorder.workflow.unassign" component=".leadorder.LeadOrderWfUnassign" provides=".leadorder.ILeadOrderWfUnassign" />
+    <utility name="leadorder.workflow.set_availability" component=".leadorder.LeadOrderWfSetAvailability" provides=".leadorder.ILeadOrderWfSetAvailability" />
+    <utility name="leadorder.workflow.edit_location" component=".leadorder.LeadOrderWfEditLocation" provides=".leadorder.ILeadOrderWfEditLocation" />
+    <utility name="leadorder.workflow.edit_requirements" component=".leadorder.LeadOrderWfEditRequirements" provides=".leadorder.ILeadOrderWfEditRequirements" />
+
 </configure>

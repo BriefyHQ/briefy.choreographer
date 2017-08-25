@@ -35,7 +35,7 @@ class InternalEvent:
     """Event payload."""
 
     def __init__(
-            self, actor: str, id: str, guid: str, request_id: str, created_at: datetime, data: dict
+        self, actor: str, id: str, guid: str, request_id: str, created_at: datetime, data: dict
     ):
         """Initialize the event with Message data."""
         self.actor = actor

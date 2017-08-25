@@ -16,6 +16,7 @@ class TestAssignmentNotifyLateSubmissionSuccess(MailTest, BaseActionCase):
 
     data_file = 'leica/leica.task.assignment.notify_late_submission.success.json'
     action_class = actions.AssignmentNotifyLateSubmissionSuccess
+    action_info = 'notification - mail.queue - 100 - Assignment - AssignmentNotifyLateSubmissionSuccess'  # noQA
     event_class = events.AssignmentNotifyLateSubmissionSuccess
 
     def test_transform(self):
@@ -60,6 +61,7 @@ class TestAssignmentNotifyLateReSubmissionSuccess(TestAssignmentNotifyLateSubmis
     """Test for email sent to creative on Assignment late re submissions."""
 
     data_file = 'leica/leica.task.assignment.notify_late_resubmission.success.json'
+    action_info = 'notification - mail.queue - 100 - Assignment - AssignmentNotifyLateSubmissionSuccess'  # noQA
 
     def test_transform(self):
         """Test data transform."""

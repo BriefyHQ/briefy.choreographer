@@ -10,6 +10,7 @@ class TestQuoteCreated(BaseActionCase):
 
     action_class = QuoteCreated
     action_interface = ISlack
+    action_info = 'notification - slack.queue - 100 - Quote - QuoteCreated'
     event_class = events.QuoteCreated
     data_file = 'quote.json'
 

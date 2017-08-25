@@ -10,6 +10,7 @@ class TestLeadCreated(BaseActionCase):
 
     action_class = LeadCreated
     action_interface = IMail
+    action_info = 'notification - mail.queue - 100 - Lead - LeadCreated'
     event_class = events.LeadCreated
     data_file = 'lead.json'
 

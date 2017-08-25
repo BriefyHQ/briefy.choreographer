@@ -12,6 +12,8 @@ class INotification(IAction):
 class Notification(Action):
     """Action that deals with a notification."""
 
+    category = 'service_message'
+
     weight = 100
     _queue_name = 'notification.queue'
 

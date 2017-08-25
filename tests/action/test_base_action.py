@@ -12,6 +12,7 @@ class TestBaseAction(BaseActionCase):
 
     action_class = Action
     action_interface = IAction
+    action_info = ' -  - 100 -  - Action'
     event_class = events.LeadCreated
     data_file = 'lead.json'
 

@@ -19,6 +19,7 @@ logger = logging.getLogger('briefy.choreographer')
 class IAction(Interface):
     """An action."""
 
+    category = Attribute("""Category of this action. i.e.: notification, service_message""")
     weight = Attribute("""Weight of the action. Lower will be processed first""")
     entity = Attribute("""Name of the entity to be processed here""")
 
@@ -31,6 +32,16 @@ class IAction(Interface):
 
 class Action:
     """An action."""
+
+    category = ''
+    """Category of this action.
+
+    Should be one of:
+
+        * notification
+        * service_message
+
+    """
 
     weight = 100
     """Weight of the action.
@@ -144,6 +155,21 @@ class Action:
                 extra=log_extra
             )
 
+    @classmethod
+    def action_info(cls) -> str:
+        """Action information.
+
+        A friendly display of this action.
+        :return: A string representing this action.
+        """
+        name = cls.__name__
+        category = cls.category
+        entity = cls.entity
+        weight = cls.weight
+        queue = cls._queue_name
+        return f'{category} - {queue} - {weight} - {entity} - {name}'
+
     def __repr__(self) -> str:
         """Representation of the Action object."""
-        return f"""<{self.__class__.__name__}(weight='{self.weight}')>"""
+        klass_name = self.__class__.__name__
+        return f'<{klass_name} (weight={self.weight}, category="{self.category}")>'

@@ -6,6 +6,8 @@ from briefy.choreographer.events.leica.profiles import customer_profile as event
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class CustomerUserProfileMail(LeicaMail):
     """Base class for emails sent on CustomerProfile events."""
@@ -14,19 +16,15 @@ class CustomerUserProfileMail(LeicaMail):
     """Name of the entity to be processed here."""
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
         return self._action_url
 
-    def transform(self) -> list:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
-        base_payload = super().transform()
+        base_payload = super().transform()[0]
         data = self.data
-        recipients = self.recipient
-        if isinstance(recipients, dict):
-            recipients = [recipients, ]
-        elif not recipients:
-            return []
+        recipients = self.recipients
         payload = []
         for recipient in recipients:
             payload_item = {}
@@ -57,26 +55,22 @@ class CustomerUserProfileWfActivate(CustomerUserProfileMail):
     subject = 'Your Login Details to Briefy\'s Platform'
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
-        return '{base}login'.format(base=PLATFORM_URL)
+        return f'{PLATFORM_URL}login'
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         data = self.data
         return [
-            {
-                'first_name': data['first_name'],
-                'fullname': data['fullname'],
-                'email': data['email'],
-            }
+            {'first_name': data['first_name'], 'fullname': data['fullname'], 'email': data['email']}
         ]
 
-    def transform(self) -> list:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
-        base_payload = super().transform()
+        payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload = base_payload[0]
-        payload['data']['PASSWORD'] = data['initial_password']
-        return base_payload
+        payload_item['data']['PASSWORD'] = data['initial_password']
+        return payload

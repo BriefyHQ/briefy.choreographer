@@ -6,6 +6,8 @@ from briefy.choreographer.utils.user_data import users_data_by_role
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class AssignmentSlack(Slack):
     """Base class for Slack message sent on Assignment events."""
@@ -16,18 +18,15 @@ class AssignmentSlack(Slack):
     title = 'Assignment'
     text = 'New Assignment!!'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['title'] = self.title
-        payload['text'] = (
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
-        )
-        payload['username'] = 'Briefy Bot'
-        payload['data'] = {
+        payload_item['title'] = self.title
+        payload_item['text'] = f'Assignment can be seen <{self._action_url}|here>'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Project',
                  'value': data.get('project', {}).get('title'),
@@ -37,7 +36,7 @@ class AssignmentSlack(Slack):
         }
         professional = data.get('professional')
         if professional:
-            payload['data']['fields'].append(
+            payload_item['data']['fields'].append(
                 {'title': 'Creative',
                  'value': data.get('professional', {}).get('title'),
                  'short': True,
@@ -253,13 +252,14 @@ class AssignmentWfAssignQAManager(AssignmentSlack):
 
     title = 'QA Manager started the review'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         internal_qa = users_data_by_role(self.event, 'assignment_internal_qa')
         if internal_qa:
             internal_qa = internal_qa[0]
-            fields = payload['data']['fields']
+            fields = payload_item['data']['fields']
             fields.append(
                 {
                     'title': 'QA Manager',
@@ -267,7 +267,7 @@ class AssignmentWfAssignQAManager(AssignmentSlack):
                     'short': True,
                 },
             )
-            payload['data']['fields'] = fields
+            payload_item['data']['fields'] = fields
         return payload
 
 

@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-def handler(event: InternalEvent):
+def handler(event: InternalEvent) -> None:
     """Catch all handler that logs the event.
 
     :param event: InternalEvent instance

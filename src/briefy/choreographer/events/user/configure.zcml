@@ -1,9 +1,21 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all User events -->
+    <subscriber for="briefy.choreographer.events.user.IUserEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="user.created" component=".user.UserCreated" provides=".IUserCreated" />
+
     <utility name="user.password.changed" component=".user.UserPasswordChanged" provides=".IUserPasswordChanged" />
+        <adapter name="user.password.changed.slack" factory="briefy.choreographer.actions.slack.user.UserPasswordChanged" />
+
     <utility name="user.password.reset" component=".user.UserPasswordReset" provides=".IUserPasswordReset" />
+        <adapter name="user.password.reset.email" factory="briefy.choreographer.actions.mail.user.PasswordReset" />
+        <adapter name="user.password.reset.slack" factory="briefy.choreographer.actions.slack.user.PasswordReset" />
+
     <utility name="user.login" component=".login.UserLogin" provides=".IUserLogin" />
+        <adapter name="user.login.slack" factory="briefy.choreographer.actions.slack.user.UserLogin" />
+
     <utility name="user.login.first" component=".login.UserFirstLogin" provides=".IUserFirstLogin" />
+        <adapter name="user.login.first.slack" factory="briefy.choreographer.actions.slack.user.UserFirstLogin" />
 
 </configure>

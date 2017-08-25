@@ -1,6 +1,10 @@
 """Mail actions."""
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
+from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
+from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
+
+import typing as t
 
 
 class IMail(IAction):
@@ -26,14 +30,14 @@ class Mail(Action):
 
         :returns: Dictionary with two keys - name, email
         """
-        return {
-            'name': '',
-            'email': '',
-        }
+        return {'name': MAIL_ACTION_LEICA_SENDER_NAME, 'email': MAIL_ACTION_LEICA_SENDER_EMAIL}
 
     @property
-    def recipient(self):
-        """Return the data to be used as the recipient of this message."""
+    def recipients(self) -> t.List[dict]:
+        """Return a list of recipients for this action.
+
+        :return: List of recipients to be receive a message.
+        """
         raise NotImplementedError('Not implemented error')
 
     @property
@@ -42,14 +46,11 @@ class Mail(Action):
         available = super().available
         return True and available
 
-    def get_template(self, language='en-gb') -> str:
+    def get_template(self, language: str='en-gb') -> str:
         """Return the template name to be used on this action."""
-        return '{name}-{language}'.format(
-            name=self.template_name,
-            language=language
-        )
+        return f'{self.template_name}-{language}'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data from the event.
 
         :returns: Dictionary with the event data transformed to be used on this action.
@@ -70,4 +71,4 @@ class Mail(Action):
             'data': {
             }
         }
-        return payload
+        return [payload, ]

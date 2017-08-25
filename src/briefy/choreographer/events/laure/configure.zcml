@@ -1,13 +1,44 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Subscribe to all Laure events -->
+    <subscriber for="briefy.choreographer.events.laure.ILaureEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
+    <!-- Laure events and actions -->
     <utility name="laure.assignment.validated" component=".LaureAssignmentValidated" provides=".ILaureAssignmentValidated" />
+        <adapter name="laure.assignment.validated.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentValidated" />
+        <adapter name="laure.assignment.validated.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentValidated" />
+
     <utility name="laure.assignment.rejected" component=".LaureAssignmentRejected" provides=".ILaureAssignmentRejected" />
+        <adapter name="laure.assignment.rejected.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentInvalidated" />
+        <adapter name="laure.assignment.rejected.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentInvalidated" />
+        <adapter name="laure.assignment.rejected.fail.email.creative" factory="briefy.choreographer.actions.mail.laure.LaureAssignmentRejectedTech" />
+        <adapter name="laure.assignment.rejected.less.email.creative" factory="briefy.choreographer.actions.mail.laure.LaureAssignmentRejectedLessImages" />
+
     <utility name="laure.assignment.ignored" component=".LaureAssignmentIgnored" provides=".ILaureAssignmentIgnored" />
+        <adapter name="laure.assignment.ignored.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnored" />
+        <adapter name="laure.assignment.ignored.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentIgnored" />
+
     <utility name="laure.assignment.copied" component=".LaureAssignmentCopied" provides=".ILaureAssignmentCopied" />
+        <adapter name="laure.assignment.copied.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopied" />
+        <adapter name="laure.assignment.copied.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentCopied" />
+
     <utility name="laure.assignment.ignored_copy" component=".LaureAssignmentIgnoredCopy" provides=".ILaureAssignmentIgnoredCopy" />
+        <adapter name="laure.assignment.ignored_copy.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentIgnoredCopy" />
+        <adapter name="laure.assignment.ignored_copy.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentIgnoredCopy" />
+
     <utility name="laure.assignment.copy_failure" component=".LaureAssignmentCopyFailure" provides=".ILaureAssignmentCopyFailure" />
+        <adapter name="laure.assignment.copy_failure.leica" factory="briefy.choreographer.actions.leica.assignment.AssignmentCopyFailure" />
+        <adapter name="laure.assignment.copy_failure.slack" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentCopyFailure" />
+
     <utility name="laure.assignment.post_processing_started" component=".LaureAssignmentPostProcessingStarted" provides=".ILaureAssignmentPostProcessingStarted" />
+        <adapter name="laure.assignment.post_processing_started.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingStarted" />
+
     <utility name="laure.assignment.post_processing_failed" component=".LaureAssignmentPostProcessingFailed" provides=".ILaureAssignmentPostProcessingFailed" />
+        <adapter name="laure.assignment.post_processing_failed.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingFailed" />
+        <adapter name="laure.assignment.post_processing_failed.leica" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentPostProcessingFailed" />
+
     <utility name="laure.assignment.post_processing_complete" component=".LaureAssignmentPostProcessingComplete" provides=".ILaureAssignmentPostProcessingComplete" />
+        <adapter name="laure.assignment.post_processing_complete.slack" factory="briefy.choreographer.actions.leica.assignment.AssignmentPostProcessingComplete" />
+        <adapter name="laure.assignment.post_processing_complete.leica" factory="briefy.choreographer.actions.slack.laure.assignment.AssignmentPostProcessingComplete" />
 
 </configure>

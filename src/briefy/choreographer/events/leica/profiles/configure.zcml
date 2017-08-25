@@ -1,15 +1,33 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all UserProfiles events -->
+    <subscriber for="briefy.choreographer.events.leica.profiles.IUserProfileEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <!-- BriefyUserProfile-->
     <utility name="briefyuserprofile.created" component=".briefy_profile.BriefyUserProfileCreated" provides=".briefy_profile.IBriefyUserProfileCreated" />
+        <adapter name="briefyuserprofile.created" factory="briefy.choreographer.actions.slack.leica.briefy_profile.BriefyUserProfileCreated" />
+
     <utility name="briefyuserprofile.updated" component=".briefy_profile.BriefyUserProfileUpdated" provides=".briefy_profile.IBriefyUserProfileUpdated" />
+        <adapter name="briefyuserprofile.updated" factory="briefy.choreographer.actions.slack.leica.briefy_profile.BriefyUserProfileUpdated" />
+
     <utility name="briefyuserprofile.workflow.activate" component=".briefy_profile.BriefyUserProfileWfActivate" provides=".briefy_profile.IBriefyUserProfileWfActivate" />
+        <adapter name="briefyuserprofile.workflow.activate" factory="briefy.choreographer.actions.slack.leica.briefy_profile.BriefyUserProfileWfActivate" />
+
     <utility name="briefyuserprofile.workflow.inactivate" component=".briefy_profile.BriefyUserProfileWfInactivate" provides=".briefy_profile.IBriefyUserProfileWfInactivate" />
+        <adapter name="briefyuserprofile.workflow.inactivate" factory="briefy.choreographer.actions.slack.leica.briefy_profile.BriefyUserProfileWfInactivate" />
 
     <!-- CustomerUserProfile-->
     <utility name="customeruserprofile.created" component=".customer_profile.CustomerUserProfileCreated" provides=".customer_profile.ICustomerUserProfileCreated" />
+        <adapter name="customeruserprofile.created" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileCreated" />
+
     <utility name="customeruserprofile.updated" component=".customer_profile.CustomerUserProfileUpdated" provides=".customer_profile.ICustomerUserProfileUpdated" />
+        <adapter name="customeruserprofile.updated" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileUpdated" />
+
     <utility name="customeruserprofile.workflow.activate" component=".customer_profile.CustomerUserProfileWfActivate" provides=".customer_profile.ICustomerUserProfileWfActivate" />
+        <adapter name="customeruserprofile.workflow.activate" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileWfActivate" />
+        <adapter name="customeruserprofile.workflow.activate.mail" factory="briefy.choreographer.actions.mail.leica.customer_profile.CustomerUserProfileWfActivate" />
+
     <utility name="customeruserprofile.workflow.inactivate" component=".customer_profile.CustomerUserProfileWfInactivate" provides=".customer_profile.ICustomerUserProfileWfInactivate" />
+        <adapter name="customeruserprofile.workflow.inactivate" factory="briefy.choreographer.actions.slack.leica.customer_profile.CustomerUserProfileWfInactivate" />
 
 </configure>

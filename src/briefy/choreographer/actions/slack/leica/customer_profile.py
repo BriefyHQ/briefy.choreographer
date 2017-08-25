@@ -5,6 +5,8 @@ from briefy.choreographer.events.leica.profiles import customer_profile as event
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class CustomerUserProfileSlack(Slack):
     """Base class for Slack message sent on CustomerUserProfile events."""
@@ -15,14 +17,15 @@ class CustomerUserProfileSlack(Slack):
     title = 'CustomerUserProfile'
     text = 'New Customer User Profile!!'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['title'] = self.title
-        payload['text'] = self.text
-        payload['username'] = 'Briefy Bot'
-        payload['data'] = {
+        payload_item['title'] = self.title
+        payload_item['text'] = self.text
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Fullname',
@@ -75,11 +78,12 @@ class CustomerUserProfileWfActivate(CustomerUserProfileSlack):
     title = 'Customer user was activated'
     text = 'Customer user was activated'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['data'] = {
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Fullname',

@@ -7,6 +7,8 @@ from briefy.choreographer.utils.user_data import users_data_by_role
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class OrderMail(LeicaMail):
     """Base class for emails sent on Order events."""
@@ -15,55 +17,71 @@ class OrderMail(LeicaMail):
     """Name of the entity to be processed here."""
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
         return self._action_url
 
-    def transform(self) -> list:
-        """Transform data."""
-        base_payload = super().transform()
+    def _extract_scheduled_datetime(self) -> str:
+        """Extract scheduled_datetime in the correct timezone for this order.
+
+        :return: A string representation of scheduled_datetime already in the correct timezone.
+        """
         data = self.data
+        assignment = data.get('assignment', {})
+        timezone = data.get('timezone', assignment.get('timezone', ''))
+        scheduled_datetime = assignment.get(
+            'scheduled_datetime', data.get('scheduled_datetime', '')
+        )
+        if scheduled_datetime:
+            scheduled_datetime = self._format_datetime(scheduled_datetime, timezone=timezone)
+        return scheduled_datetime
+
+    def payload_recipient(self, base_payload: dict, data: dict, recipient: dict) -> dict:
+        """Return the payload for a recipient.
+
+        :param base_payload: Sane default values for the payload.
+        :param data: Serialization of the Assignment.
+        :param recipient: Dictionary with recipient information.
+        :return: Payload to be added to the queue.
+        """
+        scheduled_datetime = self._extract_scheduled_datetime()
         assignment = data.get('assignment', {})
         assignment_id = ''
         if assignment:
             assignment_id = assignment.get('slug', '')
-        timezone = assignment.get('timezone', '')
-        scheduled_datetime = assignment.get(
-            'scheduled_datetime',
-            data.get('scheduled_datetime', '')
-        )
-        if scheduled_datetime:
-            scheduled_datetime = self._format_datetime(scheduled_datetime, timezone=timezone)
-        recipients = self.recipient
-        if isinstance(recipients, dict):
-            recipients = [recipients, ]
-        elif not recipients:
-            return []
+        payload_item = {}
+        payload_item.update(base_payload)
+        payload_item['fullname'] = recipient.get('fullname')
+        payload_item['email'] = recipient.get('email')
+        payload_item['data'] = {
+            'ID': data.get('id'),
+            'ACTION_URL': self.action_url,
+            'TITLE': data.get('title'),
+            'EMAIL': recipient.get('email'),
+            'FULLNAME': recipient.get('fullname'),
+            'FIRSTNAME': recipient.get('first_name', recipient.get('fullname')),
+            'SLUG': data.get('slug'),
+            'ASSIGNMENT_ID': assignment_id,
+            'CUSTOMER': data.get('customer', {}).get('title'),
+            'CUSTOMER_ORDER_ID': data.get('customer_order_id', ''),
+            'PROJECT': data.get('project', {}).get('title'),
+            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
+            'SCHEDULED_SHOOT_TIME': scheduled_datetime,
+            'SUBJECT': self.subject,
+        }
+        subject = self.subject.format(**payload_item['data'])
+        payload_item['subject'] = subject
+        payload_item['data']['SUBJECT'] = subject
+        return payload_item
+
+    def transform(self) -> t.List[dict]:
+        """Transform data."""
+        base_payload = super().transform()[0]
+        data = self.data
+        recipients = self.recipients
         payload = []
         for recipient in recipients:
-            payload_item = {}
-            payload_item.update(base_payload)
-            payload_item['fullname'] = recipient.get('fullname')
-            payload_item['email'] = recipient.get('email')
-            payload_item['data'] = {
-                'ID': data.get('id'),
-                'ACTION_URL': self.action_url,
-                'TITLE': data.get('title'),
-                'EMAIL': recipient.get('email'),
-                'FULLNAME': recipient.get('fullname'),
-                'FIRSTNAME': recipient.get('first_name', recipient.get('fullname')),
-                'SLUG': data.get('slug'),
-                'ASSIGNMENT_ID': assignment_id,
-                'CUSTOMER': data.get('customer', {}).get('title'),
-                'CUSTOMER_ORDER_ID': data.get('customer_order_id', ''),
-                'PROJECT': data.get('project', {}).get('title'),
-                'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
-                'SCHEDULED_SHOOT_TIME': scheduled_datetime,
-                'SUBJECT': self.subject,
-            }
-            subject = self.subject.format(**payload_item['data'])
-            payload_item['subject'] = subject
-            payload_item['data']['SUBJECT'] = subject
+            payload_item = self.payload_recipient(base_payload, data, recipient)
             payload.append(payload_item)
         return payload
 
@@ -72,7 +90,7 @@ class OrderCustomerMail(OrderMail):
     """Base class for emails sent to Customer on Order events."""
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('customer_users')
 
@@ -81,7 +99,7 @@ class OrderPMMail(OrderMail):
     """Base class for emails sent to the PM on Order events."""
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('project_managers')
 
@@ -90,7 +108,7 @@ class OrderScoutMail(OrderMail):
     """Base class for emails sent to the Scouters on Order events."""
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return [
             {
@@ -105,7 +123,7 @@ class OrderCreativeMail(OrderMail):
     """Base class for emails sent to the Creative on Order events."""
 
     @property
-    def professional(self):
+    def professional(self) -> dict:
         """Professional assigned to this Order."""
         professional = users_data_by_role(self.event, 'professional_user')
         return professional[0] if professional else None
@@ -118,7 +136,7 @@ class OrderCreativeMail(OrderMail):
         return True if (professional and available) else False
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         professional = self.professional
         return [
@@ -140,9 +158,9 @@ class OrderSubmitScoutMail(OrderScoutMail):
     subject = 'New order created by {CUSTOMER}'
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
-        return '{base}dashboard'.format(base=PLATFORM_URL)
+        return f'{PLATFORM_URL}dashboard'
 
     @property
     def available(self) -> bool:
@@ -162,12 +180,12 @@ class OrderSubmitCustomerMail(OrderCustomerMail):
     subject = 'We received your Briefy order {SLUG}'
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
-        return '{base}dashboard'.format(base=PLATFORM_URL)
+        return f'{PLATFORM_URL}dashboard'
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('last_transition')
 
@@ -190,7 +208,7 @@ class OrderCancelledCustomerMail(OrderCustomerMail):
     subject = 'Your order is now cancelled'
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('last_transition')
 
@@ -214,7 +232,7 @@ class OrderSetRefusedCustomerMail(OrderCustomerMail):
     subject = 'Your set has been sent for further revision'
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('last_transition')
 

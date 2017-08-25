@@ -5,6 +5,8 @@ from briefy.choreographer.events.leica.order import order as events
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class OrderSlack(Slack):
     """Base class for Slack message sent on Lead events."""
@@ -15,19 +17,16 @@ class OrderSlack(Slack):
     title = 'Order!'
     text = 'An Order'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['title'] = self.title
-        payload['text'] = self.text
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'Order can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
-        )
-        payload['data'] = {
+        payload_item['title'] = self.title
+        payload_item['text'] = self.text
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = f'Order can be seen <{self._action_url}|here>'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Customer',
                  'value': data.get('customer', {}).get('title'),

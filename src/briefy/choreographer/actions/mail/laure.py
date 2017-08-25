@@ -1,12 +1,12 @@
 """Mail action for Lead."""
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail import Mail
-from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
-from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
 from briefy.choreographer.events import laure
 from briefy.choreographer.utils.user_data import users_data_by_group
 from zope.component import adapter
 from zope.interface import implementer
+
+import typing as t
 
 
 class LaureMail(Mail):
@@ -21,47 +21,36 @@ class LaureMail(Mail):
     entity = 'Assignment'
     """Name of the entity to be processed here."""
 
-    @property
-    def sender(self) -> dict:
-        """Return sender information for this action.
-
-        :returns: Dictionary with two keys - name, email
-        """
-        return {
-            'name': MAIL_ACTION_LEICA_SENDER_NAME,
-            'email': MAIL_ACTION_LEICA_SENDER_EMAIL,
-        }
-
 
 class LaureAssignmentRejected(LaureMail):
     """Email to be sent when automatic validation failed."""
 
     @property
-    def action_url(self):
+    def action_url(self) -> str:
         """Action URL."""
         return self._action_url
 
     @property
-    def recipient(self):
+    def recipients(self) -> t.Sequence[dict]:
         """Return the data to be used as the recipient of this message."""
-        return users_data_by_group(
-            self.event,
-            'professional_user',
-            check_notification=True
-        )
-
-    def transform(self) -> list:
-        """Transform data."""
-        base_payload = super().transform()
+        recipients = []
         data = self.data
-        recipients = self.recipient
+        assignment = data.get('assignment', {})
+        fullname = assignment.get('professional_name', '')
+        first_name = fullname.split(' ')[0]
+        email = assignment.get('email', '')
+        if fullname and email:
+            recipients = [{'first_name': first_name, 'fullname': fullname, 'email': email}]
+        return recipients
+
+    def transform(self) -> t.List[dict]:
+        """Transform data."""
+        base_payload = super().transform()[0]
+        data = self.data
+        recipients = self.recipients
         assignment = data.get('assignment', {})
         validation = data.get('validation', {})
         feedback = validation.get('complete_feedback', '')
-        if isinstance(recipients, dict):
-            recipients = [recipients, ]
-        elif not recipients:
-            return []
         payload = []
         for recipient in recipients:
             payload_item = {}

@@ -1,5 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Project events -->
+    <subscriber for="briefy.choreographer.events.leica.project.IProjectEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="project.created" component=".ProjectCreated" provides=".IProjectCreated" />
     <utility name="project.updated" component=".ProjectUpdated" provides=".IProjectUpdated" />
     <utility name="project.workflow.close" component=".ProjectWfClose" provides=".IProjectWfClose" />

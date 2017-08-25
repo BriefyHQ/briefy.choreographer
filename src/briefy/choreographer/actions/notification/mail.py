@@ -5,6 +5,8 @@ from briefy.choreographer.events import mail as events
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 @adapter(events.IMailSent)
 @implementer(INotification)
@@ -14,11 +16,11 @@ class MailSent(Notification):
     entity = 'Mail'
     weight = 100
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.get('to_name')
-        payload['address'] = data.get('to_email')
-        payload['subject'] = data.get('subject')
+        payload[0]['fullname'] = data.get('to_name')
+        payload[0]['address'] = data.get('to_email')
+        payload[0]['subject'] = data.get('subject')
         return payload

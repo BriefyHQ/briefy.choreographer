@@ -1,7 +1,7 @@
 """Briefy email action for Lead events tests."""
 from briefy.choreographer.actions import Action
 from briefy.choreographer.actions import IAction
-from briefy.choreographer.events.lead import lead as events
+from briefy.choreographer.events import lead as events
 from conftest import BaseActionCase
 
 import pytest

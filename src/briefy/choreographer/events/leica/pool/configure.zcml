@@ -1,5 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Pool events -->
+    <subscriber for="briefy.choreographer.events.leica.pool.IPoolEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="pool.created" component=".PoolCreated" provides=".IPoolCreated" />
     <utility name="pool.updated" component=".PoolUpdated" provides=".IPoolUpdated" />
     <utility name="pool.workflow.disable" component=".PoolWfDisable" provides=".IPoolWfDisable" />

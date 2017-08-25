@@ -1,5 +1,4 @@
 """Actions to dispatch e-mail notifications for leica.tasks events."""
-
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail.leica.assignment import AssignmentCreativeMail
 from briefy.choreographer.events.leica import task as events

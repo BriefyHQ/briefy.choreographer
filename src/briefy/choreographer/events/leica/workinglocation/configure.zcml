@@ -1,5 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all WorkingLocation events -->
+    <subscriber for="briefy.choreographer.events.leica.workinglocation.IWorkingLocationEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="workinglocation.workflow.delete" component=".WorkingLocationWfDelete" provides=".IWorkingLocationWfDelete" />
     <utility name="workinglocation.workflow.inactivate" component=".WorkingLocationWfInactivate" provides=".IWorkingLocationWfInactivate" />
     <utility name="workinglocation.workflow.submit" component=".WorkingLocationWfSubmit" provides=".IWorkingLocationWfSubmit" />

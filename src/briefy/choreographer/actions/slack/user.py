@@ -5,6 +5,8 @@ from briefy.choreographer.events import user
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class UserSlack(Slack):
     """Base class for Slack message sent on User events."""
@@ -19,14 +21,15 @@ class UserSlack(Slack):
 class UserCreated(UserSlack):
     """After creating a new User, post on Slack."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'New User created!'
-        payload['text'] = 'New User was created, please take a look into the details:'
-        payload['username'] = 'Briefy Bot'
-        payload['data'] = {
+        payload_item = payload[0]
+        payload_item['title'] = 'New User created!'
+        payload_item['text'] = 'New User was created, please take a look into the details:'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Fullname',
                  'value': data.get('fullname'),
@@ -46,16 +49,16 @@ class UserCreated(UserSlack):
 class PasswordReset(UserSlack):
     """Post on slack the details of a password reset request."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'Password reset request'
-        payload['text'] = 'The user {username} requested a password reset'.format(
-            username=data.get('email')
-        )
-        payload['username'] = 'Briefy Bot'
-        payload['data'] = {
+        username = data.get('email')
+        payload_item = payload[0]
+        payload_item['title'] = 'Password reset request'
+        payload_item['text'] = f'The user {username} requested a password reset'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Code',
                  'value': data.get('code'),
@@ -79,15 +82,15 @@ class PasswordReset(UserSlack):
 class UserPasswordChanged(UserSlack):
     """Post on slack on an user password changed."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'User changed password'
-        payload['text'] = 'The user {username} changed its password'.format(
-            username=data.get('email')
-        )
-        payload['username'] = 'Briefy Bot'
+        username = data.get('email')
+        payload_item = payload[0]
+        payload_item['title'] = 'User changed password'
+        payload_item['text'] = f'The user {username} changed its password'
+        payload_item['username'] = 'Briefy Bot'
         return payload
 
 
@@ -96,20 +99,19 @@ class UserPasswordChanged(UserSlack):
 class UserLogin(UserSlack):
     """Post on slack on a user login."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'User login'
-        payload['text'] = 'The user {username} just logged in on Leica'.format(
-            username=data.get('email')
-        )
-        payload['username'] = 'Briefy Bot'
-        try:
+        username = data.get('email')
+        groups = ''
+        if isinstance(data.get('groups'), list):
             groups = ', '.join([g['data']['slug'] for g in data['groups']])
-        except:
-            groups = ''
-        payload['data'] = {
+        payload_item = payload[0]
+        payload_item['title'] = 'User login'
+        payload_item['text'] = f'The user {username} just logged in on Leica'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Fullname',
                  'value': data.get('fullname'),
@@ -133,20 +135,19 @@ class UserLogin(UserSlack):
 class UserFirstLogin(UserSlack):
     """Post on slack on a user firstlogin."""
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['title'] = 'First User login'
-        payload['text'] = 'The user {username} just logged in on Leica for the first time'.format(
-            username=data.get('email')
-        )
-        payload['username'] = 'Briefy Bot'
-        try:
+        username = data.get('email')
+        groups = ''
+        if isinstance(data.get('groups'), list):
             groups = ', '.join([g['data']['slug'] for g in data['groups']])
-        except:
-            groups = ''
-        payload['data'] = {
+        payload_item = payload[0]
+        payload_item['title'] = 'First User login'
+        payload_item['text'] = f'The user {username} just logged in on Leica for the first time'
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Fullname',
                  'value': data.get('fullname'),

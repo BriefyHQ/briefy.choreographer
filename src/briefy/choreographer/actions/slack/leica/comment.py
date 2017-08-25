@@ -5,6 +5,8 @@ from briefy.choreographer.events.leica import comment as events
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class CommentSlack(Slack):
     """Base class for Slack message sent on Comment events."""
@@ -15,18 +17,18 @@ class CommentSlack(Slack):
     title = 'Comment'
     text = 'New Comment!!'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['title'] = self.title
-        payload['text'] = self.text
-        payload['username'] = 'Briefy Bot'
-        author_info = '{0} ({1})'.format(
-            data.get('author', {}).get('fullname'),
-            data.get('author_role'),
-        )
-        payload['data'] = {
+        payload_item['title'] = self.title
+        payload_item['text'] = self.text
+        payload_item['username'] = 'Briefy Bot'
+        author_name = data.get('author', {}).get('fullname')
+        author_role = data.get('author_role')
+        author_info = f'{author_name} ({author_role})'
+        payload_item['data'] = {
             'fields': [
                 {'title': 'Author',
                  'value': author_info,

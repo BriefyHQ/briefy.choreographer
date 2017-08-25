@@ -3,6 +3,8 @@ from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
 
+import typing as t
+
 
 class LeicaMail(Mail):
     """Base class for emails sent on Leica events."""
@@ -27,7 +29,7 @@ class LeicaMail(Mail):
             'email': MAIL_ACTION_LEICA_SENDER_EMAIL,
         }
 
-    def _recipients(self, field_name: str):
+    def _recipients(self, field_name: str) -> t.List[dict]:
         """Return a list of valid recipients."""
         data = self.data
         recipients = []
@@ -49,13 +51,13 @@ class LeicaMail(Mail):
             )
         return recipients
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.get('fullname')
-        payload['email'] = data.get('email')
-        payload['data'] = {
+        payload[0]['fullname'] = data.get('fullname')
+        payload[0]['email'] = data.get('email')
+        payload[0]['data'] = {
             'FULLNAME': data.get('fullname'),
             'EMAIL': data.get('email'),
             'CATEGORY': data.get('category'),

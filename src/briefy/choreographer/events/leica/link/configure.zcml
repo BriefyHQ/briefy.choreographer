@@ -1,5 +1,8 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Link events -->
+    <subscriber for="briefy.choreographer.events.leica.link.ILinkEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="link.workflow.delete" component=".LinkWfDelete" provides=".ILinkWfDelete" />
 
 </configure>

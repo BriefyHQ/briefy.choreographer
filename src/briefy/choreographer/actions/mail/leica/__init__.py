@@ -1,4 +1,5 @@
 """Mail action for Leica."""
+from briefy.choreographer import logger
 from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
@@ -42,6 +43,16 @@ class LeicaMail(Mail):
                 self.event,
                 field_name,
                 check_notification=True
+            )
+        if not recipients:
+            metadata = self.metadata
+            event_name = metadata['event_name']
+            queue_name = metadata['queue_name']
+            action_name = metadata['action_name']
+            log_extra = metadata['log_extra']
+            logger.warn(
+                f'No recipients for {event_name}: {queue_name} action {action_name}',
+                extra=log_extra
             )
         return recipients
 

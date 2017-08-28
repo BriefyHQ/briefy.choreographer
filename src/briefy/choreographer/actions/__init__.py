@@ -129,6 +129,22 @@ class Action:
         }
         return extra
 
+    @property
+    def metadata(self) -> dict:
+        """Return action metadata info."""
+        payload = self.transform()
+        log_extra = self._get_log_extra(payload=payload)
+        event_name = self.event.event_name if self.event else ''
+        queue_name = self._queue_name if self._queue_name else ''
+        action_name = self.__class__.__name__
+        return {
+            'payload': payload,
+            'log_extra': log_extra,
+            'event_name': event_name,
+            'queue_name': queue_name,
+            'action_name': action_name
+        }
+
     def __call__(self) -> None:
         """Execute the action."""
         queue = self.queue
@@ -136,22 +152,23 @@ class Action:
             raise ValueError('Queue not available')
         if self.available:
             response = 'No Payload'
-            payload = self.transform()
-            log_extra = self._get_log_extra(payload=payload)
-            event_name = self.event.event_name if self.event else ''
-            queue_name = self._queue_name if self._queue_name else ''
-            action = self.__class__.__name__
+            metadata = self.metadata
+            payload = metadata['payload']
+            log_extra = metadata['log_extra']
+            event_name = metadata['event_name']
+            queue_name = metadata['queue_name']
+            action_name = metadata['action_name']
             if payload:
                 try:
                     response = queue.write_messages(payload)
                 except Exception as exc:
                     logger.error(
-                        f'{event_name}: {queue_name} action {action} with error: {exc}',
+                        f'{event_name}: {queue_name} action {action_name} with error: {exc}',
                         extra=log_extra
                     )
                     return None
             logger.info(
-                f'{event_name}: {queue_name} action {action} with response {response}',
+                f'{event_name}: {queue_name} action {action_name} with response {response}',
                 extra=log_extra
             )
 

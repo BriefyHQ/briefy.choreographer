@@ -146,7 +146,7 @@ class Action:
                     response = queue.write_messages(payload)
                 except Exception as exc:
                     logger.error(
-                        f'{event_name}: {queue_name} action {action} with response',
+                        f'{event_name}: {queue_name} action {action} with error: {exc}',
                         extra=log_extra
                     )
                     return None

@@ -1,14 +1,38 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+    <!-- Get all Professional events -->
+    <subscriber for="briefy.choreographer.events.leica.professional.IProfessionalEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <utility name="professional.created" component=".ProfessionalCreated" provides=".IProfessionalCreated" />
+        <adapter name="professional.created.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalCreated" />
+
     <utility name="professional.updated" component=".ProfessionalUpdated" provides=".IProfessionalUpdated" />
+        <adapter name="professional.updated.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalUpdated" />
+
     <utility name="professional.workflow.activate" component=".ProfessionalWfActivate" provides=".IProfessionalWfActivate" />
+        <adapter name="professional.activate.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfActivate" />
+
     <utility name="professional.workflow.approve" component=".ProfessionalWfApprove" provides=".IProfessionalWfApprove" />
+        <adapter name="professional.approve.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfApprove" />
+        <adapter name="professional.approve.slack.finance" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfApproveFinance" />
+        <adapter name="professional.approve.email.creative" factory="briefy.choreographer.actions.mail.leica.professional.ProfessionalWfApproveCreative" />
+
     <utility name="professional.workflow.delete" component=".ProfessionalWfDelete" provides=".IProfessionalWfDelete" />
+
     <utility name="professional.workflow.inactivate" component=".ProfessionalWfInactivate" provides=".IProfessionalWfInactivate" />
+        <adapter name="professional.inactivate.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfInactivate" />
+
     <utility name="professional.workflow.reject" component=".ProfessionalWfReject" provides=".IProfessionalWfReject" />
+        <adapter name="professional.reject.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfReject" />
+
     <utility name="professional.workflow.submit" component=".ProfessionalWfSubmit" provides=".IProfessionalWfSubmit" />
+        <adapter name="professional.submit.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfSubmit" />
+
     <utility name="professional.workflow.validate" component=".ProfessionalWfValidate" provides=".IProfessionalWfValidate" />
+        <adapter name="professional.validate.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfValidate" />
+        <adapter name="professional.validate.slack.scout" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfValidateScout" />
+
     <utility name="professional.workflow.assign" component=".ProfessionalWfAssign" provides=".IProfessionalWfAssign" />
+        <adapter name="professional.assign.slack" factory="briefy.choreographer.actions.slack.leica.professional.ProfessionalWfAssign" />
 
 </configure>

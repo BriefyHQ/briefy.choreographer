@@ -1,7 +1,7 @@
 """Briefy email action for Lead events tests."""
 from briefy.choreographer.actions.slack import ISlack
 from briefy.choreographer.actions.slack.lead import LeadCreated
-from briefy.choreographer.events.lead import lead as events
+from briefy.choreographer.events import lead as events
 from conftest import BaseActionCase
 
 
@@ -18,6 +18,9 @@ class TestLeadCreated(BaseActionCase):
         """Test data transform."""
         obj = self.obj
         payload = obj.transform()
+        assert isinstance(payload, list)
+        assert len(payload) == 1
+        payload = payload[0]
         data = payload['data']
         assert isinstance(payload['channel'], str)
         assert isinstance(payload['title'], str)

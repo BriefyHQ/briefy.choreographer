@@ -2,11 +2,19 @@
 History
 =======
 
+2.1.0 (2017-08-31)
+------------------
+
+* Update notifications to use new roles and actors attributes in the payload (rudaporto).
+* Fix: remove method in actions.leica.comment.CommentMail._recipients that was buggy and exists in the parent class (rudaporto).
+* Added a logger.warn call to track when there are no recipients in mail actions (rudaporto).
+* Fix: InternalEvent needs to implement IInternalEvent (ericof).
+* Add Slack notification to leads.PackageOrder creation (ericof).
+
 2.0.21 (2017-08-22)
 -------------------
 
 * Fix registered_actions logging (ericof).
-
 
 2.0.20 (2017-08-22)
 -------------------

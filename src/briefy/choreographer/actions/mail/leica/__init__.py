@@ -1,7 +1,11 @@
 """Mail action for Leica."""
+from briefy.choreographer import logger
 from briefy.choreographer.actions.mail import Mail
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_EMAIL
 from briefy.choreographer.config import MAIL_ACTION_LEICA_SENDER_NAME
+from briefy.choreographer.utils.user_data import users_data_by_group
+
+import typing as t
 
 
 class LeicaMail(Mail):
@@ -27,35 +31,38 @@ class LeicaMail(Mail):
             'email': MAIL_ACTION_LEICA_SENDER_EMAIL,
         }
 
-    def _recipients(self, field_name: str):
+    def _recipients(self, field_name: str) -> t.List[dict]:
         """Return a list of valid recipients."""
         data = self.data
-        recipients = []
         if field_name == 'last_transition':
             history = data['state_history']
             actor = history[-1]['actor']
-            users = [actor, ]
+            recipients = [actor, ]
         else:
-            users = data[field_name]
-        for user in users:
-            if not user['internal']:
-                continue
-            recipients.append(
-                {
-                    'first_name': user['first_name'],
-                    'fullname': user['fullname'],
-                    'email': user['email'],
-                }
+            recipients = users_data_by_group(
+                self.event,
+                field_name,
+                check_notification=True
+            )
+        if not recipients:
+            metadata = self.metadata
+            event_name = metadata['event_name']
+            queue_name = metadata['queue_name']
+            action_name = metadata['action_name']
+            log_extra = metadata['log_extra']
+            logger.warn(
+                f'No recipients for {event_name}: {queue_name} action {action_name}',
+                extra=log_extra
             )
         return recipients
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.get('fullname')
-        payload['email'] = data.get('email')
-        payload['data'] = {
+        payload[0]['fullname'] = data.get('fullname')
+        payload[0]['email'] = data.get('email')
+        payload[0]['data'] = {
             'FULLNAME': data.get('fullname'),
             'EMAIL': data.get('email'),
             'CATEGORY': data.get('category'),

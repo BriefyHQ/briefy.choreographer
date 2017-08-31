@@ -693,5 +693,207 @@
       "email": "site@email.briefy.co",
       "internal": true
     }
-  ]
+  ],
+  "_roles": {
+      "assignment_internal_qa": [
+          "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de"
+      ],
+      "assignment_internal_scout": [
+          "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+      ],
+      "customer_pm": [
+          "59082f86-db13-449d-8561-72bae458ddb7",
+          "6475b12c-0868-4ee6-4277-2d16c9d1951f",
+          "72372f65-04b6-44b2-aea1-67a042f413ab",
+          "85b2deab-f776-481d-2984-16408719cb75",
+          "ee700e59-7b8d-4141-8646-a191e197cf1e",
+          "eeea3a28-fadc-4e1d-afc7-58c1d77de141",
+          "f42f7dc8-dd28-4981-7a5d-63c4212e29a9",
+          "23ed78a5-8c1d-4f70-8ed7-3d0d6c36a073"
+      ],
+      "internal_account": [
+          "05ecb76c-870b-4f2e-9932-93e4bfec82dd"
+      ],
+      "internal_pm": [
+          "3966051e-6bfd-4998-9d96-432ddc93d8e9"
+      ],
+      "internal_qa": [
+          "fd6f1d39-fddf-4d11-b965-29943873ad2f",
+          "e2b83280-a2fd-41f2-bf22-091a06da8fce",
+          "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+          "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de",
+          "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+          "0efa2980-07f9-4add-a8bf-1882a2e988e1",
+          "88fcd83e-bdd8-463d-bf7c-c1050f5c219d",
+          "414ff864-b9d3-4d75-a355-0a255bb253bf"
+      ],
+      "internal_scout": [
+          "414ff864-b9d3-4d75-a355-0a255bb253bf",
+          "3966051e-6bfd-4998-9d96-432ddc93d8e9",
+          "8f9a3d28-7bd4-4c25-835f-b7bc630bef31",
+          "2b045589-0a0f-4302-99d8-7390ad7817ce",
+          "c838bdfb-9678-4b29-8b27-df78f73f49b5",
+          "25affe8d-1eb8-4dc0-85b1-74d668cac6d2"
+      ],
+      "professional_user": [
+          "20d4d40e-bf8a-4881-8d00-5afd612490fc"
+      ],
+      "project_customer_pm": [
+          "ee700e59-7b8d-4141-8646-a191e197cf1e",
+          "23ed78a5-8c1d-4f70-8ed7-3d0d6c36a073",
+          "85b2deab-f776-481d-2984-16408719cb75",
+          "6475b12c-0868-4ee6-4277-2d16c9d1951f",
+          "59082f86-db13-449d-8561-72bae458ddb7",
+          "f42f7dc8-dd28-4981-7a5d-63c4212e29a9"
+      ]
+  },
+  "_actors": {
+      "8f9a3d28-7bd4-4c25-835f-b7bc630bef31": {
+          "first_name": "Nayeon",
+          "last_name": "Kim",
+          "fullname": "Nayeon Kim",
+          "email": "nayeon@briefy.co",
+          "internal": true
+      },
+      "3966051e-6bfd-4998-9d96-432ddc93d8e9": {
+          "first_name": "Grace",
+          "last_name": "Farson",
+          "fullname": "Grace Farson",
+          "email": "grace@briefy.co",
+          "internal": true
+      },
+      "f42f7dc8-dd28-4981-7a5d-63c4212e29a9": {
+          "first_name": "Jillian ",
+          "last_name": "Medugno",
+          "fullname": "Jillian  Medugno",
+          "email": "jmedugno@email.briefy.co",
+          "internal": true
+      },
+      "85b2deab-f776-481d-2984-16408719cb75": {
+          "first_name": "Topher ",
+          "last_name": "Baldwin\u00a0",
+          "fullname": "Topher  Baldwin\u00a0",
+          "email": "tbaldwin@email.briefy.co",
+          "internal": true
+      },
+      "ee700e59-7b8d-4141-8646-a191e197cf1e": {
+          "first_name": "Anna ",
+          "last_name": "Rausa",
+          "fullname": "Anna  Rausa",
+          "email": "arausa@email.briefy.co",
+          "internal": true
+      },
+      "e2b83280-a2fd-41f2-bf22-091a06da8fce": {
+          "first_name": "Francesca",
+          "last_name": "Secchi",
+          "fullname": "Francesca Secchi",
+          "email": "francesca@briefy.co",
+          "internal": true
+      },
+      "72372f65-04b6-44b2-aea1-67a042f413ab": {
+          "first_name": "Ryan",
+          "last_name": "Wisniewski",
+          "fullname": "Ryan Wisniewski",
+          "email": "ryan@email.briefy.co",
+          "internal": false
+      },
+      "fd6f1d39-fddf-4d11-b965-29943873ad2f": {
+          "first_name": "Franco",
+          "last_name": "Dubini",
+          "fullname": "Franco Dubini",
+          "email": "franco@briefy.co",
+          "internal": true
+      },
+      "0efa2980-07f9-4add-a8bf-1882a2e988e1": {
+          "first_name": "Laure",
+          "last_name": "d'Utruy",
+          "fullname": "Laure d'Utruy",
+          "email": "laure@briefy.co",
+          "internal": true
+      },
+      "88fcd83e-bdd8-463d-bf7c-c1050f5c219d": {
+          "first_name": "Christian",
+          "last_name": "Kroger",
+          "fullname": "Christian Kroger",
+          "email": "christian@briefy.co",
+          "internal": true
+      },
+      "25affe8d-1eb8-4dc0-85b1-74d668cac6d2": {
+          "first_name": "Ilsa",
+          "last_name": "Hellman",
+          "fullname": "Ilsa Hellman",
+          "email": "ilsa@briefy.co",
+          "internal": true
+      },
+      "c838bdfb-9678-4b29-8b27-df78f73f49b5": {
+          "first_name": "Ansgar",
+          "last_name": "Schwarz",
+          "fullname": "Ansgar Schwarz",
+          "email": "ansgar@briefy.co",
+          "internal": true
+      },
+      "eeea3a28-fadc-4e1d-afc7-58c1d77de141": {
+          "first_name": "Mary",
+          "last_name": "Commisso",
+          "fullname": "Mary Commisso",
+          "email": "mcommisso@email.briefy.co",
+          "internal": true
+      },
+      "23ed78a5-8c1d-4f70-8ed7-3d0d6c36a073": {
+          "first_name": "Neal",
+          "last_name": "Singleton",
+          "fullname": "Neal Singleton",
+          "email": "nsingleton@email.briefy.co",
+          "internal": true
+      },
+      "59082f86-db13-449d-8561-72bae458ddb7": {
+          "first_name": "Anne",
+          "last_name": "Mello",
+          "fullname": "Anne Mello",
+          "email": "amello@email.briefy.co",
+          "internal": true
+      },
+      "6475b12c-0868-4ee6-4277-2d16c9d1951f": {
+          "first_name": "Photos",
+          "last_name": " ",
+          "fullname": "Photos  ",
+          "email": "photos@email.briefy.co",
+          "internal": true
+      },
+      "414ff864-b9d3-4d75-a355-0a255bb253bf": {
+          "first_name": "Flora",
+          "last_name": "Zsemlye",
+          "fullname": "Flora Zsemlye",
+          "email": "flora@briefy.co",
+          "internal": true
+      },
+      "2b045589-0a0f-4302-99d8-7390ad7817ce": {
+          "first_name": "Stefan",
+          "last_name": "Pieprzyk",
+          "fullname": "Stefan Pieprzyk",
+          "email": "stefan@briefy.co",
+          "internal": true
+      },
+      "05ecb76c-870b-4f2e-9932-93e4bfec82dd": {
+          "first_name": "Bartosz",
+          "last_name": "Gumowski",
+          "fullname": "Bartosz Gumowski",
+          "email": "bartosz@briefy.co",
+          "internal": true
+      },
+      "20d4d40e-bf8a-4881-8d00-5afd612490fc": {
+          "first_name": "Zach",
+          "last_name": "Miller",
+          "fullname": "Zach Miller",
+          "email": "zmillerphotography@email.briefy.co",
+          "internal": true
+      },
+      "eb1a8c1f-c9d7-4854-abf6-03ae2aea90de": {
+          "first_name": "Ariana",
+          "last_name": "Shauh",
+          "fullname": "Ariana Shauh",
+          "email": "ariana@briefy.co",
+          "internal": true
+      }
+  }
 }

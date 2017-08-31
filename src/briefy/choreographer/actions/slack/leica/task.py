@@ -5,6 +5,8 @@ from briefy.choreographer.events.leica import task as events
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class TaskSlack(Slack):
     """Base class for Slack message sent on Task events."""
@@ -21,16 +23,15 @@ class AssignmentPoolNoAvailability(TaskSlack):
     entity = 'Assignment'
     title = 'Assigment to Pool Failed'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['title'] = self.title
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'The order for this assignment does not have availability dates. '
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
+        payload_item = payload[0]
+        payload_item['title'] = self.title
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = (
+            f'The order for this assignment does not have availability dates. '
+            f'Assignment can be seen <{self._action_url}|here>'
         )
         return payload
 
@@ -43,16 +44,15 @@ class AssignmentPoolHasPoolId(TaskSlack):
     entity = 'Assignment'
     title = 'Assigment to Pool Failed'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['title'] = self.title
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'This assignment already is on a Pool. '
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
+        payload_item = payload[0]
+        payload_item['title'] = self.title
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = (
+            f'This assignment already is on a Pool. '
+            f'Assignment can be seen <{self._action_url}|here>'
         )
         return payload
 
@@ -65,16 +65,15 @@ class AssignmentPoolNoPayout(TaskSlack):
     entity = 'Assignment'
     title = 'Assigment to Pool Failed'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['title'] = self.title
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'This assignment does not have a Payout value. '
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
+        payload_item = payload[0]
+        payload_item['title'] = self.title
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = (
+            f'This assignment does not have a Payout value. '
+            f'Assignment can be seen <{self._action_url}|here>'
         )
         return payload
 
@@ -87,16 +86,15 @@ class AssignmentNotifyLateSubmissionFailure(TaskSlack):
     entity = 'Assignment'
     title = 'Late Submission Notification Failure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['title'] = self.title
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'Failure when tried to notify professional about late submission. '
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
+        payload_item = payload[0]
+        payload_item['title'] = self.title
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = (
+            f'Failure when tried to notify professional about late submission. '
+            f'Assignment can be seen <{self._action_url}|here>'
         )
         return payload
 
@@ -109,15 +107,14 @@ class AssignmentNotifyBeforeShootingFailure(TaskSlack):
     entity = 'Assignment'
     title = 'Before Shooting Notification Failure'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
-        payload['title'] = self.title
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'Failure when tried to notify professional before shooting. '
-            'Assignment can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
+        payload_item = payload[0]
+        payload_item['title'] = self.title
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = (
+            f'Failure when tried to notify professional before shooting. '
+            f'Assignment can be seen <{self._action_url}|here>'
         )
         return payload

@@ -1,6 +1,10 @@
 <configure xmlns="http://namespaces.zope.org/zope">
 
+        <!-- Get all Mail events -->
+    <subscriber for="briefy.choreographer.events.mail.IMailEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <!-- Mail events -->
     <utility name="mail.sent" component=".MailSent" provides=".IMailSent" />
+        <adapter name="mail.sent.notification" factory="briefy.choreographer.actions.notification.mail.MailSent" />
 
 </configure>

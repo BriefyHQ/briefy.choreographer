@@ -1,12 +1,14 @@
 """Briefy Choreographer Events."""
 from briefy.common.event import IEvent
 from datetime import datetime
+from zope.interface import implementer
 
 
 class IInternalEvent(IEvent):
     """An event used by briefy.choreographer."""
 
 
+@implementer(IInternalEvent)
 class InternalEvent:
     """An event used by briefy.choreographer."""
 

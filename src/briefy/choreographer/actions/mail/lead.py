@@ -7,6 +7,8 @@ from briefy.choreographer.events import lead
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class LeadMail(Mail):
     """Base class for emails sent on Lead events."""
@@ -26,18 +28,15 @@ class LeadMail(Mail):
 
         :returns: Dictionary with two keys - name, email
         """
-        return {
-            'name': MAIL_ACTION_LEAD_SENDER_NAME,
-            'email': MAIL_ACTION_LEAD_SENDER_EMAIL,
-        }
+        return {'name': MAIL_ACTION_LEAD_SENDER_NAME, 'email': MAIL_ACTION_LEAD_SENDER_EMAIL}
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
         data = self.data
-        payload['fullname'] = data.get('fullname')
-        payload['email'] = data.get('email')
-        payload['data'] = {
+        payload[0]['fullname'] = data.get('fullname')
+        payload[0]['email'] = data.get('email')
+        payload[0]['data'] = {
             'FULLNAME': data.get('fullname'),
             'EMAIL': data.get('email'),
             'CATEGORY': data.get('category'),

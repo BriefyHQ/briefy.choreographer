@@ -40,9 +40,9 @@ class TestCommentCreatedByCustomerToPM(MailTest, BaseActionCase):
             assert isinstance(data['COMMENTER_FIRSTNAME'], str)
             assert isinstance(data['COMMENT'], str)
 
-            assert payload['email'].endswith('octopusnow.com')
+            assert payload['email'].endswith('briefy.co')
             assert payload['template'] == 'platform-comment-created-to-pm-en-gb'
             assert payload['subject']
 
-            assert data['EMAIL'].endswith('octopusnow.com')
+            assert data['EMAIL'].endswith('briefy.co')
             assert data['SUBJECT']

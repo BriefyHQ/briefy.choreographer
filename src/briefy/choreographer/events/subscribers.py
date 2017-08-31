@@ -1,5 +1,6 @@
 """Briefy Choreographer Subscribers."""
 from briefy.choreographer.actions import Action
+from briefy.choreographer.events import InternalEvent
 from briefy.choreographer.utils import get_actions_for_event
 from zope.component import getGlobalSiteManager
 
@@ -7,7 +8,7 @@ import logging
 import typing as t
 
 
-_logger = logging.getLogger('briefy.choreographer')
+logger = logging.getLogger('briefy.choreographer')
 
 
 class BaseHandler:
@@ -19,7 +20,7 @@ class BaseHandler:
     info = None
     guid = None
 
-    def __init__(self, event):
+    def __init__(self, event: InternalEvent):
         """Initialize the Handler."""
         self.registry = getGlobalSiteManager()
         self.event = event
@@ -28,19 +29,32 @@ class BaseHandler:
         data.update({'guid': self.guid})
 
     @property
-    def actions(self) -> t.Sequence[Action]:
-        """Return all actions for this event.
+    def actions(self) -> t.List[Action]:
+        """Return all actions registered this event.
 
         :returns: Sequence of actions registered for this event.
         """
         return get_actions_for_event(self.event, self.registry)
 
     def __call__(self) -> None:
-        """Execute all actions registered to this event."""
+        """Execute all actions registered to this event.
+
+        If an exception is raised on any action they will be logged.
+        """
         actions = self.actions
         for action in actions:
             try:
                 action()
             except Exception:
                 info = action.action_info()
-                _logger.exception(f'An error occurred executing {info}')
+                logger.exception(f'An error occurred executing {info}')
+
+
+def handler(event: InternalEvent):
+    """Handle User events.
+
+    :param event: Event
+    :type event: briefy.choreographer.events.user.IUserEvent
+    """
+    handler = BaseHandler(event)
+    handler()

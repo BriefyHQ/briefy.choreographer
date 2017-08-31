@@ -1,6 +1,7 @@
 """Briefy Lead Events."""
 from briefy.choreographer.events import IInternalEvent
 from briefy.choreographer.events import InternalEvent
+from zope.interface import implementer
 
 
 class ILeadEvent(IInternalEvent):
@@ -29,3 +30,38 @@ class QuoteEvent(InternalEvent):
     """An event of a Quote."""
 
     entity = 'Quote'
+
+
+class IPackageOrderEvent(IInternalEvent):
+    """An event of a PackageOrder."""
+
+
+class IPackageOrderCreated(ILeadEvent):
+    """A new PackageOrder was created."""
+
+
+class PackageOrderEvent(InternalEvent):
+    """An event of a PackageOrder."""
+
+    entity = 'PackageOrder'
+
+
+@implementer(ILeadCreated)
+class LeadCreated(LeadEvent):
+    """A new Lead was created."""
+
+    event_name = 'lead.created'
+
+
+@implementer(IQuoteCreated)
+class QuoteCreated(QuoteEvent):
+    """A new Quote was created."""
+
+    event_name = 'quote.created'
+
+
+@implementer(IPackageOrderCreated)
+class PackageOrderCreated(PackageOrderEvent):
+    """A new PackageOrder was created."""
+
+    event_name = 'package_order.created'

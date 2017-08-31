@@ -5,6 +5,8 @@ from briefy.choreographer.events.leica import professional as events
 from zope.component import adapter
 from zope.interface import implementer
 
+import typing as t
+
 
 class ProfessionalSlack(Slack):
     """Base class for Slack message sent on Professional events."""
@@ -15,19 +17,16 @@ class ProfessionalSlack(Slack):
     title = 'Creative'
     text = 'New Professional Profile!!'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['title'] = self.title
-        payload['text'] = self.text
-        payload['username'] = 'Briefy Bot'
-        payload['text'] = (
-            'Creative can be seen <{url}|here>'.format(
-                url=self._action_url,
-            )
-        )
-        payload['data'] = {
+        payload_item['title'] = self.title
+        payload_item['text'] = self.text
+        payload_item['username'] = 'Briefy Bot'
+        payload_item['text'] = f'Creative can be seen <{self._action_url}|here>'
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Full name',
@@ -93,11 +92,12 @@ class ProfessionalWfApprove(ProfessionalSlack):
 
     title = 'Creative approved, waiting for legal validation'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['data'] = {
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Full name',
@@ -137,11 +137,12 @@ class ProfessionalWfApproveFinance(ProfessionalSlack):
     _channel = '#creatives-validation'
     title = 'A new creative was approved, please proceed with legal validation'
 
-    def transform(self) -> dict:
+    def transform(self) -> t.List[dict]:
         """Transform data."""
         payload = super().transform()
+        payload_item = payload[0]
         data = self.data
-        payload['data'] = {
+        payload_item['data'] = {
             'fields': [
                 {
                     'title': 'Full name',

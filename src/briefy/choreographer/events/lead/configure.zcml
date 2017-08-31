@@ -12,4 +12,7 @@
         <adapter name="quote.created.email" factory="briefy.choreographer.actions.mail.quote.QuoteCreated" />
         <adapter name="quote.created.slack" factory="briefy.choreographer.actions.slack.quote.QuoteCreated" />
 
+    <utility name="package_order.created" component=".PackageOrderCreated" provides=".IPackageOrderCreated" />
+        <adapter name="package_order.created.slack" factory="briefy.choreographer.actions.slack.package_order.PackageOrderCreated" />
+
 </configure>

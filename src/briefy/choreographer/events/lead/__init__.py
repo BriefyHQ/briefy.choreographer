@@ -32,6 +32,20 @@ class QuoteEvent(InternalEvent):
     entity = 'Quote'
 
 
+class IPackageOrderEvent(IInternalEvent):
+    """An event of a PackageOrder."""
+
+
+class IPackageOrderCreated(ILeadEvent):
+    """A new PackageOrder was created."""
+
+
+class PackageOrderEvent(InternalEvent):
+    """An event of a PackageOrder."""
+
+    entity = 'PackageOrder'
+
+
 @implementer(ILeadCreated)
 class LeadCreated(LeadEvent):
     """A new Lead was created."""
@@ -44,3 +58,10 @@ class QuoteCreated(QuoteEvent):
     """A new Quote was created."""
 
     event_name = 'quote.created'
+
+
+@implementer(IPackageOrderCreated)
+class PackageOrderCreated(PackageOrderEvent):
+    """A new PackageOrder was created."""
+
+    event_name = 'package_order.created'

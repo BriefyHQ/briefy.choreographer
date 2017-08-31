@@ -154,6 +154,12 @@ LEICA_TASK_EVENTS = [
     ('leica.task.assignment_pool.no_payout', 1),
 ]
 
+LEADS_EVENTS = [
+    ('lead.created', 2),
+    ('quote.created', 2),
+    ('package_order.created', 1),
+]
+
 ROLLEIFLEX_EVENTS = [
     ('user.created', 0),
     ('user.password.changed', 1),
@@ -171,7 +177,7 @@ LAURE_EVENTS = [
     ('laure.assignment.validated', 2),
 ]
 
-EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS + LEICA_TASK_EVENTS
+EVENTS = LEICA_EVENTS + ROLLEIFLEX_EVENTS + LAURE_EVENTS + LEICA_TASK_EVENTS + LEADS_EVENTS
 
 
 @pytest.mark.parametrize('event_name,actions', EVENTS)

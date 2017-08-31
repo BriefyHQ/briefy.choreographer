@@ -8,6 +8,7 @@ History
 * Update notifications to use new roles and actors attributes in the payload (rudaporto).
 * Fix: remove method in actions.leica.comment.CommentMail._recipients that was buggy and exists in the parent class (rudaporto).
 * Added a logger.warn call to track when there are no recipients in mail actions (rudaporto).
+* Fix: InternalEvent needs to implement IInternalEvent (ericof).
 
 2.0.21 (2017-08-22)
 -------------------

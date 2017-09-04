@@ -69,6 +69,9 @@
     <utility name="leadorder.created" component=".leadorder.LeadOrderCreated" provides=".leadorder.ILeadOrderCreated" />
     <utility name="leadorder.updated" component=".leadorder.LeadOrderUpdated" provides=".leadorder.ILeadOrderUpdated" />
     <utility name="leadorder.workflow.confirm" component=".leadorder.LeadOrderWfConfirm" provides=".leadorder.ILeadOrderWfConfirm" />
+        <adapter name="leadorder.workflow.confirm.scout.mail" factory="briefy.choreographer.actions.mail.leica.leadorder.LeadOrderWfConfirmScoutMail" />
+        <adapter name="leadorder.workflow.confirm.pm.mail" factory="briefy.choreographer.actions.mail.leica.leadorder.LeadOrderWfConfirmPMMail" />
+
     <utility name="leadorder.workflow.remove_confirmation" component=".leadorder.LeadOrderWfRemoveConfirmation" provides=".leadorder.ILeadOrderWfRemoveConfirmation" />
     <utility name="leadorder.workflow.accept" component=".leadorder.LeadOrderWfAccept" provides=".leadorder.ILeadOrderWfAccept" />
     <utility name="leadorder.workflow.assign" component=".leadorder.LeadOrderWfAssign" provides=".leadorder.ILeadOrderWfAssign" />

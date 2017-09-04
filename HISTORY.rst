@@ -2,6 +2,16 @@
 History
 =======
 
+2.1.1 (2017-09-05)
+------------------
+
+    * Card #608: added new action to notify Creative when assignment is permanently rejected (rudaporto).
+    * Card #609: added new action to notify PM when assignment is permanently rejected (rudaporto).
+    * Card #609: fixed a typo in AssignmentPMMail.recipients preventing all assignment email notifications do PM (rudaporto).
+    * Card #605: added new action to notify Scout team when a new Lead is confirmed (rudaporto).
+    * Card #606: added new action to notify PM when a new Lead is confirmed (rudaporto).
+    * Card #607: fixed the cancellation mail action to Creative when the Assignment is cancelled (rudaporto).
+
 2.1.0 (2017-08-31)
 ------------------
 

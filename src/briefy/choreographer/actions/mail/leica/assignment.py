@@ -82,7 +82,7 @@ class AssignmentPMMail(AssignmentMail):
     """Base class for emails sent to the PM on Order events."""
 
     @property
-    def recipient(self) -> t.List[dict]:
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('project_managers')
 
@@ -213,3 +213,21 @@ class AssignmentRescheduleCreativeMail(AssignmentCreativeMailWithICS):
 
     template_name = 'platform-assignment-rescheduled'
     subject = 'Your New Shooting Time for Assignment {SLUG}'
+
+
+@adapter(events.IAssignmentWfPermReject)
+@implementer(IMail)
+class AssignmentWfPermRejectCreativeMail(AssignmentCreativeMail):
+    """Email to creative when QA permanently reject an assignment."""
+
+    template_name = 'platform-set-permanently-rejected'
+    subject = 'Important: Your set {SLUG} was permanently rejected'
+
+
+@adapter(events.IAssignmentWfPermReject)
+@implementer(IMail)
+class AssignmentWfPermRejectPMMail(AssignmentPMMail):
+    """Email to PM when QA permanently reject an assignment."""
+
+    template_name = 'platform-set-permanently-rejected'
+    subject = 'Important: Your set {SLUG} was permanently rejected'

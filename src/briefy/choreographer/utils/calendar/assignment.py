@@ -115,8 +115,12 @@ def assignment_to_ical(payload: dict) -> t.ByteString:
         ics = b''
     else:
         data = AssignmentCalendarEvent(**payload)
-        calendar = _generate_calendar(data)
-        ics = calendar.to_ical()
+        try:
+            calendar = _generate_calendar(data)
+        except ValueError:
+            ics = None
+        else:
+            ics = calendar.to_ical()
     return ics
 
 

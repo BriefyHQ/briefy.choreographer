@@ -43,6 +43,10 @@ class AssignmentMail(LeicaMail):
         scheduled_datetime = self._extract_scheduled_datetime()
         professional = data.get('professional')
         pofessional = professional if professional else {}
+        location = data.get('location', {})
+        additional_phone = location.get('additional_phone', '')
+        mobile = location.get('mobile', additional_phone)
+        contact_phone = f'{mobile} / {additional_phone}' if mobile and additional_phone else mobile
         payload_item = {}
         payload_item.update(base_payload)
         payload_item['fullname'] = recipient.get('fullname')
@@ -56,9 +60,9 @@ class AssignmentMail(LeicaMail):
             'FULLNAME': recipient.get('fullname'),
             'SLUG': data.get('slug'),
             'PROJECT': data.get('project', {}).get('title', ''),
-            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address', ''),
-            'CONTACT_FULLNAME': data.get('location', {}).get('fullname', ''),
-            'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
+            'FORMATTED_ADDRESS': location.get('formatted_address', ''),
+            'CONTACT_FULLNAME': location.get('fullname', ''),
+            'CONTACT_PHONE': contact_phone,
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'NUMBER_REQUIRED_ASSETS': data.get('number_required_assets'),
             'REQUIREMENTS': data.get('requirements'),

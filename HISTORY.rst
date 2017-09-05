@@ -16,6 +16,7 @@ History
     * Card #614: added new action to notify PM when assignment have a new comment about scheduling issues (rudaporto).
     * Card #615: added new action to notify PM when order location is updated (rudaporto).
     * Card #616: added new action to notify PM when order requirements is updated (rudaporto).
+    * Added location contact info to the Order email payload (rudaporto).
 
 2.1.0 (2017-08-31)
 ------------------

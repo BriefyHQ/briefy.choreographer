@@ -45,11 +45,15 @@ class OrderMail(LeicaMail):
         :param recipient: Dictionary with recipient information.
         :return: Payload to be added to the queue.
         """
+        # import pdb; pdb.set_trace()
         scheduled_datetime = self._extract_scheduled_datetime()
-        assignment = data.get('assignment', {})
-        assignment_id = ''
-        if assignment:
-            assignment_id = assignment.get('slug', '')
+        assignment = data.get('assignment')
+        assignment = assignment if assignment else {}
+        assignment_id = assignment.get('slug', '')
+        location = data.get('location', {})
+        additional_phone = location.get('additional_phone', '')
+        mobile = location.get('mobile', additional_phone)
+        contact_phone = f'{mobile} / {additional_phone}' if mobile and additional_phone else mobile
         payload_item = {}
         payload_item.update(base_payload)
         payload_item['fullname'] = recipient.get('fullname')
@@ -66,7 +70,9 @@ class OrderMail(LeicaMail):
             'CUSTOMER': data.get('customer', {}).get('title'),
             'CUSTOMER_ORDER_ID': data.get('customer_order_id', ''),
             'PROJECT': data.get('project', {}).get('title'),
-            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
+            'CONTACT_FULLNAME': location.get('fullname'),
+            'CONTACT_PHONE': contact_phone,
+            'FORMATTED_ADDRESS': location.get('formatted_address'),
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'SUBJECT': self.subject,
         }

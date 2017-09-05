@@ -180,6 +180,17 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
     template_name = 'platform-set-approved'
     subject = 'Good job! Your set has been approved!'
 
+    @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        data = self.data
+        number_of_approvals = 0
+        for history in data.get('state_history', []):
+            if history.get('to') == 'approved' and history.get('from') == 'in_qa':
+                number_of_approvals += number_of_approvals
+        return number_of_approvals == 1 and available
+
 
 @adapter(events.IAssignmentWfReject)
 @implementer(IMail)

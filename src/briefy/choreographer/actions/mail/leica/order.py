@@ -45,7 +45,6 @@ class OrderMail(LeicaMail):
         :param recipient: Dictionary with recipient information.
         :return: Payload to be added to the queue.
         """
-        # import pdb; pdb.set_trace()
         scheduled_datetime = self._extract_scheduled_datetime()
         assignment = data.get('assignment')
         assignment = assignment if assignment else {}

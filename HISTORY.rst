@@ -17,6 +17,7 @@ History
     * Card #615: added new action to notify PM when order location is updated (rudaporto).
     * Card #616: added new action to notify PM when order requirements is updated (rudaporto).
     * Added location contact info to the Order email payload (rudaporto).
+    * Card #617: added an available check to AssignmentApproveCreativeMail to only send email in the first approval (rudaporto).
 
 2.1.0 (2017-08-31)
 ------------------

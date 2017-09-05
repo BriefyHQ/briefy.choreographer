@@ -27,7 +27,8 @@ class OrderMail(LeicaMail):
         :return: A string representation of scheduled_datetime already in the correct timezone.
         """
         data = self.data
-        assignment = data.get('assignment', {})
+        assignment = data.get('assignment')
+        assignment = assignment if assignment else {}
         timezone = data.get('timezone', assignment.get('timezone', ''))
         scheduled_datetime = assignment.get(
             'scheduled_datetime', data.get('scheduled_datetime', '')
@@ -168,7 +169,8 @@ class OrderSubmitScoutMail(OrderScoutMail):
         available = super().available
         data = self.data
         source = data['source']
-        return (source == 'customer') and available
+        is_order = data.get('current_type', None) == 'order'
+        return (source == 'customer') and is_order and available
 
 
 @adapter(events.IOrderWfSubmit)
@@ -195,7 +197,8 @@ class OrderSubmitCustomerMail(OrderCustomerMail):
         available = super().available
         data = self.data
         source = data['source']
-        return (source == 'customer') and available
+        is_order = data.get('current_type', None) == 'order'
+        return (source == 'customer') and is_order and available
 
 
 # Customer Cancels an Order

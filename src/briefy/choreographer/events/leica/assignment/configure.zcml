@@ -76,6 +76,7 @@
         <adapter name="assignment.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSchedule" />
 
     <utility name="assignment.workflow.scheduling_issues" component=".AssignmentWfSchedulingIssues" provides=".IAssignmentWfSchedulingIssues" />
+        <adapter name="assignment.workflow.scheduling_issues.email.pm" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfSchedulingIssuesPMMail" />
         <adapter name="assignment.workflow.scheduling_issues.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSchedulingIssues" />
 
     <utility name="assignment.workflow.self_assign" component=".AssignmentWfSelfAssign" provides=".IAssignmentWfSelfAssign" />

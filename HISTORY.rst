@@ -11,6 +11,9 @@ History
     * Card #605: added new action to notify Scout team when a new Lead is confirmed (rudaporto).
     * Card #606: added new action to notify PM when a new Lead is confirmed (rudaporto).
     * Card #607: fixed the cancellation mail action to Creative when the Assignment is cancelled (rudaporto).
+    * Card #612: fixed failure when trying to get the timezone from a Order.assignment with None value (rudaporto).
+    * Card #613: OrderSubmitScoutMail and OrderSubmitCustomerMail now are disabled for Leads (rudaporto).
+    * Card #614: added new action to notify PM when assignment have a new comment about scheduling issues (rudaporto).
 
 2.1.0 (2017-08-31)
 ------------------

@@ -41,6 +41,8 @@ class AssignmentMail(LeicaMail):
         :return: Payload to be added to the queue.
         """
         scheduled_datetime = self._extract_scheduled_datetime()
+        professional = data.get('professional')
+        pofessional = professional if professional else {}
         payload_item = {}
         payload_item.update(base_payload)
         payload_item['fullname'] = recipient.get('fullname')
@@ -59,7 +61,8 @@ class AssignmentMail(LeicaMail):
             'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'NUMBER_REQUIRED_ASSETS': data.get('number_required_assets'),
-            'REQUIREMENTS': data.get('requirements')
+            'REQUIREMENTS': data.get('requirements'),
+            'CREATIVE_NAME': pofessional.get('title')
         }
         subject = self.subject.format(**payload_item['data'])
         payload_item['subject'] = subject
@@ -231,3 +234,12 @@ class AssignmentWfPermRejectPMMail(AssignmentPMMail):
 
     template_name = 'platform-set-permanently-rejected'
     subject = 'Important: Your set {SLUG} was permanently rejected'
+
+
+@adapter(events.IAssignmentWfSchedulingIssues)
+@implementer(IMail)
+class AssignmentWfSchedulingIssuesPMMail(AssignmentPMMail):
+    """Email to PM when an scheduling issue is reported for an assignment."""
+
+    template_name = 'platform-assignment-scheduling-issues'
+    subject = '{CREATIVE_NAME} has reported scheduling issues'

@@ -48,7 +48,7 @@ LEICA_EVENTS = [
     ('assignment.workflow.retract_rejection', 1),
     ('assignment.workflow.return_to_qa', 1),
     ('assignment.workflow.schedule', 2),
-    ('assignment.workflow.scheduling_issues', 1),
+    ('assignment.workflow.scheduling_issues', 2),
     ('assignment.workflow.self_assign', 2),
     ('assignment.workflow.start_post_process', 2),
     ('assignment.workflow.submit', 2),

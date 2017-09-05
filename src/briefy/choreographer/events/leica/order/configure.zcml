@@ -59,10 +59,12 @@
         <adapter name="order.workflow.set_availability" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSetAvailability" />
 
     <utility name="order.workflow.edit_location" component=".order.OrderWfEditLocation" provides=".order.IOrderWfEditLocation" />
-        <adapter name="order.workflow.edit_location" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
+        <adapter name="order.workflow.edit_location.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderWfEditLocationPMMail" />
+        <adapter name="order.workflow.edit_location.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
 
     <utility name="order.workflow.edit_requirements" component=".order.OrderWfEditRequirements" provides=".order.IOrderWfEditRequirements" />
-        <adapter name="order.workflow.edit_requirements" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
+        <adapter name="order.workflow.edit_requirements.pm.mail" factory="briefy.choreographer.actions.mail.leica.order.OrderWfEditRequirementsPMMail" />
+        <adapter name="order.workflow.edit_requirements.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
 
 
     <!-- LeadOrder events -->

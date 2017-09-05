@@ -287,3 +287,21 @@ class OrderRemoveAvailabilityCreativeMail(OrderCreativeMail):
 
     template_name = 'platform-order-cancellation-creative'
     subject = 'Important: Assignment {ASSIGNMENT_ID} cancelled'
+
+
+@adapter(events.IOrderWfEditRequirements)
+@implementer(IMail)
+class OrderWfEditRequirementsPMMail(OrderPMMail):
+    """Email to PM on edit requirements."""
+
+    template_name = 'platform-assignment-requirements-edited'
+    subject = 'Important: Your Briefy Assignment {SLUG} was updated'
+
+
+@adapter(events.IOrderWfEditLocation)
+@implementer(IMail)
+class OrderWfEditLocationPMMail(OrderPMMail):
+    """Email to PM on edit location / contact info."""
+
+    template_name = 'platform-assignment-location-edited'
+    subject = 'Important: Your Briefy Assignment {SLUG} was updated'

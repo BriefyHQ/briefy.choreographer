@@ -14,6 +14,8 @@ History
     * Card #612: fixed failure when trying to get the timezone from a Order.assignment with None value (rudaporto).
     * Card #613: OrderSubmitScoutMail and OrderSubmitCustomerMail now are disabled for Leads (rudaporto).
     * Card #614: added new action to notify PM when assignment have a new comment about scheduling issues (rudaporto).
+    * Card #615: added new action to notify PM when order location is updated (rudaporto).
+    * Card #616: added new action to notify PM when order requirements is updated (rudaporto).
 
 2.1.0 (2017-08-31)
 ------------------

@@ -191,7 +191,7 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
         data = self.data
         number_of_approvals = 0
         for history in data.get('state_history', []):
-            if history.get('to') == 'approved' and history.get('from') == 'in_qa':
+            if history.get('to') == 'approved':
                 number_of_approvals = number_of_approvals + 1
         return number_of_approvals == 1 and available
 

@@ -30,7 +30,8 @@
         <!-- <adapter name="assignment.workflow.invalidate_assets.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfInvalidateAssets.AssignmentWfInvalidateAssets" /> -->
 
     <utility name="assignment.workflow.perm_reject" component=".AssignmentWfPermReject" provides=".IAssignmentWfPermReject" />
-        <!-- <adapter name="assignment.workflow.perm_reject.email" factory="briefy.choreographer.actions.mail.leica.AssignmentWfPermReject.AssignmentWfPermReject" /> -->
+        <adapter name="assignment.workflow.perm_reject.creative.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfPermRejectCreativeMail" />
+        <adapter name="assignment.workflow.perm_reject.pm.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfPermRejectPMMail" />
         <adapter name="assignment.workflow.perm_reject.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfPermReject" />
 
     <utility name="assignment.workflow.publish" component=".AssignmentWfPublish" provides=".IAssignmentWfPublish" />
@@ -75,6 +76,7 @@
         <adapter name="assignment.workflow.schedule.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSchedule" />
 
     <utility name="assignment.workflow.scheduling_issues" component=".AssignmentWfSchedulingIssues" provides=".IAssignmentWfSchedulingIssues" />
+        <adapter name="assignment.workflow.scheduling_issues.email.pm" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfSchedulingIssuesPMMail" />
         <adapter name="assignment.workflow.scheduling_issues.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSchedulingIssues" />
 
     <utility name="assignment.workflow.self_assign" component=".AssignmentWfSelfAssign" provides=".IAssignmentWfSelfAssign" />

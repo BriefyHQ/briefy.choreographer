@@ -59,16 +59,21 @@
         <adapter name="order.workflow.set_availability" factory="briefy.choreographer.actions.slack.leica.order.OrderWfSetAvailability" />
 
     <utility name="order.workflow.edit_location" component=".order.OrderWfEditLocation" provides=".order.IOrderWfEditLocation" />
-        <adapter name="order.workflow.edit_location" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
+        <adapter name="order.workflow.edit_location.pm.email" factory="briefy.choreographer.actions.mail.leica.order.OrderWfEditLocationPMMail" />
+        <adapter name="order.workflow.edit_location.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditLocation" />
 
     <utility name="order.workflow.edit_requirements" component=".order.OrderWfEditRequirements" provides=".order.IOrderWfEditRequirements" />
-        <adapter name="order.workflow.edit_requirements" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
+        <adapter name="order.workflow.edit_requirements.pm.mail" factory="briefy.choreographer.actions.mail.leica.order.OrderWfEditRequirementsPMMail" />
+        <adapter name="order.workflow.edit_requirements.slack" factory="briefy.choreographer.actions.slack.leica.order.OrderWfEditRequirements" />
 
 
     <!-- LeadOrder events -->
     <utility name="leadorder.created" component=".leadorder.LeadOrderCreated" provides=".leadorder.ILeadOrderCreated" />
     <utility name="leadorder.updated" component=".leadorder.LeadOrderUpdated" provides=".leadorder.ILeadOrderUpdated" />
     <utility name="leadorder.workflow.confirm" component=".leadorder.LeadOrderWfConfirm" provides=".leadorder.ILeadOrderWfConfirm" />
+        <adapter name="leadorder.workflow.confirm.scout.mail" factory="briefy.choreographer.actions.mail.leica.leadorder.LeadOrderWfConfirmScoutMail" />
+        <adapter name="leadorder.workflow.confirm.pm.mail" factory="briefy.choreographer.actions.mail.leica.leadorder.LeadOrderWfConfirmPMMail" />
+
     <utility name="leadorder.workflow.remove_confirmation" component=".leadorder.LeadOrderWfRemoveConfirmation" provides=".leadorder.ILeadOrderWfRemoveConfirmation" />
     <utility name="leadorder.workflow.accept" component=".leadorder.LeadOrderWfAccept" provides=".leadorder.ILeadOrderWfAccept" />
     <utility name="leadorder.workflow.assign" component=".leadorder.LeadOrderWfAssign" provides=".leadorder.ILeadOrderWfAssign" />

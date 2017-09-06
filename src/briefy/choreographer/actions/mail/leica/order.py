@@ -27,7 +27,8 @@ class OrderMail(LeicaMail):
         :return: A string representation of scheduled_datetime already in the correct timezone.
         """
         data = self.data
-        assignment = data.get('assignment', {})
+        assignment = data.get('assignment')
+        assignment = assignment if assignment else {}
         timezone = data.get('timezone', assignment.get('timezone', ''))
         scheduled_datetime = assignment.get(
             'scheduled_datetime', data.get('scheduled_datetime', '')
@@ -45,10 +46,13 @@ class OrderMail(LeicaMail):
         :return: Payload to be added to the queue.
         """
         scheduled_datetime = self._extract_scheduled_datetime()
-        assignment = data.get('assignment', {})
-        assignment_id = ''
-        if assignment:
-            assignment_id = assignment.get('slug', '')
+        assignment = data.get('assignment')
+        assignment = assignment if assignment else {}
+        assignment_id = assignment.get('slug', '')
+        location = data.get('location', {})
+        additional_phone = location.get('additional_phone', '')
+        mobile = location.get('mobile', additional_phone)
+        contact_phone = f'{mobile} / {additional_phone}' if mobile and additional_phone else mobile
         payload_item = {}
         payload_item.update(base_payload)
         payload_item['fullname'] = recipient.get('fullname')
@@ -65,7 +69,9 @@ class OrderMail(LeicaMail):
             'CUSTOMER': data.get('customer', {}).get('title'),
             'CUSTOMER_ORDER_ID': data.get('customer_order_id', ''),
             'PROJECT': data.get('project', {}).get('title'),
-            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address'),
+            'CONTACT_FULLNAME': location.get('fullname'),
+            'CONTACT_PHONE': contact_phone,
+            'FORMATTED_ADDRESS': location.get('formatted_address'),
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'SUBJECT': self.subject,
         }
@@ -168,7 +174,8 @@ class OrderSubmitScoutMail(OrderScoutMail):
         available = super().available
         data = self.data
         source = data['source']
-        return (source == 'customer') and available
+        is_order = data.get('current_type', None) == 'order'
+        return (source == 'customer') and is_order and available
 
 
 @adapter(events.IOrderWfSubmit)
@@ -195,7 +202,8 @@ class OrderSubmitCustomerMail(OrderCustomerMail):
         available = super().available
         data = self.data
         source = data['source']
-        return (source == 'customer') and available
+        is_order = data.get('current_type', None) == 'order'
+        return (source == 'customer') and is_order and available
 
 
 # Customer Cancels an Order
@@ -284,3 +292,21 @@ class OrderRemoveAvailabilityCreativeMail(OrderCreativeMail):
 
     template_name = 'platform-order-cancellation-creative'
     subject = 'Important: Assignment {ASSIGNMENT_ID} cancelled'
+
+
+@adapter(events.IOrderWfEditRequirements)
+@implementer(IMail)
+class OrderWfEditRequirementsPMMail(OrderPMMail):
+    """Email to PM on edit requirements."""
+
+    template_name = 'platform-assignment-requirements-edited'
+    subject = 'Important: Your Briefy Assignment {SLUG} was updated'
+
+
+@adapter(events.IOrderWfEditLocation)
+@implementer(IMail)
+class OrderWfEditLocationPMMail(OrderPMMail):
+    """Email to PM on edit location / contact info."""
+
+    template_name = 'platform-assignment-location-edited'
+    subject = 'Important: Your Briefy Assignment {SLUG} was updated'

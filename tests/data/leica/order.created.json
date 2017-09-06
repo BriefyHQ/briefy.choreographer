@@ -313,6 +313,7 @@
   ],
   "price": 35380,
   "price_currency": "EUR",
+  "current_type": "order",
   "updated_at": "2017-01-25T01:32:34.713275+00:00",
   "briefing": "https://files.stg.briefy.co/files/projects/1dafb433-9431-4295-a349-92c4ad61c59e/briefing/agodabalibriefing.pdf",
   "customer_id": "d466091b-98c5-4f9d-81a6-ecbc83dd3386",

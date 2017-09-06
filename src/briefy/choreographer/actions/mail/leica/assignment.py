@@ -41,6 +41,12 @@ class AssignmentMail(LeicaMail):
         :return: Payload to be added to the queue.
         """
         scheduled_datetime = self._extract_scheduled_datetime()
+        professional = data.get('professional')
+        pofessional = professional if professional else {}
+        location = data.get('location', {})
+        additional_phone = location.get('additional_phone', '')
+        mobile = location.get('mobile', additional_phone)
+        contact_phone = f'{mobile} / {additional_phone}' if mobile and additional_phone else mobile
         payload_item = {}
         payload_item.update(base_payload)
         payload_item['fullname'] = recipient.get('fullname')
@@ -54,12 +60,13 @@ class AssignmentMail(LeicaMail):
             'FULLNAME': recipient.get('fullname'),
             'SLUG': data.get('slug'),
             'PROJECT': data.get('project', {}).get('title', ''),
-            'FORMATTED_ADDRESS': data.get('location', {}).get('formatted_address', ''),
-            'CONTACT_FULLNAME': data.get('location', {}).get('fullname', ''),
-            'CONTACT_PHONE': data.get('location', {}).get('mobile', ''),
+            'FORMATTED_ADDRESS': location.get('formatted_address', ''),
+            'CONTACT_FULLNAME': location.get('fullname', ''),
+            'CONTACT_PHONE': contact_phone,
             'SCHEDULED_SHOOT_TIME': scheduled_datetime,
             'NUMBER_REQUIRED_ASSETS': data.get('number_required_assets'),
-            'REQUIREMENTS': data.get('requirements')
+            'REQUIREMENTS': data.get('requirements'),
+            'CREATIVE_NAME': pofessional.get('title')
         }
         subject = self.subject.format(**payload_item['data'])
         payload_item['subject'] = subject
@@ -82,7 +89,7 @@ class AssignmentPMMail(AssignmentMail):
     """Base class for emails sent to the PM on Order events."""
 
     @property
-    def recipient(self) -> t.List[dict]:
+    def recipients(self) -> t.List[dict]:
         """Return the data to be used as the recipient of this message."""
         return self._recipients('project_managers')
 
@@ -177,6 +184,17 @@ class AssignmentApproveCreativeMail(AssignmentCreativeMail):
     template_name = 'platform-set-approved'
     subject = 'Good job! Your set has been approved!'
 
+    @property
+    def available(self) -> bool:
+        """Check if this action is available."""
+        available = super().available
+        data = self.data
+        number_of_approvals = 0
+        for history in data.get('state_history', []):
+            if history.get('to') == 'approved':
+                number_of_approvals = number_of_approvals + 1
+        return number_of_approvals == 1 and available
+
 
 @adapter(events.IAssignmentWfReject)
 @implementer(IMail)
@@ -213,3 +231,30 @@ class AssignmentRescheduleCreativeMail(AssignmentCreativeMailWithICS):
 
     template_name = 'platform-assignment-rescheduled'
     subject = 'Your New Shooting Time for Assignment {SLUG}'
+
+
+@adapter(events.IAssignmentWfPermReject)
+@implementer(IMail)
+class AssignmentWfPermRejectCreativeMail(AssignmentCreativeMail):
+    """Email to creative when QA permanently reject an assignment."""
+
+    template_name = 'platform-set-permanently-rejected'
+    subject = 'Important: Your set {SLUG} was permanently rejected'
+
+
+@adapter(events.IAssignmentWfPermReject)
+@implementer(IMail)
+class AssignmentWfPermRejectPMMail(AssignmentPMMail):
+    """Email to PM when QA permanently reject an assignment."""
+
+    template_name = 'platform-set-permanently-rejected'
+    subject = 'Important: Your set {SLUG} was permanently rejected'
+
+
+@adapter(events.IAssignmentWfSchedulingIssues)
+@implementer(IMail)
+class AssignmentWfSchedulingIssuesPMMail(AssignmentPMMail):
+    """Email to PM when an scheduling issue is reported for an assignment."""
+
+    template_name = 'platform-assignment-scheduling-issues'
+    subject = '{CREATIVE_NAME} has reported scheduling issues'

@@ -112,7 +112,7 @@ class AssignmentCalendarEvent:
         self.slug = kwargs['slug']
         duration = (kwargs['duration']) * 3600
         self._start = kwargs['scheduled_datetime']
-        self._end = self.start + timedelta(seconds=duration)
+        self._end = self.start + timedelta(seconds=duration) if self._start else None
         self.timezone = kwargs['timezone']
         self.address = kwargs['location']['formatted_address']
         self.geo = kwargs['location']['coordinates']['coordinates']
@@ -144,15 +144,21 @@ class AssignmentCalendarEvent:
     def start(self) -> datetime:
         """Event Start."""
         start = self._start
-        tz = pytz.timezone(self.timezone)
-        return start.astimezone(tz)
+        result = None
+        if start:
+            tz = pytz.timezone(self.timezone)
+            result = start.astimezone(tz)
+        return result
 
     @property
     def end(self) -> datetime:
         """Event End."""
         end = self._end
-        tz = pytz.timezone(self.timezone)
-        return end.astimezone(tz)
+        result = None
+        if end:
+            tz = pytz.timezone(self.timezone)
+            result = end.astimezone(tz)
+        return result
 
     @property
     def status(self) -> str:

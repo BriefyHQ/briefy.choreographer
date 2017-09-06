@@ -18,6 +18,7 @@ class TestLeadOrderCreatedCustomerMail(MailTest, BaseActionCase):
     action_class = actions.OrderSubmitCustomerMail
     action_info = 'notification - mail.queue - 100 - Order - OrderSubmitCustomerMail'
     event_class = events.LeadOrderWfSubmit
+    messages = 0
 
     def test_transform(self):
         """Test data transform."""
@@ -59,6 +60,7 @@ class TestLeadOrderCreatedScoutMail(MailTest, BaseActionCase):
     action_class = actions.OrderSubmitScoutMail
     action_info = 'notification - mail.queue - 100 - Order - OrderSubmitScoutMail'
     event_class = events.LeadOrderWfSubmit
+    messages = 0
 
     def test_transform(self):
         """Test data transform."""

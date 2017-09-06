@@ -2,6 +2,23 @@
 History
 =======
 
+2.1.1 (2017-09-05)
+------------------
+
+    * Card #608: added new action to notify Creative when assignment is permanently rejected (rudaporto).
+    * Card #609: added new action to notify PM when assignment is permanently rejected (rudaporto).
+    * Card #609: fixed a typo in AssignmentPMMail.recipients preventing all assignment email notifications do PM (rudaporto).
+    * Card #605: added new action to notify Scout team when a new Lead is confirmed (rudaporto).
+    * Card #606: added new action to notify PM when a new Lead is confirmed (rudaporto).
+    * Card #607: fixed the cancellation mail action to Creative when the Assignment is cancelled (rudaporto).
+    * Card #612: fixed failure when trying to get the timezone from a Order.assignment with None value (rudaporto).
+    * Card #613: OrderSubmitScoutMail and OrderSubmitCustomerMail now are disabled for Leads (rudaporto).
+    * Card #614: added new action to notify PM when assignment have a new comment about scheduling issues (rudaporto).
+    * Card #615: added new action to notify PM when order location is updated (rudaporto).
+    * Card #616: added new action to notify PM when order requirements is updated (rudaporto).
+    * Added location contact info to the Order email payload and improve in the Assignment email payload (rudaporto).
+    * Card #617: added an available check to AssignmentApproveCreativeMail to only send email in the first approval (rudaporto).
+
 2.1.0 (2017-08-31)
 ------------------
 

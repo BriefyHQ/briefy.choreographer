@@ -1,0 +1,614 @@
+{
+  "actor": "599a99c2-9bb4-443f-8891-e600a15e3c10",
+  "created_at": "2017-09-13T16:58:33.158546+00:00",
+  "data": {
+    "project": {
+      "id": "36d359f0-8e92-41bb-8d1c-fedfd60e7046",
+      "created_at": "2016-09-18T18:55:19.566193+00:00",
+      "state": "created",
+      "updated_at": "2017-09-13T16:58:22.507401+00:00",
+      "order_type": "order",
+      "project_type": "city",
+      "asset_types": [
+        "Image",
+        "Image360"
+      ],
+      "title": "Project 01",
+      "description": null,
+      "slug": "project-01",
+      "delivery": {
+        "approve": {
+          "archive": {
+            "driver": "gdrive",
+            "images": true,
+            "name": "order.customer_order_id",
+            "other": true,
+            "parentId": null,
+            "resize": [],
+            "subfolders": true
+          },
+          "delivery": {
+            "driver": "gdrive",
+            "images": true,
+            "name": "order.customer_order_id",
+            "other": false,
+            "parentId": null,
+            "resize": [],
+            "subfolders": false
+          }
+        }
+      }
+    },
+    "location": null,
+    "professional": {
+      "id": "23d94a43-3947-42fc-958c-09245ecca5f2",
+      "created_at": "2016-09-08T15:36:28.087112+00:00",
+      "state": "created",
+      "updated_at": "2017-09-13T16:58:22.105856+00:00",
+      "first_name": "Sebasti\u00e3o",
+      "last_name": "Salgado",
+      "description": "Sebasti\u00e3o Salgado (born February 8, 1944) is a Brazilian social documentary photographer.",
+      "mobile": "+49 176 37755722",
+      "email": "salgado@professional.briefy.co",
+      "photo_path": "source/profiles/23d94a43-3947-42fc-958c-09245ecca5f2/profile.jpg",
+      "title": "Sebasti\u00e3o Salgado",
+      "slug": "sebastiao-salgado"
+    },
+    "pool": null,
+    "order": {
+      "location": null,
+      "id": "011418fa-f450-4deb-b6ea-7f8e103a66d1",
+      "created_at": "2017-09-13T16:58:22.935721+00:00",
+      "state": "in_qa",
+      "updated_at": "2017-09-13T16:58:33.023090+00:00",
+      "price_currency": "EUR",
+      "customer_order_id": "aaaa",
+      "category": "company",
+      "number_required_assets": 100,
+      "scheduled_datetime": null,
+      "deliver_date": null,
+      "timezone": "Europe/Berlin",
+      "title": "Job Title 1",
+      "description": "Description 1",
+      "slug": "1709-EY3-LTI",
+      "price": 20000,
+      "delivery": null
+    },
+    "id": "c04dc102-7d3b-4574-a261-4bf72db571db",
+    "created_at": "2017-09-13T16:58:23.263154+00:00",
+    "state": "in_qa",
+    "updated_at": "2017-09-13T16:58:33.124858+00:00",
+    "payout_currency": "EUR",
+    "payout_value": 12000,
+    "travel_expenses": 1000,
+    "additional_compensation": 5000,
+    "reason_additional_compensation": null,
+    "payable": true,
+    "scheduled_datetime": "2017-09-23T16:58:31.333898+00:00",
+    "assignment_date": "2017-09-13T16:58:28.252578+00:00",
+    "last_approval_date": null,
+    "submission_date": "2017-09-13T16:58:31.581525+00:00",
+    "last_submission_date": "2017-09-13T16:58:31.837034+00:00",
+    "refused_times": 0,
+    "set_type": "new",
+    "order_id": "011418fa-f450-4deb-b6ea-7f8e103a66d1",
+    "pool_id": "58cbcdf7-47f7-4a10-9cbb-64888dbc645a",
+    "professional_id": "23d94a43-3947-42fc-958c-09245ecca5f2",
+    "asset_types": [
+      "Image"
+    ],
+    "submission_path": "https://drive.google.com/drive/folders/0BwrdIL719n7waUlleFJfZ1RGak0",
+    "release_contract": null,
+    "timezone": "Europe/Berlin",
+    "total_assets": 0,
+    "total_approvable_assets": 0,
+    "customer_approval_date": null,
+    "state_history": [
+      {
+        "to": "created",
+        "transition": "create",
+        "actor": null,
+        "message": null,
+        "date": "2016-09-18T18:55:20.224411+00:00",
+        "from": ""
+      },
+      {
+        "from": "created",
+        "to": "pending",
+        "date": "2017-09-13T16:58:23.488886+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "submit",
+        "message": ""
+      },
+      {
+        "from": "created",
+        "to": "pending",
+        "date": "2017-09-13T16:58:23.619452+00:00",
+        "actor": "599a99c2-9bb4-443f-8891-e600a15e3c10",
+        "transition": "submit",
+        "message": ""
+      },
+      {
+        "from": "created",
+        "to": "pending",
+        "date": "2017-09-13T16:58:23.751561+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "submit",
+        "message": ""
+      },
+      {
+        "from": "created",
+        "to": "pending",
+        "date": "2017-09-13T16:58:23.878127+00:00",
+        "actor": "a56f170c-41a5-4c4f-8b14-bae702e8bbf7",
+        "transition": "submit",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "published",
+        "date": "2017-09-13T16:58:24.008265+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "publish",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "published",
+        "date": "2017-09-13T16:58:24.163222+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "publish",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "published",
+        "date": "2017-09-13T16:58:24.299553+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "publish",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "published",
+        "date": "2017-09-13T16:58:24.441175+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "publish",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "pending",
+        "date": "2017-09-13T16:58:24.594247+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "retract",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "pending",
+        "date": "2017-09-13T16:58:24.763819+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "retract",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "pending",
+        "date": "2017-09-13T16:58:24.913288+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "retract",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:25.183512+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "self_assign",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:25.276493+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:25.692729+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "assign_pool",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:25.780740+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:26.172020+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "assign_pool",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:26.269227+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "published",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:26.687922+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "assign_pool",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:26.779853+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:27.296656+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "assign",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:27.610792+00:00",
+        "actor": "599a99c2-9bb4-443f-8891-e600a15e3c10",
+        "transition": "assign",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:27.930614+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "assign",
+        "message": ""
+      },
+      {
+        "from": "pending",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:28.252578+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "assign",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "cancelled",
+        "date": "2017-09-13T16:58:28.441016+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "cancel",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:28.638161+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "scheduling_issues",
+        "message": "Problem with this Schedule.\n\nPlease ask for a new date."
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:28.858650+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:29.153782+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:29.374641+00:00",
+        "actor": "a99a99c2-9bb3-443f-8891-e600a15e3c12",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "assigned",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:29.692362+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "schedule",
+        "message": ""
+      },
+      {
+        "from": "scheduled",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:29.911512+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "reschedule",
+        "message": ""
+      },
+      {
+        "from": "scheduled",
+        "to": "scheduled",
+        "date": "2017-09-13T16:58:30.137081+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "reschedule",
+        "message": ""
+      },
+      {
+        "from": "scheduled",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:30.385488+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "remove_schedule",
+        "message": ""
+      },
+      {
+        "from": "awaiting_assets",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:30.636359+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "remove_schedule",
+        "message": ""
+      },
+      {
+        "from": "scheduled",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:30.862270+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "remove_schedule",
+        "message": ""
+      },
+      {
+        "from": "awaiting_assets",
+        "to": "assigned",
+        "date": "2017-09-13T16:58:31.095652+00:00",
+        "actor": {
+          "id": "669a99c2-9bb3-443f-8891-e600a15e3c10",
+          "first_name": "Sebasti\u00e3o",
+          "last_name": "Salgado",
+          "fullname": "Sebasti\u00e3o Salgado",
+          "email": "salgado1@professional.briefy.co",
+          "internal": true
+        },
+        "transition": "remove_schedule",
+        "message": ""
+      },
+      {
+        "from": "scheduled",
+        "to": "awaiting_assets",
+        "date": "2017-09-13T16:58:31.334754+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "ready_for_upload",
+        "message": ""
+      },
+      {
+        "from": "awaiting_assets",
+        "to": "asset_validation",
+        "date": "2017-09-13T16:58:31.581525+00:00",
+        "actor": "679a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "upload",
+        "message": ""
+      },
+      {
+        "from": "awaiting_assets",
+        "to": "asset_validation",
+        "date": "2017-09-13T16:58:31.837034+00:00",
+        "actor": "999a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "upload",
+        "message": ""
+      },
+      {
+        "from": "asset_validation",
+        "to": "awaiting_assets",
+        "date": "2017-09-13T16:58:32.080509+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "invalidate_assets",
+        "message": "Invalidated by Ms. Laure"
+      },
+      {
+        "from": "asset_validation",
+        "to": "awaiting_assets",
+        "date": "2017-09-13T16:58:32.379285+00:00",
+        "actor": "599a99c2-9bb4-443f-8891-e600a15e3c10",
+        "transition": "invalidate_assets",
+        "message": "Invalidated by Ms. Laure"
+      },
+      {
+        "from": "asset_validation",
+        "to": "in_qa",
+        "date": "2017-09-13T16:58:32.747574+00:00",
+        "actor": "769a99c2-9bb3-443f-8891-e600a15e3c10",
+        "transition": "validate_assets",
+        "message": "Validated by Ms. Laure"
+      },
+      {
+        "from": "asset_validation",
+        "to": "in_qa",
+        "date": "2017-09-13T16:58:33.102504+00:00",
+        "actor": "599a99c2-9bb4-443f-8891-e600a15e3c10",
+        "transition": "validate_assets",
+        "message": "Validated by Ms. Laure"
+      }
+    ],
+    "title": "Job Title 1",
+    "description": "Description 1",
+    "briefing": null,
+    "last_transition_message": "Validated by Ms. Laure",
+    "closed_on_date": "2017-09-13T16:58:28.441016+00:00",
+    "availability": [
+      "2027-10-12T12:00:00+00:00",
+      "2027-10-13T12:00:00+00:00"
+    ],
+    "external_state": "in_qa",
+    "category": "company",
+    "tech_requirements": {},
+    "assignment_internal_scout": [
+      {}
+    ],
+    "assignment_internal_qa": [
+      {}
+    ],
+    "requirement_items": [
+      {
+        "id": "18a1d349-e432-4ca9-9617-81bb005d26bc",
+        "category": "Room 47",
+        "min_number_assets": 15,
+        "description": "Shoot the television and the bed",
+        "tags": [
+          "room",
+          "luxury",
+          "double"
+        ],
+        "created_at": "2017-09-08T09:19:40.670050+00:00",
+        "created_by": "669a99c2-9bb3-443f-8891-e600a15e3c10"
+      },
+      {
+        "id": "33261769-20e6-4ec6-b793-d1147de98a90",
+        "category": "Bathroom 47",
+        "min_number_assets": 15,
+        "description": "",
+        "tags": [
+          "bathroom"
+        ],
+        "created_at": "2017-09-08T09:19:40.670050+00:00",
+        "created_by": "669a99c2-9bb3-443f-8891-e600a15e3c10"
+      },
+      {
+        "id": "48401f9a-a243-4606-a29c-cb1514fae722",
+        "category": "Room 32",
+        "min_number_assets": 15,
+        "description": "Shoot the ceiling",
+        "tags": [
+          "room",
+          "standard",
+          "single"
+        ],
+        "created_at": "2017-09-08T09:19:40.670050+00:00",
+        "created_by": "669a99c2-9bb3-443f-8891-e600a15e3c10"
+      }
+    ],
+    "slug": "1709-EY3-LTI_01",
+    "number_required_assets": 100,
+    "approvable": false,
+    "requirements": "Requirement 1",
+    "delivery": null,
+    "current_type": "order",
+    "_roles": {
+      "assignment_internal_qa": [
+        "f5c2199f-6ed7-4ff8-90df-d1a98249f5e7"
+      ],
+      "assignment_internal_scout": [
+        "769a99c2-9bb3-443f-8891-e600a15e3c10"
+      ],
+      "customer_manager": [
+        "83c0ea60-1d60-4d4b-ac63-0e5bfad1ef9d"
+      ],
+      "customer_pm": [
+        "83c0ea60-1d60-4d4b-2c63-0e5bfad1ef9d"
+      ],
+      "customer_qa": [
+        "83c0ea60-1d60-4d4b-2c63-0e5bfad1ef9d"
+      ],
+      "internal_account": [
+        "a9d06928-0878-45a0-9380-8702965e79c1"
+      ],
+      "internal_pm": [
+        "dd96235d-aeda-4c63-83dc-7d0e7deb1c62"
+      ],
+      "internal_qa": [
+        "f5c2199f-6ed7-4ff8-90df-d1a98249f5e7"
+      ],
+      "internal_scout": [
+        "d0a01ec8-8f6c-462d-a061-6998195a3e03"
+      ],
+      "order_customer_qa": [
+        "83c0ea60-1d60-4d4b-2c63-0e5bfad1ef9d"
+      ],
+      "professional_user": [
+        "23d94a43-3947-42fc-958c-09245ecca5f2"
+      ],
+      "project_customer_pm": [
+        "83c0ea60-1d60-4d4b-2c63-0e5bfad1ef9d"
+      ],
+      "project_customer_qa": [
+        "83c0ea60-1d60-4d4b-2c63-0e5bfad1ef9d"
+      ]
+    },
+    "_actors": {
+      "23d94a43-3947-42fc-958c-09245ecca5f2": {
+        "first_name": "Sebasti\u00e3o",
+        "last_name": "Salgado",
+        "fullname": "Sebasti\u00e3o Salgado",
+        "email": "salgado@professional.briefy.co",
+        "internal": true
+      }
+    },
+    "internal_pm": [
+      {}
+    ]
+  },
+  "event_name": "assignment.workflow.validate_assets",
+  "guid": "c04dc102-7d3b-4574-a261-4bf72db571db",
+  "request_id": ""
+}

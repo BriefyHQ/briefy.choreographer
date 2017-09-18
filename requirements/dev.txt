@@ -5,8 +5,8 @@ Sphinx==1.5.5
 alabaster==0.7.10
 coverage==4.4
 graphviz
-pytest==3.0.7
-pytest-cov==2.5.0
+pytest==3.2.2
+pytest-cov==2.5.1
 snowballstemmer==1.2.1
 sphinx-autodoc-typehints
 sphinx-bootstrap-theme==0.4.14

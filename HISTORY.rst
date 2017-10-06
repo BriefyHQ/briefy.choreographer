@@ -2,9 +2,16 @@
 History
 =======
 
-2.1.2 (Unreleased)
+2.1.3 (Unreleased)
 ------------------
+
     * Card #646: New action to route assignment workflow transition read_for_upload event to ms.laure delivery queue (rudaporto).
+
+2.1.2 (2017-10-06)
+------------------
+
+    * Fix briefy.leads quote events' handlers (ericof).
+    * Add Additional Info and Category to Quote actions (ericof).
 
 2.1.1 (2017-09-05)
 ------------------

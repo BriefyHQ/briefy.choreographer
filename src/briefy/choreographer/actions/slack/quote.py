@@ -55,7 +55,7 @@ class QuoteCreated(QuoteSlack):
                  'short': True,
                  },
                 {'title': 'Quote category',
-                 'value': data.get('category', ''),
+                 'value': data.get('category', 'general'),
                  'short': True,
                  },
                 {'title': 'Additional Info',

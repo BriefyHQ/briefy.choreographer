@@ -38,8 +38,8 @@ class TestQuoteCreated(BaseActionCase):
         phone_number = fields[2]
         company = fields[3]
         company_site = fields[4]
-
-        assert all(isinstance(field, dict) and field['short'] is True for field in fields)
+        category = fields[5]
+        additional_info = fields[6]
 
         assert fullname['title'] == 'Fullname'
         assert fullname['value'] == 'Leo Aslam'
@@ -55,3 +55,9 @@ class TestQuoteCreated(BaseActionCase):
 
         assert company_site['title'] == 'Company Site'
         assert company_site['value'] == 'https://briefy.co'
+
+        assert category['title'] == 'Quote category'
+        assert category['value'] == 'general'
+
+        assert category['title'] == 'Additional Info'
+        assert category['value'] == ''

@@ -59,5 +59,5 @@ class TestQuoteCreated(BaseActionCase):
         assert category['title'] == 'Quote category'
         assert category['value'] == 'general'
 
-        assert category['title'] == 'Additional Info'
-        assert category['value'] == ''
+        assert additional_info['title'] == 'Additional Info'
+        assert additional_info['value'] == ''

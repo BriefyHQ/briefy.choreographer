@@ -29,9 +29,9 @@ class QuoteCreated(QuoteSlack):
         first_name = data['first_name']
         last_name = data['last_name']
         fullname = f'{first_name} {last_name}'
-        payload_item['title'] = 'New Quote created!'
-        payload_item['text'] = 'New Quote request was created, please take a look into the details:'
-        payload_item['username'] = 'Briefy Bot'
+        payload_item['title'] = 'A quote was created!'
+        payload_item['text'] = 'A quote request was created, please take a look into the details:'
+        payload_item['username'] = 'Tireless Business Developer'
         payload_item['data'] = {
             'fields': [
                 {'title': 'Fullname',
@@ -53,6 +53,14 @@ class QuoteCreated(QuoteSlack):
                 {'title': 'Company Site',
                  'value': data.get('company_site', ''),
                  'short': True,
+                 },
+                {'title': 'Quote category',
+                 'value': data.get('category', 'general'),
+                 'short': True,
+                 },
+                {'title': 'Additional Info',
+                 'value': data.get('additional_info', ''),
+                 'short': False,
                  },
             ]
         }

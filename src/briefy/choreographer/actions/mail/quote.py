@@ -48,5 +48,22 @@ class QuoteMail(Mail):
 class QuoteCreated(QuoteMail):
     """After creating a new Quote, send an email."""
 
-    template_name = 'briefy-new-quote'
-    subject = 'Your Quote has been Requested!'
+    @property
+    def subject(self):
+        """Return the subject line based on the category of this quote."""
+        subject = 'Your Quote has been Requested!'
+        data = self.data
+        category = data.get('category', 'general')
+        if category == 'hotels':
+            subject = 'Thank you for the interest.'
+        return subject
+
+    @property
+    def template_name(self):
+        """Return the template name based on the category of this quote."""
+        template_name = 'briefy-new-quote'
+        data = self.data
+        category = data.get('category', 'general')
+        if category == 'hotels':
+            template_name = 'briefy-hotels-new-quote'
+        return template_name

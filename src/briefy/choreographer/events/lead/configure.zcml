@@ -3,6 +3,9 @@
     <!-- Get all lead events -->
     <subscriber for="briefy.choreographer.events.lead.ILeadEvent" handler="briefy.choreographer.events.subscribers.handler" />
 
+    <!-- Get all quote events -->
+    <subscriber for="briefy.choreographer.events.lead.IQuoteEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
     <!-- Lead and Quote Flow events -->
     <utility name="lead.created" component=".LeadCreated" provides=".ILeadCreated" />
         <adapter name="lead.created.email" factory="briefy.choreographer.actions.mail.lead.LeadCreated" />

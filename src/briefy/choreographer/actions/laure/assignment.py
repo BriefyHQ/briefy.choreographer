@@ -10,7 +10,7 @@ from zope.interface import implementer
 @adapter(events.IAssignmentWfUpload)
 @implementer(ILaureAction)
 class AssignmentWfUpload(LaureValidationAction):
-    """Send assignment uploaded to Ms. Laure."""
+    """Send assignment uploaded to Ms. Laure validation queue."""
 
     entity = 'Assignment'
     weight = 100
@@ -19,7 +19,7 @@ class AssignmentWfUpload(LaureValidationAction):
 @adapter(events.IAssignmentWfApprove)
 @implementer(ILaureAction)
 class AssignmentWfApprove(LaureDeliveryAction):
-    """Send assignment approved to Ms. Laure."""
+    """Send assignment approved to Ms. Laure delivery queue."""
 
     entity = 'Assignment'
     weight = 100
@@ -28,7 +28,16 @@ class AssignmentWfApprove(LaureDeliveryAction):
 @adapter(events.IAssignmentWfStartPostProcess)
 @implementer(ILaureAction)
 class AssignmentWfStartPostProcess(LaureDeliveryAction):
-    """Send assignment start post process to Ms. Laure."""
+    """Send assignment start post process to Ms. Laure delivery queue."""
+
+    entity = 'Assignment'
+    weight = 100
+
+
+@adapter(events.IAssignmentWfReadyForUpload)
+@implementer(ILaureAction)
+class AssignmentWfReadyForUpload(LaureDeliveryAction):
+    """Send assignment ready for upload event to Ms. Laure delivery queue."""
 
     entity = 'Assignment'
     weight = 100

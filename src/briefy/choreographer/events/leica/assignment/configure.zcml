@@ -40,6 +40,7 @@
 
     <utility name="assignment.workflow.ready_for_upload" component=".AssignmentWfReadyForUpload" provides=".IAssignmentWfReadyForUpload" />
         <!-- <adapter name="assignment.workflow.ready_for_upload.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfReadyForUpload" /> -->
+        <adapter name="assignment.workflow.ready_for_upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfReadyForUpload" />
         <adapter name="assignment.workflow.ready_for_upload.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfReadyForUpload" />
 
     <utility name="assignment.workflow.refuse" component=".AssignmentWfRefuse" provides=".IAssignmentWfRefuse" />

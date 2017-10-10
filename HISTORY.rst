@@ -2,6 +2,11 @@
 History
 =======
 
+2.1.3 (2017-10-10)
+------------------
+
+    * Card #646: New action to route assignment workflow transition read_for_upload event to ms.laure delivery queue (rudaporto).
+
 2.1.2 (2017-10-06)
 ------------------
 

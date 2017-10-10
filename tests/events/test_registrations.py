@@ -38,7 +38,7 @@ LEICA_EVENTS = [
     ('assignment.workflow.invalidate_assets', 0),
     ('assignment.workflow.perm_reject', 3),
     ('assignment.workflow.publish', 1),
-    ('assignment.workflow.ready_for_upload', 1),
+    ('assignment.workflow.ready_for_upload', 2),
     ('assignment.workflow.refuse', 1),
     ('assignment.workflow.reject', 2),
     ('assignment.workflow.remove_schedule', 1),

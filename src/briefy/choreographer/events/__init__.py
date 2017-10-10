@@ -42,7 +42,7 @@ class InternalEvent:
         """Initialize the event with Message data."""
         self.actor = actor
         self.id = id
-        self.guid = guid
+        self.guid = guid or data.get('guid')
         self.request_id = request_id
         self.created_at = created_at
         self.data = data

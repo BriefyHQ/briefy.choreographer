@@ -2,6 +2,13 @@
 History
 =======
 
+2.1.4 (2017-10-11)
+------------------
+
+    * Card #678: added new IQueue name utility to write messages to briefy.reflex (rudaporto).
+    * Card #678: added new action to route order.workflow.accept messages from leica to reflex (rudaporto).
+    * Refactor ms.laure queue and actions to be used as generic route queue and route action implementation (rudaporto).
+
 2.1.3 (2017-10-10)
 ------------------
 

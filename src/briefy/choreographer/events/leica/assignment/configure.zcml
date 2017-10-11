@@ -11,7 +11,7 @@
         <adapter name="assignment.updated.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentUpdated" />
 
     <utility name="assignment.workflow.approve" component=".AssignmentWfApprove" provides=".IAssignmentWfApprove" />
-        <adapter name="assignment.workflow.approve.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfApprove" />
+        <adapter name="assignment.workflow.approve.route.laure" factory="briefy.choreographer.actions.route.assignment.AssignmentWfApprove" />
         <adapter name="assignment.workflow.approve.email.creative" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentApproveCreativeMail" />
         <adapter name="assignment.workflow.approve.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfApprove" />
 
@@ -40,7 +40,7 @@
 
     <utility name="assignment.workflow.ready_for_upload" component=".AssignmentWfReadyForUpload" provides=".IAssignmentWfReadyForUpload" />
         <!-- <adapter name="assignment.workflow.ready_for_upload.email" factory="briefy.choreographer.actions.mail.leica.assignment.AssignmentWfReadyForUpload" /> -->
-        <adapter name="assignment.workflow.ready_for_upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfReadyForUpload" />
+        <adapter name="assignment.workflow.ready_for_upload.route.laure" factory="briefy.choreographer.actions.route.assignment.AssignmentWfReadyForUpload" />
         <adapter name="assignment.workflow.ready_for_upload.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfReadyForUpload" />
 
     <utility name="assignment.workflow.refuse" component=".AssignmentWfRefuse" provides=".IAssignmentWfRefuse" />
@@ -89,7 +89,7 @@
         <adapter name="assignment.workflow.submit.slack.scout" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfSubmitScout" />
 
     <utility name="assignment.workflow.upload" component=".AssignmentWfUpload" provides=".IAssignmentWfUpload" />
-        <adapter name="assignment.workflow.upload.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfUpload" />
+        <adapter name="assignment.workflow.upload.route.laure" factory="briefy.choreographer.actions.route.assignment.AssignmentWfUpload" />
         <adapter name="assignment.workflow.upload.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfUpload" />
 
     <utility name="assignment.workflow.validate_assets" component=".AssignmentWfValidateAssets" provides=".IAssignmentWfValidateAssets" />
@@ -104,7 +104,7 @@
 
     <utility name="assignment.workflow.assign_pool" component=".AssignmentWfAssignPool" provides=".IAssignmentWfAssignPool" />
     <utility name="assignment.workflow.start_post_process" component=".AssignmentWfStartPostProcess" provides=".IAssignmentWfStartPostProcess" />
-        <adapter name="assignment.workflow.start_post_process.laure" factory="briefy.choreographer.actions.laure.assignment.AssignmentWfStartPostProcess" />
+        <adapter name="assignment.workflow.start_post_process.route.laure" factory="briefy.choreographer.actions.route.assignment.AssignmentWfStartPostProcess" />
         <adapter name="assignment.workflow.start_post_process.slack" factory="briefy.choreographer.actions.slack.leica.assignment.AssignmentWfStartPostProcess" />
 
 </configure>

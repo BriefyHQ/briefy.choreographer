@@ -5,7 +5,9 @@
 
     <utility name="order.created" component=".order.OrderCreated" provides=".order.IOrderCreated" />
     <utility name="order.updated" component=".order.OrderUpdated" provides=".order.IOrderUpdated" />
+
     <utility name="order.workflow.accept" component=".order.OrderWfAccept" provides=".order.IOrderWfAccept" />
+        <adapter name="order.workflow.accept.route.reflex" factory="briefy.choreographer.actions.route.order.OrderWfAccept" />
 
     <utility name="order.workflow.assign" component=".order.OrderWfAssign" provides=".order.IOrderWfAssign" />
         <adapter name="order.workflow.assign.email.customer" factory="briefy.choreographer.actions.mail.leica.order.OrderAssignedCustomerMail" />

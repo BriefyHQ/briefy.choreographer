@@ -1,6 +1,7 @@
 """Tests for `briefy.choreographer.queues` module."""
-from briefy.choreographer.queues.laure import DeliveryQueue
-from briefy.choreographer.queues.laure import ValidationQueue
+from briefy.choreographer.queues.route import LaureDeliveryQueue
+from briefy.choreographer.queues.route import LaureValidationQueue
+from briefy.choreographer.queues.route import ReflexQueue
 from conftest import BaseQueueCase
 
 
@@ -254,11 +255,8 @@ payload = {
 }
 
 
-class TestLaureValidationQueue(BaseQueueCase):
-    """Tests for Choreographer Ms Laure validation queue."""
-
-    queue = ValidationQueue
-    utility_name = 'laure.queue'
+class BaseRouteQueueBase(BaseQueueCase):
+    """Tests for Choreographer route queue."""
 
     def get_payload(self):
         """Payload for the Ms. laure queue."""
@@ -291,8 +289,22 @@ class TestLaureValidationQueue(BaseQueueCase):
         assert messages[0].body['data']['total_assets'] == payload['data']['total_assets']
 
 
-class TestLaureDeliveryQueue(TestLaureValidationQueue):
+class TestLaureValidationQueue(BaseRouteQueueBase):
+    """Tests for Choreographer Ms Laure validation queue."""
+
+    queue = LaureValidationQueue
+    utility_name = 'laure.queue'
+
+
+class TestLaureDeliveryQueue(BaseRouteQueueBase):
     """Tests for Choreographer Ms Laure delivery queue."""
 
-    queue = DeliveryQueue
+    queue = LaureDeliveryQueue
     utility_name = 'delivery.queue'
+
+
+class TestReflexQueue(BaseRouteQueueBase):
+    """Tests for Choreographer briefy.reflex queue."""
+
+    queue = ReflexQueue
+    utility_name = 'reflex.queue'

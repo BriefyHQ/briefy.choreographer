@@ -34,6 +34,9 @@ SLACK_QUEUE = config('SLACK_QUEUE', default='slack-{0}'.format(_queue_suffix))
 LAURE_VALIDATION_QUEUE = config('LAURE_VALIDATION_QUEUE', default='laure-{0}'.format(_queue_suffix))
 LAURE_DELIVERY_QUEUE = config('LAURE_DELIVERY_QUEUE', default='delivery-{0}'.format(_queue_suffix))
 
+# Reflex
+REFLEX_QUEUE = config('REFLEX_QUEUE', default='reflex-{0}'.format(_queue_suffix))
+
 # Leica
 LEICA_QUEUE = config('LEICA_QUEUE', default='leica-{0}'.format(_queue_suffix))
 

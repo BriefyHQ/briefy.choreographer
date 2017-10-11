@@ -1,6 +1,6 @@
 """Briefy notification action for mail sent events tests."""
-from briefy.choreographer.actions.laure import ILaureAction
-from briefy.choreographer.actions.laure.assignment import AssignmentWfReadyForUpload
+from briefy.choreographer.actions.route import IRouteAction
+from briefy.choreographer.actions.route.assignment import AssignmentWfReadyForUpload
 from briefy.choreographer.events.leica import assignment as events
 from conftest import BaseActionCase
 
@@ -9,7 +9,7 @@ class TestMailSent(BaseActionCase):
     """Test for laure handling on Mail sent."""
 
     action_class = AssignmentWfReadyForUpload
-    action_interface = ILaureAction
+    action_interface = IRouteAction
     action_info = 'service_message - delivery.queue - 100 - Assignment - AssignmentWfReadyForUpload'
     event_class = events.AssignmentWfReadyForUpload
     data_file = 'leica/assignment.workflow.ready_for_upload.json'

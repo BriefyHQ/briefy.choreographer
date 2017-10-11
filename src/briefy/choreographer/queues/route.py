@@ -1,6 +1,7 @@
 """Ms Laure Queue."""
 from briefy.choreographer.config import LAURE_DELIVERY_QUEUE
 from briefy.choreographer.config import LAURE_VALIDATION_QUEUE
+from briefy.choreographer.config import REFLEX_QUEUE
 from briefy.common.queue import IQueue
 from briefy.common.queue import Queue
 from briefy.common.utils.schema import Dictionary
@@ -33,12 +34,13 @@ class Schema(colander.MappingSchema):
     """Payload to be sent with the slack message."""
 
 
-@implementer(IQueue)
-class ValidationQueue(Queue):
-    """A Queue to handle validation messages to Ms. Laure."""
+class BaseRouteQueue(Queue):
+    """A Queue to route messages to another queue."""
 
-    name = LAURE_VALIDATION_QUEUE
     _schema = Schema
+
+    name = None
+    """This should be provided by subclass."""
 
     @property
     def payload(self) -> dict:
@@ -56,11 +58,21 @@ class ValidationQueue(Queue):
 
 
 @implementer(IQueue)
-class DeliveryQueue(ValidationQueue):
+class LaureValidationQueue(BaseRouteQueue):
+    """A Queue to handle validation messages to Ms. Laure."""
+
+    name = LAURE_VALIDATION_QUEUE
+
+
+@implementer(IQueue)
+class LaureDeliveryQueue(BaseRouteQueue):
     """A Queue to handle delivery messages to Ms. Laure."""
 
     name = LAURE_DELIVERY_QUEUE
 
 
-LaureValidationQueue = ValidationQueue()
-LaureDeliveryQueue = DeliveryQueue()
+@implementer(IQueue)
+class ReflexQueue(BaseRouteQueue):
+    """A Queue to handle delivery messages to briefy.reflex."""
+
+    name = REFLEX_QUEUE

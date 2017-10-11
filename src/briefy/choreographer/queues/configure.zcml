@@ -4,13 +4,14 @@
     <utility name="mail.queue" component=".mail.MailQueue" provides="briefy.common.queue.IQueue" />
 
     <!-- Ms. Laure queue -->
-    <utility name="laure.queue" component=".laure.LaureValidationQueue" provides="briefy.common.queue.IQueue" />
-    <utility name="delivery.queue" component=".laure.LaureDeliveryQueue" provides="briefy.common.queue.IQueue" />
+    <utility name="laure.queue" factory=".route.LaureValidationQueue" provides="briefy.common.queue.IQueue" />
+    <utility name="delivery.queue" factory=".route.LaureDeliveryQueue" provides="briefy.common.queue.IQueue" />
 
+    <!-- Reflex queue -->
+    <utility name="reflex.queue" factory=".route.ReflexQueue" provides="briefy.common.queue.IQueue" />
 
     <!-- Leica queue -->
     <utility name="leica.queue" component=".leica.LeicaQueue" provides="briefy.common.queue.IQueue" />
-
 
     <!-- Notification queue -->
     <utility name="notification.queue" component=".notification.NotificationQueue" provides="briefy.common.queue.IQueue" />

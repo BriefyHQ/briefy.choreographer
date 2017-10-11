@@ -255,7 +255,7 @@ payload = {
 }
 
 
-class BaseRouteQueueBase(BaseQueueCase):
+class BaseRouteQueueCase(BaseQueueCase):
     """Tests for Choreographer route queue."""
 
     def get_payload(self):
@@ -289,21 +289,21 @@ class BaseRouteQueueBase(BaseQueueCase):
         assert messages[0].body['data']['total_assets'] == payload['data']['total_assets']
 
 
-class TestLaureValidationQueue(BaseRouteQueueBase):
+class TestLaureValidationQueue(BaseRouteQueueCase):
     """Tests for Choreographer Ms Laure validation queue."""
 
     queue = LaureValidationQueue
     utility_name = 'laure.queue'
 
 
-class TestLaureDeliveryQueue(BaseRouteQueueBase):
+class TestLaureDeliveryQueue(BaseRouteQueueCase):
     """Tests for Choreographer Ms Laure delivery queue."""
 
     queue = LaureDeliveryQueue
     utility_name = 'delivery.queue'
 
 
-class TestReflexQueue(BaseRouteQueueBase):
+class TestReflexQueue(BaseRouteQueueCase):
     """Tests for Choreographer briefy.reflex queue."""
 
     queue = ReflexQueue

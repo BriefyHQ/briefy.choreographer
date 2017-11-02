@@ -161,7 +161,10 @@ LEADS_EVENTS = [
 ]
 
 ROLLEIFLEX_EVENTS = [
-    ('user.created', 0),
+    ('group.created', 0),
+    ('group.updated', 0),
+    ('user.created', 1),
+    ('user.updated', 0),
     ('user.password.changed', 1),
     ('user.password.reset', 2),
     ('user.login', 1),

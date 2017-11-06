@@ -1,6 +1,7 @@
 """Mail action for User."""
 from briefy.choreographer.actions.mail import IMail
 from briefy.choreographer.actions.mail import Mail
+from briefy.choreographer.config import DELIVERY_URL
 from briefy.choreographer.config import PLATFORM_URL
 from briefy.choreographer.events import user
 from zope.component import adapter
@@ -20,6 +21,16 @@ class UserMail(Mail):
 
     entity = 'User'
     """Name of the entity to be processed here."""
+
+    def user_groups_slugs(self) -> t.Sequence[str]:
+        """Given the event data, return a sequence of group slugs.
+
+        :return: Sequence of group slugs
+        """
+        data = self.data
+        groups = data.get('groups', [])
+        slugs = {g.get('slug', '') for g in groups}
+        return tuple(slugs)
 
     def transform(self) -> t.List[dict]:
         """Transform data."""
@@ -50,7 +61,38 @@ class UserCreated(UserMail):
         """Send email only if internal attribute is set on the payload."""
         available = super().available
         data = self.data
-        return available and data.get('internal')
+        in_delivery = 'g:delivery' in self.user_groups_slugs()
+        return available and data.get('internal') and not in_delivery
+
+
+@adapter(user.IUserCreated)
+@implementer(IMail)
+class UserDeliveryCreated(UserMail):
+    """After creating a new User with access to the delivery system, send an welcome email."""
+
+    template_name = 'delivery-welcome-email'
+    subject = 'Login to Briefy\'s platform and download your images'
+
+    @property
+    def available(self) -> bool:
+        """Send email only if internal attribute is set on the payload and g:delivery is one ."""
+        available = super().available
+        in_delivery = 'g:delivery' in self.user_groups_slugs()
+        return available and in_delivery
+
+    def transform(self) -> t.List[dict]:
+        """Transform data."""
+        payload = super().transform()
+        data = self.data
+        payload[0]['data'] = {
+            'FIRSTNAME': data.get('first_name'),
+            'FULLNAME': data.get('fullname'),
+            'EMAIL': data.get('email'),
+            'PASSWORD': data.get('initial_password'),
+            'SUBJECT': self.subject,
+            'URL': DELIVERY_URL,
+        }
+        return payload
 
 
 @adapter(user.IUserPasswordReset)

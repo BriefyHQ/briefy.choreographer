@@ -4,6 +4,9 @@
     <subscriber for="briefy.choreographer.events.user.IUserEvent" handler="briefy.choreographer.events.subscribers.handler" />
 
     <utility name="user.created" component=".user.UserCreated" provides=".IUserCreated" />
+        <adapter name="user.delivery.created.email" factory="briefy.choreographer.actions.mail.user.UserDeliveryCreated" />
+
+    <utility name="user.updated" component=".user.UserUpdated" provides=".IUserUpdated" />
 
     <utility name="user.password.changed" component=".user.UserPasswordChanged" provides=".IUserPasswordChanged" />
         <adapter name="user.password.changed.slack" factory="briefy.choreographer.actions.slack.user.UserPasswordChanged" />
@@ -17,5 +20,12 @@
 
     <utility name="user.login.first" component=".login.UserFirstLogin" provides=".IUserFirstLogin" />
         <adapter name="user.login.first.slack" factory="briefy.choreographer.actions.slack.user.UserFirstLogin" />
+
+    <!-- Get all Group events -->
+    <subscriber for="briefy.choreographer.events.user.IGroupEvent" handler="briefy.choreographer.events.subscribers.handler" />
+
+    <utility name="group.created" component=".group.GroupCreated" provides=".IGroupCreated" />
+
+    <utility name="group.updated" component=".group.GroupUpdated" provides=".IGroupUpdated" />
 
 </configure>

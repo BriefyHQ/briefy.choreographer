@@ -2,7 +2,7 @@
 History
 =======
 
-2.1.5 (Unreleased)
+2.1.5 (2017-11-06)
 ------------------
 
     * Add new Rolleiflex events (ericof).

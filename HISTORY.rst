@@ -2,6 +2,12 @@
 History
 =======
 
+2.1.5 (2017-11-06)
+------------------
+
+    * Add new Rolleiflex events (ericof).
+    * Action to send an email when a new user, for the delivery system, is created (ericof).
+
 2.1.4 (2017-10-11)
 ------------------
 

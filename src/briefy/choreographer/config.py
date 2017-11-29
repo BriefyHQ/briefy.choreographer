@@ -42,6 +42,7 @@ LEICA_QUEUE = config('LEICA_QUEUE', default='leica-{0}'.format(_queue_suffix))
 
 # Platform
 PLATFORM_URL = config('PLATFORM_URL', default='https://app.stg.briefy.co/')
+DELIVERY_URL = config('DELIVERY_URL', default='https://delivery.stg.briefy.co/')
 
 # BigQuery
 DATASET = config('DATASET', default='app_events_{0}'.format(_queue_suffix))

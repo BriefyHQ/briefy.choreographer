@@ -2,6 +2,12 @@
 History
 =======
 
+2.1.6 (2017-12-05)
+------------------
+
+    * Upgrade python3 docker image version 1.4.5 (rudaporto).
+    * Upgrade briefy.common to version 2.1.7 (rudaporto).
+
 2.1.5 (2017-11-06)
 ------------------
 

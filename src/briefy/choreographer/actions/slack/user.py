@@ -142,7 +142,7 @@ class UserFirstLogin(UserSlack):
         username = data.get('email')
         groups = ''
         if isinstance(data.get('groups'), list):
-            groups = ', '.join([g['data']['slug'] for g in data['groups']])
+            groups = ', '.join([g['slug'] for g in data['groups']])
         payload_item = payload[0]
         payload_item['title'] = 'First User login'
         payload_item['text'] = f'The user {username} just logged in on Leica for the first time'

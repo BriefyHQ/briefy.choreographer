@@ -2,6 +2,11 @@
 History
 =======
 
+2.1.7 (2017-12-20)
+------------------
+
+    * Fix slack notification for user login (rudaporto).
+
 2.1.6 (2017-12-05)
 ------------------
 
